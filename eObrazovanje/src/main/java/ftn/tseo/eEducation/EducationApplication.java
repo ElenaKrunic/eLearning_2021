@@ -1,13 +1,13 @@
-package com.example.eObrazovanje;
+package ftn.tseo.eEducation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EObrazovanjeApplication {
+public class EducationApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EObrazovanjeApplication.class, args);
+		SpringApplication.run(EducationApplication.class, args);
 	}
 
 }
