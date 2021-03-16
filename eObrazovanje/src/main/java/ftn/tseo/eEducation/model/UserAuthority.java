@@ -8,6 +8,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+/**
+ * 
+ * @author Dunja J. Martinovic 
+ *
+ */
 @Entity
 public class UserAuthority {
 	

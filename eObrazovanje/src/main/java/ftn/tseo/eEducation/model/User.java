@@ -1,10 +1,21 @@
 package ftn.tseo.eEducation.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
+/**
+ * 
+ * @author Dunja J. Martinovic 
+ *
+ */
 @Entity
 public class User {
 	
@@ -16,6 +27,10 @@ public class User {
 	
 	private String password;
 
+	//veza ka user authorities 
+	//koji tip korisnika iz vezne tabele 
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+	private Set<UserAuthority> userAuthorities = new HashSet<UserAuthority>();
 	
 	public Long getId() {
 		return id;

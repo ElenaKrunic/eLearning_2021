@@ -30,14 +30,10 @@ public class FinancialCard {
 	
 	@OneToMany(mappedBy="financialCard",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
 	private Set<Payment> payments=new HashSet<Payment>();
-
-	
 	
 	public FinancialCard() {
 		super();
 	}
-
-
 
 	public FinancialCard(Long id, float initialState, float totalPayment, float totalCost, Student student,
 			Set<Payment> payments) {

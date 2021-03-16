@@ -1,5 +1,34 @@
 package ftn.tseo.eEducation.model;
 
-public class Admin {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class Admin {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	public Admin() {
+		super();
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Admin(Long id) {
+		super();
+		this.id = id;
+	}
+
+	
+	
 }

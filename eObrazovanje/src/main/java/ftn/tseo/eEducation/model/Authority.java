@@ -11,6 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+/**
+ * 
+ * @author Dunja J. Martinovic 
+ *
+ */
 @Entity
 public class Authority {
 	

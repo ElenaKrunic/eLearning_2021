@@ -13,10 +13,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
-
-
-
+/**
+ * 
+ * @author Mirjana Zaric 
+ *
+ */
 @Entity
 @Table(name = "enrollments")
 public class Enrollment implements Serializable{
