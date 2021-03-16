@@ -2,9 +2,13 @@ package ftn.tseo.eEducation.model;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,7 +46,11 @@ public class Enrollment implements Serializable{
 	@ManyToOne
     @JoinColumn(name = "course", referencedColumnName = "course_id", nullable = false)
 	private Course course;
+	
+	@OneToMany(mappedBy="enrollment", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
+	private Set<Exam> exams= new HashSet<Exam>();
 
+	
 	public Enrollment() {
 		super();
 	}
@@ -86,6 +94,15 @@ public class Enrollment implements Serializable{
 	public void setCourse(Course course) {
 		this.course = course;
 	}
+	
+	public Set<Exam> getExams() {
+		return exams;
+	}
+
+	public void setExams(Set<Exam> exams) {
+		this.exams = exams;
+	}
+
 	
 
 }
