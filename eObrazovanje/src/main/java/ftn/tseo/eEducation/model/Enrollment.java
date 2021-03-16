@@ -34,11 +34,11 @@ public class Enrollment implements Serializable{
 	@Column(name = "enrollment_end_date", unique = false, nullable = true)
 	private Date endDate;
 	
-	@OneToMany
+	@ManyToOne
     @JoinColumn(name = "student", referencedColumnName = "student_id", nullable = false)
 	private Student student_enrollment;
 	
-	@OneToMany
+	@ManyToOne
     @JoinColumn(name = "course", referencedColumnName = "course_id", nullable = false)
 	private Course course;
 
