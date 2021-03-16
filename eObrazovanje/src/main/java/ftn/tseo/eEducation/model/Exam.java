@@ -15,6 +15,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+/**
+ * 
+ * @author Dunja J. Martinovic 
+ *
+ */
 @Entity
 public class Exam {
 
