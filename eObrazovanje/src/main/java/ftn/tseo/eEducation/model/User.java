@@ -33,6 +33,7 @@ public class User {
 	private Set<UserAuthority> userAuthorities = new HashSet<UserAuthority>();
 	
 	public Long getId() {
+		
 		return id;
 	}
 

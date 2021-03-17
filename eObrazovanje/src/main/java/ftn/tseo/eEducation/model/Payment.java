@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -23,7 +24,8 @@ public class Payment {
 	
 	private float paymentAmount;
 	
-	@OneToOne(mappedBy="payment",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
+	@OneToOne
+	@JoinColumn(name = "financialCard", referencedColumnName = "id", nullable = false)
 	private FinancialCard financialCard;
 
 	public Payment() {

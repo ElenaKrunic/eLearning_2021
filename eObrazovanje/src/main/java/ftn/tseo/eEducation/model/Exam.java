@@ -12,8 +12,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  * 
@@ -34,13 +36,31 @@ public class Exam {
 	private Date examDate;
 	
 	@OneToMany(mappedBy="exam", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
-	private Set<PreexamObligation> preExamObligations= new HashSet<PreexamObligation>();
+	private Set<PreexamObligation> preexamObligation= new HashSet<PreexamObligation>();
 	
-	@OneToMany(mappedBy="exam", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
-	private Set<ExamPeriod> examPeriods= new HashSet<ExamPeriod>();
+	@OneToOne
+	@JoinColumn(name = "examPeriod", referencedColumnName = "id", nullable = false)
+	private ExamPeriod examPeriod;
 	
-	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
+	@ManyToOne
+	@JoinColumn(name = "enrollment", referencedColumnName = "enrollment_id", nullable = false)
 	private Enrollment enrollment;
+
+	public Exam() {
+		super();
+	}
+
+	public Exam(Long id, int grade, Float points, Date examDate, Set<PreexamObligation> preExamObligations,
+			Set<ExamPeriod> examPeriods, Enrollment enrollments_exams) {
+		super();
+		this.id = id;
+		this.grade = grade;
+		this.points = points;
+		this.examDate = examDate;
+//		this.preExamObligations = preExamObligations;
+//		this.examPeriods = examPeriods;
+//		this.enrollments_exams = enrollments_exams;
+	}
 
 	public Long getId() {
 		return id;
@@ -74,48 +94,31 @@ public class Exam {
 		this.examDate = examDate;
 	}
 
-	public Set<PreexamObligation> getPreExamObligations() {
-		return preExamObligations;
-	}
+//	public Set<PreexamObligation> getPreExamObligations() {
+//		return preExamObligations;
+//	}
+//
+//	public void setPreExamObligations(Set<PreexamObligation> preExamObligations) {
+//		this.preExamObligations = preExamObligations;
+//	}
 
-	public void setPreExamObligations(Set<PreexamObligation> preExamObligations) {
-		this.preExamObligations = preExamObligations;
-	}
+//	public Set<ExamPeriod> getExamPeriods() {
+//		return examPeriods;
+//	}
+//
+//	public void setExamPeriods(Set<ExamPeriod> examPeriods) {
+//		this.examPeriods = examPeriods;
+//	}
 
-	public Set<ExamPeriod> getExamPeriods() {
-		return examPeriods;
-	}
+//	public Enrollment getEnrollments_exams() {
+//		return enrollments_exams;
+//	}
+//
+//	public void setEnrollments_exams(Enrollment enrollments_exams) {
+//		this.enrollments_exams = enrollments_exams;
+//	}
 
-	public void setExamPeriods(Set<ExamPeriod> examPeriods) {
-		this.examPeriods = examPeriods;
-	}
 
-	public Enrollment getEnrollment() {
-		return enrollment;
-	}
-
-	public void setEnrollment(Enrollment enrollment) {
-		this.enrollment = enrollment;
-	}
-
-	public Exam(Long id, int grade, Float points, Date examDate, Set<PreexamObligation> preExamObligations,
-			Set<ExamPeriod> examPeriods, Enrollment enrollment) {
-		super();
-		this.id = id;
-		this.grade = grade;
-		this.points = points;
-		this.examDate = examDate;
-		this.preExamObligations = preExamObligations;
-		this.examPeriods = examPeriods;
-		this.enrollment = enrollment;
-	}
-
-	public Exam() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	
 	
 	
 	

@@ -31,7 +31,7 @@ public class ExamPeriod {
 	private Date endDate;
 	
 	@OneToMany(mappedBy="examPeriod", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
-	private Set<Exam> exams= new HashSet<Exam>();
+	private Set<Exam> exam= new HashSet<Exam>();
 
 	public Long getId() {
 		return id;
@@ -65,13 +65,13 @@ public class ExamPeriod {
 		this.endDate = endDate;
 	}
 
-	public Set<Exam> getExams() {
-		return exams;
-	}
-
-	public void setExams(Set<Exam> exams) {
-		this.exams = exams;
-	}
+//	public Set<Exam> getExams() {
+//		return exams;
+//	}
+//
+//	public void setExams(Set<Exam> exams) {
+//		this.exams = exams;
+//	}
 
 	public ExamPeriod(Long id, String name, Date startDate, Date endDate, Set<Exam> exams) {
 		super();
@@ -79,7 +79,7 @@ public class ExamPeriod {
 		this.name = name;
 		this.startDate = startDate;
 		this.endDate = endDate;
-		this.exams = exams;
+//		this.exams = exams;
 	}
 
 	public ExamPeriod() {

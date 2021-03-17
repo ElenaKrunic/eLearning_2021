@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
@@ -37,13 +38,16 @@ public class PreexamObligation {
 	private Date dateOfObligation;
 
 	//veza ka ispitu 
-	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
+	@ManyToOne
+	@JoinColumn(name = "exam", referencedColumnName = "id", nullable = false)
 	private Exam exam;
 	
-	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
+	@ManyToOne
+	@JoinColumn(name = "obligationType", referencedColumnName = "id", nullable = false)
 	private ObligationType obligationType;
 	
-	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
+	@ManyToOne
+	@JoinColumn(name = "examObligationStatus", referencedColumnName = "id", nullable = false)
 	private ExamObligationStatus examObligationStatus;
 	
 	

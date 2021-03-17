@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -22,13 +23,16 @@ public class Teaching {
 	
 	private Date endDate;
 	//kada budemo menjale ici ce user umesto profesora
-	@ManyToOne(cascade=CascadeType.REFRESH,fetch=FetchType.EAGER)
+	@ManyToOne
+	@JoinColumn(name = "professor", referencedColumnName = "id", nullable = false)
 	private Professor professor;
 	
-	@ManyToOne(cascade=CascadeType.REFRESH,fetch=FetchType.EAGER)
+	@ManyToOne
+	@JoinColumn(name = "course", referencedColumnName = "course_id", nullable = false)
 	private Course course;
 	
-	@OneToOne(mappedBy="teaching",cascade=CascadeType.REFRESH,fetch=FetchType.LAZY)
+	@OneToOne
+	@JoinColumn(name = "teachingtype", referencedColumnName = "id", nullable = false)
 	private TeachingType teachingType;
 
 	public Teaching() {

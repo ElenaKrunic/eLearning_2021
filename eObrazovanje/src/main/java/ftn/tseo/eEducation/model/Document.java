@@ -6,6 +6,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 /**
@@ -26,11 +27,13 @@ public class Document {
 	private String url;
 	
 	//veza ka studentu 
-	@OneToOne(mappedBy="document",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
+	@OneToOne
+	@JoinColumn(name = "student", referencedColumnName = "id", nullable = false)
 	private Student student;
 	
 	//veza ka tipu dokumenata 
-	@OneToOne(mappedBy="document" ,fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
+	@OneToOne
+	@JoinColumn(name = "documents_documentstype", referencedColumnName = "id", nullable = false)
 	private DocumentType documentType;
 	
 	public Document() {

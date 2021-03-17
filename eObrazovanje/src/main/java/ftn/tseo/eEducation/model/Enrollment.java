@@ -40,15 +40,15 @@ public class Enrollment implements Serializable{
 	private Date endDate;
 	
 	@ManyToOne
-    @JoinColumn(name = "student", referencedColumnName = "student_id", nullable = false)
-	private Student student_enrollment;
+	 @JoinColumn(name = "student", referencedColumnName = "id", nullable = false)
+	private Student student;
 	
 	@ManyToOne
     @JoinColumn(name = "course", referencedColumnName = "course_id", nullable = false)
 	private Course course;
 	
 	@OneToMany(mappedBy="enrollment", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
-	private Set<Exam> exams= new HashSet<Exam>();
+	private Set<Exam> exam= new HashSet<Exam>();
 
 	
 	public Enrollment() {
@@ -79,13 +79,13 @@ public class Enrollment implements Serializable{
 		this.endDate = endDate;
 	}
 
-	public Student getStudent() {
-		return student_enrollment;
-	}
+//	public Student getStudent() {
+//		return student_enrollment;
+//	}
 
-	public void setStudent(Student student) {
-		this.student_enrollment = student;
-	}
+//	public void setStudent(Student student) {
+//		this.student_enrollment = student;
+//	}
 
 	public Course getCourse() {
 		return course;
@@ -94,14 +94,24 @@ public class Enrollment implements Serializable{
 	public void setCourse(Course course) {
 		this.course = course;
 	}
-	
-	public Set<Exam> getExams() {
-		return exams;
-	}
+//
+//	public Student getStudent_enrollment() {
+//		return student_enrollment;
+//	}
+//
+//	public void setStudent_enrollment(Student student_enrollment) {
+//		this.student_enrollment = student_enrollment;
+//	}
 
-	public void setExams(Set<Exam> exams) {
-		this.exams = exams;
-	}
+//	public Set<Exam> getEnrollments_exams() {
+//		return enrollments_exams;
+//	}
+//
+//	public void setEnrollments_exams(Set<Exam> enrollments_exams) {
+//		this.enrollments_exams = enrollments_exams;
+//	}
+//	
+
 
 	
 
