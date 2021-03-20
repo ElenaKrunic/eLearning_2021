@@ -23,9 +23,7 @@ public class ProfessorService {
 		return professorRepository.findAll();
 	}
 	
-	public Page<Professor> findAll(Pageable page) {
-		return professorRepository.findAll(page);
-	}
+
 
 	public Professor save(Professor professor) {
 		return professorRepository.save(professor);
@@ -36,10 +34,6 @@ public class ProfessorService {
 	}
 	
 	
-	
-	public List<Professor> findByLastName(String lastName) {
-		return professorRepository.findAllByLastName(lastName);
-	}
 	
 	
 
