@@ -15,7 +15,6 @@ public class FinancialCardService {
 	@Autowired
 	FinancialCardRepository financialCardRepository;
 	
-	
 	private List<FinancialCard> getStudentFinancialCard(Long id){
 		List<FinancialCard> financialCard = new ArrayList<FinancialCard>();
 		for (FinancialCard f: financialCardRepository.getStudentFinancialCard(id)) {
@@ -24,4 +23,19 @@ public class FinancialCardService {
 		return financialCard;
 	}
 	
+	public FinancialCard findOne(Long id) {
+		return financialCardRepository.findById(id).orElse(null);
+	}
+	
+	public List<FinancialCard> findAll() {
+		return financialCardRepository.findAll(); 
+	}
+	
+	public FinancialCard save(FinancialCard financialCard) {
+		return financialCardRepository.save(financialCard);
+	}
+	
+	public void remove(Long id) {
+		financialCardRepository.deleteById(id);
+	}
 }

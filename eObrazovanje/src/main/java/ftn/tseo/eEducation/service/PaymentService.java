@@ -23,4 +23,20 @@ public class PaymentService {
 		}
 		return payments;
 	}
+	
+	public Payment findOne(Long id) {
+		return paymentRepository.findById(id).orElse(null); 
+	}
+	
+	public List<Payment> findAll(){
+		return paymentRepository.findAll(); 
+	}
+	
+	public Payment save(Payment payment) {
+		return paymentRepository.save(payment);
+	}
+	
+	public void remove(Long id) {
+		paymentRepository.deleteById(id);
+	}
 }

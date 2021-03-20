@@ -9,10 +9,8 @@ import ftn.tseo.eEducation.model.Exam;
 import ftn.tseo.eEducation.model.FinancialCard;
 
 public interface FinancialCardRepository extends JpaRepository<FinancialCard, Long>{
-
-	
 	//to do pogledati kako se rade kveriji
-		@Query
-		List<FinancialCard> getStudentFinancialCard(Long id);
+	@Query
+	List<FinancialCard> getStudentFinancialCard(Long id);
 		
 }
