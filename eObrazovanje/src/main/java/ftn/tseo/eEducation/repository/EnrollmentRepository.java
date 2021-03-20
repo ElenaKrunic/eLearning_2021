@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import ftn.tseo.eEducation.model.Enrollment;
+import ftn.tseo.eEducation.model.Exam;
 import ftn.tseo.eEducation.model.Student;
 
 
@@ -15,6 +16,9 @@ public interface EnrollmentRepository extends JpaRepository<Enrollment, Long>{
 	
 	List<Student> getEnrolledStudentsInProfessorsCourse(long id);
 	
+	//to do pogledati kako se rade kveriji
+	@Query
+	List<Exam> getStudentExams(Long id);
 	
 	
 }
