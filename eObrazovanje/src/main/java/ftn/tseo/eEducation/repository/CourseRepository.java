@@ -10,7 +10,9 @@ import ftn.tseo.eEducation.model.Course;
 
 
 
-public interface CourseRepository extends JpaRepository<Course, Integer> {
+public interface CourseRepository extends JpaRepository<Course, Long> {
+	
+	
 
 	
 }

@@ -7,9 +7,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import ftn.tseo.eEducation.model.Enrollment;
+import ftn.tseo.eEducation.model.Student;
 
 
 
-public interface EnrollmentRepository extends JpaRepository<Enrollment, Integer>{
+public interface EnrollmentRepository extends JpaRepository<Enrollment, Long>{
+	
+	List<Student> getEnrolledStudentsInProfessorsCourse(long id);
+	
+	
 	
 }
