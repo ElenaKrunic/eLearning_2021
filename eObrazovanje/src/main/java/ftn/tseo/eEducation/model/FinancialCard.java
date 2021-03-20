@@ -33,6 +33,17 @@ public class FinancialCard {
 	@OneToMany(mappedBy="financialCard",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
 	private Set<Payment> payments=new HashSet<Payment>();
 	
+	@OneToMany(mappedBy="financialCard",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
+	private Set<PayOut> payouts=new HashSet<PayOut>();
+	
+	public Set<PayOut> getPayouts() {
+		return payouts;
+	}
+
+	public void setPayouts(Set<PayOut> payouts) {
+		this.payouts = payouts;
+	}
+
 	public FinancialCard() {
 		super();
 	}
