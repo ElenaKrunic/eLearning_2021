@@ -22,7 +22,7 @@ public class ExamService {
 		return examRepository.save(exam);
 	}
 
-	public void remove(Integer id) {
+	public void remove(Long id) {
 		examRepository.deleteById(id);
 	}
 

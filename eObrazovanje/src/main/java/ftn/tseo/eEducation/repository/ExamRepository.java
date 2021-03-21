@@ -6,6 +6,6 @@ import ftn.tseo.eEducation.model.Exam;
 
 
 
-public interface ExamRepository extends JpaRepository<Exam, Integer>{
+public interface ExamRepository extends JpaRepository<Exam, Long>{
 
 }
