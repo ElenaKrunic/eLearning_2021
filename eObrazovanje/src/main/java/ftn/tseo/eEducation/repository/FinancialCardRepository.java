@@ -7,9 +7,10 @@ import org.springframework.data.jpa.repository.Query;
 
 import ftn.tseo.eEducation.model.Exam;
 import ftn.tseo.eEducation.model.FinancialCard;
+import ftn.tseo.eEducation.model.Payment;
 
 public interface FinancialCardRepository extends JpaRepository<FinancialCard, Long>{
-	//to do pogledati kako se rade kveriji
+	//to do pogledati kako se rade kveriji/odraditi kveri
 	@Query
 	List<FinancialCard> getStudentFinancialCard(Long id);
 		

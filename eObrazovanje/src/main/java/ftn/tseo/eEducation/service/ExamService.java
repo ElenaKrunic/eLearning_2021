@@ -13,6 +13,11 @@ public class ExamService {
 
 	@Autowired
 	ExamRepository examRepository;
+	
+	public Exam findOne(Long id) {
+		return examRepository.findById(id).orElse(null);
+	}
+
 
 	public List<Exam> findAll() {
 		return examRepository.findAll();

@@ -36,15 +36,7 @@ public class EnrollmentService {
 		return enrollmentRepository.getEnrolledStudentsInProfessorsCourse(id);
 	}
 	
-	public List<Exam> getStudentExams(Long id){
-		
-		List<Exam> exams = new ArrayList<Exam>();
-		for (Exam e: enrollmentRepository.getStudentExams(id)) {
-			exams.add(e);
-		}
-		return exams;
-		
-	}
+
 	
 	public Enrollment findOne(Long id) {
 		return enrollmentRepository.findById(id).orElse(null);

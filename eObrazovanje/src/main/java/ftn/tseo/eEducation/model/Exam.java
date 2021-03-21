@@ -94,29 +94,30 @@ public class Exam {
 		this.examDate = examDate;
 	}
 
-//	public Set<PreexamObligation> getPreExamObligations() {
-//		return preExamObligations;
-//	}
-//
-//	public void setPreExamObligations(Set<PreexamObligation> preExamObligations) {
-//		this.preExamObligations = preExamObligations;
-//	}
+	public Set<PreexamObligation> getPreexamObligation() {
+		return preexamObligation;
+	}
 
-//	public Set<ExamPeriod> getExamPeriods() {
-//		return examPeriods;
-//	}
-//
-//	public void setExamPeriods(Set<ExamPeriod> examPeriods) {
-//		this.examPeriods = examPeriods;
-//	}
+	public void setPreexamObligation(Set<PreexamObligation> preexamObligation) {
+		this.preexamObligation = preexamObligation;
+	}
 
-//	public Enrollment getEnrollments_exams() {
-//		return enrollments_exams;
-//	}
-//
-//	public void setEnrollments_exams(Enrollment enrollments_exams) {
-//		this.enrollments_exams = enrollments_exams;
-//	}
+	public ExamPeriod getExamPeriod() {
+		return examPeriod;
+	}
+
+	public void setExamPeriod(ExamPeriod examPeriod) {
+		this.examPeriod = examPeriod;
+	}
+
+	public Enrollment getEnrollment() {
+		return enrollment;
+	}
+
+	public void setEnrollment(Enrollment enrollment) {
+		this.enrollment = enrollment;
+	}
+
 
 
 	
