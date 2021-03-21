@@ -1,3 +1,4 @@
+
 package ftn.tseo.eEducation.model;
 
 import java.io.Serializable;
@@ -34,7 +35,7 @@ public class Enrollment implements Serializable{
 	private int id;
 	
 	@Column(name = "enrollment_start_date", unique = false, nullable = true)
-	private Date startDate;
+	public Date startDate;
 
 	@Column(name = "enrollment_end_date", unique = false, nullable = true)
 	private Date endDate;
