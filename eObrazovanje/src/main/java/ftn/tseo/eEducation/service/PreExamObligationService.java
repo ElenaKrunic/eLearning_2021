@@ -1,16 +1,22 @@
 package ftn.tseo.eEducation.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ftn.tseo.eEducation.model.Exam;
 import ftn.tseo.eEducation.model.PreexamObligation;
+import ftn.tseo.eEducation.repository.ExamRepository;
 import ftn.tseo.eEducation.repository.PreExamObligationRepository;
 
 @Service
 public class PreExamObligationService {
 
+	@Autowired
+	ExamRepository examRepository;
+	
 	@Autowired
 	PreExamObligationRepository preExamObligationRepository; 
 	
@@ -28,5 +34,6 @@ public class PreExamObligationService {
 
 	public void remove(Long id) {
 		preExamObligationRepository.deleteById(id);
+	
 	}
 }

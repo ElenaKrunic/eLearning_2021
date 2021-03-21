@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import ftn.tseo.eEducation.model.Exam;
 import ftn.tseo.eEducation.repository.ExamRepository;
 
@@ -25,5 +26,6 @@ public class ExamService {
 	public void remove(Long id) {
 		examRepository.deleteById(id);
 	}
+	
 
 }
