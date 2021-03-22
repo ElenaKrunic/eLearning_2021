@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+
 import ftn.tseo.eEducation.model.Course;
 import ftn.tseo.eEducation.model.Enrollment;
 import ftn.tseo.eEducation.model.Professor;
@@ -25,11 +27,16 @@ public class TeachingService {
 	private ProfessorRepository professorRepository;
 	
 	
-	public List<Course> findCoursesForProfessor(long id){
-		Professor professor= professorRepository.findById(id).orElse(null);
-		return teachingRepository.findProfessorsCourse(id);
-	}
+
+	
+	public List<Course> findCoursesForProfessor(long id) {
+		List<Course> courses = new ArrayList<Course>();
+		for (Course c: teachingRepository.findProfessorsCourse(id)) {
+			courses.add(c);
+		}
+		return courses;
 	
 	
 	
+}
 }
