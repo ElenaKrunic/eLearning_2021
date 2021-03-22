@@ -31,12 +31,13 @@ public interface StudentRepository extends JpaRepository<Student, Long>{
 	List<Exam> findStudentExams(Long id);
 	
 	//to do 
-	@Query
+	@Query(value = "SELECT p.date_of_payment, p.payment_amount,p.payment_description FROM student s INNER JOIN financialcard fc ON s.id = fc.student_financial_card INNER JOIN payment p ON fc.id = p.financial_card WHERE s.id = ?", nativeQuery = true)
 	List<Payment> getStudentFinancialCard(Long id);
 			
-    @Query
+    
     //to do kreirati kveri koji za studenta vraca sva njegova dokumenta
     //svi dokumnti od jednog studenta
+    @Query(value = "SELECT d.title, d.url,d.documents_documentstype FROM student s INNER JOIN document dc ON s.id = dc.student WHERE s.id = ?", nativeQuery = true)
     List<Document > getDocumentsForStudents(Long id);
     
    

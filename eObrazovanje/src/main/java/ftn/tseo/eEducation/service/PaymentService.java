@@ -16,13 +16,7 @@ public class PaymentService {
 	@Autowired
 	PaymentRepository paymentRepository;
 	
-	private List<Payment> getFinancialCardPayment(Long id){
-		List<Payment> payments = new ArrayList<Payment>();
-		for (Payment p: paymentRepository.getFinancialCardPayment(id)) {
-			payments.add(p);
-		}
-		return payments;
-	}
+
 	
 	public Payment findOne(Long id) {
 		return paymentRepository.findById(id).orElse(null); 
