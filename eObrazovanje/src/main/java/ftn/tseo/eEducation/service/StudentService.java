@@ -2,6 +2,7 @@ package ftn.tseo.eEducation.service;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,15 +10,18 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import ftn.tseo.eEducation.model.Document;
-import ftn.tseo.eEducation.model.Enrollment;
+
 import ftn.tseo.eEducation.model.Exam;
+
 import ftn.tseo.eEducation.model.FinancialCard;
+import ftn.tseo.eEducation.model.Payment;
 import ftn.tseo.eEducation.model.PreexamObligation;
 import ftn.tseo.eEducation.model.Student;
-import ftn.tseo.eEducation.repository.DocumentRepository;
-import ftn.tseo.eEducation.repository.EnrollmentRepository;
+
 import ftn.tseo.eEducation.repository.ExamRepository;
 import ftn.tseo.eEducation.repository.FinancialCardRepository;
+import ftn.tseo.eEducation.repository.PaymentRepository;
+import ftn.tseo.eEducation.repository.PreExamObligationRepository;
 import ftn.tseo.eEducation.repository.StudentRepository;
 
 
@@ -30,16 +34,17 @@ public class StudentService {
 	@Autowired
 	ExamRepository examRepository;
 	
-	@Autowired
-	EnrollmentRepository enrollmentRepository;
-	
 	
 	@Autowired
 	FinancialCardRepository financialCardRepository;
+	@Autowired
+	PreExamObligationRepository preExamRepo;
 	
 	@Autowired
-	DocumentRepository documentRepository;
+	PaymentRepository paymentRepo;
 	
+	
+
 	public Student findOne(Long id) {
 		return studentRepository.findById(id).orElse(null);
 	}
@@ -68,47 +73,54 @@ public class StudentService {
 		return studentRepository.findAllByLastName(lastName);
 	}
 	
-//	@Override
-//	public int registerExam(Long studentId, Long examId) {
-//		// TODO Auto-generated method stub
-//		Exam exam = examRepository.findById(examId).orElse(null);
-//		Student student = studentRepository.findById(studentId).orElse(null);
-//		
-//		if(exam != null && student != null) {
-//			PreexamObligation examReg = new PreexamObligation();
-//			examReg.setExam(exam);
-//			examReg.setStudent(student);
-//			examReg.setStatus(EExamStatus.ND);
-//			examReg.setExamPeriod(exam.getExamPeriod());
-//			examReg.setFinalGrade(5);
-//			examRegistrationRepository.save(examReg);
-//			
-//			double cost = exam.getExamPeriod().getPaymentAmount();
-//			FinancialCard transaction = new FinancialCard();
-//			transaction.setPayments(new Date(new java.util.Date().getTime()));
-//			transaction.setPaymentAmount(cost);
-//			transaction.setPaymentDescription("Prijava ispita");
-//			transaction.setStudent(student);
-//			transaction.setTotalCost(cost);
-//			transaction.setTotalPayment(cost);
-//			
-//			financialCardRepository.save(transaction);
-//			
-//			student.setAccountBalance(student.getAccountBalance() - cost);
-//			studentRepository.save(student);
-//			return examReg.getId();
-//		}
-//		return 0;
-//	}
+	public Long registerExam(Long studentId, Long examId) {
+		
+		Exam exam = examRepository.findById(examId).orElse(null);
+		Student student = studentRepository.findById(studentId).orElse(null);
+		
+		if(exam != null && student != null) {
+			PreexamObligation examReg = new PreexamObligation();
+			examReg.setExam(exam);
+			examReg.setExamObligationStatus(null);
+			examReg.setLocation("Neka lokacija");
+			examReg.setPoints(20);
+			examReg.setObligationType(null);
+			
+			preExamRepo.save(examReg);
+			
+			float cost = exam.getExamPeriod().getPaymentAmount();
+			FinancialCard transaction = findStudentFinancialCard(studentId);
+			
+			
+			Payment payment=new Payment();
+			payment.setDateOfPayment(new Date(new java.util.Date().getTime()));
+			payment.setPaymentAmount((float) cost);
+			payment.setPaymentDescription("Prijava ispita");
+			payment.setFinancialCard(transaction);
+			
+			paymentRepo.save(payment);
+			
+			transaction.setPayments((Set<Payment>) payment);
+			transaction.setStudent(student);
+			transaction.setTotalCost(cost);
+			transaction.setTotalPayment(cost);
+			
+			transaction.setInitialState(transaction.getInitialState() - cost);
+			financialCardRepository.save(transaction);
+			
+			return examReg.getId();
+		}
+		return (long) 0;
+	}
 	
 	public List<Exam> findTakenExams(Long id) {
-		// TODO Auto-generated method stub
+	
 		Student student = studentRepository.findById(id).orElse(null);
 		
 		//pitati na osnovu upita da li se dobro izvlace podaci 
 		List<Exam> exams = new ArrayList<Exam>();
 		if(student != null) {
-			exams = examRepository.findStudentExams(id);
+			exams = studentRepository.findStudentExams(id);
 		}
 		
 	
@@ -117,7 +129,7 @@ public class StudentService {
 	}
 	
 	public List<FinancialCard> getFinancialCardInfo(Long id) {
-		List<FinancialCard> studentsTransactions = new ArrayList();
+		List<FinancialCard> studentsTransactions = new ArrayList<FinancialCard>();
 		Student student = studentRepository.findById(id).orElse(null);
 		
 		if(student != null) {
@@ -131,19 +143,25 @@ public class StudentService {
 		return studentsTransactions;
 	}
 	
-	public List<FinancialCard> getStudentFinancialCard(Long id) {
+	public List<Payment> getStudentFinancialCard(Long id) {
 		
-		List<FinancialCard> financialCardPayment = new ArrayList<FinancialCard>();
-		for (FinancialCard f: financialCardRepository.getStudentFinancialCard(id)) {
-			financialCardPayment.add(f);
+		List<Payment> financialCardPayment = new ArrayList<Payment>();
+		for (Payment p: studentRepository.getStudentFinancialCard(id)) {
+			financialCardPayment.add(p);
 		}
 		return financialCardPayment;
 		
 	}
 	
+	public FinancialCard findStudentFinancialCard(Long id) {
+		
+		FinancialCard financialCardForStudent= studentRepository.findStudentFinancialCard(id);
+		return financialCardForStudent;
+		
+	}
+	
 	
 	public List<Exam> getCurrentExams(Long id) {
-		// TODO Auto-generated method stub
 		Student student = studentRepository.findById(id).orElse(null);
 		List<Exam> allExams = examRepository.findAll();
 		List<Exam> currentExams = new ArrayList<>();
@@ -164,6 +182,7 @@ public class StudentService {
 		return currentExams;
 		
 	}
+	@SuppressWarnings("unused")
 	private List<Document > getDocumentsForStudents(Long id){
 		List<Document> documentForStudent = new ArrayList<Document>();
 		for (Document d: studentRepository.getDocumentsForStudents(id)) {

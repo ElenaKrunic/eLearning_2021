@@ -30,6 +30,8 @@ public class ExamPeriod {
 	
 	private Date endDate;
 	
+	private float paymentAmount;
+	
 	@OneToMany(mappedBy="examPeriod", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
 	private Set<Exam> exam= new HashSet<Exam>();
 
@@ -64,27 +66,39 @@ public class ExamPeriod {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
+	
 
-//	public Set<Exam> getExams() {
-//		return exams;
-//	}
-//
-//	public void setExams(Set<Exam> exams) {
-//		this.exams = exams;
-//	}
 
-	public ExamPeriod(Long id, String name, Date startDate, Date endDate, Set<Exam> exams) {
+
+	public Set<Exam> getExam() {
+		return exam;
+	}
+
+	public void setExam(Set<Exam> exam) {
+		this.exam = exam;
+	}
+
+	public ExamPeriod(Long id, String name, Date startDate, Date endDate, float paymentAmount, Set<Exam> exam) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.startDate = startDate;
 		this.endDate = endDate;
-//		this.exams = exams;
+		this.paymentAmount = paymentAmount;
+		this.exam = exam;
 	}
 
 	public ExamPeriod() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public float getPaymentAmount() {
+		return paymentAmount;
+	}
+
+	public void setPaymentAmount(float paymentAmount) {
+		this.paymentAmount = paymentAmount;
 	}
 	
 	
