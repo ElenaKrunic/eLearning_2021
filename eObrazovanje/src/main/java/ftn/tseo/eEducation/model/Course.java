@@ -44,6 +44,7 @@ public class Course implements Serializable{
 	
 	@Column(name = "ECTS", nullable = false)
 	private int ECTS;
+	
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, mappedBy = "course")
 	private Set<Enrollment> enrollments = new HashSet<Enrollment>();
 	

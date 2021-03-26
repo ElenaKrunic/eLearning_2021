@@ -5,7 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ftn.tseo.eEducation.model.Course;
-
+/**
+ * 
+ * @author Dunja J. Martinovic 
+ *
+ */
 public class CourseDTO {
 	
 	private Long id;
@@ -14,7 +18,7 @@ public class CourseDTO {
 	private Date startDate;
 	private Date endDate;
 	private int ECTS;
-	private EnrollmentDTO enrollmentDTOs;
+	
 	public Long getId() {
 		return id;
 	}
@@ -51,12 +55,6 @@ public class CourseDTO {
 	public void setECTS(int eCTS) {
 		ECTS = eCTS;
 	}
-	public EnrollmentDTO getEnrollmentDTOs() {
-		return enrollmentDTOs;
-	}
-	public void setEnrollmentDTOs(EnrollmentDTO enrollmentDTOs) {
-		this.enrollmentDTOs = enrollmentDTOs;
-	}
 	
 	
 	
@@ -67,8 +65,7 @@ public class CourseDTO {
 		this.startDate=course.getStartDate();
 		this.endDate=course.getEndDate();
 		this.ECTS= course.getECTS();
-		// ovde je greska jer je EnrollmentDTO prazan
-		this.enrollmentDTOs= new EnrollmentDTO(course.getEnrollments());
+		
 	}
 	
 	

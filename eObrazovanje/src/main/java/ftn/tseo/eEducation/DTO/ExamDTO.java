@@ -3,18 +3,20 @@ package ftn.tseo.eEducation.DTO;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import ftn.tseo.eEducation.model.Exam;
-
+/**
+ * 
+ * @author Dunja J. Martinovic 
+ *
+ */
 public class ExamDTO {
 	
 	private Long id;
 	private int grade;
 	private float points;
 	private Date examDate;
-	private PreExamObligationDTO examObligationDTOs;
-	private ExamPeriodDTO examPeriodDTOs;
-	private EnrollmentDTO enrollmentDTOs;
 	
 	public Long getId() {
 		return id;
@@ -45,47 +47,14 @@ public class ExamDTO {
 	}
 	
 	
-	public PreExamObligationDTO getExamObligationDTOs() {
-		return examObligationDTOs;
-	}
-	public void setExamObligationDTOs(PreExamObligationDTO examObligationDTOs) {
-		this.examObligationDTOs = examObligationDTOs;
-	}
-	public ExamPeriodDTO getExamPeriodDTOs() {
-		return examPeriodDTOs;
-	}
-	public void setExamPeriodDTOs(ExamPeriodDTO examPeriodDTOs) {
-		this.examPeriodDTOs = examPeriodDTOs;
-	}
-	public EnrollmentDTO getEnrollmentDTOs() {
-		return enrollmentDTOs;
-	}
-	public void setEnrollmentDTOs(EnrollmentDTO enrollmentDTOs) {
-		this.enrollmentDTOs = enrollmentDTOs;
-	}
-	
-	public ExamDTO(Long id, int grade, float points, Date examDate, PreExamObligationDTO examObligationDTOs,
-			ExamPeriodDTO examPeriodDTOs, EnrollmentDTO enrollmentDTOs) {
-		super();
-		this.id = id;
-		this.grade = grade;
-		this.points = points;
-		this.examDate = examDate;
-		this.examObligationDTOs = examObligationDTOs;
-		this.examPeriodDTOs = examPeriodDTOs;
-		this.enrollmentDTOs = enrollmentDTOs;
-	}
-	
 	public ExamDTO(Exam exam) {
 		this.id= exam.getId();
 		this.grade= exam.getGrade();
 		this.points= exam.getPoints();
 		this.examDate= exam.getExamDate();
-		// pravi gresku jer su ovi DTO-ovi prazni
-		this.examObligationDTOs= new PreExamObligationDTO(exam.getPreexamObligation());
-		this.examPeriodDTOs= new ExamPeriodDTO(exam.getExamPeriod());
-		this.enrollmentDTOs= new EnrollmentDTO(exam.getEnrollment());
+		
 	}
+	
 	
 	
 	
