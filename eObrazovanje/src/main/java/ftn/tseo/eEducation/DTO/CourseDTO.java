@@ -14,7 +14,7 @@ public class CourseDTO {
 	private Date startDate;
 	private Date endDate;
 	private int ECTS;
-	private List<EnrollmentDTO> enrollmentDTOs;
+	private EnrollmentDTO enrollmentDTOs;
 	public Long getId() {
 		return id;
 	}
@@ -51,25 +51,15 @@ public class CourseDTO {
 	public void setECTS(int eCTS) {
 		ECTS = eCTS;
 	}
-	public List<EnrollmentDTO> getEnrollmentDTOs() {
+	public EnrollmentDTO getEnrollmentDTOs() {
 		return enrollmentDTOs;
 	}
-	public void setEnrollmentDTOs(List<EnrollmentDTO> enrollmentDTOs) {
+	public void setEnrollmentDTOs(EnrollmentDTO enrollmentDTOs) {
 		this.enrollmentDTOs = enrollmentDTOs;
 	}
 	
 	
-	public CourseDTO(Long id, String title, String courseCode, Date startDate, Date endDate, int eCTS,
-			List<EnrollmentDTO> enrollmentDTOs) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.courseCode = courseCode;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		ECTS = eCTS;
-		this.enrollmentDTOs = enrollmentDTOs;
-	}
+	
 	public CourseDTO(Course course) {
 		this.id=course.getId();
 		this.title=course.getTitle();
@@ -77,7 +67,8 @@ public class CourseDTO {
 		this.startDate=course.getStartDate();
 		this.endDate=course.getEndDate();
 		this.ECTS= course.getECTS();
-		this.enrollmentDTOs= new ArrayList<EnrollmentDTO>();
+		// ovde je greska jer je EnrollmentDTO prazan
+		this.enrollmentDTOs= new EnrollmentDTO(course.getEnrollments());
 	}
 	
 	

@@ -12,9 +12,9 @@ public class ExamDTO {
 	private int grade;
 	private float points;
 	private Date examDate;
-	private List<PreExamObligationDTO> examObligationDTOs;
-	private List<ExamPeriodDTO> examPeriodDTOs;
-	private List<EnrollmentDTO>enrollmentDTOs;
+	private PreExamObligationDTO examObligationDTOs;
+	private ExamPeriodDTO examPeriodDTOs;
+	private EnrollmentDTO enrollmentDTOs;
 	
 	public Long getId() {
 		return id;
@@ -44,29 +44,28 @@ public class ExamDTO {
 		this.examDate = examDate;
 	}
 	
-	public List<PreExamObligationDTO> getExamObligationDTOs() {
+	
+	public PreExamObligationDTO getExamObligationDTOs() {
 		return examObligationDTOs;
 	}
-	public void setExamObligationDTOs(List<PreExamObligationDTO> examObligationDTOs) {
+	public void setExamObligationDTOs(PreExamObligationDTO examObligationDTOs) {
 		this.examObligationDTOs = examObligationDTOs;
 	}
-	
-	public List<ExamPeriodDTO> getExamPeriodDTOs() {
+	public ExamPeriodDTO getExamPeriodDTOs() {
 		return examPeriodDTOs;
 	}
-	public void setExamPeriodDTOs(List<ExamPeriodDTO> examPeriodDTOs) {
+	public void setExamPeriodDTOs(ExamPeriodDTO examPeriodDTOs) {
 		this.examPeriodDTOs = examPeriodDTOs;
 	}
-	
-	public List<EnrollmentDTO> getEnrollmentDTOs() {
+	public EnrollmentDTO getEnrollmentDTOs() {
 		return enrollmentDTOs;
 	}
-	public void setEnrollmentDTOs(List<EnrollmentDTO> enrollmentDTOs) {
+	public void setEnrollmentDTOs(EnrollmentDTO enrollmentDTOs) {
 		this.enrollmentDTOs = enrollmentDTOs;
 	}
 	
-	public ExamDTO(Long id, int grade, float points, Date examDate, List<PreExamObligationDTO> examObligationDTOs,
-			List<ExamPeriodDTO> examPeriodDTOs, List<EnrollmentDTO> enrollmentDTOs) {
+	public ExamDTO(Long id, int grade, float points, Date examDate, PreExamObligationDTO examObligationDTOs,
+			ExamPeriodDTO examPeriodDTOs, EnrollmentDTO enrollmentDTOs) {
 		super();
 		this.id = id;
 		this.grade = grade;
@@ -82,9 +81,13 @@ public class ExamDTO {
 		this.grade= exam.getGrade();
 		this.points= exam.getPoints();
 		this.examDate= exam.getExamDate();
-		this.examPeriodDTOs= new ArrayList<ExamPeriodDTO>();
-		this.enrollmentDTOs= new ArrayList<EnrollmentDTO>();
+		// pravi gresku jer su ovi DTO-ovi prazni
+		this.examObligationDTOs= new PreExamObligationDTO(exam.getPreexamObligation());
+		this.examPeriodDTOs= new ExamPeriodDTO(exam.getExamPeriod());
+		this.enrollmentDTOs= new EnrollmentDTO(exam.getEnrollment());
 	}
+	
+	
 	
 	
 	

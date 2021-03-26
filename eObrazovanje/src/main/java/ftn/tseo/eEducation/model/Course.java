@@ -3,7 +3,9 @@ package ftn.tseo.eEducation.model;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -43,7 +45,7 @@ public class Course implements Serializable{
 	@Column(name = "ECTS", nullable = false)
 	private int ECTS;
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, mappedBy = "course")
-	private List<Enrollment> enrollments = new ArrayList<Enrollment>();
+	private Set<Enrollment> enrollments = new HashSet<Enrollment>();
 	
 	
 	public static long getSerialversionuid() {
@@ -105,13 +107,28 @@ public class Course implements Serializable{
 	public void setECTS(int eCTS) {
 		ECTS = eCTS;
 	}
-	public List<Enrollment> getEnrollments() {
+
+	public Set<Enrollment> getEnrollments() {
 		return enrollments;
 	}
 
-	public void setEnrollments(List<Enrollment> enrollments) {
+	public void setEnrollments(Set<Enrollment> enrollments) {
 		this.enrollments = enrollments;
 	}
+
+	public Course(Long id, String title, String courseCode, Date startDate, Date endDate, int eCTS,
+			Set<Enrollment> enrollments) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.courseCode = courseCode;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		ECTS = eCTS;
+		this.enrollments = enrollments;
+	}
+	
+	
 	
 
 	
