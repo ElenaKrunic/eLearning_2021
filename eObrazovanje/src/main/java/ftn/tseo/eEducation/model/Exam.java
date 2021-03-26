@@ -31,7 +31,7 @@ public class Exam {
 	
 	private int grade;
 	
-	private Float points;
+	private float points;
 	
 	private Date examDate;
 	
