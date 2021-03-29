@@ -23,19 +23,13 @@ public class PreexamObligation {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	public ExamObligationStatus getExamObligationStatus() {
-		return examObligationStatus;
-	}
-
-	public void setExamObligationStatus(ExamObligationStatus examObligationStatus) {
-		this.examObligationStatus = examObligationStatus;
-	}
-
 	private float points;
 
 	private String location;
 	
 	private Date dateOfObligation;
+	
+	private boolean passed; 
 
 	//veza ka ispitu 
 	@ManyToOne
@@ -44,11 +38,16 @@ public class PreexamObligation {
 	
 	@ManyToOne
 	@JoinColumn(name = "obligationType", referencedColumnName = "id", nullable = false)
-	private ObligationType obligationType;
+	private PreexamObligationType obligationType;
 	
 	@ManyToOne
 	@JoinColumn(name = "examObligationStatus", referencedColumnName = "id", nullable = false)
-	private ExamObligationStatus examObligationStatus;
+	private PreexamObligationStatus examObligationStatus;
+	
+	//testna 
+	@ManyToOne
+	@JoinColumn
+	private Student student;
 	
 	
 	public PreexamObligation() {
@@ -63,11 +62,11 @@ public class PreexamObligation {
 		this.id = id;
 	}
 
-	public ObligationType getObligationType() {
+	public PreexamObligationType getObligationType() {
 		return obligationType;
 	}
 
-	public void setObligationType(ObligationType obligationType) {
+	public void setObligationType(PreexamObligationType obligationType) {
 		this.obligationType = obligationType;
 	}
 
@@ -88,7 +87,7 @@ public class PreexamObligation {
 	}
 
 	public PreexamObligation(Long id, float points, String location, Date dateOfObligation, Exam exam,
-			ObligationType obligationType, ExamObligationStatus examObligationStatus) {
+			PreexamObligationType obligationType, PreexamObligationStatus examObligationStatus, boolean passed) {
 		super();
 		this.id = id;
 		this.points = points;
@@ -97,6 +96,7 @@ public class PreexamObligation {
 		this.exam = exam;
 		this.obligationType = obligationType;
 		this.examObligationStatus = examObligationStatus;
+		this.passed = passed; 
 	}
 
 	public Date getDateOfObligation() {
@@ -114,5 +114,23 @@ public class PreexamObligation {
 	public void setExam(Exam exam) {
 		this.exam = exam;
 	}	
+	
+	public PreexamObligationStatus getExamObligationStatus() {
+		return examObligationStatus;
+	}
+
+	public void setExamObligationStatus(PreexamObligationStatus examObligationStatus) {
+		this.examObligationStatus = examObligationStatus;
+	}
+	
+	public boolean isPassed() {
+		return passed;
+	}
+
+	public void setPassed(boolean passed) {
+		this.passed = passed;
+	}
+
+
 	
 }

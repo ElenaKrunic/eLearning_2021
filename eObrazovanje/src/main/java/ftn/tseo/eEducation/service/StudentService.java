@@ -3,12 +3,13 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import ftn.tseo.eEducation.DTO.ExamDTO;
 import ftn.tseo.eEducation.model.Document;
 
 import ftn.tseo.eEducation.model.Exam;
@@ -34,15 +35,17 @@ public class StudentService {
 	@Autowired
 	ExamRepository examRepository;
 	
-	
 	@Autowired
 	FinancialCardRepository financialCardRepository;
+	
 	@Autowired
 	PreExamObligationRepository preExamRepo;
 	
 	@Autowired
 	PaymentRepository paymentRepo;
 	
+	@Autowired 
+	ExamService examService; 
 	
 
 	public Student findOne(Long id) {
@@ -72,6 +75,7 @@ public class StudentService {
 	public List<Student> findByLastName(String lastName) {
 		return studentRepository.findAllByLastName(lastName);
 	}
+	
 	
 	public Long registerExam(Long studentId, Long examId) {
 		
@@ -112,6 +116,7 @@ public class StudentService {
 		}
 		return (long) 0;
 	}
+	
 	
 	public List<Exam> findTakenExams(Long id) {
 	
@@ -190,4 +195,24 @@ public class StudentService {
 		}
 		return documentForStudent;
 	}
+	
+	
+	public List<PreexamObligation> getLatestResults(Student student, Long courseId, java.util.Date date) {
+		
+		Set<PreexamObligation> result = student.getPreexamObligation(); 
+		
+		ArrayList<PreexamObligation> preexamObligations = new ArrayList<PreexamObligation>(); 
+		
+		for(PreexamObligation obligation : result) {
+			if(obligation.getDateOfObligation().before(date)) {
+				if(obligation.getExam().getEnrollment().getCourse().getId() == courseId) {
+					preexamObligations.add(obligation);
+				}
+			}
+		}
+		return preexamObligations; 
+	}
+	
+
+	
 }

@@ -9,6 +9,7 @@ import ftn.tseo.eEducation.model.Document;
 import ftn.tseo.eEducation.model.Exam;
 import ftn.tseo.eEducation.model.FinancialCard;
 import ftn.tseo.eEducation.model.Payment;
+import ftn.tseo.eEducation.model.PreexamObligation;
 import ftn.tseo.eEducation.model.Student;
 
 
@@ -43,5 +44,4 @@ public interface StudentRepository extends JpaRepository<Student, Long>{
    
     FinancialCard findStudentFinancialCard(Long id);
     
-
 }

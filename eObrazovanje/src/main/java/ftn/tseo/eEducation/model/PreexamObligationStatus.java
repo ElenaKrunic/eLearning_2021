@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -17,7 +18,7 @@ import javax.persistence.OneToMany;
  *
  */
 @Entity
-public class ObligationType {
+public class PreexamObligationStatus {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -25,14 +26,11 @@ public class ObligationType {
 	
 	private String name;
 	
-	private String code;
-
-	public ObligationType() {
+	public PreexamObligationStatus() {
 		super();
 	}
 
-	
-	public ObligationType(Long id, String name, String code, Set<PreexamObligation> preexamObligation) {
+	public PreexamObligationStatus(Long id, String name, String code, Set<PreexamObligation> preexamObligation) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -72,9 +70,9 @@ public class ObligationType {
 		this.preexamObligation = preexamObligation;
 	}
 
-	//veza sa preexam 
-	@OneToMany(mappedBy="obligationType",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
-	private Set<PreexamObligation> preexamObligation = new HashSet<PreexamObligation>();
-
+	private String code;
 	
+	//veza sa preexam 
+	@OneToMany(mappedBy="examObligationStatus",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
+	private Set<PreexamObligation> preexamObligation = new HashSet<PreexamObligation>();
 }

@@ -17,6 +17,9 @@ public class ExamDTO {
 	private int grade;
 	private float points;
 	private Date examDate;
+	//testna
+	private Long student;
+
 	
 	public Long getId() {
 		return id;
@@ -55,11 +58,10 @@ public class ExamDTO {
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-
+	public Long getStudent() {
+		return student;
+	}
+	public void setStudent(Long student) {
+		this.student = student;
+	}
 }
