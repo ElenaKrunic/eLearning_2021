@@ -42,6 +42,9 @@ public class Student {
 	
 	private String accountNumber;
 	
+	//testno 
+	private Double cardAmount; 
+	
 	@OneToOne
 	@JoinColumn(name = "typeOfFinancing", referencedColumnName = "id", nullable = false)
 	private TypeOfFinancing typeOfFinancing;
@@ -59,6 +62,26 @@ public class Student {
 	@OneToOne
 	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
 	private User user;
+	
+	//testna 
+	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Set<PreexamObligation> preexamObligation;
+
+	public Set<Document> getDocument() {
+		return document;
+	}
+
+	public void setDocument(Set<Document> document) {
+		this.document = document;
+	}
+
+	public Set<PreexamObligation> getPreexamObligation() {
+		return preexamObligation;
+	}
+
+	public void setPreexamObligation(Set<PreexamObligation> preexamObligation) {
+		this.preexamObligation = preexamObligation;
+	}
 
 	public Student() {
 		super();
@@ -226,9 +249,11 @@ public class Student {
 //	}
 //	
 
-	
-	
-	
-	
-	
+	public Double getCardAmount() {
+		return cardAmount;
+	}
+
+	public void setCardAmount(Double cardAmount) {
+		this.cardAmount = cardAmount;
+	}
 }
