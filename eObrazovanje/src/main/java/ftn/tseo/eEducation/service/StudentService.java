@@ -9,12 +9,21 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.eObrazovanje.studentServices.entity.ExamRegistration;
+
+import ftn.tseo.eEducation.DTO.DocumentDTO;
+import ftn.tseo.eEducation.DTO.ExamDTO;
+import ftn.tseo.eEducation.DTO.ExamRegistrationDTO;
+import ftn.tseo.eEducation.DTO.FinancialCardDTO;
+import ftn.tseo.eEducation.DTO.PaymentDTO;
+import ftn.tseo.eEducation.DTO.PayoutDTO;
 import ftn.tseo.eEducation.model.Course;
 import ftn.tseo.eEducation.model.Document;
 
 import ftn.tseo.eEducation.model.Exam;
 
 import ftn.tseo.eEducation.model.FinancialCard;
+import ftn.tseo.eEducation.model.PayOut;
 import ftn.tseo.eEducation.model.Payment;
 import ftn.tseo.eEducation.model.PreexamObligation;
 import ftn.tseo.eEducation.model.Student;
@@ -113,10 +122,12 @@ public class StudentService {
 			
 			return examReg.getId();
 		}
-		return (long) 0;
+		return  (long) 0;
 	}
 	
-	public List<Exam> findTakenExams(Long id) {
+	//proveriti da li treba examDTO ili exam registration i da li je potrebno dodavati atribut bool za polozeni ispit u celosti
+	
+	public List<ExamDTO> findTakenExams(Long id) {
 	
 		Student student = studentRepository.findById(id).orElse(null);
 		
@@ -125,20 +136,26 @@ public class StudentService {
 		if(student != null) {
 			exams = studentRepository.findStudentExams(id);
 		}
+		List<ExamDTO> examsDTO = new ArrayList<ExamDTO>();
+		if(exams.size() > 0) {
+			for(Exam e : exams) {
+				examsDTO.add(new ExamDTO(e));
+			}
+		}
 		
 	
 
-		return exams;
+		return examsDTO;
 	}
 	
-	public List<FinancialCard> getFinancialCardInfo(Long id) {
-		List<FinancialCard> studentsTransactions = new ArrayList<FinancialCard>();
+	public List<FinancialCardDTO> getFinancialCardInfo(Long id) {
+		List<FinancialCardDTO> studentsTransactions = new ArrayList<>();
 		Student student = studentRepository.findById(id).orElse(null);
 		
 		if(student != null) {
 			if(student.getFinancialCards().size() > 0) {
 				for(FinancialCard fCard : student.getFinancialCards()) {
-					studentsTransactions.add(fCard);
+					studentsTransactions.add(new FinancialCardDTO(fCard));
 				}
 			}
 		}
@@ -146,28 +163,29 @@ public class StudentService {
 		return studentsTransactions;
 	}
 	
-	public List<Payment> getStudentFinancialCard(Long id) {
-		
-		List<Payment> financialCardPayment = new ArrayList<Payment>();
+	private List<PaymentDTO> getStudentFinancialCard(Long id){
+		List<PaymentDTO> payoutDTO = new ArrayList<PaymentDTO>();
 		for (Payment p: studentRepository.getStudentFinancialCard(id)) {
-			financialCardPayment.add(p);
+			payoutDTO.add(new PaymentDTO(p));
 		}
-		return financialCardPayment;
-		
+		return payoutDTO;
+
 	}
 	
-	public FinancialCard findStudentFinancialCard(Long id) {
+	public FinancialCardDTO findStudentFinancialCard(Long id) {
 		
 		FinancialCard financialCardForStudent= studentRepository.findStudentFinancialCard(id);
-		return financialCardForStudent;
+		FinancialCardDTO financialCardDTO=new FinancialCardDTO(financialCardForStudent);
+		return financialCardDTO;
 		
 	}
 	
-	
-	public List<Exam> getCurrentExams(Long id) {
+	//Check it once more
+	public List<ExamDTO> getCurrentExams(Long id) {
 		Student student = studentRepository.findById(id).orElse(null);
 		List<Exam> allExams = examRepository.findAll();
 		List<Exam> currentExams = new ArrayList<>();
+		
 //		List<Exam> examsTaken=examRepository.findStudentExams(id);
 		Date currentDate = new Date(new java.util.Date().getTime());
 		
@@ -181,16 +199,33 @@ public class StudentService {
 				}
 			}
 			
+			
 		}
-		return currentExams;
+		List<ExamDTO> currentExamsDTOs = new ArrayList<>();
 		
+		for( Exam examToDTO : currentExams) {
+			currentExamsDTOs.add(new ExamDTO(examToDTO));
+		}
+		
+		return currentExamsDTOs;
+	
 	}
 	@SuppressWarnings("unused")
-	private List<Document > getDocumentsForStudents(Long id){
-		List<Document> documentForStudent = new ArrayList<Document>();
+	private List<DocumentDTO> getDocumentsForStudents(Long id){
+		List<DocumentDTO> documentForStudent = new ArrayList<DocumentDTO>();
 		for (Document d: studentRepository.getDocumentsForStudents(id)) {
-			documentForStudent.add(d);
+			documentForStudent.add(new DocumentDTO(d));
 		}
 		return documentForStudent;
+	}
+	
+	@SuppressWarnings("unused")
+	private List<PayoutDTO> getStudentFinancialCardPayout(Long id){
+		List<PayoutDTO> payoutDTO = new ArrayList<PayoutDTO>();
+		for (PayOut p: studentRepository.getStudentFinancialCardPayout(id)) {
+			payoutDTO.add(new PayoutDTO(p));
+		}
+		return payoutDTO;
+
 	}
 }
