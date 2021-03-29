@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import ftn.tseo.eEducation.model.Course;
 import ftn.tseo.eEducation.model.Document;
 
 import ftn.tseo.eEducation.model.Exam;
@@ -73,17 +74,19 @@ public class StudentService {
 		return studentRepository.findAllByLastName(lastName);
 	}
 	
-	public Long registerExam(Long studentId, Long examId) {
+	public Long registerExam(Long studentId, Long examId,String location,float points) {
 		
 		Exam exam = examRepository.findById(examId).orElse(null);
 		Student student = studentRepository.findById(studentId).orElse(null);
 		
+//		kako cu izvuci za sve ispite naziv kursa kada promenim u jpql
+//		String course=exam.getEnrollment().getCourse().getTitle();
 		if(exam != null && student != null) {
 			PreexamObligation examReg = new PreexamObligation();
 			examReg.setExam(exam);
 			examReg.setExamObligationStatus(null);
-			examReg.setLocation("Neka lokacija");
-			examReg.setPoints(20);
+			examReg.setLocation(location);
+			examReg.setPoints(points);
 			examReg.setObligationType(null);
 			
 			preExamRepo.save(examReg);

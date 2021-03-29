@@ -20,7 +20,7 @@ public interface StudentRepository extends JpaRepository<Student, Long>{
 	Student findOneByCardNumber(String cardNumber);
     List<Student> findAllByLastName(String lastName);
     
-    Long registeredExam(Long studentId,Long examId);
+    Long registeredExam(Long studentId,Long examId,String location,float points);
     List<Exam> findTakenExams(Long id);
     
     List<FinancialCard> getFinancialCardInfo(Long id); 
@@ -40,7 +40,7 @@ public interface StudentRepository extends JpaRepository<Student, Long>{
     @Query(value = "SELECT d.title, d.url,d.documents_documentstype FROM student s INNER JOIN document dc ON s.id = dc.student WHERE s.id = ?", nativeQuery = true)
     List<Document > getDocumentsForStudents(Long id);
     
-   
+    //do to query za finansijsku karticu
     FinancialCard findStudentFinancialCard(Long id);
     
 
