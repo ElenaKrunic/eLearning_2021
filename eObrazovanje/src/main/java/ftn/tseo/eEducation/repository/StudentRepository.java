@@ -27,18 +27,19 @@ public interface StudentRepository extends JpaRepository<Student, Long>{
     List<FinancialCard> getFinancialCardInfo(Long id); 
     
     List<Exam > getCurrentExam(Long id);
-
-	@Query(value = "SELECT e.exam_date, e.points, e.grade, c.course_code FROM student s INNER JOIN enrollment en ON s.id = en.student INNER JOIN exam e ON en.enrollment_id = e.enrollment INNER JOIN courses c ON en.course = c.course_id WHERE s.id = ?", nativeQuery = true)
+    //SELECT e.exam_date, e.points, e.grade FROM student s OUTTER JOIN enrollment en ON s.id = en.student INNER JOIN exam e ON en.enrollment_id = e.enrollment INNER JOIN courses c ON en.course = c.course_id WHERE s.id = ?"
+	@Query(value = "SELECT e FROM student s left outer join enrollment en left outer join exam e WHERE s.id=?")
 	List<Exam> findStudentExams(Long id);
-	
-	//to do 
-	@Query(value = "SELECT p.date_of_payment, p.payment_amount,p.payment_description FROM student s INNER JOIN financialcard fc ON s.id = fc.student_financial_card INNER JOIN payment p ON fc.id = p.financial_card WHERE s.id = ?", nativeQuery = true)
+//	
+//	//to do 
+//	(value = "SELECT p.date_of_payment, p.payment_amount,p.payment_description FROM student s INNER JOIN financialcard fc ON s.id = fc.student_financial_card INNER JOIN payment p ON fc.id = p.financial_card WHERE s.id = ?")
+	@Query(value = "SELECT p FROM student s LEFT OUTER JOIN financialcard fc LEFT OUTER JOIN payment p WHERE s.id=?")
 	List<Payment> getStudentFinancialCard(Long id);
 			
     
     //to do kreirati kveri koji za studenta vraca sva njegova dokumenta
     //svi dokumnti od jednog studenta
-    @Query(value = "SELECT d.title, d.url,d.documents_documentstype FROM student s INNER JOIN document dc ON s.id = dc.student WHERE s.id = ?", nativeQuery = true)
+    @Query(value = "SELECT d FROM Student s LEFT OUTER JOIN Document d WHERE s.id = ?")
     List<Document > getDocumentsForStudents(Long id);
     
     //do to query za finansijsku karticu

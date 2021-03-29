@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import ftn.tseo.eEducation.DTO.ExamDTO;
+import ftn.tseo.eEducation.DTO.ExamRegistrationDTO;
 import ftn.tseo.eEducation.model.Exam;
 import ftn.tseo.eEducation.model.PreexamObligation;
 import ftn.tseo.eEducation.service.ExamService;
@@ -29,7 +29,7 @@ public class StudentController {
 	private PreexamObligation preexamObligationService; 
 	
 	@RequestMapping(method=RequestMethod.POST, consumes="application/json")
-	public ResponseEntity<ExamDTO> registerExam(@RequestBody ExamDTO dto) {
+	public ResponseEntity<ExamRegistrationDTO> registerExam(@RequestBody ExamRegistrationDTO dto) {
 		
 		Exam exam = new Exam(); 
 		exam = examService.register(dto);
@@ -37,7 +37,7 @@ public class StudentController {
 		if(exam == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		return new ResponseEntity<>(new ExamDTO(exam), HttpStatus.CREATED);
+		return new ResponseEntity<>(new ExamRegistrationDTO(exam), HttpStatus.CREATED);
 	}
 	
 }

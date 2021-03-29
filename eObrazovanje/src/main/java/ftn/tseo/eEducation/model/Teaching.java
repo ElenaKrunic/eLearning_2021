@@ -27,10 +27,11 @@ public class Teaching {
 	@JoinColumn(name = "professor", referencedColumnName = "id", nullable = false)
 	private Professor professor;
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "course", referencedColumnName = "course_id", nullable = false)
 	private Course course;
 	
+
 	@OneToOne
 	@JoinColumn(name = "teachingtype", referencedColumnName = "id", nullable = false)
 	private TeachingType teachingType;
@@ -40,6 +41,9 @@ public class Teaching {
 	}
 	
 	
+
+
+
 
 	public Teaching(Long id, Date startDate, Date endDate, Professor professor, Course course,
 			TeachingType teachingType) {
@@ -51,6 +55,9 @@ public class Teaching {
 		this.course = course;
 		this.teachingType = teachingType;
 	}
+
+
+
 
 
 

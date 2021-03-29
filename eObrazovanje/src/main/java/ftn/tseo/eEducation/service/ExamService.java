@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ftn.tseo.eEducation.DTO.ExamDTO;
+import ftn.tseo.eEducation.DTO.ExamRegistrationDTO;
 import ftn.tseo.eEducation.model.Course;
 import ftn.tseo.eEducation.model.Exam;
 import ftn.tseo.eEducation.model.FinancialCard;
@@ -76,7 +76,7 @@ public class ExamService {
 		return examsForRegistration; 
 	}
 	
-public Exam register(ExamDTO dto) {
+public Exam register(ExamRegistrationDTO dto) {
 		
 		Exam exam = findOne(dto.getId()); 
 		Student student = studentRepository.getOne(dto.getStudent());

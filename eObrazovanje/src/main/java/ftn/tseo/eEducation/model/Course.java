@@ -48,6 +48,8 @@ public class Course implements Serializable{
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, mappedBy = "course")
 	private Set<Enrollment> enrollments = new HashSet<Enrollment>();
 	
+	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, mappedBy = "course")
+	private Set<Teaching> teachings = new HashSet<Teaching>();
 	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -116,9 +118,17 @@ public class Course implements Serializable{
 	public void setEnrollments(Set<Enrollment> enrollments) {
 		this.enrollments = enrollments;
 	}
+	
+	public Set<Teaching> getTeachings() {
+		return teachings;
+	}
+
+	public void setTeachings(Set<Teaching> teachings) {
+		this.teachings = teachings;
+	}
 
 	public Course(Long id, String title, String courseCode, Date startDate, Date endDate, int eCTS,
-			Set<Enrollment> enrollments) {
+			Set<Enrollment> enrollments, Set<Teaching> teachings) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -127,8 +137,9 @@ public class Course implements Serializable{
 		this.endDate = endDate;
 		ECTS = eCTS;
 		this.enrollments = enrollments;
+		this.teachings = teachings;
 	}
-	
+
 	
 	
 
