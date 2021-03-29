@@ -9,15 +9,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.eObrazovanje.studentServices.entity.ExamRegistration;
 
 import ftn.tseo.eEducation.DTO.DocumentDTO;
 import ftn.tseo.eEducation.DTO.ExamDTO;
-import ftn.tseo.eEducation.DTO.ExamRegistrationDTO;
 import ftn.tseo.eEducation.DTO.FinancialCardDTO;
 import ftn.tseo.eEducation.DTO.PaymentDTO;
 import ftn.tseo.eEducation.DTO.PayoutDTO;
-import ftn.tseo.eEducation.model.Course;
+
 import ftn.tseo.eEducation.model.Document;
 
 import ftn.tseo.eEducation.model.Exam;
@@ -101,7 +99,7 @@ public class StudentService {
 			preExamRepo.save(examReg);
 			
 			float cost = exam.getExamPeriod().getPaymentAmount();
-			FinancialCard transaction = findStudentFinancialCard(studentId);
+			FinancialCard transaction = studentRepository.findStudentFinancialCard(studentId);
 			
 			
 			Payment payment=new Payment();

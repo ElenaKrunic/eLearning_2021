@@ -33,7 +33,7 @@ public interface StudentRepository extends JpaRepository<Student, Long>{
     
     List<FinancialCardDTO> getFinancialCardInfo(Long id); 
     
-    List<ExamDTO > getCurrentExam(Long id);
+    List<ExamDTO> getCurrentExam(Long id);
     //SELECT e.exam_date, e.points, e.grade FROM student s OUTTER JOIN enrollment en ON s.id = en.student INNER JOIN exam e ON en.enrollment_id = e.enrollment INNER JOIN courses c ON en.course = c.course_id WHERE s.id = ?"
 	@Query(value = "SELECT e FROM student s left outer join enrollment en left outer join exam e WHERE s.id=?")
 	List<Exam> findStudentExams(Long id);
@@ -54,7 +54,6 @@ public interface StudentRepository extends JpaRepository<Student, Long>{
     
     //do to query za finansijsku karticu
     @Query(value = "SELECT f FROM Student s LEFT OUTER JOIN financialCard f WHERE s.id = ?")
-    
     FinancialCard findStudentFinancialCard(Long id);
     
 }
