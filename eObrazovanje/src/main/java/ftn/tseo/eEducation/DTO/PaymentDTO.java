@@ -11,7 +11,7 @@ public class PaymentDTO {
 	private Long id;
 		private java.util.Date paymentDate;
 		private String paymentDescription;
-		private double paymentAmount;
+		private float paymentAmount;
 		private FinancialCardDTO financialCardDTO;
 		
 		public PaymentDTO() {
@@ -64,7 +64,7 @@ public class PaymentDTO {
 		}
 
 
-		public void setPaymentAmount(double paymentAmount) {
+		public void setPaymentAmount(float paymentAmount) {
 			this.paymentAmount = paymentAmount;
 		}
 
