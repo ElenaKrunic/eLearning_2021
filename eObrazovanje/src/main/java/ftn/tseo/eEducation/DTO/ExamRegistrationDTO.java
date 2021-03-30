@@ -47,7 +47,7 @@ public class ExamRegistrationDTO implements Serializable{
 		obligationType=examReg.getObligationType().getName();
 		this.courseName=examReg.getExam().getEnrollment().getCourse().getTitle();
 		//pitati profesora kako da se odradi ovaj deo za profesora
-//		this.courseProfessor=examReg.getExam().getEnrollment().getCourse().getTeachings().get(0).getFirstName() + examReg.getExam().getCourse().getProfessors().get(0).getLastName();
+//	this.courseProfessor=examReg.getExam().getEnrollment().getCourse().getTeachings().iterator().next();
 
 		this.studentId=examReg.getExam().getEnrollment().getStudent().getId();
 		this.ECTS = examReg.getExam().getEnrollment().getCourse().getECTS();

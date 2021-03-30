@@ -8,13 +8,13 @@ import ftn.tseo.eEducation.model.Exam;
 
 public class ExamDTO {
 	private Long id;
-	private EnrollmentDTO enrollmentDTO;
+
 	private int grade;
 	private float points;
 	private Date examDate;
 	private String courseName;
 	private ExamPeriodDTO examPeriodDTO;
-	public List<ExamRegistrationDTO> examRegistrationDTOs;
+	private EnrollmentDTO enrollmentDTO;
 
 	public ExamDTO(Exam exam) {
 		super();
@@ -24,7 +24,6 @@ public class ExamDTO {
 		points = exam.getPoints();
 		courseName=exam.getEnrollment().getCourse().getTitle();
 		examDate = exam.getExamDate();
-		this.examRegistrationDTOs = new ArrayList<ExamRegistrationDTO>();
 		examPeriodDTO=new ExamPeriodDTO(exam.getExamPeriod());
 	}
 	public Long getId() {
