@@ -3,6 +3,7 @@ package ftn.tseo.eEducation.DTO;
 import ftn.tseo.eEducation.model.Student;
 
 public class StudentDTO {
+	private Long id;
 	private String cardNumber;
 	private String firstName;
 	
@@ -27,6 +28,15 @@ public class StudentDTO {
 		this.email = student.getEmail();
 		this.umnc = student.getUmnc();
 		userDTO=new UserDTO(student.getUser());
+	}
+
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getCardNumber() {
