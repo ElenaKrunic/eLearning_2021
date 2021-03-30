@@ -46,6 +46,8 @@ public class Exam {
 	@JoinColumn(name = "enrollment", referencedColumnName = "enrollment_id", nullable = false)
 	private Enrollment enrollment;
 
+	
+
 	public Exam() {
 		super();
 	}

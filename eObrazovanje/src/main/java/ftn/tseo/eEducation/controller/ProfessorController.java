@@ -63,7 +63,7 @@ public class ProfessorController {
 	
 	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
 	public ResponseEntity<ProfessorDTO> updateProfessor(@RequestBody ProfessorDTO pDTO){
-		//a student must exist
+		//a professor must exist
 		Professor p = professorService.findOneById(pDTO.getId()); 
 		if (p == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

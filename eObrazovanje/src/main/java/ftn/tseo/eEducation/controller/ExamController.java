@@ -1,5 +1,6 @@
 package ftn.tseo.eEducation.controller;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class ExamController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<ExamDTO>> getExams() {
 		List<Exam> e = examService.findAll();
-		// convert courses to DTOs
+		// convert exams to DTOs
 		List<ExamDTO> eDTO = new ArrayList<>();
 		for (Exam ex : e) {
 			eDTO.add(new ExamDTO(ex));
@@ -56,6 +57,33 @@ public class ExamController {
 		}
 
 		return new ResponseEntity<>(new ExamDTO(e), HttpStatus.OK);
+	}
+	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
+	public ResponseEntity<ExamDTO> updateExam(@RequestBody ExamDTO eDTO){
+		//a exam must exist
+		Exam e = examService.findOne(eDTO.getId()); 
+		if (e == null) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		//treba dodati 
+		e.setGrade(eDTO.getGrade());
+		e.setPoints(eDTO.getPoints());
+		
+		e.setExamDate ( (Date) eDTO.getExamDate());
+	
+		e = examService.save(e);
+		return new ResponseEntity<>(new ExamDTO(e), HttpStatus.OK);	
+	}
+	
+	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+	public ResponseEntity<Void> deleteExam(@PathVariable Long id){
+		Exam e = examService.findOne(id);
+		if (e != null){
+			examService.remove(id);
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {		
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
 	
 }
