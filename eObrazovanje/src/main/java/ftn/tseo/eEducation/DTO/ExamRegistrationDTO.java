@@ -13,11 +13,6 @@ import ftn.tseo.eEducation.model.Exam;
 import ftn.tseo.eEducation.model.PreexamObligation;
 import ftn.tseo.eEducation.model.PreexamObligationStatus;
 import ftn.tseo.eEducation.model.Teaching;
-/**
- * 
- * @author Dunja J. Martinovic 
- *
- */
 
 public class ExamRegistrationDTO implements Serializable{
 	
