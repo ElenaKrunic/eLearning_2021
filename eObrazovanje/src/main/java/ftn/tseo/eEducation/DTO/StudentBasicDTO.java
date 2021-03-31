@@ -7,7 +7,6 @@ public class StudentBasicDTO {
 	private Long id;
 	private String firstName;
 	private String lastName;
-	private UserDTO userDTO;
 	private StudentBasicDTO() {
 		super();
 	}
@@ -35,12 +34,6 @@ public class StudentBasicDTO {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public UserDTO getUserDTO() {
-		return userDTO;
-	}
-	public void setUserDTO(UserDTO userDTO) {
-		this.userDTO = userDTO;
-	}
-	
+
 	
 }

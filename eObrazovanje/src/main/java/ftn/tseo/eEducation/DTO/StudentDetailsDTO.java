@@ -7,8 +7,6 @@ public class StudentDetailsDTO {
 
 	private Long id;
 	private String cardNumber;
-	//buni se,jer ne postoji userDTO ko treba neka ga doda
-	private UserDTO userDTO;
 
 	private String firstName;
 	private String lastName;
@@ -37,7 +35,7 @@ public class StudentDetailsDTO {
 		modelNumber =student.getModelNumber();
 		accountNumber = student.getAccountNumber();
 		typeOfFinancing=student.getTypeOfFinancing().getName();
-		userDTO=new UserDTO(student.getUser());
+
 	}
 
 	public Long getId() {
@@ -128,13 +126,7 @@ public class StudentDetailsDTO {
 		this.typeOfFinancing = typeOfFinancing;
 	}
 
-	public UserDTO getUserDTO() {
-		return userDTO;
-	}
-
-	public void setUserDTO(UserDTO userDTO) {
-		this.userDTO = userDTO;
-	}
+	
 	
 	
 }

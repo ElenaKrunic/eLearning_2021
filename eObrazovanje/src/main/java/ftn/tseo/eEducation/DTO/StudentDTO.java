@@ -14,7 +14,7 @@ public class StudentDTO {
 	private String email;
 	
 	private String umnc;
-	private UserDTO userDTO;
+
 	public StudentDTO() {
 		super();
 	}
@@ -27,7 +27,7 @@ public class StudentDTO {
 		this.phoneNumber = student.getPhoneNumber();
 		this.email = student.getEmail();
 		this.umnc = student.getUmnc();
-		userDTO=new UserDTO(student.getUser());
+	
 	}
 
 	
@@ -87,13 +87,7 @@ public class StudentDTO {
 		this.umnc = umnc;
 	}
 
-	public UserDTO getUserDTO() {
-		return userDTO;
-	}
-
-	public void setUserDTO(UserDTO userDTO) {
-		this.userDTO = userDTO;
-	}
+	
 	
 	
 	
