@@ -166,9 +166,10 @@ public class StudentService {
 		return studentsTransactions;
 	}
 	
-	private List<PaymentDTO> getStudentFinancialCard(Long id){
+	@SuppressWarnings("unused")
+	public List<PaymentDTO> getStudentFinancialCardPayment(Long id){
 		List<PaymentDTO> payoutDTO = new ArrayList<PaymentDTO>();
-		for (Payment p: studentRepository.getStudentFinancialCard(id)) {
+		for (Payment p: studentRepository.findStudentFinancialCardPayment(id)) {
 			payoutDTO.add(new PaymentDTO(p));
 		}
 		return payoutDTO;
@@ -213,8 +214,8 @@ public class StudentService {
 		return currentExamsDTOs;
 	
 	}
-	@SuppressWarnings("unused")
-	private List<DocumentDTO> getDocumentsForStudents(Long id){
+
+	public List<DocumentDTO> getDocumentsForStudents(Long id){
 		List<DocumentDTO> documentForStudent = new ArrayList<DocumentDTO>();
 		for (Document d: studentRepository.getDocumentsForStudents(id)) {
 			documentForStudent.add(new DocumentDTO(d));
@@ -222,8 +223,8 @@ public class StudentService {
 		return documentForStudent;
 	}
 	
-	@SuppressWarnings("unused")
-	private List<PayoutDTO> getStudentFinancialCardPayout(Long id){
+
+	public List<PayoutDTO> getStudentFinancialCardPayout(Long id){
 		List<PayoutDTO> payoutDTO = new ArrayList<PayoutDTO>();
 		for (PayOut p: studentRepository.getStudentFinancialCardPayout(id)) {
 			payoutDTO.add(new PayoutDTO(p));

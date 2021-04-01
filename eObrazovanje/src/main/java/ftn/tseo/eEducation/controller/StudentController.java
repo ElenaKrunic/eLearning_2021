@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,7 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import ftn.tseo.eEducation.DTO.DocumentDTO;
+import ftn.tseo.eEducation.DTO.ExamDTO;
 import ftn.tseo.eEducation.DTO.ExamRegistrationDTO;
+import ftn.tseo.eEducation.DTO.FinancialCardDTO;
+import ftn.tseo.eEducation.DTO.PaymentDTO;
+import ftn.tseo.eEducation.DTO.PayoutDTO;
 import ftn.tseo.eEducation.DTO.StudentDTO;
 import ftn.tseo.eEducation.model.Exam;
 import ftn.tseo.eEducation.model.PreexamObligation;
@@ -104,5 +110,41 @@ public class StudentController {
 		}
 		return new ResponseEntity<>(new ExamRegistrationDTO(exam), HttpStatus.CREATED);
 	}
+	
+	@GetMapping(value="/{studentId}/exams-current")
+	private List<ExamDTO> getCurrentExamsForStudent(@PathVariable("studentId") Long id) {
+		return studentService.getCurrentExams(id);
+	}
+	
+	@GetMapping(value="/{studentId}/exams")
+	private List<ExamDTO> getTakenExams(@PathVariable("studentId") Long id) {
+		return studentService.findTakenExams(id);
+	}
+	
+	@GetMapping(value="/{studentId}/financial-card")
+	private List<FinancialCardDTO> getFinancialCardInfo(@PathVariable("studentId") Long id) {
+		return studentService.getFinancialCardInfo(id);
+	}
+	
+	@GetMapping(value="/{studentId}/financial-card2")
+	private FinancialCardDTO getFinancialCardInfo2(@PathVariable("studentId") Long id) {
+		return studentService.findStudentFinancialCard(id);
+	}
+	
+	@GetMapping(value="/{studentId}/documents")
+	private List<DocumentDTO> getDocuments(@PathVariable("studentId") Long id) {
+		return studentService.getDocumentsForStudents(id);
+	}
+	
+	@GetMapping(value="/{studentId}/financial-payment")
+	private List<PaymentDTO> getStudentPayment(@PathVariable("studentId") Long id) {
+		return studentService.getStudentFinancialCardPayment(id);
+	}
+	
+	@GetMapping(value="/{studentId}/financial-payout")
+	private List<PayoutDTO> getStudentPayout(@PathVariable("studentId") Long id) {
+		return studentService.getStudentFinancialCardPayout(id);
+	}
+	
 	
 }
