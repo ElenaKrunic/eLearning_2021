@@ -11,8 +11,6 @@ import ftn.tseo.eEducation.model.Teaching;
 
 public interface TeachingRepository extends JpaRepository<Teaching, Long> {
 	
-	@Query(value = "SELECT c.course_id, c.ects, c.course_code, c.course_end_date, c.course_start_date, c.course_title FROM professor p INNER JOIN teaching t ON p.id = t.professor INNER JOIN courses c ON t.course = c.id WHERE p.id = ?")
-	List<Course> findProfessorsCourse(long id);
 	
 	
 }

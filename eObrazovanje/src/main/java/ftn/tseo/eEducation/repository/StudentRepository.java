@@ -56,4 +56,7 @@ public interface StudentRepository extends JpaRepository<Student, Long>{
     @Query(value = "SELECT f FROM Student s LEFT OUTER JOIN financialCard f WHERE s.id = ?")
     FinancialCard findStudentFinancialCard(Long id);
     
+	@Query(value="SELECT * FROM student AS s WHERE s.id IN (SELECT DISTINCT e.student from enrollments e WHERE e.student =s.student AND e.curse = ?)")
+	List<Student> getEnrolledStudentsInProfessorsCourse(long id);
+    
 }

@@ -21,7 +21,7 @@ import ftn.tseo.eEducation.repository.TeachingRepository;
 public class TeachingService {
 	
 	@Autowired
-	private TeachingRepository teachingRepository;
+	private CourseRepository courseRepository;
 	
 	@Autowired
 	private ProfessorRepository professorRepository;
@@ -31,7 +31,7 @@ public class TeachingService {
 	
 	public List<Course> findCoursesForProfessor(long id) {
 		List<Course> courses = new ArrayList<Course>();
-		for (Course c: teachingRepository.findProfessorsCourse(id)) {
+		for (Course c: courseRepository.findProfessorsCourse(id)) {
 			courses.add(c);
 		}
 		return courses;

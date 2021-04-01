@@ -30,11 +30,13 @@ public class EnrollmentService {
 	@Autowired
 	private EnrollmentRepository enrollmentRepository;
 	
+	
+	
 	// mislim da nije dobro
 	public List<Student> getEnrolledStudents(long id) {
 		Professor professor= professorRepository.findById(id).orElse(null);
 		
-		return enrollmentRepository.getEnrolledStudentsInProfessorsCourse(id);
+		return studentRepository.getEnrolledStudentsInProfessorsCourse(id);
 	}
 	
 
