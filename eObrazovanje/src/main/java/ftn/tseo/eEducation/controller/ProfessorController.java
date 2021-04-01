@@ -25,7 +25,6 @@ import ftn.tseo.eEducation.model.Professor;
 import ftn.tseo.eEducation.model.Student;
 import ftn.tseo.eEducation.model.Teaching;
 import ftn.tseo.eEducation.service.ProfessorService;
-import rs.ac.uns.ftn.kts.students.web.dto.EnrollmentDTO;
 
 
 @RestController

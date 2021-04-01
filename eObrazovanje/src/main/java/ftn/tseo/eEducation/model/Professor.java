@@ -14,6 +14,9 @@ public class Professor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	private String firstName;
+	private String lastName;
+	
 	@OneToOne
 	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
 	private User user;
@@ -24,36 +27,64 @@ public class Professor {
 		super();
 	}
 
-	public Professor(Long id, User user) {
+
+
+	public Professor(Long id, String firstName, String lastName, User user) {
 		super();
 		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.user = user;
 	}
+
 
 
 	public Long getId() {
 		return id;
 	}
 
+
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+
 
 	public User getUser() {
 		return user;
 	}
 
+
+
 	public void setUser(User user) {
 		this.user = user;
 	}
 
-	@Override
-	public String toString() {
-		return "Professor [id=" + id + ", user=" + user + "]";
-	}
-	
-	
-	
 	
 	
 	

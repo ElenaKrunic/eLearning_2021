@@ -3,8 +3,10 @@ package ftn.tseo.eEducation.DTO;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import ftn.tseo.eEducation.model.Exam;
+import ftn.tseo.eEducation.model.Teaching;
 
 public class ExamDTO {
 	private Long id;
@@ -14,15 +16,23 @@ public class ExamDTO {
 	private Date examDate;
 	private ExamPeriodDTO examPeriodDTO;
 	private EnrollmentDTO enrollmentDTO;
+	private String courseName;
+	private String professorName;
 
+	@SuppressWarnings("unchecked")
 	public ExamDTO(Exam exam) {
 		super();
 		id = exam.getId();
-
+		courseName=exam.getEnrollment().getCourse().getTitle();
+		if(( (Set<Teaching>) exam.getEnrollment().getCourse().getTeachings().iterator().next().getProfessor()).size()>0) {
+			professorName=exam.getEnrollment().getCourse().getTeachings().iterator().next().getProfessor().getFirstName()+exam.getEnrollment().getCourse().getTeachings().iterator().next().getProfessor().getLastName();
+		}
+		
 		grade = exam.getGrade();
 		points = exam.getPoints();
 		examDate = exam.getExamDate();
 		examPeriodDTO=new ExamPeriodDTO(exam.getExamPeriod());
+		
 	}
 	public Long getId() {
 		return id;
@@ -59,6 +69,18 @@ public class ExamDTO {
 	}
 	public void setExamPeriodDTO(ExamPeriodDTO examPeriodDTO) {
 		this.examPeriodDTO = examPeriodDTO;
+	}
+	public String getCourseName() {
+		return courseName;
+	}
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
+	public String getProfessorName() {
+		return professorName;
+	}
+	public void setProfessorName(String professorName) {
+		this.professorName = professorName;
 	}
 
 	

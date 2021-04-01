@@ -2,17 +2,13 @@ package ftn.tseo.eEducation.DTO;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+
 
 
 
 import ftn.tseo.eEducation.model.Exam;
 import ftn.tseo.eEducation.model.PreexamObligation;
-import ftn.tseo.eEducation.model.PreexamObligationStatus;
-import ftn.tseo.eEducation.model.Teaching;
+
 
 public class ExamRegistrationDTO implements Serializable{
 	

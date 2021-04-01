@@ -35,6 +35,8 @@ public class Exam {
 	
 	private Date examDate;
 	
+	private boolean status;
+	
 	@OneToMany(mappedBy="exam", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
 	private Set<PreexamObligation> preexamObligation= new HashSet<PreexamObligation>();
 	
@@ -52,79 +54,116 @@ public class Exam {
 		super();
 	}
 
-	public Exam(Long id, int grade, Float points, Date examDate, Set<PreexamObligation> preExamObligations,
-			Set<ExamPeriod> examPeriods, Enrollment enrollments_exams) {
+
+
+	public Exam(Long id, int grade, float points, Date examDate, boolean status,
+			Set<PreexamObligation> preexamObligation, ExamPeriod examPeriod, Enrollment enrollment) {
 		super();
 		this.id = id;
 		this.grade = grade;
 		this.points = points;
 		this.examDate = examDate;
-//		this.preExamObligations = preExamObligations;
-//		this.examPeriods = examPeriods;
-//		this.enrollments_exams = enrollments_exams;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public int getGrade() {
-		return grade;
-	}
-
-	public void setGrade(int grade) {
-		this.grade = grade;
-	}
-
-	public Float getPoints() {
-		return points;
-	}
-
-	public void setPoints(Float points) {
-		this.points = points;
-	}
-
-	public Date getExamDate() {
-		return examDate;
-	}
-
-	public void setExamDate(Date examDate) {
-		this.examDate = examDate;
-	}
-
-	public Set<PreexamObligation> getPreexamObligation() {
-		return preexamObligation;
-	}
-
-	public void setPreexamObligation(Set<PreexamObligation> preexamObligation) {
+		this.status = status;
 		this.preexamObligation = preexamObligation;
-	}
-
-	public ExamPeriod getExamPeriod() {
-		return examPeriod;
-	}
-
-	public void setExamPeriod(ExamPeriod examPeriod) {
 		this.examPeriod = examPeriod;
-	}
-
-	public Enrollment getEnrollment() {
-		return enrollment;
-	}
-
-	public void setEnrollment(Enrollment enrollment) {
 		this.enrollment = enrollment;
 	}
 
 
 
-	
-	
-	
-	
-	
+	public Long getId() {
+		return id;
+	}
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
+	public int getGrade() {
+		return grade;
+	}
+
+
+
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
+
+
+
+	public float getPoints() {
+		return points;
+	}
+
+
+
+	public void setPoints(float points) {
+		this.points = points;
+	}
+
+
+
+	public Date getExamDate() {
+		return examDate;
+	}
+
+
+
+	public void setExamDate(Date examDate) {
+		this.examDate = examDate;
+	}
+
+
+
+	public boolean isStatus() {
+		return status;
+	}
+
+
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
+
+
+	public Set<PreexamObligation> getPreexamObligation() {
+		return preexamObligation;
+	}
+
+
+
+	public void setPreexamObligation(Set<PreexamObligation> preexamObligation) {
+		this.preexamObligation = preexamObligation;
+	}
+
+
+
+	public ExamPeriod getExamPeriod() {
+		return examPeriod;
+	}
+
+
+
+	public void setExamPeriod(ExamPeriod examPeriod) {
+		this.examPeriod = examPeriod;
+	}
+
+
+
+	public Enrollment getEnrollment() {
+		return enrollment;
+	}
+
+
+
+	public void setEnrollment(Enrollment enrollment) {
+		this.enrollment = enrollment;
+	}
+
+		
 }
