@@ -2,6 +2,7 @@ package ftn.tseo.eEducation.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,11 +16,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import ftn.tseo.eEducation.DTO.CourseDTO;
 import ftn.tseo.eEducation.DTO.ProfessorDTO;
 import ftn.tseo.eEducation.DTO.StudentDTO;
+import ftn.tseo.eEducation.DTO.TeachingDTO;
+import ftn.tseo.eEducation.model.Enrollment;
 import ftn.tseo.eEducation.model.Professor;
 import ftn.tseo.eEducation.model.Student;
+import ftn.tseo.eEducation.model.Teaching;
 import ftn.tseo.eEducation.service.ProfessorService;
+import rs.ac.uns.ftn.kts.students.web.dto.EnrollmentDTO;
 
 
 @RestController
@@ -84,5 +90,6 @@ public class ProfessorController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-
+	
+	
 }

@@ -24,12 +24,14 @@ import ftn.tseo.eEducation.model.FinancialCard;
 import ftn.tseo.eEducation.model.PayOut;
 import ftn.tseo.eEducation.model.Payment;
 import ftn.tseo.eEducation.model.PreexamObligation;
+import ftn.tseo.eEducation.model.Professor;
 import ftn.tseo.eEducation.model.Student;
 
 import ftn.tseo.eEducation.repository.ExamRepository;
 import ftn.tseo.eEducation.repository.FinancialCardRepository;
 import ftn.tseo.eEducation.repository.PaymentRepository;
 import ftn.tseo.eEducation.repository.PreExamObligationRepository;
+import ftn.tseo.eEducation.repository.ProfessorRepository;
 import ftn.tseo.eEducation.repository.StudentRepository;
 
 
@@ -41,6 +43,9 @@ public class StudentService {
 	
 	@Autowired
 	ExamRepository examRepository;
+	
+	@Autowired
+	ProfessorRepository professorRepository;
 	
 	
 	@Autowired
@@ -226,4 +231,11 @@ public class StudentService {
 		return payoutDTO;
 
 	}
+	
+	// mislim da nije dobro
+		public List<Student> getEnrolledStudents(long id) {
+			Professor professor= professorRepository.findById(id).orElse(null);
+				return studentRepository.getEnrolledStudentsInProfessorsCourse(id);
+		}
+		
 }

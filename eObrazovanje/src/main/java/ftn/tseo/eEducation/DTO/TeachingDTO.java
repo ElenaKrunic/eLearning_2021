@@ -11,7 +11,7 @@ public class TeachingDTO {
 	private long id;
 	private Date startDate;
 	private Date endDate;
-	private ProfessorDTO professorDTO;
+	private ProfessorDTO professor;
 	
 	public long getId() {
 		return id;
@@ -31,20 +31,25 @@ public class TeachingDTO {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-	public ProfessorDTO getProfessorDTO() {
-		return professorDTO;
-	}
-	public void setProfessorDTO(ProfessorDTO professorDTO) {
-		this.professorDTO = professorDTO;
-	}
 	
-	public TeachingDTO(long id, Date startDate, Date endDate, ProfessorDTO professorDTO) {
+	public ProfessorDTO getProfessor() {
+		return professor;
+	}
+	public void setProfessor(ProfessorDTO professor) {
+		this.professor = professor;
+	}
+	public TeachingDTO() {
+		// TODO Auto-generated constructor stub
+	}
+	public TeachingDTO(long id, Date startDate, Date endDate, ProfessorDTO professor) {
 		super();
 		this.id = id;
 		this.startDate = startDate;
 		this.endDate = endDate;
-		this.professorDTO = professorDTO;
+		this.professor = professor;
 	}
+	
+	
 	
 	
 }
