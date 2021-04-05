@@ -17,7 +17,7 @@ public class Admin {
 	private Long id;
 	
 	@OneToOne
-	@JoinColumn(name = "admin_user", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
 	private User user;
 	
 	public Admin() {

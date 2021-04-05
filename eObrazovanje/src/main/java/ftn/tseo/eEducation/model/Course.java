@@ -45,10 +45,10 @@ public class Course implements Serializable{
 	@Column(name = "ECTS", nullable = false)
 	private int ECTS;
 	
-	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, mappedBy = "course")
+	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, mappedBy = "courses")
 	private Set<Enrollment> enrollments = new HashSet<Enrollment>();
 	
-	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, mappedBy = "course")
+	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, mappedBy = "courses")
 	private Set<Teaching> teachings = new HashSet<Teaching>();
 	
 	public static long getSerialversionuid() {

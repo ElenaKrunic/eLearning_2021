@@ -35,13 +35,13 @@ public class ExamRegistrationDTO implements Serializable{
 		this.date = examReg.getExam().getExamDate();
 		this.point = examReg.getExam().getPoints();
 		this.status=examReg.isPassed();
-		obligationType=examReg.getObligationType().getName();
-		this.courseName=examReg.getExam().getEnrollment().getCourse().getTitle();
+		obligationType=examReg.getPreexamObligationType().getName();
+		this.courseName=examReg.getExam().getEnrollments().getCourses().getTitle();
 		//pitati profesora kako da se odradi ovaj deo za profesora
 //	this.courseProfessor=examReg.getExam().getEnrollment().getCourse().getTeachings().iterator().next();
 
-		this.studentId=examReg.getExam().getEnrollment().getStudent().getId();
-		this.ECTS = examReg.getExam().getEnrollment().getCourse().getECTS();
+		this.studentId=examReg.getExam().getEnrollments().getStudent().getId();
+		this.ECTS = examReg.getExam().getEnrollments().getCourses().getECTS();
 		this.finalGrade = examReg.getExam().getGrade();
 		this.paymentAmount = examReg.getExam().getExamPeriod().getPaymentAmount();
 		examDTO=new ExamDTO(examReg.getExam());

@@ -41,12 +41,12 @@ public class Exam {
 	private Set<PreexamObligation> preexamObligation= new HashSet<PreexamObligation>();
 	
 	@OneToOne
-	@JoinColumn(name = "examPeriod", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "exam_period", referencedColumnName = "id", nullable = false)
 	private ExamPeriod examPeriod;
 	
 	@ManyToOne
-	@JoinColumn(name = "enrollment", referencedColumnName = "enrollment_id", nullable = false)
-	private Enrollment enrollment;
+	@JoinColumn(name = "enrollments", referencedColumnName = "enrollment_id", nullable = false)
+	private Enrollment enrollments;
 
 	
 
@@ -66,7 +66,7 @@ public class Exam {
 		this.status = status;
 		this.preexamObligation = preexamObligation;
 		this.examPeriod = examPeriod;
-		this.enrollment = enrollment;
+//		this.enrollment = enrollment;
 	}
 
 
@@ -155,15 +155,16 @@ public class Exam {
 
 
 
-	public Enrollment getEnrollment() {
-		return enrollment;
+	public Enrollment getEnrollments() {
+		return enrollments;
 	}
 
 
 
-	public void setEnrollment(Enrollment enrollment) {
-		this.enrollment = enrollment;
+	public void setEnrollments(Enrollment enrollments) {
+		this.enrollments = enrollments;
 	}
 
-		
+
+
 }

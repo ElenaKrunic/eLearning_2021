@@ -23,9 +23,9 @@ public class ExamDTO {
 	public ExamDTO(Exam exam) {
 		super();
 		id = exam.getId();
-		courseName=exam.getEnrollment().getCourse().getTitle();
-		if(( (Set<Teaching>) exam.getEnrollment().getCourse().getTeachings().iterator().next().getProfessor()).size()>0) {
-			professorName=exam.getEnrollment().getCourse().getTeachings().iterator().next().getProfessor().getFirstName()+exam.getEnrollment().getCourse().getTeachings().iterator().next().getProfessor().getLastName();
+		courseName=exam.getEnrollments().getCourses().getTitle();
+		if(( (Set<Teaching>) exam.getEnrollments().getCourses().getTeachings().iterator().next().getProfessor()).size()>0) {
+			professorName=exam.getEnrollments().getCourses().getTeachings().iterator().next().getProfessor().getFirstName()+exam.getEnrollments().getCourses().getTeachings().iterator().next().getProfessor().getLastName();
 		}
 		
 		grade = exam.getGrade();

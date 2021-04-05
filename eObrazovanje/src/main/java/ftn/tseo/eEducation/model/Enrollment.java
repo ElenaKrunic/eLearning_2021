@@ -45,10 +45,10 @@ public class Enrollment implements Serializable{
 	private Student student;
 	
 	@ManyToOne
-    @JoinColumn(name = "course", referencedColumnName = "course_id", nullable = false)
-	private Course course;
+    @JoinColumn(name = "courses", referencedColumnName = "course_id", nullable = false)
+	private Course courses;
 	
-	@OneToMany(mappedBy="enrollment", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
+	@OneToMany(mappedBy="enrollments", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
 	private Set<Exam> exam= new HashSet<Exam>();
 
 	
@@ -82,12 +82,12 @@ public class Enrollment implements Serializable{
 
 
 
-	public Course getCourse() {
-		return course;
+	public Course getCourses() {
+		return courses;
 	}
 
-	public void setCourse(Course course) {
-		this.course = course;
+	public void setCourses(Course courses) {
+		this.courses = courses;
 	}
 
 	public Student getStudent() {

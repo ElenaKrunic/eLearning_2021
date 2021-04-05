@@ -26,9 +26,9 @@ public class ExamPeriod {
 	
 	private String name;
 	
-	private Date startDate;
+	private String startDate;
 	
-	private Date endDate;
+	private String endDate;
 	
 	private float paymentAmount;
 	
@@ -51,34 +51,7 @@ public class ExamPeriod {
 		this.name = name;
 	}
 
-	public Date getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-
-	public Date getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
-	
-
-
-
-	public Set<Exam> getExam() {
-		return exam;
-	}
-
-	public void setExam(Set<Exam> exam) {
-		this.exam = exam;
-	}
-
-	public ExamPeriod(Long id, String name, Date startDate, Date endDate, float paymentAmount, Set<Exam> exam) {
+	public ExamPeriod(Long id, String name, String startDate, String endDate, float paymentAmount, Set<Exam> exam) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -88,9 +61,20 @@ public class ExamPeriod {
 		this.exam = exam;
 	}
 
-	public ExamPeriod() {
-		super();
-		// TODO Auto-generated constructor stub
+	public String getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+
+	public String getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
 	}
 
 	public float getPaymentAmount() {
@@ -100,7 +84,19 @@ public class ExamPeriod {
 	public void setPaymentAmount(float paymentAmount) {
 		this.paymentAmount = paymentAmount;
 	}
-	
+
+	public Set<Exam> getExam() {
+		return exam;
+	}
+
+	public void setExam(Set<Exam> exam) {
+		this.exam = exam;
+	}
+
+	public ExamPeriod() {
+		super();
+	}
+
 	
 	
 

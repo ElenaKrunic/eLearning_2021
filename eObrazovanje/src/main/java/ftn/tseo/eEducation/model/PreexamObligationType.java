@@ -73,7 +73,7 @@ public class PreexamObligationType {
 	}
 
 	//veza sa preexam 
-	@OneToMany(mappedBy="obligationType",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
+	@OneToMany(mappedBy="preexamObligationType",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
 	private Set<PreexamObligation> preexamObligation = new HashSet<PreexamObligation>();
 
 	

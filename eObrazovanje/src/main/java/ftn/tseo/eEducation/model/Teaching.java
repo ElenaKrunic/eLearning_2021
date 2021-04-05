@@ -28,12 +28,12 @@ public class Teaching {
 	private Professor professor;
 	
 	@OneToOne
-	@JoinColumn(name = "course", referencedColumnName = "course_id", nullable = false)
-	private Course course;
+	@JoinColumn(name = "courses", referencedColumnName = "course_id", nullable = false)
+	private Course courses;
 	
 
 	@OneToOne
-	@JoinColumn(name = "teachingtype", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "teaching_type", referencedColumnName = "id", nullable = false)
 	private TeachingType teachingType;
 
 	public Teaching() {
@@ -45,14 +45,14 @@ public class Teaching {
 
 
 
-	public Teaching(Long id, Date startDate, Date endDate, Professor professor, Course course,
+	public Teaching(Long id, Date startDate, Date endDate, Professor professor, Course courses,
 			TeachingType teachingType) {
 		super();
 		this.id = id;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.professor = professor;
-		this.course = course;
+		this.courses = courses;
 		this.teachingType = teachingType;
 	}
 
@@ -93,13 +93,25 @@ public class Teaching {
 		this.professor = professor;
 	}
 
-	public Course getCourse() {
-		return course;
+
+
+	public Course getCourses() {
+		return courses;
 	}
 
-	public void setCourse(Course course) {
-		this.course = course;
+
+
+
+
+
+	public void setCourses(Course courses) {
+		this.courses = courses;
 	}
+
+
+
+
+
 
 	public TeachingType getTeachingType() {
 		return teachingType;
@@ -111,12 +123,5 @@ public class Teaching {
 
 
 
-	@Override
-	public String toString() {
-		return "Teaching [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", professor=" + professor
-				+ ", course=" + course + ", teachingType=" + teachingType + "]";
-	}
-	
-	
 	
 }

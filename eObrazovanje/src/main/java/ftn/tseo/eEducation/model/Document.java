@@ -33,7 +33,7 @@ public class Document {
 	
 	//veza ka tipu dokumenata 
 	@OneToOne
-	@JoinColumn(name = "documents_documentstype", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "document_type", referencedColumnName = "id", nullable = false)
 	private DocumentType documentType;
 	
 	public Document() {

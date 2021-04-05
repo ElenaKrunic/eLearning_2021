@@ -22,11 +22,11 @@ public class UserAuthority {
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name = "userAuthority_user", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
 	private User user;
 	
 	@ManyToOne
-	@JoinColumn(name = "userAuthority_authority", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "authority", referencedColumnName = "id", nullable = false)
 	private Authority authority;
 
 	
