@@ -24,7 +24,10 @@ import ftn.tseo.eEducation.model.Enrollment;
 import ftn.tseo.eEducation.model.Professor;
 import ftn.tseo.eEducation.model.Student;
 import ftn.tseo.eEducation.model.Teaching;
+import ftn.tseo.eEducation.service.CourseService;
 import ftn.tseo.eEducation.service.ProfessorService;
+import ftn.tseo.eEducation.service.StudentService;
+
 
 
 @RestController
@@ -34,6 +37,12 @@ public class ProfessorController {
 
 	@Autowired
 	ProfessorService professorService;
+	
+	@Autowired
+	CourseService courseService;
+	
+	@Autowired
+	StudentService studentService;
 
 	@RequestMapping( value="/all",method = RequestMethod.GET)
 	public ResponseEntity<List<ProfessorDTO>> getProfessors() {
@@ -89,6 +98,31 @@ public class ProfessorController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+	@RequestMapping(value = "/{id}/courses", method = RequestMethod.GET)
+	public ResponseEntity<List<CourseDTO>> getProfessorCourses(
+			@PathVariable Long id) {
+		Professor professor = professorService.findOneById(id);
+		if (professor != null){
+			courseService.findCoursesForProfessor(id);
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {		
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@RequestMapping(value = "/{id}/students", method = RequestMethod.GET)
+	public ResponseEntity<List<StudentDTO>> getProfessorStudents(
+			@PathVariable Long id) {
+		Professor professor = professorService.findOneById(id);
+		if (professor != null){
+			studentService.getEnrolledStudents(id);
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {		
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
 	
 	
 }
