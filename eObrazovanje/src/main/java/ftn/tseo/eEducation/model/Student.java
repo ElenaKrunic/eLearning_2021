@@ -69,6 +69,7 @@ public class Student {
 		return document;
 	}
 
+	
 	public void setDocument(Set<Document> document) {
 		this.document = document;
 	}

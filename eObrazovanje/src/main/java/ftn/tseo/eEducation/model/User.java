@@ -27,6 +27,7 @@ public class User {
 	
 	private String password;
 
+	
 	//veza ka user authorities 
 	//koji tip korisnika iz vezne tabele 
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)

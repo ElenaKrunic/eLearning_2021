@@ -25,6 +25,7 @@ public class PreexamObligationType {
 	
 	private String name;
 	
+	
 	private String code;
 
 	public PreexamObligationType() {

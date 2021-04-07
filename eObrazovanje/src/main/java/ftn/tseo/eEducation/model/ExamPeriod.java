@@ -27,8 +27,12 @@ public class ExamPeriod {
 	
 	private String name;
 	
+
 	private Date startDate;
+
 	
+
+
 	private Date endDate;
 	
 	private float paymentAmount;

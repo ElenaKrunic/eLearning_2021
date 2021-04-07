@@ -21,11 +21,12 @@ public class Payment {
 	
 	private Date dateOfPayment;
 	
+	
 	private String paymentDescription;
 	
 	private float paymentAmount;
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "financialCard", referencedColumnName = "id", nullable = false)
 	private FinancialCard financialCard;
 

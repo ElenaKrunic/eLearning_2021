@@ -25,6 +25,7 @@ public class PreexamObligation {
 	
 	private float points;
 
+	
 	private String location;
 	
 	private Date dateOfObligation;

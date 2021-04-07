@@ -24,7 +24,8 @@ public class PayOut {
 	
 	private float payOutAmount;
 	
-	@ManyToOne
+
+	@OneToOne
 	@JoinColumn(name = "financialCard", referencedColumnName = "id", nullable = false)
 	private FinancialCard financialCard;
 
