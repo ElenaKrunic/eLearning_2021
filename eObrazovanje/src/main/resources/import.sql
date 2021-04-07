@@ -15,9 +15,9 @@ INSERT INTO user_authority (id, authority,user) VALUES (2, 2,2);
 INSERT INTO user_authority (id, authority,user) VALUES (3, 3,3);
 
 
-INSERT INTO admin (id) VALUES (1);
+INSERT INTO admin (id,user) VALUES (1,1);
 
-INSERT INTO professor (id, first_name,last_name) VALUES (1, 'Sima','Popovic');
+INSERT INTO professor (id, first_name,last_name,user) VALUES (1, 'Sima','Popovic',2);
 
 
 
@@ -49,8 +49,8 @@ INSERT INTO student (id, account_number,card_amount,card_number,email,first_name
 --INSERT INTO teaching_type (id, code,name) VALUES (2, 'TA','teacher assistant');
 --INSERT INTO teaching_type (id, code,name) VALUES (3, 'LA','laboratory assistant');
 --
---INSERT INTO teaching (id, end_date,start_date,course,professor,teachingtype) VALUES (1, '2015-11-05','2013-11-05',1,1,1);
---INSERT INTO teaching (id, end_date,start_date,course,professor,teachingtype) VALUES (2, '2015-11-05','2013-11-05',2,1,2);
+--INSERT INTO teaching (id, end_date,start_date,courses,professor,teaching_type) VALUES (1, '2015-11-05','2013-11-05',1,1,1);
+--INSERT INTO teaching (id, end_date,start_date,courses,professor,teaching_type) VALUES (2, '2015-11-05','2013-11-05',2,1,2);
 --
 --INSERT INTO enrollments (enrollment_id, enrollment_end_date,enrollment_start_date,courses,student) VALUES (1, '2015-11-05','2013-11-05',1,1);
 --INSERT INTO enrollments (enrollment_id, enrollment_end_date,enrollment_start_date,courses,student) VALUES (2, '2015-11-05','2013-11-05',2,1);
@@ -82,6 +82,4 @@ INSERT INTO student (id, account_number,card_amount,card_number,email,first_name
 --INSERT INTO preexam_obligation (id, date_of_obligation,location,passed,points,exam,preexam_obligation_status,preexam_obligation_type,student_id) VALUES (3, '2015-01-11','NTP',true,71.00,2,1,2,1);
 --
 --
---INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (1, '2015-01-11',8,71.00,true,1);
---INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (2, '2016-01-12',8,71.00,false,2);
---INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (3, '2016-02-11',8,71.00,true,2);
+--

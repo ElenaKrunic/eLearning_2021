@@ -63,5 +63,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+	
 </project>
