@@ -17,10 +17,12 @@ public class Admin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-//	
-//	@OneToOne
-//	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
-//	private User user;
+	
+	
+	
+	@OneToOne
+	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
+	private User user;
 	
 	public Admin() {
 		super();
