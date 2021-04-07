@@ -18,6 +18,8 @@ public class Admin {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	
+	
 	@OneToOne
 	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
 	private User user;
