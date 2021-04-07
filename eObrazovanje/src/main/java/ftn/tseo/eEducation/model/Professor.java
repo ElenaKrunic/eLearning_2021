@@ -17,10 +17,10 @@ public class Professor {
 	private String firstName;
 	private String lastName;
 	
-	@OneToOne
-	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
-	private User user;
-	
+//	@OneToOne
+//	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
+//	private User user;
+//	
 	
 
 	public Professor() {
@@ -34,7 +34,7 @@ public class Professor {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.user = user;
+//		this.user = user;
 	}
 
 
@@ -74,21 +74,21 @@ public class Professor {
 	}
 
 
-
-	public User getUser() {
-		return user;
-	}
-
-
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	
-	
-	
-	
-	
+//
+//	public User getUser() {
+//		return user;
+//	}
+//
+//
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
+//
+//	
+//	
+//	
+//	
+//	
 
 }
