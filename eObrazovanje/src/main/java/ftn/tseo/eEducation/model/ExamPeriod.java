@@ -10,8 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.OneToMany;
 
 /**
@@ -28,29 +27,14 @@ public class ExamPeriod {
 	
 	private String name;
 	
-	private String startDate;
+	private Date startDate;
 	
-	private String endDate;
+	private Date endDate;
 	
 	private float paymentAmount;
 	
-	@ManyToOne
-	@JoinColumn(name="exam", referencedColumnName="id",nullable=false)
-	private Exam exam;
-
-	public ExamPeriod() {
-		super();
-	}
-
-	public ExamPeriod(Long id, String name, String startDate, String endDate, float paymentAmount, Exam exam) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.paymentAmount = paymentAmount;
-		this.exam = exam;
-	}
+	@OneToMany(mappedBy="examPeriod", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
+	private Set<Exam> exam= new HashSet<Exam>();
 
 	public Long getId() {
 		return id;
@@ -68,19 +52,29 @@ public class ExamPeriod {
 		this.name = name;
 	}
 
-	public String getStartDate() {
+	public ExamPeriod(Long id, String name, Date startDate, Date endDate, float paymentAmount, Set<Exam> exam) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.paymentAmount = paymentAmount;
+		this.exam = exam;
+	}
+
+	public 	Date getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(String startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 
-	public String getEndDate() {
+	public Date getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(String endDate) {
+	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
 
@@ -92,13 +86,19 @@ public class ExamPeriod {
 		this.paymentAmount = paymentAmount;
 	}
 
-	public Exam getExam() {
+	public Set<Exam> getExam() {
 		return exam;
 	}
 
-	public void setExam(Exam exam) {
+	public void setExam(Set<Exam> exam) {
 		this.exam = exam;
 	}
 
+	public ExamPeriod() {
+		super();
+	}
+
 	
+	
+
 }
