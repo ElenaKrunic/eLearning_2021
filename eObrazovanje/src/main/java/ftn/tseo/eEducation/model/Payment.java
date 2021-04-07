@@ -20,6 +20,7 @@ public class Payment {
 	
 	private Date dateOfPayment;
 	
+	
 	private String paymentDescription;
 	
 	private float paymentAmount;

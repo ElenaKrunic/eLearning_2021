@@ -25,6 +25,7 @@ public class Authority {
 	
 	String name;
 	
+	
 	@OneToMany(mappedBy = "authority", fetch = FetchType.LAZY, cascade= CascadeType.REFRESH)
 	private Set<UserAuthority> userAuthorities= new HashSet<UserAuthority>();
 

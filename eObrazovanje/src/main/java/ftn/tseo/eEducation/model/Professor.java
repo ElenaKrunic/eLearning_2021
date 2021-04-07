@@ -17,6 +17,7 @@ public class Professor {
 	private String firstName;
 	private String lastName;
 	
+	
 	@OneToOne
 	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
 	private User user;

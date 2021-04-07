@@ -27,6 +27,7 @@ public class TypeOfFinancing {
 	@OneToMany(mappedBy="typeOfFinancing",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
 	private Set<Student> students=new HashSet<Student>();
 
+	
 	public TypeOfFinancing(Long id, String name, String code, Set<Student> students) {
 		super();
 		this.id = id;

@@ -25,7 +25,9 @@ public class TeachingType {
 	public TeachingType() {
 		super();
 	}
+	
 
+	
 	public TeachingType(Long id, String name, String code) {
 		super();
 		this.id = id;

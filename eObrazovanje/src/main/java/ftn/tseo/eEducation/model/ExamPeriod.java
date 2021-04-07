@@ -26,6 +26,7 @@ public class ExamPeriod {
 	
 	private String name;
 	
+	
 	private String startDate;
 	
 	private String endDate;

@@ -27,6 +27,7 @@ public class FinancialCard {
 	private float totalPayout;
 	private float totalCost;
 	
+	
 	@OneToOne
 	@JoinColumn(name = "student", referencedColumnName = "id", nullable = false)
 	private Student student;
