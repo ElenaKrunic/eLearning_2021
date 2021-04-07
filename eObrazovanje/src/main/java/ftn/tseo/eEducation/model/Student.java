@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -45,8 +46,8 @@ public class Student {
 	//testno 
 	private Double cardAmount; 
 	
-	@OneToOne
-	@JoinColumn(name = "typeOfFinancing", referencedColumnName = "id", nullable = false)
+	@ManyToOne
+	@JoinColumn(name = "type_of_financing", referencedColumnName = "id", nullable = false)
 	private TypeOfFinancing typeOfFinancing;
 	
 	@OneToMany(mappedBy="student" ,fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
@@ -59,10 +60,7 @@ public class Student {
 	@OneToMany(mappedBy="student",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
 	private Set<Document> document=new HashSet<Document>();
 	
-	@OneToOne
-	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
-	private User user;
-	
+
 	//testna 
 	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<PreexamObligation> preexamObligation;
@@ -89,8 +87,8 @@ public class Student {
 
 	public Student(Long id, String cardNumber, String firstName, String lastName, String phoneNumber, String email,
 			String umnc, int startedCollegeIn, int modelNumber, String referenceNumber, String accountNumber,
-			TypeOfFinancing typeOfFinancing, Set<Enrollment> enrollments, Set<FinancialCard> financialCards,
-			Set<Document> documents, User user) {
+			Double cardAmount, TypeOfFinancing typeOfFinancing, Set<Enrollment> enrollments,
+			Set<FinancialCard> financialCards, Set<Document> document, Set<PreexamObligation> preexamObligation) {
 		super();
 		this.id = id;
 		this.cardNumber = cardNumber;
@@ -103,11 +101,12 @@ public class Student {
 		this.modelNumber = modelNumber;
 		this.referenceNumber = referenceNumber;
 		this.accountNumber = accountNumber;
+		this.cardAmount = cardAmount;
 		this.typeOfFinancing = typeOfFinancing;
 		this.enrollments = enrollments;
 		this.financialCards = financialCards;
-//		this.documents = documents;
-		this.user = user;
+		this.document = document;
+		this.preexamObligation = preexamObligation;
 	}
 
 	public Long getId() {
@@ -198,6 +197,14 @@ public class Student {
 		this.accountNumber = accountNumber;
 	}
 
+	public Double getCardAmount() {
+		return cardAmount;
+	}
+
+	public void setCardAmount(Double cardAmount) {
+		this.cardAmount = cardAmount;
+	}
+
 	public TypeOfFinancing getTypeOfFinancing() {
 		return typeOfFinancing;
 	}
@@ -222,38 +229,4 @@ public class Student {
 		this.financialCards = financialCards;
 	}
 
-//	public Set<Document> getDocuments() {
-//		return documents;
-//	}
-//
-//	public void setDocuments(Set<Document> documents) {
-//		this.documents = documents;
-//	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-//
-//	@Override
-//	public String toString() {
-//		return "Student [id=" + id + ", cardNumber=" + cardNumber + ", firstName=" + firstName + ", lastName="
-//				+ lastName + ", phoneNumber=" + phoneNumber + ", email=" + email + ", umnc=" + umnc
-//				+ ", startedCollegeIn=" + startedCollegeIn + ", modelNumber=" + modelNumber + ", referenceNumber="
-//				+ referenceNumber + ", accountNumber=" + accountNumber + ", typeOfFinancing=" + typeOfFinancing
-//				+ ", enrollments=" + enrollments + ", financialCards=" + financialCards + ", documents=" + documents
-//				+ ", user=" + user + "]";
-//	}
-//	
-
-	public Double getCardAmount() {
-		return cardAmount;
-	}
-
-	public void setCardAmount(Double cardAmount) {
-		this.cardAmount = cardAmount;
-	}
 }

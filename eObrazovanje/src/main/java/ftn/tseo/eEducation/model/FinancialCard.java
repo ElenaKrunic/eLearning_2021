@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -27,7 +28,7 @@ public class FinancialCard {
 	private float totalPayout;
 	private float totalCost;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "student", referencedColumnName = "id", nullable = false)
 	private Student student;
 	
