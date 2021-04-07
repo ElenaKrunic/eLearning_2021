@@ -40,9 +40,8 @@ public class Exam {
 	@OneToMany(mappedBy="exam", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
 	private Set<PreexamObligation> preexamObligation= new HashSet<PreexamObligation>();
 	
-	@OneToOne
-	@JoinColumn(name = "exam_period", referencedColumnName = "id", nullable = false)
-	private ExamPeriod examPeriod;
+	@OneToMany(mappedBy = "exam",  fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
+	private Set<ExamPeriod> examPeriod= new HashSet<ExamPeriod>();
 	
 	@ManyToOne
 	@JoinColumn(name = "enrollments", referencedColumnName = "enrollment_id", nullable = false)
@@ -57,7 +56,7 @@ public class Exam {
 
 
 	public Exam(Long id, int grade, float points, Date examDate, boolean status,
-			Set<PreexamObligation> preexamObligation, ExamPeriod examPeriod, Enrollment enrollment) {
+			Set<PreexamObligation> preexamObligation, Set<ExamPeriod> examPeriod, Enrollment enrollments) {
 		super();
 		this.id = id;
 		this.grade = grade;
@@ -66,7 +65,7 @@ public class Exam {
 		this.status = status;
 		this.preexamObligation = preexamObligation;
 		this.examPeriod = examPeriod;
-//		this.enrollment = enrollment;
+		this.enrollments = enrollments;
 	}
 
 
@@ -143,13 +142,13 @@ public class Exam {
 
 
 
-	public ExamPeriod getExamPeriod() {
+	public Set<ExamPeriod> getExamPeriod() {
 		return examPeriod;
 	}
 
 
 
-	public void setExamPeriod(ExamPeriod examPeriod) {
+	public void setExamPeriod(Set<ExamPeriod> examPeriod) {
 		this.examPeriod = examPeriod;
 	}
 
@@ -164,6 +163,10 @@ public class Exam {
 	public void setEnrollments(Enrollment enrollments) {
 		this.enrollments = enrollments;
 	}
+
+
+
+
 
 
 

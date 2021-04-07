@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.OneToMany;
 
 /**
@@ -26,9 +27,9 @@ public class ExamPeriod {
 	
 	private String name;
 	
-	private String startDate;
+	private Date startDate;
 	
-	private String endDate;
+	private Date endDate;
 	
 	private float paymentAmount;
 	
@@ -51,7 +52,7 @@ public class ExamPeriod {
 		this.name = name;
 	}
 
-	public ExamPeriod(Long id, String name, String startDate, String endDate, float paymentAmount, Set<Exam> exam) {
+	public ExamPeriod(Long id, String name, Date startDate, Date endDate, float paymentAmount, Set<Exam> exam) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -61,19 +62,19 @@ public class ExamPeriod {
 		this.exam = exam;
 	}
 
-	public String getStartDate() {
+	public 	Date getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(String startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 
-	public String getEndDate() {
+	public Date getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(String endDate) {
+	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
 
