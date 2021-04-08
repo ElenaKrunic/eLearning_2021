@@ -58,7 +58,7 @@ public class ExamService {
 		List<Exam> examsForRegistration = new ArrayList<>();
 		
 		for(Exam exam : exams) {
-			List<PreexamObligation> preexamObligations = preexamRepository.getLatestResults(student, exam.getEnrollment().getCourse().getId(), new Date());
+			List<PreexamObligation> preexamObligations = preexamRepository.getLatestResults(student, exam.getEnrollments().getCourses().getId(), new Date());
 			
 			if(((exam.getPreexamObligation().size()) != preexamObligations.size())) 
 					continue;
@@ -79,10 +79,10 @@ public class ExamService {
 public Exam register(ExamRegistrationDTO dto) {
 		
 		Exam exam = findOne(dto.getId()); 
-		Student student = studentRepository.getOne(dto.getStudent());
+		Student student = studentRepository.getOne(dto.getStudentId());
 		
 		if(exam == null || student == null || student.getCardAmount() == null || student.getCardAmount() < 200 || 
-				exam.getPreexamObligation().size() != preexamRepository.getLatestResults(student, exam.getEnrollment().getCourse().getId(), new java.util.Date()).size()) {
+				exam.getPreexamObligation().size() != preexamRepository.getLatestResults(student, exam.getEnrollments().getCourses().getId(), new java.util.Date()).size()) {
 			return null;
 		}
 		
@@ -95,13 +95,13 @@ public Exam register(ExamRegistrationDTO dto) {
 			return null;
 		}
 		
-		if(exam.getPoints() == null) {
+		if(exam.getPoints() == 0) {
 			exam.setPoints(0F);
 		}
 		
 		student.setCardAmount(student.getCardAmount() - 200);
 		
-		for(PreexamObligation preexamObligation : preexamRepository.getLatestResults(student, exam.getEnrollment().getCourse().getId(), new java.util.Date())) {
+		for(PreexamObligation preexamObligation : preexamRepository.getLatestResults(student, exam.getEnrollments().getCourses().getId(), new java.util.Date())) {
 			if(!preexamObligation.isPassed()) {
 				return null; 
 			}

@@ -99,7 +99,7 @@ public class StudentController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-	@RequestMapping(method=RequestMethod.POST, consumes="application/json")
+/*	@RequestMapping(method=RequestMethod.POST, consumes="application/json")
 	public ResponseEntity<ExamRegistrationDTO> registerExam(@RequestBody ExamRegistrationDTO dto) {
 		
 		Exam exam = new Exam(); 
@@ -109,7 +109,7 @@ public class StudentController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		return new ResponseEntity<>(new ExamRegistrationDTO(exam), HttpStatus.CREATED);
-	}
+	}*/
 	
 	@GetMapping(value="/{studentId}/exams-current")
 	private List<ExamDTO> getCurrentExamsForStudent(@PathVariable("studentId") Long id) {

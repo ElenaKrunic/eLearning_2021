@@ -47,19 +47,19 @@ INSERT INTO teaching_type (id, code,name) VALUES (1, 'LE','lecturer');
 INSERT INTO teaching_type (id, code,name) VALUES (2, 'TA','teacher assistant');
 INSERT INTO teaching_type (id, code,name) VALUES (3, 'LA','laboratory assistant');
 
-INSERT INTO teaching (id, end_date,start_date,course,professor,teachingtype) VALUES (1, '2015-11-05','2013-11-05',1,1,1);
-INSERT INTO teaching (id, end_date,start_date,course,professor,teachingtype) VALUES (2, '2015-11-05','2013-11-05',2,1,2);
+INSERT INTO teaching (id, end_date,start_date,courses,professor,teaching_type) VALUES (1, '2015-11-05','2013-11-05',1,1,1);
+INSERT INTO teaching (id, end_date,start_date,courses,professor,teaching_type) VALUES (2, '2015-11-05','2013-11-05',2,1,2);
 
 INSERT INTO enrollments (enrollment_id, enrollment_end_date,enrollment_start_date,courses,student) VALUES (1, '2015-11-05','2013-11-05',1,1);
 INSERT INTO enrollments (enrollment_id, enrollment_end_date,enrollment_start_date,courses,student) VALUES (2, '2015-11-05','2013-11-05',2,1);
 
-INSERT INTO exam_period (id, end_date,name,payment_amount,start_date) VALUES (1, '10-02','january',200.0,'10-01');
-INSERT INTO exam_period (id, end_date,name,payment_amount,start_date) VALUES (2, '20-02','february',200.0,'11-02');
-INSERT INTO exam_period (id, end_date,name,payment_amount,start_date) VALUES (3, '10-04','april',200.0,'05-04');
-INSERT INTO exam_period (id, end_date,name,payment_amount,start_date) VALUES (4, '10-07','june',200.0,'10-06');
-INSERT INTO exam_period (id, end_date,name,payment_amount,start_date) VALUES (5, '20-07','july',200.0,'11-07');
-INSERT INTO exam_period (id, end_date,name,payment_amount,start_date) VALUES (6, '20-09','september',200.0,'10-09');
-INSERT INTO exam_period (id, end_date,name,payment_amount,start_date) VALUES (7, '20-10','october',200.0,'11-10');
+INSERT INTO exam_period (id, end_date,name,payment_amount,start_date) VALUES (1, '2020-02-10','january',200.0,'2020-01-10');
+INSERT INTO exam_period (id, end_date,name,payment_amount,start_date) VALUES (2, '2020-02-20','february',200.0,'2020-02-11');
+INSERT INTO exam_period (id, end_date,name,payment_amount,start_date) VALUES (3, '2020-04-20','april',200.0,'2020-05-04');
+INSERT INTO exam_period (id, end_date,name,payment_amount,start_date) VALUES (4, '2020-10-07','june',200.0,'10-06-2020');
+INSERT INTO exam_period (id, end_date,name,payment_amount,start_date) VALUES (5, '2020-20-07','july',200.0,'2020-11-07');
+INSERT INTO exam_period (id, end_date,name,payment_amount,start_date) VALUES (6, '2020-20-09','september',200.0,'2020-10-09');
+INSERT INTO exam_period (id, end_date,name,payment_amount,start_date) VALUES (7, '2020-20-10','october',200.0,'2020-11-10');
 
 INSERT INTO preexam_obligation_status (id, code,name) VALUES (1, 'NA','not appeared');
 INSERT INTO preexam_obligation_status (id, code,name) VALUES (2, 'FA','failed');

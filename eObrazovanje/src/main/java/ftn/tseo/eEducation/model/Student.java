@@ -46,7 +46,7 @@ public class Student {
 	private Double cardAmount; 
 	
 	@OneToOne
-	@JoinColumn(name = "typeOfFinancing", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "type_of_financing", referencedColumnName = "id", nullable = false)
 	private TypeOfFinancing typeOfFinancing;
 	
 	@OneToMany(mappedBy="student" ,fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
@@ -67,13 +67,13 @@ public class Student {
 	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<PreexamObligation> preexamObligation;
 
-	public Set<Document> getDocument() {
+	/*public Set<Document> getDocument() {
 		return document;
 	}
 
 	public void setDocument(Set<Document> document) {
 		this.document = document;
-	}
+	}*/
 
 	public Set<PreexamObligation> getPreexamObligation() {
 		return preexamObligation;
