@@ -64,14 +64,14 @@ public class Student {
 	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<PreexamObligation> preexamObligation;
 
-	public Set<Document> getDocument() {
+	/*public Set<Document> getDocument() {
 		return document;
 	}
 
 	
 	public void setDocument(Set<Document> document) {
 		this.document = document;
-	}
+	}*/
 
 	public Set<PreexamObligation> getPreexamObligation() {
 		return preexamObligation;
