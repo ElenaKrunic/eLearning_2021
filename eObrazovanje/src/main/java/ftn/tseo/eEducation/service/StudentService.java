@@ -96,10 +96,10 @@ public class StudentService {
 		if(exam != null && student != null) {
 			PreexamObligation examReg = new PreexamObligation();
 			examReg.setExam(exam);
-			examReg.setExamObligationStatus(null);
+			examReg.setPreexamObligationStatus(null);
 			examReg.setLocation(location);
 			examReg.setPoints(points);
-			examReg.setObligationType(null);
+			examReg.setPreexamObligationType(null);
 			
 			preExamRepo.save(examReg);
 			
