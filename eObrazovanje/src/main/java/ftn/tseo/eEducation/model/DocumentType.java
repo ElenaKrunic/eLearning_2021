@@ -34,6 +34,7 @@ public class DocumentType {
 	public DocumentType() {
 		super();
 	}
+	
 
 	public DocumentType(Long id, String name, String code, Set<Document> documents) {
 		super();

@@ -12,9 +12,13 @@ import javax.persistence.OneToOne;
 @Entity
 public class Admin {
 	
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	
 	
 	@OneToOne
 	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
@@ -28,7 +32,7 @@ public class Admin {
 	public Admin(Long id, User user) {
 		super();
 		this.id = id;
-		this.user = user;
+//		this.user = user;
 	}
 
 
@@ -45,20 +49,16 @@ public class Admin {
 		this.id = id;
 	}
 
-	public User getUser() {
-		return user;
-	}
+//	public User getUser() {
+//		return user;
+//	}
+//
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
 
 
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Admin [id=" + id + ", user=" + user + "]";
-	}
 	
 	
 

@@ -27,6 +27,7 @@ public class Teaching {
 	@JoinColumn(name = "professor", referencedColumnName = "id", nullable = false)
 	private Professor professor;
 	
+	
 	@OneToOne
 	@JoinColumn(name = "courses", referencedColumnName = "course_id", nullable = false)
 	private Course courses;

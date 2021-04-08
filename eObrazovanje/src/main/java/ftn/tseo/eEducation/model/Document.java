@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 /**
@@ -27,18 +28,21 @@ public class Document {
 	private String url;
 	
 	//veza ka studentu 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "student", referencedColumnName = "id", nullable = false)
 	private Student student;
 	
 	//veza ka tipu dokumenata 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "document_type", referencedColumnName = "id", nullable = false)
 	private DocumentType documentType;
 	
 	public Document() {
 		super();
 	} 
+	
+	
+	
 
 	public Long getId() {
 		return id;
