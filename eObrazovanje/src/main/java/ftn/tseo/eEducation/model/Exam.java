@@ -40,9 +40,10 @@ public class Exam {
 	@OneToMany(mappedBy="exam", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
 	private Set<PreexamObligation> preexamObligation= new HashSet<PreexamObligation>();
 	
-	@OneToOne
-	@JoinColumn(name = "examPeriod",  referencedColumnName="id",nullable=false)
-	private ExamPeriod examPeriod;
+	@OneToMany
+	(mappedBy="exam", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
+	private Set<ExamPeriod> examPeriod= new HashSet<ExamPeriod>();
+	
 	
 	@ManyToOne
 	@JoinColumn(name = "enrollments", referencedColumnName = "enrollment_id", nullable = false)
@@ -128,16 +129,16 @@ public class Exam {
 
 
 
-	public ExamPeriod getExamPeriod() {
-		return examPeriod;
-	}
-
-
-
-	public void setExamPeriod(ExamPeriod examPeriod) {
-		this.examPeriod = examPeriod;
-	}
-
+//	public ExamPeriod getExamPeriod() {
+//		return examPeriod;
+//	}
+//
+//
+//
+//	public void setExamPeriod(ExamPeriod examPeriod) {
+//		this.examPeriod = examPeriod;
+//	}
+//
 
 
 	public Enrollment getEnrollments() {
@@ -161,7 +162,7 @@ public class Exam {
 		this.examDate = examDate;
 		this.status = status;
 		this.preexamObligation = preexamObligation;
-		this.examPeriod = examPeriod;
+//		this.examPeriod = examPeriod;
 		this.enrollments = enrollments;
 	}
 	

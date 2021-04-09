@@ -34,7 +34,7 @@ public class Student {
 	
 	private String umnc;
 	
-	private int startedCollegeIn;
+	private Long startedCollegeIn;
 	
 	private int modelNumber;
 	
@@ -97,7 +97,7 @@ public class Student {
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 		this.umnc = umnc;
-		this.startedCollegeIn = startedCollegeIn;
+//		this.startedCollegeIn = startedCollegeIn;
 		this.modelNumber = modelNumber;
 		this.referenceNumber = referenceNumber;
 		this.accountNumber = accountNumber;
@@ -165,13 +165,13 @@ public class Student {
 		this.umnc = umnc;
 	}
 
-	public int getStartedCollegeIn() {
-		return startedCollegeIn;
-	}
-
-	public void setStartedCollegeIn(int startedCollegeIn) {
-		this.startedCollegeIn = startedCollegeIn;
-	}
+//	public int getStartedCollegeIn() {
+//		return startedCollegeIn;
+//	}
+//
+//	public void setStartedCollegeIn(int startedCollegeIn) {
+//		this.startedCollegeIn = startedCollegeIn;
+//	}
 
 	public int getModelNumber() {
 		return modelNumber;
