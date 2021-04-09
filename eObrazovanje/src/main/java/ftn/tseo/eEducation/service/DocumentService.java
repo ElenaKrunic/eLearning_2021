@@ -3,10 +3,11 @@ package ftn.tseo.eEducation.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import ftn.tseo.eEducation.model.Document;
 import ftn.tseo.eEducation.repository.DocumentRepository;
-
+@Service
 public class DocumentService {
 	@Autowired
 	DocumentRepository documentRepository;
