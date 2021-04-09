@@ -1,8 +1,8 @@
 package ftn.tseo.eEducation.model;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,7 +32,7 @@ public class Admin {
 	public Admin(Long id, User user) {
 		super();
 		this.id = id;
-//		this.user = user;
+		this.user = user;
 	}
 
 
@@ -49,14 +49,14 @@ public class Admin {
 		this.id = id;
 	}
 
-//	public User getUser() {
-//		return user;
-//	}
-//
-//
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 
 	

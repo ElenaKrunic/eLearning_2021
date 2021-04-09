@@ -31,7 +31,7 @@ public class ExamDTO {
 		grade = exam.getGrade();
 		points = exam.getPoints();
 		examDate = exam.getExamDate();
-		examPeriodDTO=new ExamPeriodDTO(exam.getExamPeriod());
+		examPeriodDTO=new ExamPeriodDTO(exam.getExamPeriod().iterator().next());
 		
 	}
 	public Long getId() {

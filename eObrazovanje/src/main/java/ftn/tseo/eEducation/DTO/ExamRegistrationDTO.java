@@ -2,12 +2,11 @@ package ftn.tseo.eEducation.DTO;
 
 import java.io.Serializable;
 import java.sql.Date;
-
-
-
+import java.util.Set;
 
 import ftn.tseo.eEducation.model.Exam;
 import ftn.tseo.eEducation.model.PreexamObligation;
+import ftn.tseo.eEducation.model.Teaching;
 
 
 public class ExamRegistrationDTO implements Serializable{
@@ -40,10 +39,20 @@ public class ExamRegistrationDTO implements Serializable{
 		//pitati profesora kako da se odradi ovaj deo za profesora
 //	this.courseProfessor=examReg.getExam().getEnrollment().getCourse().getTeachings().iterator().next();
 
+		
+		if( ( examReg.getExam().getEnrollments().getCourses().getTeachings().iterator().next().getProfessor().equals(null))) {
+			this.courseProfessor = "";
+			
+				}
+		else {
+			this.courseProfessor=examReg.getExam().getEnrollments().getCourses().getTeachings().iterator().next().getProfessor().getFirstName() +examReg.getExam().getEnrollments().getCourses().getTeachings().iterator().next().getProfessor().getLastName();
+			
+			
+		}
 		this.studentId=examReg.getExam().getEnrollments().getStudent().getId();
 		this.ECTS = examReg.getExam().getEnrollments().getCourses().getECTS();
 		this.finalGrade = examReg.getExam().getGrade();
-		this.paymentAmount = examReg.getExam().getExamPeriod().getPaymentAmount();
+		this.paymentAmount = examReg.getExam().getExamPeriod().iterator().next().getPaymentAmount();
 		examDTO=new ExamDTO(examReg.getExam());
 	}
 

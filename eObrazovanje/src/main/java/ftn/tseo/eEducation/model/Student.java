@@ -64,14 +64,14 @@ public class Student {
 	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<PreexamObligation> preexamObligation;
 
-	/*public Set<Document> getDocument() {
+	public Set<Document> getDocument() {
 		return document;
 	}
 
 	
 	public void setDocument(Set<Document> document) {
 		this.document = document;
-	}*/
+	}
 
 	public Set<PreexamObligation> getPreexamObligation() {
 		return preexamObligation;
@@ -86,7 +86,7 @@ public class Student {
 	}
 
 	public Student(Long id, String cardNumber, String firstName, String lastName, String phoneNumber, String email,
-			String umnc, int startedCollegeIn, int modelNumber, String referenceNumber, String accountNumber,
+			String umnc, Long startedCollegeIn, int modelNumber, String referenceNumber, String accountNumber,
 			Double cardAmount, TypeOfFinancing typeOfFinancing, Set<Enrollment> enrollments,
 			Set<FinancialCard> financialCards, Set<Document> document, Set<PreexamObligation> preexamObligation) {
 		super();
@@ -97,7 +97,7 @@ public class Student {
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 		this.umnc = umnc;
-//		this.startedCollegeIn = startedCollegeIn;
+		this.startedCollegeIn = startedCollegeIn;
 		this.modelNumber = modelNumber;
 		this.referenceNumber = referenceNumber;
 		this.accountNumber = accountNumber;
@@ -165,13 +165,17 @@ public class Student {
 		this.umnc = umnc;
 	}
 
-//	public int getStartedCollegeIn() {
-//		return startedCollegeIn;
-//	}
-//
-//	public void setStartedCollegeIn(int startedCollegeIn) {
-//		this.startedCollegeIn = startedCollegeIn;
-//	}
+
+
+	public Long getStartedCollegeIn() {
+		return startedCollegeIn;
+	}
+
+
+	public void setStartedCollegeIn(Long startedCollegeIn) {
+		this.startedCollegeIn = startedCollegeIn;
+	}
+
 
 	public int getModelNumber() {
 		return modelNumber;

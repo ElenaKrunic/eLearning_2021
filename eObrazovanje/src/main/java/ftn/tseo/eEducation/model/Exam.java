@@ -13,9 +13,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
 
 /**
  * 
@@ -45,7 +46,7 @@ public class Exam {
 	private Set<ExamPeriod> examPeriod= new HashSet<ExamPeriod>();
 	
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "enrollments", referencedColumnName = "enrollment_id", nullable = false)
 	private Enrollment enrollments;
 
@@ -129,16 +130,19 @@ public class Exam {
 
 
 
-//	public ExamPeriod getExamPeriod() {
-//		return examPeriod;
-//	}
-//
-//
-//
-//	public void setExamPeriod(ExamPeriod examPeriod) {
-//		this.examPeriod = examPeriod;
-//	}
-//
+
+
+
+	public Set<ExamPeriod> getExamPeriod() {
+		return examPeriod;
+	}
+
+
+
+	public void setExamPeriod(Set<ExamPeriod> examPeriod) {
+		this.examPeriod = examPeriod;
+	}
+
 
 
 	public Enrollment getEnrollments() {
@@ -154,7 +158,7 @@ public class Exam {
 
 
 	public Exam(Long id, int grade, float points, Date examDate, boolean status,
-			Set<PreexamObligation> preexamObligation, ExamPeriod examPeriod, Enrollment enrollments) {
+			Set<PreexamObligation> preexamObligation, Set<ExamPeriod> examPeriod, Enrollment enrollments) {
 		super();
 		this.id = id;
 		this.grade = grade;
@@ -162,11 +166,13 @@ public class Exam {
 		this.examDate = examDate;
 		this.status = status;
 		this.preexamObligation = preexamObligation;
-//		this.examPeriod = examPeriod;
+		this.examPeriod = examPeriod;
 		this.enrollments = enrollments;
 	}
-	
 
+
+
+	
 
 
 	

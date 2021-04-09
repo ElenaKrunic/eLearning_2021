@@ -2,14 +2,13 @@ package ftn.tseo.eEducation.model;
 
 import java.sql.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  * 
@@ -33,15 +32,15 @@ public class PreexamObligation {
 	private boolean passed; 
 
 	//veza ka ispitu 
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "exam", referencedColumnName = "id", nullable = false)
 	private Exam exam;
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "preexam_obligation_type", referencedColumnName = "id", nullable = false)
 	private PreexamObligationType preexamObligationType;
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "preexam_obligation_status", referencedColumnName = "id", nullable = false)
 	private PreexamObligationStatus preexamObligationStatus;
 	

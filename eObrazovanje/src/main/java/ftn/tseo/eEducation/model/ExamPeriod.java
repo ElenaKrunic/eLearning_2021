@@ -1,18 +1,14 @@
 package ftn.tseo.eEducation.model;
 
 import java.sql.Date;
-import java.util.HashSet;
 import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
 
 /**
  * 
@@ -91,14 +87,15 @@ public class ExamPeriod {
 	public void setPaymentAmount(float paymentAmount) {
 		this.paymentAmount = paymentAmount;
 	}
-//
-//	public Set<Exam> getExam() {
-//		return exam;
-//	}
-//
-//	public void setExam(Set<Exam> exam) {
-//		this.exam = exam;
-//	}
+
+
+	public Exam getExam() {
+		return exam;
+	}
+
+	public void setExam(Exam exam) {
+		this.exam = exam;
+	}
 
 	public ExamPeriod() {
 		super();

@@ -103,7 +103,7 @@ public class StudentService {
 			
 			preExamRepo.save(examReg);
 			
-			float cost = exam.getExamPeriod().getPaymentAmount();
+			float cost = exam.getExamPeriod().iterator().next().getPaymentAmount();
 			FinancialCard transaction = studentRepository.findStudentFinancialCard(studentId);
 			
 			
@@ -195,8 +195,8 @@ public class StudentService {
 		
 		if(student != null) {
 			for (Exam e : allExams) {
-				if(e.getExamPeriod().getEndDate().after(currentDate) && 
-						e.getExamPeriod().getStartDate().before(currentDate)) {
+				if(e.getExamPeriod().iterator().next().getEndDate().after(currentDate) && 
+						e.getExamPeriod().iterator().next().getStartDate().before(currentDate)) {
 					
 						currentExams.add(e);
 					

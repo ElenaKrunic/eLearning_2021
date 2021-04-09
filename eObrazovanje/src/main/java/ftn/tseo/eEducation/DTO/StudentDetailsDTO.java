@@ -13,7 +13,7 @@ public class StudentDetailsDTO {
 	private String email;
 	private String phone;
 	private String umnc;
-	private int startedCollegeIn;
+	private Long startedCollegeIn;
 	private int modelNumber;
 	private String typeOfFinancing;
 	private String accountNumber;
@@ -94,11 +94,11 @@ public class StudentDetailsDTO {
 		this.umnc = umnc;
 	}
 
-	public int getStartedCollegeIn() {
+	public Long getStartedCollegeIn() {
 		return startedCollegeIn;
 	}
 
-	public void setStartedCollegeIn(int startedCollegeIn) {
+	public void setStartedCollegeIn(Long startedCollegeIn) {
 		this.startedCollegeIn = startedCollegeIn;
 	}
 
