@@ -14,6 +14,8 @@ public class StudentDTO {
 	private String email;
 	
 	private String umnc;
+	
+	private TypeOfFinancingDTO typeOfFinancing;
 
 	public StudentDTO() {
 		super();
@@ -27,6 +29,7 @@ public class StudentDTO {
 		this.phoneNumber = student.getPhoneNumber();
 		this.email = student.getEmail();
 		this.umnc = student.getUmnc();
+		this.typeOfFinancing=new  TypeOfFinancingDTO(student.getTypeOfFinancing());
 	
 	}
 
@@ -85,6 +88,14 @@ public class StudentDTO {
 
 	public void setUmnc(String umnc) {
 		this.umnc = umnc;
+	}
+
+	public TypeOfFinancingDTO getTypeOfFinancing() {
+		return typeOfFinancing;
+	}
+
+	public void setTypeOfFinancing(TypeOfFinancingDTO typeOfFinancing) {
+		this.typeOfFinancing = typeOfFinancing;
 	}
 
 	

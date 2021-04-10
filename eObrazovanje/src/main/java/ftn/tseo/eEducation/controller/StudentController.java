@@ -25,6 +25,7 @@ import ftn.tseo.eEducation.model.Exam;
 import ftn.tseo.eEducation.model.FinancialCard;
 import ftn.tseo.eEducation.model.PreexamObligation;
 import ftn.tseo.eEducation.model.Student;
+import ftn.tseo.eEducation.model.TypeOfFinancing;
 import ftn.tseo.eEducation.repository.FinancialCardRepository;
 import ftn.tseo.eEducation.repository.PreExamObligationRepository;
 import ftn.tseo.eEducation.service.ExamService;
@@ -60,7 +61,7 @@ public class StudentController {
 	 PreExamObligationService preexamObligationService; 
 	
 	@Autowired 
-	 FinancialCardService financialCardService; 
+	 FinancialCardService financialCardService;
 	
 	
 	@RequestMapping(value="/all", method = RequestMethod.GET)
@@ -89,12 +90,18 @@ public class StudentController {
 		student.setCardNumber(studentDTO.getCardNumber());
 		student.setFirstName(studentDTO.getFirstName());
 		student.setLastName(studentDTO.getLastName());
-		
+		student.setEmail(studentDTO.getEmail());
+		student.setUmnc(studentDTO.getUmnc());
+		student.setPhoneNumber(studentDTO.getPhoneNumber());
+		//fali metoda u tipu finansiranja repo koja ce da vrati jedan tip finansiranja koji se izvuce iz studentDTO i onda se taj objekat upise u set vrednost
+		//primer
+//		TypeOfFinancing typeOfFinancing =  typeOfFinancingService.findOne(studentDTO.getTypeOfFinancing().getId());
+		student.setTypeOfFinancing(typeOfFinancing);
 		student = studentService.save(student);
 		return new ResponseEntity<>(new StudentDTO(student), HttpStatus.CREATED);	
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
+	@RequestMapping(value="/{id}",method=RequestMethod.PUT, consumes="application/json")
 	public ResponseEntity<StudentDTO> updateStudent(@RequestBody StudentDTO studentDTO){
 		//a student must exist
 		Student student = studentService.findOne(studentDTO.getId()); 
