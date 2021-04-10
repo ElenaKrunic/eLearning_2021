@@ -12,7 +12,7 @@ import ftn.tseo.eEducation.model.Student;
 
 public interface PreExamObligationRepository extends JpaRepository<PreexamObligation, Long>{
 	
-    List<PreexamObligation> getLatestResults(Student student, Long courseId, java.util.Date date);
+//    List<PreexamObligation> getLatestResults(Student student, Long courseId, java.util.Date date);
 
 	
 }

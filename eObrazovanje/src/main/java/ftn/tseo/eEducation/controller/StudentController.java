@@ -22,9 +22,16 @@ import ftn.tseo.eEducation.DTO.PaymentDTO;
 import ftn.tseo.eEducation.DTO.PayoutDTO;
 import ftn.tseo.eEducation.DTO.StudentDTO;
 import ftn.tseo.eEducation.model.Exam;
+import ftn.tseo.eEducation.model.FinancialCard;
 import ftn.tseo.eEducation.model.PreexamObligation;
 import ftn.tseo.eEducation.model.Student;
+import ftn.tseo.eEducation.repository.FinancialCardRepository;
+import ftn.tseo.eEducation.repository.PreExamObligationRepository;
 import ftn.tseo.eEducation.service.ExamService;
+import ftn.tseo.eEducation.service.FinancialCardService;
+import ftn.tseo.eEducation.service.PaymentService;
+import ftn.tseo.eEducation.service.PayoutService;
+import ftn.tseo.eEducation.service.PreExamObligationService;
 import ftn.tseo.eEducation.service.StudentService;
 
 
@@ -33,13 +40,27 @@ import ftn.tseo.eEducation.service.StudentService;
 public class StudentController {
 
 	@Autowired
-	private StudentService studentService; 
+	 StudentService studentService; 
 	
 	@Autowired
-	private ExamService examService; 
+	 ExamService examService; 
+	
+	@Autowired
+	PayoutService payoutService;
+	
+	@Autowired
+	PaymentService paymentService;
+	
+	@Autowired
+	ExamService ExamService;
+	
+	
 	
 	@Autowired 
-	private PreexamObligation preexamObligationService; 
+	 PreExamObligationService preexamObligationService; 
+	
+	@Autowired 
+	 FinancialCardService financialCardService; 
 	
 	
 	@RequestMapping(value="/all", method = RequestMethod.GET)
@@ -111,40 +132,36 @@ public class StudentController {
 		return new ResponseEntity<>(new ExamRegistrationDTO(exam), HttpStatus.CREATED);
 	}*/
 	
-	@GetMapping(value="/{studentId}/exams-current")
-	private List<ExamDTO> getCurrentExamsForStudent(@PathVariable("studentId") Long id) {
-		return studentService.getCurrentExams(id);
-	}
+//	@GetMapping(value="/{studentId}/exams-current")
+//	private List<ExamDTO> getCurrentExamsForStudent(@PathVariable("studentId") Long id) {
+//		return examService.getCurrentExams(id);
+//	}
 	
 	@GetMapping(value="/{studentId}/exams")
 	private List<ExamDTO> getTakenExams(@PathVariable("studentId") Long id) {
-		return studentService.findTakenExams(id);
+		return examService.findStudentExams(id);
 	}
 	
-	@GetMapping(value="/{studentId}/financial-card")
-	private List<FinancialCardDTO> getFinancialCardInfo(@PathVariable("studentId") Long id) {
-		return studentService.getFinancialCardInfo(id);
-	}
-	
+//	@GetMapping(value="/{studentId}/financial-card")
+//	private List<FinancialCardDTO> getFinancialCardInfo(@PathVariable("studentId") Long id) {
+//		return financialCardService.getFinancialCardInfo(id);
+//	}
+//	
 	@GetMapping(value="/{studentId}/financial-card2")
 	private FinancialCardDTO getFinancialCardInfo2(@PathVariable("studentId") Long id) {
-		return studentService.findStudentFinancialCard(id);
+		return financialCardService.findStudentFinancialCard(id);
 	}
 	
-	@GetMapping(value="/{studentId}/documents")
-	private List<DocumentDTO> getDocuments(@PathVariable("studentId") Long id) {
-		return studentService.getDocumentsForStudents(id);
-	}
 	
 	@GetMapping(value="/{studentId}/financial-payment")
 	private List<PaymentDTO> getStudentPayment(@PathVariable("studentId") Long id) {
-		return studentService.getStudentFinancialCardPayment(id);
+		return paymentService.getStudentFinancialCardPayment(id);
 	}
 	
-	@GetMapping(value="/{studentId}/financial-payout")
-	private List<PayoutDTO> getStudentPayout(@PathVariable("studentId") Long id) {
-		return studentService.getStudentFinancialCardPayout(id);
-	}
+//	@GetMapping(value="/{studentId}/financial-payout")
+//	private List<PayoutDTO> getStudentPayout(@PathVariable("studentId") Long id) {
+//		return payoutService.getStudentFinancialCardPayout(id);
+//	}
 	
 	
 }

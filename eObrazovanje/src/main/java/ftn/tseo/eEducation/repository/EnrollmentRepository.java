@@ -17,11 +17,9 @@ public interface EnrollmentRepository extends JpaRepository<Enrollment, Long>{
 
 	
 	//to do pogledati kako se rade kveriji
-	@Query
-	List<Exam> getStudentExams(long id);
 	
-	
-	List<Student> findStudentsForProfessorCourse(long id);
-	
+//	
+//	List<Student> findStudentsForProfessorCourse(long id);
+//	
 	
 }

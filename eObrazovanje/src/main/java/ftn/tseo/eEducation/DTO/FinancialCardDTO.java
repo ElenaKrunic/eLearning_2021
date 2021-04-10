@@ -21,6 +21,8 @@ public class FinancialCardDTO {
 		this.totalCost = financialCard.getTotalCost();
 		this.totalPayment = financialCard.getTotalPayment();
 		this.studentDTO=new StudentDTO(financialCard.getStudent());
+		
+	
 	}
 
 	public Long getId() {

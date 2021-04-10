@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ftn.tseo.eEducation.DTO.PaymentDTO;
 import ftn.tseo.eEducation.model.FinancialCard;
 import ftn.tseo.eEducation.model.Payment;
 import ftn.tseo.eEducation.repository.PaymentRepository;
@@ -33,4 +34,15 @@ public class PaymentService {
 	public void remove(Long id) {
 		paymentRepository.deleteById(id);
 	}
+	
+
+	public List<PaymentDTO> getStudentFinancialCardPayment(Long id){
+		List<PaymentDTO> payoutDTO = new ArrayList<PaymentDTO>();
+		for (Payment p: paymentRepository.findStudentFinancialCardPayment(id)) {
+			payoutDTO.add(new PaymentDTO(p));
+		}
+		return payoutDTO;
+
+	}
+	
 }

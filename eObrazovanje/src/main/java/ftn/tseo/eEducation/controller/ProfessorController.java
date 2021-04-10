@@ -98,31 +98,31 @@ public class ProfessorController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-	
-	@RequestMapping(value = "/{id}/courses", method = RequestMethod.GET)
-	public ResponseEntity<List<CourseDTO>> getProfessorCourses(
-			@PathVariable Long id) {
-		Professor professor = professorService.findOneById(id);
-		if (professor != null){
-			courseService.findCoursesForProfessor(id);
-			return new ResponseEntity<>(HttpStatus.OK);
-		} else {		
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-	}
-	
-	@RequestMapping(value = "/{id}/students", method = RequestMethod.GET)
-	public ResponseEntity<List<StudentDTO>> getProfessorStudents(
-			@PathVariable Long id) {
-		Professor professor = professorService.findOneById(id);
-		if (professor != null){
-			studentService.getEnrolledStudents(id);
-			return new ResponseEntity<>(HttpStatus.OK);
-		} else {		
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-	}
-	
+//	
+//	@RequestMapping(value = "/{id}/courses", method = RequestMethod.GET)
+//	public ResponseEntity<List<CourseDTO>> getProfessorCourses(
+//			@PathVariable Long id) {
+//		Professor professor = professorService.findOneById(id);
+//		if (professor != null){
+//			courseService.findCoursesForProfessor(id);
+//			return new ResponseEntity<>(HttpStatus.OK);
+//		} else {		
+//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//		}
+//	}
+//	
+//	@RequestMapping(value = "/{id}/students", method = RequestMethod.GET)
+//	public ResponseEntity<List<StudentDTO>> getProfessorStudents(
+//			@PathVariable Long id) {
+//		Professor professor = professorService.findOneById(id);
+//		if (professor != null){
+//			studentService.getEnrolledStudents(id);
+//			return new ResponseEntity<>(HttpStatus.OK);
+//		} else {		
+//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//		}
+//	}
+//	
 	
 	
 }

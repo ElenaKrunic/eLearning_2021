@@ -86,157 +86,26 @@ public class StudentService {
 		return studentRepository.findAllByLastName(lastName);
 	}
 	
-	public Long registerExam(Long studentId, Long examId,String location,float points) {
-		
-		Exam exam = examRepository.findById(examId).orElse(null);
-		Student student = studentRepository.findById(studentId).orElse(null);
-		
-//		kako cu izvuci za sve ispite naziv kursa kada promenim u jpql
-//		String course=exam.getEnrollment().getCourse().getTitle();
-		if(exam != null && student != null) {
-			PreexamObligation examReg = new PreexamObligation();
-			examReg.setExam(exam);
-			examReg.setPreexamObligationStatus(null);
-			examReg.setLocation(location);
-			examReg.setPoints(points);
-			examReg.setPreexamObligationType(null);
-			
-			preExamRepo.save(examReg);
-			
-			float cost = exam.getExamPeriod().iterator().next().getPaymentAmount();
-			FinancialCard transaction = studentRepository.findStudentFinancialCard(studentId);
-			
-			
-			Payment payment=new Payment();
-			payment.setDateOfPayment(new Date(new java.util.Date().getTime()));
-			payment.setPaymentAmount((float) cost);
-			payment.setPaymentDescription("Prijava ispita");
-			payment.setFinancialCard(transaction);
-			
-			paymentRepo.save(payment);
-			
-			transaction.setPayments((Set<Payment>) payment);
-			transaction.setStudent(student);
-			transaction.setTotalCost(cost);
-			transaction.setTotalPayment(cost);
-			
-			transaction.setInitialState(transaction.getInitialState() - cost);
-			financialCardRepository.save(transaction);
-			
-			return examReg.getId();
-		}
-		return  (long) 0;
-	}
 	
 	//proveriti da li treba examDTO ili exam registration i da li je potrebno dodavati atribut bool za polozeni ispit u celosti
 	
-	public List<ExamDTO> findTakenExams(Long id) {
 	
-		Student student = studentRepository.findById(id).orElse(null);
-		
-		//pitati na osnovu upita da li se dobro izvlace podaci 
-		List<Exam> exams = new ArrayList<Exam>();
-		if(student != null) {
-			exams = studentRepository.findStudentExams(id);
-		}
-		List<ExamDTO> examsDTO = new ArrayList<ExamDTO>();
-		if(exams.size() > 0) {
-			for(Exam e : exams) {
-				examsDTO.add(new ExamDTO(e));
-			}
-		}
-		
 	
 
-		return examsDTO;
-	}
 	
-	public List<FinancialCardDTO> getFinancialCardInfo(Long id) {
-		List<FinancialCardDTO> studentsTransactions = new ArrayList<>();
-		Student student = studentRepository.findById(id).orElse(null);
-		
-		if(student != null) {
-			if(student.getFinancialCards().size() > 0) {
-				for(FinancialCard fCard : student.getFinancialCards()) {
-					studentsTransactions.add(new FinancialCardDTO(fCard));
-				}
-			}
-		}
-		
-		return studentsTransactions;
-	}
-	
-	@SuppressWarnings("unused")
-	public List<PaymentDTO> getStudentFinancialCardPayment(Long id){
-		List<PaymentDTO> payoutDTO = new ArrayList<PaymentDTO>();
-		for (Payment p: studentRepository.findStudentFinancialCardPayment(id)) {
-			payoutDTO.add(new PaymentDTO(p));
-		}
-		return payoutDTO;
 
-	}
 	
-	public FinancialCardDTO findStudentFinancialCard(Long id) {
-		
-		FinancialCard financialCardForStudent= studentRepository.findStudentFinancialCard(id);
-		FinancialCardDTO financialCardDTO=new FinancialCardDTO(financialCardForStudent);
-		return financialCardDTO;
-		
-	}
 	
 	//Check it once more
-	public List<ExamDTO> getCurrentExams(Long id) {
-		Student student = studentRepository.findById(id).orElse(null);
-		List<Exam> allExams = examRepository.findAll();
-		List<Exam> currentExams = new ArrayList<>();
-		
-//		List<Exam> examsTaken=examRepository.findStudentExams(id);
-		Date currentDate = new Date(new java.util.Date().getTime());
-		
-		if(student != null) {
-			for (Exam e : allExams) {
-				if(e.getExamPeriod().iterator().next().getEndDate().after(currentDate) && 
-						e.getExamPeriod().iterator().next().getStartDate().before(currentDate)) {
-					
-						currentExams.add(e);
-					
-				}
-			}
-			
-			
-		}
-		List<ExamDTO> currentExamsDTOs = new ArrayList<>();
-		
-		for( Exam examToDTO : currentExams) {
-			currentExamsDTOs.add(new ExamDTO(examToDTO));
-		}
-		
-		return currentExamsDTOs;
 	
-	}
-
-	public List<DocumentDTO> getDocumentsForStudents(Long id){
-		List<DocumentDTO> documentForStudent = new ArrayList<DocumentDTO>();
-		for (Document d: studentRepository.getDocumentsForStudents(id)) {
-			documentForStudent.add(new DocumentDTO(d));
-		}
-		return documentForStudent;
-	}
+	
 	
 
-	public List<PayoutDTO> getStudentFinancialCardPayout(Long id){
-		List<PayoutDTO> payoutDTO = new ArrayList<PayoutDTO>();
-		for (PayOut p: studentRepository.getStudentFinancialCardPayout(id)) {
-			payoutDTO.add(new PayoutDTO(p));
-		}
-		return payoutDTO;
-
-	}
 	
-	// mislim da nije dobro
-		public List<Student> getEnrolledStudents(long id) {
-			Professor professor= professorRepository.findById(id).orElse(null);
-				return studentRepository.getEnrolledStudentsInProfessorsCourse(id);
-		}
-		
+//	// mislim da nije dobro
+//		public List<Student> getEnrolledStudents(long id) {
+//			Professor professor= professorRepository.findById(id).orElse(null);
+//				return studentRepository.getEnrolledStudentsInProfessorsCourse(id);
+//		}
+//		
 }
