@@ -190,4 +190,7 @@ public class StudentController {
 		return enrollmentService.findEnrollmentForStudent(id);
 	}
 	
+	
+	//implementirati getStudentByStudyProgramAndCardNumber --> Elena 
+	
 }
