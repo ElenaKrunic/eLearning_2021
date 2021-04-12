@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import ftn.tseo.eEducation.DTO.PaymentDTO;
 import ftn.tseo.eEducation.model.FinancialCard;
 import ftn.tseo.eEducation.model.Payment;
+import ftn.tseo.eEducation.model.Student;
 import ftn.tseo.eEducation.repository.PaymentRepository;
 
 @Service
@@ -38,7 +39,7 @@ public class PaymentService {
 
 	public List<PaymentDTO> getStudentFinancialCardPayment(Long id){
 		List<PaymentDTO> payoutDTO = new ArrayList<PaymentDTO>();
-		for (Payment p: paymentRepository.findStudentFinancialCardPayment(id)) {
+		for (Payment p: paymentRepository.findPaymentForFinancialCard(id)) {
 			payoutDTO.add(new PaymentDTO(p));
 		}
 		return payoutDTO;

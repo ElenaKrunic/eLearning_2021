@@ -29,10 +29,13 @@ public class DocumentService {
 	public void remove(Long id) {
 		documentRepository.deleteById(id);
 	}
-	public List<DocumentDTO> getDocumentsForStudents(Long id){
-		List<DocumentDTO> documentForStudent = new ArrayList<DocumentDTO>();
-		for (Document d: documentRepository.getDocumentsForStudents(id)) {
-			documentForStudent.add(new DocumentDTO(d));
+	public List<DocumentDTO> findDocumentsForStudents(Long id){
+		List<DocumentDTO> documentForStudent = new ArrayList<>();
+		List<Document> documents=documentRepository.findDocumentByStudentId(id);
+		if(documents!=null) {
+			for (Document d: documents) {
+				documentForStudent.add(new DocumentDTO(d));
+			}
 		}
 		return documentForStudent;
 	}

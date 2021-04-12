@@ -14,6 +14,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity
 public class Student {
 	
@@ -44,6 +47,8 @@ public class Student {
 	
 	//testno 
 	private Double cardAmount; 
+	
+	
 	
 	@OneToOne
 	@JoinColumn(name = "type_of_financing", referencedColumnName = "id", nullable = false)

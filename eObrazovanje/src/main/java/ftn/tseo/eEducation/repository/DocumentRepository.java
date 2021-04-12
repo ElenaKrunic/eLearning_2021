@@ -9,7 +9,7 @@ import ftn.tseo.eEducation.model.Document;
 
 
 public interface DocumentRepository extends JpaRepository<Document, Long>{
-	 @Query(value = "SELECT d FROM Student s LEFT OUTER JOIN Document d WHERE s.id = :id")
-	 List<Document> getDocumentsForStudents(Long id);
+//	 @Query(value = "SELECT d FROM Student s LEFT OUTER JOIN Document d WHERE s.id = :id")
+	 List<Document> findDocumentByStudentId(Long id);
 	    
 }

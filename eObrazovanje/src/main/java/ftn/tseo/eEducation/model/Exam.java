@@ -17,6 +17,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 
 /**
  * 
@@ -48,6 +51,7 @@ public class Exam {
 	
 	@OneToOne
 	@JoinColumn(name = "enrollments", referencedColumnName = "enrollment_id", nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Enrollment enrollments;
 
 	

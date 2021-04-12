@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 
 /**
  * 
@@ -29,6 +32,7 @@ public class Document {
 	//veza ka studentu 
 	@ManyToOne
 	@JoinColumn(name = "student", referencedColumnName = "id", nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Student student;
 	
 	//veza ka tipu dokumenata 

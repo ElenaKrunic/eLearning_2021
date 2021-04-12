@@ -13,6 +13,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity
 public class FinancialCard {
 	
@@ -30,6 +33,7 @@ public class FinancialCard {
 
 	@OneToOne
 	@JoinColumn(name = "student", referencedColumnName = "id", nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Student student;
 	
 	@OneToMany(mappedBy="financialCard",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)

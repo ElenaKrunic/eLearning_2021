@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,24 +16,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ftn.tseo.eEducation.DTO.DocumentDTO;
 import ftn.tseo.eEducation.DTO.ExamDTO;
-import ftn.tseo.eEducation.DTO.ExamRegistrationDTO;
 import ftn.tseo.eEducation.DTO.FinancialCardDTO;
 import ftn.tseo.eEducation.DTO.PaymentDTO;
-import ftn.tseo.eEducation.DTO.PayoutDTO;
 import ftn.tseo.eEducation.DTO.StudentDTO;
-import ftn.tseo.eEducation.model.Exam;
-import ftn.tseo.eEducation.model.FinancialCard;
-import ftn.tseo.eEducation.model.PreexamObligation;
 import ftn.tseo.eEducation.model.Student;
 import ftn.tseo.eEducation.model.TypeOfFinancing;
-import ftn.tseo.eEducation.repository.FinancialCardRepository;
-import ftn.tseo.eEducation.repository.PreExamObligationRepository;
+import ftn.tseo.eEducation.service.DocumentService;
 import ftn.tseo.eEducation.service.ExamService;
 import ftn.tseo.eEducation.service.FinancialCardService;
 import ftn.tseo.eEducation.service.PaymentService;
 import ftn.tseo.eEducation.service.PayoutService;
 import ftn.tseo.eEducation.service.PreExamObligationService;
 import ftn.tseo.eEducation.service.StudentService;
+import ftn.tseo.eEducation.service.TypeOfFinancingService;
 
 
 @RestController
@@ -51,9 +46,10 @@ public class StudentController {
 	
 	@Autowired
 	PaymentService paymentService;
+
 	
 	@Autowired
-	ExamService ExamService;
+	DocumentService documentService;
 	
 	
 	
@@ -62,6 +58,8 @@ public class StudentController {
 	
 	@Autowired 
 	 FinancialCardService financialCardService;
+	@Autowired 
+	 TypeOfFinancingService typeOfFinancingService;
 	
 	
 	@RequestMapping(value="/all", method = RequestMethod.GET)
@@ -93,9 +91,10 @@ public class StudentController {
 		student.setEmail(studentDTO.getEmail());
 		student.setUmnc(studentDTO.getUmnc());
 		student.setPhoneNumber(studentDTO.getPhoneNumber());
-		//fali metoda u tipu finansiranja repo koja ce da vrati jedan tip finansiranja koji se izvuce iz studentDTO i onda se taj objekat upise u set vrednost
-		//primer
-//		TypeOfFinancing typeOfFinancing =  typeOfFinancingService.findOne(studentDTO.getTypeOfFinancing().getId());
+		student.setAccountNumber(student.getAccountNumber());
+		student.setModelNumber(studentDTO.getModelNumber());
+		student.setStartedCollegeIn(studentDTO.getStartedCollegeIn());
+		TypeOfFinancing typeOfFinancing =  typeOfFinancingService.findOne(studentDTO.getTypeOfFinancing().getId());
 		student.setTypeOfFinancing(typeOfFinancing);
 		student = studentService.save(student);
 		return new ResponseEntity<>(new StudentDTO(student), HttpStatus.CREATED);	
@@ -105,13 +104,24 @@ public class StudentController {
 	public ResponseEntity<StudentDTO> updateStudent(@RequestBody StudentDTO studentDTO){
 		//a student must exist
 		Student student = studentService.findOne(studentDTO.getId()); 
+		System.out.println("Student koji je pronadjen"+student);
 		if (student == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		
+	
+		student.setId(studentDTO.getId());
 		student.setCardNumber(studentDTO.getCardNumber());
 		student.setFirstName(studentDTO.getFirstName());
 		student.setLastName(studentDTO.getLastName());
+		student.setEmail(studentDTO.getEmail());
+		student.setUmnc(studentDTO.getUmnc());
+		student.setPhoneNumber(studentDTO.getPhoneNumber());
+		student.setAccountNumber(student.getAccountNumber());
+		student.setModelNumber(studentDTO.getModelNumber());
+		student.setStartedCollegeIn(studentDTO.getStartedCollegeIn());
+		TypeOfFinancing typeOfFinancing =  typeOfFinancingService.findOne(studentDTO.getTypeOfFinancing().getId());
+		
+		student.setTypeOfFinancing(typeOfFinancing);
 		
 		student = studentService.save(student);
 		return new ResponseEntity<>(new StudentDTO(student), HttpStatus.OK);	
@@ -149,20 +159,18 @@ public class StudentController {
 		return examService.findStudentExams(id);
 	}
 	
-//	@GetMapping(value="/{studentId}/financial-card")
-//	private List<FinancialCardDTO> getFinancialCardInfo(@PathVariable("studentId") Long id) {
-//		return financialCardService.getFinancialCardInfo(id);
-//	}
-//	
-	@GetMapping(value="/{studentId}/financial-card2")
-	private FinancialCardDTO getFinancialCardInfo2(@PathVariable("studentId") Long id) {
-		return financialCardService.findStudentFinancialCard(id);
+	@GetMapping(value="/{studentId}/financial-card")
+	private List<FinancialCardDTO> getFinancialCardInfo(@PathVariable("studentId") Long id) {
+		return financialCardService.findFinancialCardForStudent(id);
 	}
 	
-	
-	@GetMapping(value="/{studentId}/financial-payment")
-	private List<PaymentDTO> getStudentPayment(@PathVariable("studentId") Long id) {
+	@GetMapping(value="/{id}/financial-payment")
+	private List<PaymentDTO> getStudentPayment(@PathVariable("id") Long id) {
 		return paymentService.getStudentFinancialCardPayment(id);
+	}
+	@GetMapping(value="/{studentId}/documents")
+	private List<DocumentDTO> getStudentDocuments(@PathVariable("studentId") Long id) {
+		return documentService.findDocumentsForStudents(id);
 	}
 	
 //	@GetMapping(value="/{studentId}/financial-payout")

@@ -12,8 +12,8 @@ import ftn.tseo.eEducation.model.Payment;
 
 public interface FinancialCardRepository extends JpaRepository<FinancialCard, Long>{
 	
-//	List<FinancialCardDTO> getFinancialCardInfo(Long id); 
-//	
+	List<FinancialCard> findFinancialCardByStudentId(Long id); 
+	
 	@Query(value = "SELECT f FROM Student s LEFT OUTER JOIN FinancialCard f WHERE s.id = :id")
 	FinancialCard findStudentFinancialCard(Long id);
 	    

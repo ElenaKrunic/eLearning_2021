@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity
 public class Payment {
 	
@@ -26,7 +29,9 @@ public class Payment {
 	
 	@OneToOne
 	@JoinColumn(name = "financialCard", referencedColumnName = "id", nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private FinancialCard financialCard;
+	
 
 	public Payment() {
 		super();

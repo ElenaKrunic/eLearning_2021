@@ -38,20 +38,19 @@ public class FinancialCardService {
 		financialCardRepository.deleteById(id);
 	}
 	
-//	public List<FinancialCardDTO> getFinancialCardInfo(Long id) {
-//		List<FinancialCardDTO> studentsTransactions = new ArrayList<>();
-//		Student student = studentRepository.findById(id).orElse(null);
-//		
-//		if(student != null) {
-//			if(student.getFinancialCards().size() > 0) {
-//				for(FinancialCard fCard : student.getFinancialCards()) {
-//					studentsTransactions.add(new FinancialCardDTO(fCard));
-//				}
-//			}
-//		}
-//		
-//		return studentsTransactions;
-//	}
+	public List<FinancialCardDTO> findFinancialCardForStudent(Long id) {
+		List<FinancialCardDTO> studentsTransactions = new ArrayList<>();
+		List<FinancialCard> allFinancialCards = financialCardRepository.findFinancialCardByStudentId(id);
+		if(allFinancialCards != null) {
+				for(FinancialCard fCard : allFinancialCards) {
+					studentsTransactions.add(new FinancialCardDTO(fCard));
+				}
+			}
+		
+		return studentsTransactions;
+		}
+		
+	
 	public FinancialCardDTO findStudentFinancialCard(Long id) {
 		
 		FinancialCard financialCardForStudent= financialCardRepository.findStudentFinancialCard(id);
