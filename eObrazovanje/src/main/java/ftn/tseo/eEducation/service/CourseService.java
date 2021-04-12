@@ -6,8 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ftn.tseo.eEducation.DTO.CourseDTO;
 import ftn.tseo.eEducation.model.Course;
+import ftn.tseo.eEducation.model.Teaching;
 import ftn.tseo.eEducation.repository.CourseRepository;
+import ftn.tseo.eEducation.repository.TeachingRepository;
 
 
 @Service
@@ -15,6 +18,9 @@ public class CourseService {
 	
 	@Autowired
 	CourseRepository courseRepository;
+	
+	@Autowired
+	TeachingRepository teachingRepository;
 	
 	public Course findOne(Long id) {
 		return courseRepository.findById(id).orElse(null);
@@ -33,12 +39,11 @@ public class CourseService {
 		courseRepository.deleteById(id);
 	}
 	
-//	public List<Course> findCoursesForProfessor(long id) {
-//		List<Course> courses = new ArrayList<Course>();
-//		for (Course c: courseRepository.findProfessorsCourse(id)) {
-//			courses.add(c);
-//		}
-//		return courses;
-//	
-//}
+	public CourseDTO findProfessorCourses(Long id) {
+
+		Teaching teachings=teachingRepository.findTeachingByProfessorId(id);
+		Course courses=teachings.getCourses();
+		return new CourseDTO(courses);
+	}
+
 }

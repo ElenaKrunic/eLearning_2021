@@ -6,12 +6,16 @@ package ftn.tseo.eEducation.DTO;
  */
 import java.util.Date;
 
+import ftn.tseo.eEducation.model.Teaching;
+
 public class TeachingDTO {
 	
 	private long id;
 	private Date startDate;
 	private Date endDate;
 	private ProfessorDTO professor;
+	private CourseDTO courseDTO;
+	
 	
 	public long getId() {
 		return id;
@@ -31,22 +35,29 @@ public class TeachingDTO {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-	
 	public ProfessorDTO getProfessor() {
 		return professor;
 	}
 	public void setProfessor(ProfessorDTO professor) {
 		this.professor = professor;
 	}
+	public CourseDTO getCourseDTO() {
+		return courseDTO;
+	}
+	public void setCourseDTO(CourseDTO courseDTO) {
+		this.courseDTO = courseDTO;
+	}
 	public TeachingDTO() {
 		// TODO Auto-generated constructor stub
 	}
-	public TeachingDTO(long id, Date startDate, Date endDate, ProfessorDTO professor) {
+	public TeachingDTO(Teaching teaching) {
 		super();
-		this.id = id;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.professor = professor;
+		this.id = teaching.getId();
+		this.startDate = teaching.getStartDate();
+		this.endDate =teaching.getEndDate();
+		this.professor = new ProfessorDTO(teaching.getProfessor());
+		this.courseDTO=new CourseDTO(teaching.getCourses());
+		
 	}
 	
 	
