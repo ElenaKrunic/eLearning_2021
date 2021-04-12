@@ -59,6 +59,16 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public Set<UserAuthority> getUserAuthorities() {
+		return userAuthorities;
+	}
+
+	public void setUserAuthorities(Set<UserAuthority> userAuthorities) {
+		this.userAuthorities = userAuthorities;
+	}
+	
+	
 	
 	
 }
