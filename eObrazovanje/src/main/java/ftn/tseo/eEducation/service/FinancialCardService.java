@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ftn.tseo.eEducation.DTO.FinancialCardDTO;
+import ftn.tseo.eEducation.DTO.PaymentDTO;
 import ftn.tseo.eEducation.model.Exam;
 import ftn.tseo.eEducation.model.FinancialCard;
+import ftn.tseo.eEducation.model.Payment;
 import ftn.tseo.eEducation.model.Student;
 import ftn.tseo.eEducation.repository.FinancialCardRepository;
 import ftn.tseo.eEducation.repository.StudentRepository;
@@ -38,24 +40,22 @@ public class FinancialCardService {
 		financialCardRepository.deleteById(id);
 	}
 	
-	public List<FinancialCardDTO> findFinancialCardForStudent(Long id) {
-		List<FinancialCardDTO> studentsTransactions = new ArrayList<>();
-		List<FinancialCard> allFinancialCards = financialCardRepository.findFinancialCardByStudentId(id);
-		if(allFinancialCards != null) {
-				for(FinancialCard fCard : allFinancialCards) {
-					studentsTransactions.add(new FinancialCardDTO(fCard));
-				}
-			}
+	public FinancialCardDTO findFinancialCardForStudent(Long id) {
+	
+		FinancialCard allFinancialCards = financialCardRepository.findFinancialCardByStudentId(id);
 		
-		return studentsTransactions;
+		
+		return new FinancialCardDTO(allFinancialCards);
 		}
 		
 	
-	public FinancialCardDTO findStudentFinancialCard(Long id) {
-		
-		FinancialCard financialCardForStudent= financialCardRepository.findStudentFinancialCard(id);
-		FinancialCardDTO financialCardDTO=new FinancialCardDTO(financialCardForStudent);
-		return financialCardDTO;
-		
-	}
+//	public FinancialCardDTO findStudentFinancialCard(Long id) {
+//		
+//		FinancialCard financialCardForStudent= financialCardRepository.findStudentFinancialCard(id);
+//		FinancialCardDTO financialCardDTO=new FinancialCardDTO(financialCardForStudent);
+//		return financialCardDTO;
+//		
+//	}
+	
+	
 }

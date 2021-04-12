@@ -6,21 +6,18 @@ import ftn.tseo.eEducation.model.Enrollment;
 
 public class EnrollmentDTO {
 	
-	private int id;
+	private Long id;
 	public Date startDate;
 	private Date endDate;
 	private StudentDTO studentDTO;
 	private CourseDTO courseDTO;
 
-	public EnrollmentDTO(Enrollment enrollment) {
-		// TODO Auto-generated constructor stub
-	}
-
-	public int getId() {
+	
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -56,13 +53,13 @@ public class EnrollmentDTO {
 		this.courseDTO = courseDTO;
 	}
 
-	public EnrollmentDTO(int id, Date startDate, Date endDate, StudentDTO studentDTO, CourseDTO courseDTO) {
+	public EnrollmentDTO(Enrollment enrollment) {
 		super();
-		this.id = id;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.studentDTO = studentDTO;
-		this.courseDTO = courseDTO;
+		this.id = enrollment.getId();
+		this.startDate = enrollment.getStartDate();
+		this.endDate =enrollment.getEndDate();
+		this.studentDTO = new StudentDTO(enrollment.getStudent());
+		this.courseDTO = new CourseDTO(enrollment.getCourses());
 	}
 	
 	

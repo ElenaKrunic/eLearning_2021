@@ -21,16 +21,16 @@ public class PayoutService {
 	@Autowired
 	FinancialCardRepository financialCardRepository;
 	
-//	
-//	public List<PayoutDTO> getStudentFinancialCardPayout(Long id){
-//		List<PayoutDTO> payoutDTO = new ArrayList<PayoutDTO>();
-//		FinancialCard financialCardPayment=financialCardRepository.findStudentFinancialCard(id);
-//		for (PayOut p: financialCardPayment.getPayouts()) {
-//			payoutDTO.add(new PayoutDTO(p));
-//		}
-//		return payoutDTO;
-//
-//	}
-//	
+	
+	public List<PayoutDTO> getStudentFinancialCardPayout(Long id){
+		List<PayoutDTO> payoutDTO = new ArrayList<PayoutDTO>();
+		FinancialCard financialCardPayment=financialCardRepository.findFinancialCardByStudentId(id);
+		for (PayOut p: financialCardPayment.getPayouts()) {
+			payoutDTO.add(new PayoutDTO(p));
+		}
+		return payoutDTO;
+
+	}
+	
 
 }

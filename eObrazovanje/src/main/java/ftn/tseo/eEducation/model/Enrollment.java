@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -32,7 +33,7 @@ public class Enrollment implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "enrollment_id", unique = true, nullable = false)
-	private int id;
+	private Long id;
 	
 	@Column(name = "enrollment_start_date", unique = false, nullable = true)
 	public Date startDate;
@@ -40,12 +41,12 @@ public class Enrollment implements Serializable{
 	@Column(name = "enrollment_end_date", unique = false, nullable = true)
 	private Date endDate;
 	
-	@ManyToOne
-	 @JoinColumn(name = "student", referencedColumnName = "id", nullable = false)
+	@OneToOne
+	@JoinColumn(name = "student", referencedColumnName = "id", nullable = false)
 	private Student student;
 	
-	@ManyToOne
-    @JoinColumn(name = "courses", referencedColumnName = "course_id", nullable = false)
+	@OneToOne
+	@JoinColumn(name = "courses", referencedColumnName = "course_id", nullable = false)
 	private Course courses;
 	
 	@OneToMany(mappedBy="enrollments", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
@@ -57,11 +58,11 @@ public class Enrollment implements Serializable{
 		super();
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

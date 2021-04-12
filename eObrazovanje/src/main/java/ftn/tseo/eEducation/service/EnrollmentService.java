@@ -6,8 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ftn.tseo.eEducation.DTO.EnrollmentDTO;
 import ftn.tseo.eEducation.model.Enrollment;
 import ftn.tseo.eEducation.model.Exam;
+import ftn.tseo.eEducation.model.FinancialCard;
+import ftn.tseo.eEducation.model.Payment;
 import ftn.tseo.eEducation.model.Professor;
 import ftn.tseo.eEducation.model.Student;
 import ftn.tseo.eEducation.repository.CourseRepository;
@@ -18,14 +21,6 @@ import ftn.tseo.eEducation.repository.StudentRepository;
 @Service
 public class EnrollmentService {
 	
-	@Autowired
-	private StudentRepository studentRepository;
-	
-	@Autowired
-	private ProfessorRepository professorRepository;
-	
-	@Autowired
-	private CourseRepository courseRepository;
 	
 	@Autowired
 	private EnrollmentRepository enrollmentRepository;
@@ -46,6 +41,21 @@ public class EnrollmentService {
 	
 	public void remove(Long id) {
 		enrollmentRepository.deleteById(id);
+	}
+	
+	public List<EnrollmentDTO> findEnrollmentForStudent(Long id){
+		List<EnrollmentDTO> enrollmentToDTO = new ArrayList<>();
+		List<Enrollment> enrollment=enrollmentRepository.findByStudentId(id);
+		System.out.println("Enrollment service  "+enrollmentToDTO);
+		
+		if(enrollment!=null) {
+			for (Enrollment e: enrollment) {
+				enrollmentToDTO.add(new EnrollmentDTO(e));
+			}
+		
+		}
+		return enrollmentToDTO;
+		
 	}
 	
 	

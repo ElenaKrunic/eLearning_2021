@@ -11,17 +11,20 @@ import org.springframework.stereotype.Service;
 import ftn.tseo.eEducation.DTO.ExamDTO;
 import ftn.tseo.eEducation.DTO.ExamRegistrationDTO;
 import ftn.tseo.eEducation.model.Course;
+import ftn.tseo.eEducation.model.Enrollment;
 import ftn.tseo.eEducation.model.Exam;
 import ftn.tseo.eEducation.model.FinancialCard;
 import ftn.tseo.eEducation.model.Payment;
 import ftn.tseo.eEducation.model.PreexamObligation;
 import ftn.tseo.eEducation.model.Student;
+import ftn.tseo.eEducation.repository.EnrollmentRepository;
 import ftn.tseo.eEducation.repository.ExamRepository;
 import ftn.tseo.eEducation.repository.FinancialCardRepository;
 import ftn.tseo.eEducation.repository.PaymentRepository;
 import ftn.tseo.eEducation.repository.PreExamObligationRepository;
 import ftn.tseo.eEducation.repository.StudentRepository;
 import ftn.tseo.eEducation.repository.TeachingRepository;
+import javassist.expr.NewArray;
 
 @Service
 public class ExamService {
@@ -31,6 +34,9 @@ public class ExamService {
 	
 	@Autowired
 	PaymentRepository paymentRepository;
+	
+	@Autowired
+	EnrollmentRepository enrollmentRepository;
 	
 	@Autowired
 	FinancialCardRepository financialCardRepository;
@@ -90,28 +96,45 @@ public class ExamService {
 //		return currentExamsDTOs;
 //	
 //	}
+	
+	//ova klasa
 	public List<ExamDTO> findStudentExams(Long id) {
 		
-		Student student = studentRepository.findById(id).orElse(null);
+		List<Enrollment> enrollment=enrollmentRepository.findByStudentId(id);
+		System.out.println("Enrollment"+enrollment);
+		List<ExamDTO> examsToDTO=new  ArrayList<ExamDTO>();
+		List<Exam> exams=new  ArrayList<Exam>();
 		
-		//pitati na osnovu upita da li se dobro izvlace podaci 
-		List<Exam> exams = new ArrayList<Exam>();
-		if(student != null) {
-			exams = examRepository.findStudentExams(id);
+		for(Enrollment e:enrollment) {
+			e.getExam();
+			
 		}
-		List<ExamDTO> examsDTO = new ArrayList<ExamDTO>();
-		if(exams.size() > 0) {
-			for(Exam e : exams) {
-				examsDTO.add(new ExamDTO(e));
-			}
+		for(Exam ex : exams) {
+			examsToDTO.add(new ExamDTO(ex));
 		}
 		
-	
-
-		return examsDTO;
+		return examsToDTO;
 	}
-
-	
+		
+		
+//		//pitati na osnovu upita da li se dobro izvlace podaci 
+//		List<Exam> exams = new ArrayList<Exam>();
+//		if(student != null) {
+//			exams = examRepository.findStudentExams(id);
+//		}
+//		List<ExamDTO> examsDTO = new ArrayList<ExamDTO>();
+//		if(exams.size() > 0) {
+//			for(Exam e : exams) {
+//				examsDTO.add(new ExamDTO(e));
+//			}
+//		}
+//		
+//	
+//
+//		return examsDTO;
+//	}
+//
+//	
 //	public List<Exam> examsForRegistration(Student student) {
 //		
 //		Student s = studentRepository.findById(student.getId()).orElse(null); 
@@ -215,3 +238,4 @@ public class ExamService {
 //		return save(exam);
 //	}
 }
+

@@ -5,7 +5,7 @@ import java.util.Date;
 import ftn.tseo.eEducation.model.PayOut;
 
 public class PayoutDTO {
-	
+	private Long id;
 	private String descriptionOfPayout;
 	private float amountOfPayout;
 	private Date dateOfPayout;
@@ -13,6 +13,7 @@ public class PayoutDTO {
 	
 	public PayoutDTO(PayOut payout) {
 		super();
+		this.id=payout.getId();
 		this.descriptionOfPayout = payout.getDescriptionPayOut();
 		this.amountOfPayout = payout.getPayOutAmount();
 		this.dateOfPayout = payout.getDateOfPayOut();
@@ -55,6 +56,14 @@ public class PayoutDTO {
 
 	public void setFinancialCardDTO(FinancialCardDTO financialCardDTO) {
 		this.financialCardDTO = financialCardDTO;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	

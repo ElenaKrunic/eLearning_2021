@@ -2,6 +2,7 @@ package ftn.tseo.eEducation.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -15,13 +16,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import ftn.tseo.eEducation.DTO.DocumentDTO;
+import ftn.tseo.eEducation.DTO.EnrollmentDTO;
 import ftn.tseo.eEducation.DTO.ExamDTO;
 import ftn.tseo.eEducation.DTO.FinancialCardDTO;
 import ftn.tseo.eEducation.DTO.PaymentDTO;
+import ftn.tseo.eEducation.DTO.PayoutDTO;
 import ftn.tseo.eEducation.DTO.StudentDTO;
+import ftn.tseo.eEducation.model.Enrollment;
 import ftn.tseo.eEducation.model.Student;
 import ftn.tseo.eEducation.model.TypeOfFinancing;
+import ftn.tseo.eEducation.repository.EnrollmentRepository;
 import ftn.tseo.eEducation.service.DocumentService;
+import ftn.tseo.eEducation.service.EnrollmentService;
 import ftn.tseo.eEducation.service.ExamService;
 import ftn.tseo.eEducation.service.FinancialCardService;
 import ftn.tseo.eEducation.service.PaymentService;
@@ -51,6 +57,8 @@ public class StudentController {
 	@Autowired
 	DocumentService documentService;
 	
+	@Autowired
+	EnrollmentService enrollmentService;
 	
 	
 	@Autowired 
@@ -160,7 +168,7 @@ public class StudentController {
 	}
 	
 	@GetMapping(value="/{studentId}/financial-card")
-	private List<FinancialCardDTO> getFinancialCardInfo(@PathVariable("studentId") Long id) {
+	private FinancialCardDTO getFinancialCardInfo(@PathVariable("studentId") Long id) {
 		return financialCardService.findFinancialCardForStudent(id);
 	}
 	
@@ -173,10 +181,13 @@ public class StudentController {
 		return documentService.findDocumentsForStudents(id);
 	}
 	
-//	@GetMapping(value="/{studentId}/financial-payout")
-//	private List<PayoutDTO> getStudentPayout(@PathVariable("studentId") Long id) {
-//		return payoutService.getStudentFinancialCardPayout(id);
-//	}
-	
+	@GetMapping(value="/{studentId}/financial-payout")
+	private List<PayoutDTO> getStudentPayout(@PathVariable("studentId") Long id) {
+		return payoutService.getStudentFinancialCardPayout(id);
+	}
+	@GetMapping(value="/{studentId}/enrollments")
+	private List<EnrollmentDTO> getStudentEnrollments(@PathVariable("studentId") Long id) {
+		return enrollmentService.findEnrollmentForStudent(id);
+	}
 	
 }
