@@ -17,16 +17,16 @@ As a Teacher, I want to see exam period, so that I would knew when is the date a
 As a Teacher, I want to see list of students, so that I would knew how many students are enrolled in my course.
 As a Teacher, I want to see list of register exams, so that I could input grade.
 
-As a Admin,I want to create,read,update,delete,search and sort all students,so that I would have insight into  students.
-As a Admin,I want to create,read,update,delete,search and sort all professors,so that I would have insight into  professors.
-As a Admin,I want to create,read,update,delete,search and sort all exams,so that I would have insight into  exams.
-As a Admin,I want to create,read,update,delete,search and sort all courses,so that I would have insight into  courses.
-As a Admin,I want to create,read,update,delete,search and sort all documents,so that I would have insight into  documents.
-As a Admin,I want to create,read,update,delete,search and sort all exam period,so that I would have insight into  exam period.
-As a Admin,I want to create,read,update,delete,search and sort all financial card,so that I would have insight into  financial card.
-As a Admin,I want to create,read,update,delete,search and sort all payment,so that I would have insight into  payment.
-As a Admin,I want to create,read,update,delete,search and sort all enrollment,so that I would have insight into  enrollment.
-As a Admin,I want to create,read,update,delete,search and sort all preExamObligation,so that I would have insight into  preExamObligation.
+1. As a Admin,I want to create,read,update,delete,search and sort all students,so that I would have insight into  students.
+2. As a Admin,I want to create,read,update,delete,search and sort all professors,so that I would have insight into  professors.
+3. As a Admin,I want to create,read,update,delete,search and sort all exams,so that I would have insight into  exams.
+4. As a Admin,I want to create,read,update,delete,search and sort all courses,so that I would have insight into  courses.
+5. As a Admin,I want to create,read,update,delete,search and sort all documents,so that I would have insight into  documents.
+6. As a Admin,I want to create,read,update,delete,search and sort all exam period,so that I would have insight into  exam period.
+7. As a Admin,I want to create,read,update,delete,search and sort all financial card,so that I would have insight into  financial card.
+8. As a Admin,I want to create,read,update,delete,search and sort all payment,so that I would have insight into  payment.
+9. As a Admin,I want to create,read,update,delete,search and sort all enrollment,so that I would have insight into  enrollment.
+10. As a Admin,I want to create,read,update,delete,search and sort all preExamObligation,so that I would have insight into  preExamObligation.
 
 
 

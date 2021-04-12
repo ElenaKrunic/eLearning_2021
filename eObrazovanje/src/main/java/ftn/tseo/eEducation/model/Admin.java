@@ -12,13 +12,9 @@ import javax.persistence.OneToOne;
 @Entity
 public class Admin {
 	
-	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	
 	
 	@OneToOne
 	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
