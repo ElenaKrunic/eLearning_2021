@@ -90,6 +90,6 @@ public class ExamPeriodController {
 	}
 	
 	
-	
+	//implementirati metodu za pretragu ispitnog roka po nazivu mjeseca (name) --> Elena 
 	
 }

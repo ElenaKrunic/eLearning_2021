@@ -191,6 +191,6 @@ public class StudentController {
 	}
 	
 	
-	//implementirati getStudentByStudyProgramAndCardNumber --> Elena 
+	//implementirati getStudentByCardNumber --> Elena 
 	
 }
