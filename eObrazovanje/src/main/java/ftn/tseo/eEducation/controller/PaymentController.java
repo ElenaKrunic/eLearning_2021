@@ -106,4 +106,6 @@ public class PaymentController {
 		}
 	}
 	
+	//implementirati metodu getPayment by date of payment
+	
 }

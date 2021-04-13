@@ -34,7 +34,7 @@ public class PreexamObligationController {
 	private ExamService examService; 	
 
 	@RequestMapping(value="/all", method = RequestMethod.GET)
-	public ResponseEntity<List<PreexamObligationDTO>> getAllPayments(){
+	public ResponseEntity<List<PreexamObligationDTO>> getAllPreexamObligations(){
 		
 		List<PreexamObligation> preexamObligations = preexamObligationService.findAll();
 		List<PreexamObligationDTO> dto = new ArrayList<>();
@@ -45,7 +45,7 @@ public class PreexamObligationController {
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public ResponseEntity<PreexamObligationDTO> getPayment(@PathVariable Long id){
+	public ResponseEntity<PreexamObligationDTO> getPreexamObligation(@PathVariable Long id){
 		PreexamObligation preexamObligation = preexamObligationService.findOne(id);
 		if(preexamObligation == null){
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -82,5 +82,7 @@ public class PreexamObligationController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+	//implementirati metodu get preexamObligation by date --> Elena 
 	
 }
