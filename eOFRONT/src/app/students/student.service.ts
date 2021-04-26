@@ -48,8 +48,8 @@ getStudentDocument(id: number): Observable<HttpResponse<Document[]>> {
   
 }
 getStudentEnrollment(id: number): Observable<HttpResponse<Enrollment[]>> {
-  const url = `${this.path}/${id}/payout`;
-  return this.http.get<Payout[]>(url, {observe: 'response'});
+  const url = `${this.path}/${id}/enrollment`;
+  return this.http.get<Enrollment[]>(url, {observe: 'response'});
   
 }
 
