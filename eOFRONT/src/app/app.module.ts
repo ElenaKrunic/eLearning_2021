@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
 import { StudentsComponent } from './students/students.component';
 import { LoginComponent } from './login/login.component';
+import { PreexamObligationComponent } from './preexam-obligation/preexam-obligation.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { LoginComponent } from './login/login.component';
     StudentDetailsComponent,
     StudentsComponent,
     LoginComponent,
+    PreexamObligationComponent,
   ],
   imports: [
     BrowserModule,
