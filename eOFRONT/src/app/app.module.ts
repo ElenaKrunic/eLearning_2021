@@ -12,6 +12,8 @@ import { StudentenrollmentComponent } from './studentenrollment/studentenrollmen
 import { NekaNovaKomponentaComponent } from './neka-nova-komponenta/neka-nova-komponenta.component';
 import { ModuleDirective } from './module.directive';
 import { StudentComponent } from './student/student.component';
+import { StudentDetailsComponent } from './student-details/student-details.component';
+import { StudentsComponent } from './students/students.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { StudentComponent } from './student/student.component';
     StudentenrollmentComponent,
     NekaNovaKomponentaComponent,
     ModuleDirective,
-    StudentComponent
+    StudentComponent,
+    StudentDetailsComponent,
+    StudentsComponent
   ],
   imports: [
     BrowserModule,
