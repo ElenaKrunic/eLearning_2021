@@ -9,6 +9,9 @@ import { StudentpaymentComponent } from './studentpayment/studentpayment.compone
 import { StudentdocumentComponent } from './studentdocument/studentdocument.component';
 import { StudentfinancialcardComponent } from './studentfinancialcard/studentfinancialcard.component';
 import { StudentenrollmentComponent } from './studentenrollment/studentenrollment.component';
+import { NekaNovaKomponentaComponent } from './neka-nova-komponenta/neka-nova-komponenta.component';
+import { ModuleDirective } from './module.directive';
+import { StudentComponent } from './student/student.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { StudentenrollmentComponent } from './studentenrollment/studentenrollmen
     StudentpaymentComponent,
     StudentdocumentComponent,
     StudentfinancialcardComponent,
-    StudentenrollmentComponent
+    StudentenrollmentComponent,
+    NekaNovaKomponentaComponent,
+    ModuleDirective,
+    StudentComponent
   ],
   imports: [
     BrowserModule,
