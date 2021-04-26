@@ -33,12 +33,12 @@ export class StudentService {
 
     }
     getStudentPayment(id: number): Observable<HttpResponse<Payment[]>> {
-      const url = `${this.path}/${id}/financial-payment`;
+      const url = `${this.path}/${id}/payment`;
       return this.http.get<Payment[]>(url, {observe: 'response'});
       
   }
   getStudentPayout(id: number): Observable<HttpResponse<Payout[]>> {
-    const url = `${this.path}/${id}/financial-payout`;
+    const url = `${this.path}/${id}/payout`;
     return this.http.get<Payout[]>(url, {observe: 'response'});
     
 }
@@ -48,8 +48,8 @@ getStudentDocument(id: number): Observable<HttpResponse<Document[]>> {
   
 }
 getStudentEnrollment(id: number): Observable<HttpResponse<Enrollment[]>> {
-  const url = `${this.path}/${id}/enrollment`;
-  return this.http.get<Enrollment[]>(url, {observe: 'response'});
+  const url = `${this.path}/${id}/payout`;
+  return this.http.get<Payout[]>(url, {observe: 'response'});
   
 }
 

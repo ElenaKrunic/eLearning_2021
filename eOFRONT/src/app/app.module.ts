@@ -14,6 +14,7 @@ import { ModuleDirective } from './module.directive';
 import { StudentComponent } from './student/student.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
 import { StudentsComponent } from './students/students.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { StudentsComponent } from './students/students.component';
     ModuleDirective,
     StudentComponent,
     StudentDetailsComponent,
-    StudentsComponent
+    StudentsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
