@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import ftn.tseo.eEducation.model.User;
 import ftn.tseo.eEducation.model.UserAuthority;
+import ftn.tseo.eEducation.model.UserMapper;
 import ftn.tseo.eEducation.repository.UserRepository;
 
 
@@ -23,7 +24,23 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	
 	@Autowired
 	UserRepository userRepository;
+	
+	@Autowired
+	UserMapper userMapper; 
 
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		
+		User user = userRepository.findByUsername(username);
+		
+		if(user == null) {
+		      throw new UsernameNotFoundException(String.format("User not found with username '%s'.", username));
+		}
+		
+		return userMapper.toUserDetails(user);
+	}
+
+	/*
 	@Override
 	@Transactional
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -43,6 +60,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		    		  ga);
 		    }
 		  }
+	*/
+	
 	
 	
 	

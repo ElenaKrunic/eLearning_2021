@@ -8,16 +8,27 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import ftn.tseo.eEducation.DTO.LoginDTO;
+import ftn.tseo.eEducation.model.User;
+import ftn.tseo.eEducation.repository.UserRepository;
 import ftn.tseo.eEducation.security.TokenUtils;
 
 @RestController
 public class UserController {
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder; 
 	
 	@Autowired
 	AuthenticationManager aManager;
@@ -38,6 +49,18 @@ public class UserController {
         } catch (Exception ex) {
             return new ResponseEntity<String>("Login failed", HttpStatus.BAD_REQUEST);
         }
-		}
+	}
+	
+	@PostMapping("/api/register")
+	@ResponseStatus(code=HttpStatus.CREATED)
+	public void register(@RequestBody LoginDTO loginDTO) {
+		
+		User user = new User(); 
+		
+		user.setUsername(loginDTO.getUsername());
+	  //  user.setPassword(loginDTO.getPassword());
+		user.setPassword(passwordEncoder.encode(loginDTO.getPassword()));
+	    userRepository.save(user);
+	}
 
 }
