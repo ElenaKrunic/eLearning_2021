@@ -27,6 +27,7 @@ public class AuthenticationTokenFilter extends UsernamePasswordAuthenticationFil
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
+		//token uzimam iz zaglavlja zahtjeva
 		String authToken = httpRequest.getHeader("X-Auth-Token");
 		String username = tokenUtils.getUsernameFromToken(authToken);
 
@@ -40,10 +41,9 @@ public class AuthenticationTokenFilter extends UsernamePasswordAuthenticationFil
 			}
 		}
 
+		//sta sve filter treba da radi? 
+			// prodji kroz login, prodji kroz autentikaciju, autorizaciju i na kraju -> hit servlet 
 		chain.doFilter(request, response);
 	}
-
-
-	
-
 }
+

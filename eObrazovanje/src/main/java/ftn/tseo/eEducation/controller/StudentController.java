@@ -42,10 +42,10 @@ import ftn.tseo.eEducation.service.TypeOfFinancingService;
 public class StudentController {
 
 	@Autowired
-	 StudentService studentService; 
+	StudentService studentService; 
 	
 	@Autowired
-	 ExamService examService; 
+	ExamService examService; 
 	
 	@Autowired
 	PayoutService payoutService;
@@ -53,21 +53,19 @@ public class StudentController {
 	@Autowired
 	PaymentService paymentService;
 
-	
 	@Autowired
 	DocumentService documentService;
 	
 	@Autowired
 	EnrollmentService enrollmentService;
 	
+	@Autowired 
+	PreExamObligationService preexamObligationService; 
 	
 	@Autowired 
-	 PreExamObligationService preexamObligationService; 
-	
+	FinancialCardService financialCardService;
 	@Autowired 
-	 FinancialCardService financialCardService;
-	@Autowired 
-	 TypeOfFinancingService typeOfFinancingService;
+	TypeOfFinancingService typeOfFinancingService;
 	
 	
 	@RequestMapping(value="/all", method = RequestMethod.GET)
@@ -90,6 +88,7 @@ public class StudentController {
 		
 		return new ResponseEntity<>(new StudentDTO(student), HttpStatus.OK);
 	}
+	
 	@RequestMapping(method=RequestMethod.POST, consumes="application/json")
 	public ResponseEntity<StudentDTO> saveStudent(@RequestBody StudentDTO studentDTO){		
 		Student student = new Student();

@@ -1,25 +1,26 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './routing/app-routing.module';
 import { AppComponent } from './app.component';
-import { StudentexamsComponent } from './studentexams/studentexams.component';
-import { StudentpayoutsComponent } from './studentpayouts/studentpayouts.component';
-import { StudentpaymentComponent } from './studentpayment/studentpayment.component';
-import { StudentdocumentComponent } from './studentdocument/studentdocument.component';
-import { StudentfinancialcardComponent } from './studentfinancialcard/studentfinancialcard.component';
-import { StudentenrollmentComponent } from './studentenrollment/studentenrollment.component';
+import { StudentDetailsComponent } from './student-details/student-details.component';
+import { StudentsComponent } from './students/students.component';
+import { LoginComponent } from './login/login.component';
+import { PreexamObligationComponent } from './preexam-obligation/preexam-obligation.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudentexamsComponent,
-    StudentpayoutsComponent,
-    StudentpaymentComponent,
-    StudentdocumentComponent,
-    StudentfinancialcardComponent,
-    StudentenrollmentComponent
+    StudentDetailsComponent,
+    StudentsComponent,
+    LoginComponent,
+<<<<<<< HEAD
+    ],
+=======
+    PreexamObligationComponent,
   ],
+>>>>>>> 613fad851e17b1579a23dc142f53e288715f15bd
   imports: [
     BrowserModule,
     AppRoutingModule

@@ -48,8 +48,6 @@ public class Student {
 	//testno 
 	private Double cardAmount; 
 	
-	
-	
 	@OneToOne
 	@JoinColumn(name = "type_of_financing", referencedColumnName = "id", nullable = false)
 	private TypeOfFinancing typeOfFinancing;

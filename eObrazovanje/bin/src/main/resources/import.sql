@@ -50,7 +50,7 @@ INSERT INTO teaching_type (id, code,name) VALUES (2, 'TA','teacher assistant');
 INSERT INTO teaching_type (id, code,name) VALUES (3, 'LA','laboratory assistant');
 
 INSERT INTO teaching (id, end_date,start_date,courses,professor,teaching_type) VALUES (1, '2015-11-05','2013-11-05',1,1,1);
-INSERT INTO teaching (id, end_date,start_date,courses,professor,teaching_type) VALUES (2, '2015-11-05','2013-11-05',2,1,2);
+--INSERT INTO teaching (id, end_date,start_date,courses,professor,teaching_type) VALUES (2, '2015-11-05','2013-11-05',2,1,2);
 
 INSERT INTO enrollments (enrollment_id, enrollment_end_date,enrollment_start_date,courses,student) VALUES (1, '2015-11-05','2013-11-05',1,1);
 INSERT INTO enrollments (enrollment_id, enrollment_end_date,enrollment_start_date,courses,student) VALUES (2, '2015-11-05','2013-11-05',2,1);
