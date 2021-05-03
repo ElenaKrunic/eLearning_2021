@@ -33,6 +33,32 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private DatabaseUserDetailPasswordService databaseUserDetailPasswordService;
 	
+	@Override
+	protected void configure(HttpSecurity httpSecurity) throws Exception {
+		httpSecurity
+			.csrf()
+			.disable()
+			.sessionManagement()	
+			.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+			.and()
+			.authorizeRequests()	
+			.antMatchers("/index.html", "/api/login", "/api/register")
+			.permitAll()  
+			.antMatchers(HttpMethod.POST, "/api/**")
+			.hasAuthority("ROLE_ADMIN")
+			.anyRequest().authenticated()
+			.and()
+			.httpBasic(); //radi 
+		
+			//httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class); //ne radi
+	}
+	
+	@Bean
+	@Override
+	public AuthenticationManager authenticationManagerBean() throws Exception {
+		return super.authenticationManagerBean();
+	}
+	
 	 @Bean
 	  public AuthenticationProvider daoAuthenticationProvider() {
 	    DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
@@ -48,7 +74,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	    return new BCryptPasswordEncoder(10);
 	  }
 	
-	
 	@Autowired
 	public void configureAuthentication(
 			AuthenticationManagerBuilder authenticationManagerBuilder)
@@ -59,39 +84,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 						passwordEncoder());
 	}
 	
-	
-	@Bean
-	@Override
-	public AuthenticationManager authenticationManagerBean() throws Exception {
-		return super.authenticationManagerBean();
-	}
-	
 	@Bean
 	public AuthenticationTokenFilter authenticationTokenFilterBean() throws Exception {
 		AuthenticationTokenFilter authenticationTokenFilter = new AuthenticationTokenFilter();
 		authenticationTokenFilter.setAuthenticationManager(authenticationManagerBean());
 		return authenticationTokenFilter;
 	}
-	
-	@Override
-	protected void configure(HttpSecurity httpSecurity) throws Exception {
-		httpSecurity
-			.csrf()
-			.disable()
-			.sessionManagement()	
-			.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-			.and()
-			.authorizeRequests()	
-			.antMatchers("/index.html", "/api/login", "/api/register").permitAll() 
-			.antMatchers(HttpMethod.POST, "/api/**")
-			.hasAuthority("ROLE_ADMIN")
-			.anyRequest().authenticated();
-				 
-			httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
-	}
-	
-
-	
-	
-
 }

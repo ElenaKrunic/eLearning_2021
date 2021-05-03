@@ -1,31 +1,29 @@
-
-
 use eobrazovanje;
 
-INSERT INTO authority (id, name) VALUES (1, 'ADMIN');
-INSERT INTO authority (id, name) VALUES (2, 'PROFESOR');
-INSERT INTO authority (id, name) VALUES (3, 'STUDENT');
+INSERT INTO authority (id, name) VALUES (1, 'ROLE_ADMIN');
+INSERT INTO authority (id, name) VALUES (2, 'ROLE_PROFESOR');
+INSERT INTO authority (id, name) VALUES (3, 'ROLE_STUDENT');
 
 INSERT INTO user (id, password,username) VALUES (1, 'nekalozinka','admin');
 INSERT INTO user (id, password,username) VALUES (2, 'nekalozinka','profesor');
 INSERT INTO user (id, password,username) VALUES (3, 'nekalozinka','student');
+--lozinka je Elena 
+INSERT INTO user (id, password, username) VALUES (4, '$2a$10$Nig935e8V2Zgx0zDd31RJe1bdHchJiG9wvS8VDO.UFIKt7O.WbRIS', 'Elena');
 
-INSERT INTO user_authority (id, authority,user) VALUES (1, 1,1);
-INSERT INTO user_authority (id, authority,user) VALUES (2, 2,2);
-INSERT INTO user_authority (id, authority,user) VALUES (3, 3,3);
-
+INSERT INTO user_authority (id, authority,user) VALUES (1, 1, 1);
+INSERT INTO user_authority (id, authority,user) VALUES (2, 2, 2);
+INSERT INTO user_authority (id, authority,user) VALUES (3, 3, 3);
+INSERT INTO user_authority (id, authority,user) VALUES (4, 1, 4);
 
 INSERT INTO admin (id,user) VALUES (1,1);
+INSERT INTO admin (id,user) VALUES (2,4);
 
 INSERT INTO professor (id, first_name,last_name,user) VALUES (1, 'Sima','Popovic',2);
-
-
 
 INSERT INTO type_of_financing (id, code,name) VALUES (1, 'SF','self financing');
 INSERT INTO type_of_financing (id, code,name) VALUES (2, 'BU','budget');
 
 INSERT INTO student (id, account_number,card_amount,card_number,email,first_name,last_name,model_number,phone_number,reference_number,started_college_in,umnc,type_of_financing) VALUES (1, '1236548-896-6',800.00,'125-698-365','pera@gmail.com','Pera','Simic',97,'065-489-986','1254-78-965-65',2015,'145879652345',1);
-
 
 INSERT INTO financial_card (id, initial_state,total_cost,total_payment,total_payout,student) VALUES (1, 800.00,1000.00,2000.00,5000.00,1);
 
@@ -34,7 +32,6 @@ INSERT INTO pay_out (id, date_of_pay_out,description_pay_out,pay_out_amount,fina
 
 INSERT INTO payment (id, date_of_payment,payment_amount,payment_description,financial_card) VALUES (1, '2012-11-05 14:29:36',200.00,'Osnove web programiranja',1);
 INSERT INTO payment (id, date_of_payment,payment_amount,payment_description,financial_card) VALUES (2, '2013-11-05 14:29:36',2000.00,'Overa semestra',1);
-
 
 INSERT INTO document_type (id, code,name) VALUES (1, 'FO','form');
 INSERT INTO document_type (id, code,name) VALUES (2, 'CR','certificate');
@@ -59,7 +56,6 @@ INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (1, '201
 INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (2, '2016-01-12',8,71.00,false,1);
 INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (3, '2016-02-11',8,71.00,true,1);
 
-
 INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (1, '2020-02-10','january',200.0,'2020-01-10',1);
 INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (2, '2020-02-20','february',200.0,'2020-02-11',1);
 INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (3, '2020-05-10','april',200.0,'2020-05-04',2);
@@ -76,8 +72,6 @@ INSERT INTO preexam_obligation_status (id, code,name) VALUES (4, 'CN','canceled'
 INSERT INTO preexam_obligation_type (id, code,name) VALUES (1, 'HM','homework');
 INSERT INTO preexam_obligation_type (id, code,name) VALUES (2, 'PE','preexam');
 INSERT INTO preexam_obligation_type (id, code,name) VALUES (3, 'SW','seminary work');
-
-
 
 INSERT INTO preexam_obligation (id, date_of_obligation,location,passed,points,exam,preexam_obligation_status,preexam_obligation_type,student_id) VALUES (1, '2015-01-11','NTP',true,71.00,1,1,1,1);
 INSERT INTO preexam_obligation (id, date_of_obligation,location,passed,points,exam,preexam_obligation_status,preexam_obligation_type,student_id) VALUES (2, '2015-01-11','NTP',false,10.00,2,2,2,1);

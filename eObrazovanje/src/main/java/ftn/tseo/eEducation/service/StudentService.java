@@ -47,17 +47,15 @@ public class StudentService {
 	@Autowired
 	ProfessorRepository professorRepository;
 	
-	
 	@Autowired
 	FinancialCardRepository financialCardRepository;
+	
 	@Autowired
 	PreExamObligationRepository preExamRepo;
 	
 	@Autowired
 	PaymentRepository paymentRepo;
 	
-	
-
 	public Student findOne(Long id) {
 		return studentRepository.findById(id).orElse(null);
 	}
@@ -88,19 +86,8 @@ public class StudentService {
 	
 	
 	//proveriti da li treba examDTO ili exam registration i da li je potrebno dodavati atribut bool za polozeni ispit u celosti
-	
-	
-	
-
-	
-
-	
-	
+		
 	//Check it once more
-	
-	
-	
-
 	
 //	// mislim da nije dobro
 //		public List<Student> getEnrolledStudents(long id) {

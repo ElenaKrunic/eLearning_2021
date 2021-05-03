@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ftn.tseo.eEducation.DTO.LoginDTO;
 import ftn.tseo.eEducation.model.User;
+import ftn.tseo.eEducation.model.UserAuthority;
 import ftn.tseo.eEducation.repository.UserRepository;
 import ftn.tseo.eEducation.security.TokenUtils;
 
@@ -56,10 +57,11 @@ public class UserController {
 	public void register(@RequestBody LoginDTO loginDTO) {
 		
 		User user = new User(); 
-		
 		user.setUsername(loginDTO.getUsername());
-	  //  user.setPassword(loginDTO.getPassword());
 		user.setPassword(passwordEncoder.encode(loginDTO.getPassword()));
+		
+		//ovde da se odradi setUserAuthority
+		
 	    userRepository.save(user);
 	}
 
