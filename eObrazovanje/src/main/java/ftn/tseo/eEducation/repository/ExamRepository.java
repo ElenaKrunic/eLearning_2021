@@ -13,6 +13,12 @@ import ftn.tseo.eEducation.model.Exam;
 
 public interface ExamRepository extends JpaRepository<Exam, Long>{
 	
+	@Query(value= "Select e from Exam e where e.status=true")
+	List<Exam> findPassedExams();
+	
+	@Query(value= "Select e from Exam e where e.status=false")
+	List<Exam> findFailedExams();
+	
 //	@Query("Select e from Exam e where e.examPeriod.startDate > :examDate" + "and :student = e.enrollment.student"
 //	+ "and not exists (select p from PreexamObligation p where p.exam = e and p.student = :student) "
 //	+ "and not exists (select p from PreexamObligation p where p.student = :student and p.exam.enrollment.course = e.enrollment.course and p.passed = true)")
@@ -27,3 +33,6 @@ public interface ExamRepository extends JpaRepository<Exam, Long>{
 		
 		
 }
+
+	
+	

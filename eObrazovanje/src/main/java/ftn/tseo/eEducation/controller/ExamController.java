@@ -22,8 +22,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ftn.tseo.eEducation.DTO.CourseDTO;
 import ftn.tseo.eEducation.DTO.ExamDTO;
+import ftn.tseo.eEducation.DTO.PaymentDTO;
 import ftn.tseo.eEducation.model.Course;
 import ftn.tseo.eEducation.model.Exam;
+import ftn.tseo.eEducation.model.Payment;
 import ftn.tseo.eEducation.service.ExamService;
 
 
@@ -36,6 +38,30 @@ public class ExamController {
 	@Autowired
 	ExamService examService;
 	
+	
+	@RequestMapping(value="/passed-exams", method = RequestMethod.GET)
+	public ResponseEntity<List<ExamDTO>> getPassedExams(){
+		
+		List<Exam> exams = examService.findPassedExams();
+		List<ExamDTO> examDto = new ArrayList<>();
+		for(Exam exam : exams) {
+			examDto.add(new ExamDTO(exam));
+		}
+		return new ResponseEntity<>(examDto, HttpStatus.OK);
+	}
+	
+
+	@RequestMapping(value="/failed-exams", method = RequestMethod.GET)
+	public ResponseEntity<List<ExamDTO>> getFailedExams(){
+		
+		List<Exam> exams = examService.findFailedExams();
+		List<ExamDTO> examDto = new ArrayList<>();
+		for(Exam exam : exams) {
+			examDto.add(new ExamDTO(exam));
+		}
+		return new ResponseEntity<>(examDto, HttpStatus.OK);
+	}
+	
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<ExamDTO>> getExams() {
@@ -47,6 +73,7 @@ public class ExamController {
 		}
 		return new ResponseEntity<>(eDTO, HttpStatus.OK);
 	}
+	
 	
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)

@@ -67,6 +67,14 @@ public class ExamService {
 	public void remove(Long id) {
 		examRepository.deleteById(id);
 	}
+	
+	public List<Exam> findPassedExams(){
+		return examRepository.findPassedExams();
+	}
+	
+	public List<Exam> findFailedExams(){
+		return examRepository.findFailedExams();
+	}
 //	public List<ExamDTO> getCurrentExams(Long id) {
 //		Student student = studentRepository.findById(id).orElse(null);
 //		List<Exam> allExams = examRepository.findAll();
@@ -237,5 +245,9 @@ public class ExamService {
 //		
 //		return save(exam);
 //	}
+	
+	
 }
+
+
 
