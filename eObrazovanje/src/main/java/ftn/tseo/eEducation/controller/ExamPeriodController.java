@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +21,7 @@ import ftn.tseo.eEducation.DTO.ExamPeriodDTO;
 import ftn.tseo.eEducation.model.Exam;
 import ftn.tseo.eEducation.model.ExamPeriod;
 import ftn.tseo.eEducation.service.ExamPeriodService;
+import ftn.tseo.eEducation.service.ExamService;
 
 @RestController
 @RequestMapping(value="api/examPeriod")
@@ -26,6 +29,8 @@ public class ExamPeriodController {
 
 	@Autowired
 	private ExamPeriodService examPeriodService; 
+	
+	private ExamService examService; 
 	
 	@RequestMapping(value="/all", method = RequestMethod.GET)
 	public ResponseEntity<List<ExamPeriodDTO>> getAllExamPeriods(){
@@ -48,8 +53,15 @@ public class ExamPeriodController {
 		return new ResponseEntity<>(new ExamPeriodDTO(examPeriod), HttpStatus.OK);
 	}
 	
-	@RequestMapping(method=RequestMethod.POST, consumes="application/json")
-	public ResponseEntity<ExamPeriodDTO> saveExamPeriod(@RequestBody ExamPeriodDTO examPeriodDTO){		
+	//@RequestMapping(method=RequestMethod.POST, consumes="application/json")
+	@PostMapping(value="/{examId}", consumes="application/json")
+	public ResponseEntity<ExamPeriodDTO> saveExamPeriod(@RequestBody ExamPeriodDTO examPeriodDTO, @PathVariable("examId") Long id){		
+		
+		Exam exam = examService.findOne(id);
+		
+		if(exam == null) {
+			return new ResponseEntity<ExamPeriodDTO>(HttpStatus.NOT_FOUND);
+		}
 		
 		ExamPeriod examPeriod = new ExamPeriod();
 		examPeriod.setStartDate(examPeriodDTO.getStartDate());
@@ -57,12 +69,21 @@ public class ExamPeriodController {
 		examPeriod.setName(examPeriodDTO.getName());
 		examPeriod.setPaymentAmount(examPeriodDTO.getPaymentAmount());
 		
+		exam.addExamPeriod(examPeriod);
+		exam = examService.save(exam);
+		
 		examPeriod = examPeriodService.save(examPeriod);
 		return new ResponseEntity<>(new ExamPeriodDTO(examPeriod), HttpStatus.CREATED);	
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
-	public ResponseEntity<ExamPeriodDTO> updateExamPeriod(@RequestBody ExamPeriodDTO examPeriodDTO){
+	@PutMapping(value="/{examId}", consumes="application/json")
+	public ResponseEntity<ExamPeriodDTO> updateExamPeriod(@RequestBody ExamPeriodDTO examPeriodDTO, @PathVariable("examId") Long id){
+		
+		Exam exam = examService.findOne(id); 
+		
+		if(exam == null) {
+			return new ResponseEntity<ExamPeriodDTO>(HttpStatus.NOT_FOUND);
+		}
 		
 		ExamPeriod examPeriod = examPeriodService.findOne(examPeriodDTO.getId()); 
 		if (examPeriod == null) {
@@ -73,6 +94,9 @@ public class ExamPeriodController {
 		examPeriod.setEndDate(examPeriodDTO.getEndDate());
 		examPeriod.setName(examPeriodDTO.getName());
 		examPeriod.setPaymentAmount(examPeriodDTO.getPaymentAmount());
+		
+		exam.addExamPeriod(examPeriod);
+		exam = examService.save(exam);
 		
 		examPeriod = examPeriodService.save(examPeriod);
 		return new ResponseEntity<>(new ExamPeriodDTO(examPeriod), HttpStatus.OK);	

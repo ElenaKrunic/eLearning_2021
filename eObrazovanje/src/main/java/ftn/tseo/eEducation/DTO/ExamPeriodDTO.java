@@ -17,6 +17,9 @@ public class ExamPeriodDTO {
 	private Date endDate;
 	private float paymentAmount;
 	
+	public ExamPeriodDTO() {
+		
+	}
 	
 	public Long getId() {
 		return id;

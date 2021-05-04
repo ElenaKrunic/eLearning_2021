@@ -263,6 +263,21 @@ public class Student {
 	public void setFinancialCards(FinancialCard financialCards) {
 		this.financialCards = financialCards;
 	}
+	
+	/*
+	public void addFinancialCard(FinancialCard financialCard) {
+		if(financialCard.getStudent() != null) {
+			financialCard.getStudent().removeFinancialCard(financialCard);
+		financialCard.setStudent(this);
+		getFinancialCards()
+		}
+	}
+	
+	public void removeFinancialCard(FinancialCard financialCard) {
+		financialCard.setStudent(null);
+		getFinancialCards().setStudent(null);
+	}
+	*/
 
 	
 }

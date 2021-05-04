@@ -20,8 +20,7 @@ public class Payment {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	private Date dateOfPayment;
-	
+	private Date paymentDate;
 	
 	private String paymentDescription;
 	
@@ -32,7 +31,6 @@ public class Payment {
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private FinancialCard financialCard;
 	
-
 	public Payment() {
 		super();
 	}
@@ -41,7 +39,7 @@ public class Payment {
 			FinancialCard financialCard) {
 		super();
 		this.id = id;
-		this.dateOfPayment = dateOfPayment;
+		this.paymentDate = dateOfPayment;
 		this.paymentDescription = paymentDescription;
 		this.paymentAmount = paymentAmount;
 		this.financialCard = financialCard;
@@ -56,11 +54,11 @@ public class Payment {
 	}
 
 	public Date getDateOfPayment() {
-		return dateOfPayment;
+		return paymentDate;
 	}
 
 	public void setDateOfPayment(Date dateOfPayment) {
-		this.dateOfPayment = dateOfPayment;
+		this.paymentDate = dateOfPayment;
 	}
 
 	public String getPaymentDescription() {
@@ -86,14 +84,5 @@ public class Payment {
 	public void setFinancialCard(FinancialCard financialCard) {
 		this.financialCard = financialCard;
 	}
-
-	@Override
-	public String toString() {
-		return "Payment [id=" + id + ", dateOfPayment=" + dateOfPayment + ", paymentDescription=" + paymentDescription
-				+ ", paymentAmount=" + paymentAmount + ", financialCard=" + financialCard + "]";
-	}
-
-
-	
 
 }

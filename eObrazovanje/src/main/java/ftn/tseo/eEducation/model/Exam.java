@@ -133,10 +133,6 @@ public class Exam {
 	}
 
 
-
-
-
-
 	public Set<ExamPeriod> getExamPeriod() {
 		return examPeriod;
 	}
@@ -160,7 +156,6 @@ public class Exam {
 	}
 
 
-
 	public Exam(Long id, int grade, float points, Date examDate, boolean status,
 			Set<PreexamObligation> preexamObligation, Set<ExamPeriod> examPeriod, Enrollment enrollments) {
 		super();
@@ -173,15 +168,17 @@ public class Exam {
 		this.examPeriod = examPeriod;
 		this.enrollments = enrollments;
 	}
-
-
-
 	
-
-
+	public void addExamPeriod(ExamPeriod examPeriod) {
+		if(examPeriod.getExam() != null) {
+			examPeriod.getExam().removeExamPeriod(examPeriod);
+		examPeriod.setExam(this);
+		getExamPeriod().add(examPeriod);
+		}
+	}
 	
-
-
-
-
+	public void removeExamPeriod(ExamPeriod examPeriod) {
+		examPeriod.setExam(null);
+		getExamPeriod().remove(examPeriod);
+	}
 }

@@ -52,10 +52,10 @@ public class PaymentController {
 		return new ResponseEntity<>(new PaymentDTO(payment), HttpStatus.OK);
 	}
 	
-	@RequestMapping(method=RequestMethod.POST, consumes="application/json")
-	public ResponseEntity<PaymentDTO> savePayment(@RequestBody PaymentDTO paymentDTO){		
+	@RequestMapping(method=RequestMethod.POST, value="/{financialCardId}", consumes="application/json")
+	public ResponseEntity<PaymentDTO> savePayment(@RequestBody PaymentDTO paymentDTO, @PathVariable("financialCardId") Long financialCardId){		
 		
-		FinancialCard financialCard = financialCardService.findOne(paymentDTO.getFinancialCardDTO().getId());
+		FinancialCard financialCard = financialCardService.findOne(financialCardId);
 
 		if (financialCard == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -63,7 +63,7 @@ public class PaymentController {
 		Payment payment = new Payment(); 
 		payment.setDateOfPayment(paymentDTO.getPaymentDate());
 		payment.setFinancialCard(financialCard);
-		//payment.setPaymentAmount(paymentDTO.getPaymentAmount());
+		payment.setPaymentAmount(paymentDTO.getPaymentAmount());
 		payment.setPaymentDescription(paymentDTO.getPaymentDescription());
 		
 		
@@ -71,25 +71,17 @@ public class PaymentController {
 		return new ResponseEntity<>(new PaymentDTO(payment), HttpStatus.CREATED);	
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
-	public ResponseEntity<PaymentDTO> updatePayment(@RequestBody PaymentDTO paymentDTO){
+	@RequestMapping(method=RequestMethod.PUT, value="/{id}", consumes="application/json")
+	public ResponseEntity<PaymentDTO> updatePayment(@RequestBody PaymentDTO paymentDTO, @PathVariable("id") Long id){
 		
-		FinancialCard financialCard = financialCardService.findOne(paymentDTO.getFinancialCardDTO().getId());
-
-		if (financialCard == null) {
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-		
-		Payment payment = paymentService.findOne(paymentDTO.getId()); 
+		Payment payment = paymentService.findOne(id); 
 		if (payment == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		
 		payment.setDateOfPayment(paymentDTO.getPaymentDate());
-		payment.setFinancialCard(financialCard);
-		//payment.setPaymentAmount(paymentDTO.getPaymentAmount());
+		payment.setPaymentAmount(paymentDTO.getPaymentAmount());
 		payment.setPaymentDescription(paymentDTO.getPaymentDescription());
-		
 		
 		payment = paymentService.save(payment);
 		return new ResponseEntity<>(new PaymentDTO(payment), HttpStatus.CREATED);	

@@ -28,9 +28,9 @@ public class FinancialCard {
 	private float totalPayment;
 	
 	private float totalPayout;
+	
 	private float totalCost;
 	
-
 	@OneToOne
 	@JoinColumn(name = "student", referencedColumnName = "id", nullable = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
@@ -123,10 +123,5 @@ public class FinancialCard {
 		this.payments = payments;
 	}
 
-	
-	
-	
-	
-	
 
 }

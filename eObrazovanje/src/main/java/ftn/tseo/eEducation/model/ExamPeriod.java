@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * 
@@ -35,6 +37,7 @@ public class ExamPeriod {
 	private float paymentAmount;
 	
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "exam", referencedColumnName = "id", nullable = false)
 	private Exam exam;
 

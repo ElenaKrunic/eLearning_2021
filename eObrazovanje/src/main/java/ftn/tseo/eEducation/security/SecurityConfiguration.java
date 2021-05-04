@@ -44,8 +44,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.authorizeRequests()	
 			.antMatchers("/index.html", "/api/login", "/api/register")
 			.permitAll()  
-			.antMatchers(HttpMethod.POST, "/api/**")
-			.hasAuthority("ROLE_ADMIN")
+			//.antMatchers(HttpMethod.POST, "/api/**") ==> radi testiranja svojih POST metoda sam onemogucila da test mora uraditi ADMIN  ELENA 
+			//.hasAuthority("ROLE_ADMIN")
 			.anyRequest().authenticated()
 			.and()
 			.httpBasic(); //radi 
@@ -90,6 +90,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		authenticationTokenFilter.setAuthenticationManager(authenticationManagerBean());
 		return authenticationTokenFilter;
 	}
+	/*
 <<<<<<< HEAD
 	
 	@Override
@@ -114,4 +115,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 =======
 >>>>>>> 7de1852878a84583f0ad5fc35a72a04557f4bc1f
+*/
 }
