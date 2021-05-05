@@ -7,7 +7,8 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
 import { StudentsComponent } from './students/students.component';
 import { LoginComponent } from './login/login.component';
 import { PreexamObligationComponent } from './preexam-obligation/preexam-obligation.component';
-
+// import {MatFormFieldModule} from "@angular/material/form-field"
+// import {MatInputModule} from "@angular/material/input"
 
 @NgModule({
   declarations: [
@@ -15,15 +16,16 @@ import { PreexamObligationComponent } from './preexam-obligation/preexam-obligat
     StudentDetailsComponent,
     StudentsComponent,
     LoginComponent,
-<<<<<<< HEAD
-    ],
-=======
+
     PreexamObligationComponent,
   ],
->>>>>>> 613fad851e17b1579a23dc142f53e288715f15bd
+
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    // MatFormFieldModule,
+    // MatInputModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
