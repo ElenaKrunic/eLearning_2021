@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,8 +12,7 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
 import { StudentsComponent } from './students/students.component';
 import { LoginComponent } from './login/login.component';
 import { PreexamObligationComponent } from './preexam-obligation/preexam-obligation.component';
-// import {MatFormFieldModule} from "@angular/material/form-field"
-// import {MatInputModule} from "@angular/material/input"
+
 
 @NgModule({
   declarations: [
@@ -16,15 +20,17 @@ import { PreexamObligationComponent } from './preexam-obligation/preexam-obligat
     StudentDetailsComponent,
     StudentsComponent,
     LoginComponent,
-
     PreexamObligationComponent,
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // MatFormFieldModule,
-    // MatInputModule
+    FormsModule,
+		ReactiveFormsModule,
+		BrowserAnimationsModule, // required animations module
+		ToastrModule.forRoot(),
+		HttpClientModule
 
   ],
   providers: [],
