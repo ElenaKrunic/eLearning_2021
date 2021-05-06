@@ -3,20 +3,21 @@ use eobrazovanje;
 INSERT INTO authority (id, name) VALUES (1, 'ROLE_ADMIN');
 INSERT INTO authority (id, name) VALUES (2, 'ROLE_PROFESOR');
 INSERT INTO authority (id, name) VALUES (3, 'ROLE_STUDENT');
-
-INSERT INTO user (id, password,username) VALUES (1, 'nekalozinka','admin');
-INSERT INTO user (id, password,username) VALUES (2, 'nekalozinka','profesor');
-INSERT INTO user (id, password,username) VALUES (3, 'nekalozinka','student');
+--za admina je sifra admin
+INSERT INTO user (id, password,username) VALUES (1, '$2a$04$SwzgBrIJZhfnzOw7KFcdzOTiY6EFVwIpG7fkF/D1w26G1.fWsi.aK','admin');
+--za profesora i studenta je user
+INSERT INTO user (id, password,username) VALUES (2, '$2a$04$Amda.Gm4Q.ZbXz9wcohDHOhOBaNQAkSS1QO26Eh8Hovu3uzEpQvcq','profesor');
+INSERT INTO user (id, password,username) VALUES (3, '$2a$04$Amda.Gm4Q.ZbXz9wcohDHOhOBaNQAkSS1QO26Eh8Hovu3uzEpQvcq','student');
 --lozinka je Elena 
-INSERT INTO user (id, password, username) VALUES (4, '$2a$10$Nig935e8V2Zgx0zDd31RJe1bdHchJiG9wvS8VDO.UFIKt7O.WbRIS', 'Elena');
+--INSERT INTO user (id, password, username) VALUES (4, '$2a$10$Nig935e8V2Zgx0zDd31RJe1bdHchJiG9wvS8VDO.UFIKt7O.WbRIS', 'Elena');
 
 INSERT INTO user_authority (id, authority,user) VALUES (1, 1, 1);
 INSERT INTO user_authority (id, authority,user) VALUES (2, 2, 2);
 INSERT INTO user_authority (id, authority,user) VALUES (3, 3, 3);
-INSERT INTO user_authority (id, authority,user) VALUES (4, 1, 4);
+--INSERT INTO user_authority (id, authority,user) VALUES (4, 1, 4);
 
 INSERT INTO admin (id,user) VALUES (1,1);
-INSERT INTO admin (id,user) VALUES (2,4);
+--INSERT INTO admin (id,user) VALUES (2,4);
 
 INSERT INTO professor (id, first_name,last_name,user) VALUES (1, 'Sima','Popovic',2);
 
@@ -27,11 +28,11 @@ INSERT INTO student (id, account_number,card_amount,card_number,email,first_name
 
 INSERT INTO financial_card (id, initial_state,total_cost,total_payment,total_payout,student) VALUES (1, 800.00,1000.00,2000.00,5000.00,1);
 
---INSERT INTO pay_out (id, date_of_pay_out,description_pay_out,pay_out_amount,financial_card) VALUES (1, '2015-11-05 14:29:36','Prijava ispita',500.00,1);
---INSERT INTO pay_out (id, date_of_pay_out,description_pay_out,pay_out_amount,financial_card) VALUES (2, '2013-11-05 14:29:36','Overa semestra',2000.00,1);
+INSERT INTO pay_out (id, date_of_pay_out,description_pay_out,pay_out_amount,financial_card) VALUES (1, '2015-11-05 14:29:36','Prijava ispita',500.00,1);
+INSERT INTO pay_out (id, date_of_pay_out,description_pay_out,pay_out_amount,financial_card) VALUES (2, '2013-11-05 14:29:36','Overa semestra',2000.00,1);
 
---INSERT INTO payment (id, date_of_payment,payment_amount,payment_description,financial_card) VALUES (1, '2012-11-05 14:29:36',200.00,'Osnove web programiranja',1);
---INSERT INTO payment (id, date_of_payment,payment_amount,payment_description,financial_card) VALUES (2, '2013-11-05 14:29:36',2000.00,'Overa semestra',1);
+INSERT INTO payment (id, date_of_payment,payment_amount,payment_description,financial_card) VALUES (1, '2012-11-05 14:29:36',200.00,'Osnove web programiranja',1);
+INSERT INTO payment (id, date_of_payment,payment_amount,payment_description,financial_card) VALUES (2, '2013-11-05 14:29:36',2000.00,'Overa semestra',1);
 
 INSERT INTO pay_out (id, date_of_pay_out,description_pay_out,pay_out_amount,financial_card) VALUES (1, '2015-11-05','Prijava ispita',500.00,1);
 INSERT INTO pay_out (id, date_of_pay_out,description_pay_out,pay_out_amount,financial_card) VALUES (2, '2013-11-05','Overa semestra',2000.00,1);

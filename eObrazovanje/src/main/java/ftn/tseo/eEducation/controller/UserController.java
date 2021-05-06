@@ -28,9 +28,9 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 	
-	@Autowired
-	private PasswordEncoder passwordEncoder; 
-	
+//	@Autowired
+//	private PasswordEncoder passwordEncoder; 
+//	
 	@Autowired
 	AuthenticationManager aManager;
 	
@@ -52,17 +52,16 @@ public class UserController {
         }
 	}
 	
-	@PostMapping("/api/register")
-	@ResponseStatus(code=HttpStatus.CREATED)
-	public void register(@RequestBody LoginDTO loginDTO) {
-		
-		User user = new User(); 
-		user.setUsername(loginDTO.getUsername());
-		user.setPassword(passwordEncoder.encode(loginDTO.getPassword()));
-		
-		//ovde da se odradi setUserAuthority
-		
-	    userRepository.save(user);
-	}
+//	@PostMapping("/api/register")
+//	@ResponseStatus(code=HttpStatus.CREATED)
+//	public void register(@RequestBody LoginDTO loginDTO) {
+//		UserAuthority userAuthority=new UserAuthority();
+//		User user = new User(); 
+//		user.setUsername(loginDTO.getUsername());
+//		user.setPassword(passwordEncoder.encode(loginDTO.getPassword()));
+//		
+//		//ovde da se odradi setUserAuthority
+//	    userRepository.save(user);
+//	}
 
 }
