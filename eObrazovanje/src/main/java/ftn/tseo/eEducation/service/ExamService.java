@@ -127,25 +127,6 @@ public class ExamService {
 		return examsToDTO;
 	}
 		
-		
-//		//pitati na osnovu upita da li se dobro izvlace podaci 
-//		List<Exam> exams = new ArrayList<Exam>();
-//		if(student != null) {
-//			exams = examRepository.findStudentExams(id);
-//		}
-//		List<ExamDTO> examsDTO = new ArrayList<ExamDTO>();
-//		if(exams.size() > 0) {
-//			for(Exam e : exams) {
-//				examsDTO.add(new ExamDTO(e));
-//			}
-//		}
-//		
-//	
-//
-//		return examsDTO;
-//	}
-//
-//	
 //	public List<Exam> examsForRegistration(Student student) {
 //		
 //		Student s = studentRepository.findById(student.getId()).orElse(null); 

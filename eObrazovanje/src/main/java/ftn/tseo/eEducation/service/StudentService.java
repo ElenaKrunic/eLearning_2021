@@ -1,6 +1,7 @@
 package ftn.tseo.eEducation.service;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -15,9 +16,9 @@ import ftn.tseo.eEducation.DTO.ExamDTO;
 import ftn.tseo.eEducation.DTO.FinancialCardDTO;
 import ftn.tseo.eEducation.DTO.PaymentDTO;
 import ftn.tseo.eEducation.DTO.PayoutDTO;
-
+import ftn.tseo.eEducation.DTO.StudentDTO;
 import ftn.tseo.eEducation.model.Document;
-
+import ftn.tseo.eEducation.model.Enrollment;
 import ftn.tseo.eEducation.model.Exam;
 
 import ftn.tseo.eEducation.model.FinancialCard;
@@ -26,13 +27,14 @@ import ftn.tseo.eEducation.model.Payment;
 import ftn.tseo.eEducation.model.PreexamObligation;
 import ftn.tseo.eEducation.model.Professor;
 import ftn.tseo.eEducation.model.Student;
-
+import ftn.tseo.eEducation.repository.CourseRepository;
 import ftn.tseo.eEducation.repository.ExamRepository;
 import ftn.tseo.eEducation.repository.FinancialCardRepository;
 import ftn.tseo.eEducation.repository.PaymentRepository;
 import ftn.tseo.eEducation.repository.PreExamObligationRepository;
 import ftn.tseo.eEducation.repository.ProfessorRepository;
 import ftn.tseo.eEducation.repository.StudentRepository;
+import ftn.tseo.eEducation.repository.TeachingRepository;
 
 
 @Service
@@ -52,6 +54,9 @@ public class StudentService {
 	
 	@Autowired
 	PreExamObligationRepository preExamRepo;
+	
+	@Autowired 
+	TeachingRepository teachingRepo;
 	
 	@Autowired
 	PaymentRepository paymentRepo;
@@ -82,6 +87,21 @@ public class StudentService {
 	
 	public List<Student> findByLastName(String lastName) {
 		return studentRepository.findAllByLastName(lastName);
+	}
+	
+	public List<StudentDTO> findProffesorStudent(Long id){
+		Set<Enrollment> enrollments=teachingRepo.findTeachingByProfessorId(id).getCourses().getEnrollments();
+		Set<Student> students=new HashSet<Student>();
+		List<StudentDTO> studentToDTO=new ArrayList<>();
+		for(Enrollment e:enrollments) {
+			students.add(e.getStudent());
+		}
+		for(Student s : students) {
+			studentToDTO.add(new StudentDTO(s));
+		}
+		
+		return studentToDTO;
+		
 	}
 	
 	
