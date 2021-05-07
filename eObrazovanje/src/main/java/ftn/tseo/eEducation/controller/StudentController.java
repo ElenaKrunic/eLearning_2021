@@ -156,10 +156,10 @@ public class StudentController {
 		return new ResponseEntity<>(new ExamRegistrationDTO(exam), HttpStatus.CREATED);
 	}*/
 	
-//	@GetMapping(value="/{studentId}/exams-current")
-//	private List<ExamDTO> getCurrentExamsForStudent(@PathVariable("studentId") Long id) {
-//		return examService.getCurrentExams(id);
-//	}
+	@GetMapping(value="/{studentId}/exams-current")
+	private List<ExamDTO> getCurrentExamsForStudent(@PathVariable("studentId") Long id) {
+		return examService.getCurrentExams(id);
+	}
 	
 	@GetMapping(value="/{studentId}/exams")
 	private List<ExamDTO> getTakenExams(@PathVariable("studentId") Long id) {

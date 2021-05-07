@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.security.RolesAllowed;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,6 +33,7 @@ import ftn.tseo.eEducation.service.ExamService;
 
 @RestController
 @RequestMapping(value = "api/exams")
+
 @CrossOrigin(value="*")
 public class ExamController {
 	
@@ -62,7 +64,7 @@ public class ExamController {
 		return new ResponseEntity<>(examDto, HttpStatus.OK);
 	}
 	
-
+	@RolesAllowed("ROLE_ADMIN")
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<ExamDTO>> getExams() {
 		List<Exam> e = examService.findAll();

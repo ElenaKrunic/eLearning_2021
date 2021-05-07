@@ -61,7 +61,7 @@ INSERT INTO enrollments (enrollment_id, enrollment_end_date,enrollment_start_dat
 INSERT INTO enrollments (enrollment_id, enrollment_end_date,enrollment_start_date,courses,student) VALUES (2, '2015-11-05','2013-11-05',2,1);
 
 INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (1, '2015-01-11',8,71.00,true,1);
-INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (2, '2016-01-12',8,71.00,false,1);
+INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (2, '2016-01-12',8,71.00,false,2);
 INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (3, '2016-02-11',8,71.00,true,1);
 
 INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (1, '2020-02-10','january',200.0,'2020-01-10',1);

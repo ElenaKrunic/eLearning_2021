@@ -2,6 +2,7 @@ package ftn.tseo.eEducation.service;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -75,35 +76,37 @@ public class ExamService {
 	public List<Exam> findFailedExams(){
 		return examRepository.findFailedExams();
 	}
-//	public List<ExamDTO> getCurrentExams(Long id) {
-//		Student student = studentRepository.findById(id).orElse(null);
-//		List<Exam> allExams = examRepository.findAll();
-//		List<Exam> currentExams = new ArrayList<>();
-//		
-////		List<Exam> examsTaken=examRepository.findStudentExams(id);
-//		Date currentDate = new Date(new java.util.Date().getTime());
-//		
-//		if(student != null) {
-//			for (Exam e : allExams) {
-//				if(e.getExamPeriod().iterator().next().getEndDate().after(currentDate) && 
-//						e.getExamPeriod().iterator().next().getStartDate().before(currentDate)) {
-//					
-//						currentExams.add(e);
-//					
-//				}
-//			}
-//			
-//			
-//		}
-//		List<ExamDTO> currentExamsDTOs = new ArrayList<>();
-//		
-//		for( Exam examToDTO : currentExams) {
-//			currentExamsDTOs.add(new ExamDTO(examToDTO));
-//		}
-//		
-//		return currentExamsDTOs;
-//	
-//	}
+	public List<ExamDTO> getCurrentExams(Long id) {
+		Student student = studentRepository.findById(id).orElse(null);
+		List<Exam> allExams = examRepository.findAll();
+		List<Exam> currentExams = new ArrayList<>();
+		
+	
+		Date currentDate = new Date(new java.util.Date().getTime());
+		
+
+		if(student != null) {
+			for (Exam e : allExams) {
+				if(e.getExamPeriod().iterator().next().getEndDate().after(currentDate) && 
+						e.getExamPeriod().iterator().next().getStartDate().before(currentDate) && e.isStatus()==false) {
+					
+						currentExams.add(e);
+					
+				}
+			}
+			
+			
+		}
+		List<ExamDTO> currentExamsDTOs = new ArrayList<>();
+		
+		for( Exam examToDTO : currentExams) {
+			currentExamsDTOs.add(new ExamDTO(examToDTO));
+		}
+		
+		return currentExamsDTOs;
+	
+	}
+	
 	
 	//ova klasa
 	public List<ExamDTO> findStudentExams(Long id) {
@@ -111,10 +114,10 @@ public class ExamService {
 		List<Enrollment> enrollment=enrollmentRepository.findByStudentId(id);
 		System.out.println("Enrollment"+enrollment);
 		List<ExamDTO> examsToDTO=new  ArrayList<ExamDTO>();
-		List<Exam> exams=new  ArrayList<Exam>();
+		Set<Exam> exams= new  HashSet<Exam>();
 		
 		for(Enrollment e:enrollment) {
-			e.getExam();
+			exams.addAll( e.getExam());
 			
 		}
 		for(Exam ex : exams) {
