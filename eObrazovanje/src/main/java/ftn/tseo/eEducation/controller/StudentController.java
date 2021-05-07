@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import ftn.tseo.eEducation.DTO.CourseDTO;
 import ftn.tseo.eEducation.DTO.DocumentDTO;
 import ftn.tseo.eEducation.DTO.EnrollmentDTO;
 import ftn.tseo.eEducation.DTO.ExamDTO;
@@ -188,6 +189,7 @@ public class StudentController {
 	private List<EnrollmentDTO> getStudentEnrollments(@PathVariable("studentId") Long id) {
 		return enrollmentService.findEnrollmentForStudent(id);
 	}
+	
 	
 	
 	//implementirati getStudentByCardNumber --> Elena 
