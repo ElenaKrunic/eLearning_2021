@@ -15,6 +15,13 @@ import { PreexamObligationComponent } from './preexam-obligation/preexam-obligat
 import { HeaderComponent } from './core/header/header.component';
 import { NavbarStudentComponent } from './core/navbar-student/navbar-student.component';
 import { FinancialcardStudentComponent } from './financialcard-student/financialcard-student.component';
+import { NavbarProfessorComponent } from './core/navbar-professor/navbar-professor.component';
+import { ExamsComponent } from './exams/exams.component';
+import { CoursesComponent } from './courses/courses/courses.component';
+import { ProfessorCoursesComponent } from './professor-courses/professor-courses.component';
+import { ProfessorStudentsComponent } from './professor-students/professor-students.component';
+import { ProfessorProfileComponent } from './professor-profile/professor-profile.component';
+import { ProfessorExamsComponent } from './professor-exams/professor-exams.component';
 
 
 @NgModule({
@@ -27,6 +34,13 @@ import { FinancialcardStudentComponent } from './financialcard-student/financial
     HeaderComponent,
     NavbarStudentComponent,
     FinancialcardStudentComponent,
+    NavbarProfessorComponent,
+    ExamsComponent,
+    CoursesComponent,
+    ProfessorCoursesComponent,
+    ProfessorStudentsComponent,
+    ProfessorProfileComponent,
+    ProfessorExamsComponent,
   ],
 
   imports: [

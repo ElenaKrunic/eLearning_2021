@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+
+    <a class="navbar-brand">professor</a>
+  
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/exams']">Exams</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/students']">Students</a>
+        </li>
+      </ul>
+    
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/profile']">Profile</a>
+        </li>
+    </ul>
+  
+  
+    <ul class="navbar-nav ml-auto">   
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+
+</nav>
+
+<table class="table table-striped pera">
+</table>
