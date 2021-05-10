@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
 			result => {
 				this.toastr.success('Successful login!');
 				localStorage.setItem('user', JSON.stringify(result));
-				this.router.navigate(['students']);
+				this.router.navigate(['financialcard']);
 			},
 			error => {
 				this.toastr.error(error.error);
