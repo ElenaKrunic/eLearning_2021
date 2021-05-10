@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { HttpResponse, HttpClient } from '@angular/common/http';
 import { Course } from '../model/course';
+import { Student } from '../model/student';
+import { Professor } from '../model/professor';
 
 @Injectable()
 export class ProfessorService {
@@ -18,9 +20,15 @@ export class ProfessorService {
         this.RegenerateData.next();
     }
 
-    getProffesorCourses(professorId:number): Observable<HttpResponse<Course[]>> {
-      const url=`${this.path}/${professorId}/professorCourses`;
-      return this.http.get<Course[]>(url, {observe: 'response'});
-  }
+    getProfessor(id:number):Observable<HttpResponse<Professor[]>>{
+      const url=`${this.path}/{id}`;
+      return this.http.get<Professor[]>(url, {observe: 'response'});
+    } 
+
+
+    getProfessorStudents(professorId:number): Observable<HttpResponse<Student[]>> {
+      const url=`${this.path}/{professorId}/professorStudents`;
+      return this.http.get<Student[]>(url, {observe: 'response'});
+    }
 
 }
