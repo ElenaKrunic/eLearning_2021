@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Interceptor } from './interceptors/intercept.service';
 
 import { AppRoutingModule } from './routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,6 +12,9 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
 import { StudentsComponent } from './students/students.component';
 import { LoginComponent } from './login/login.component';
 import { PreexamObligationComponent } from './preexam-obligation/preexam-obligation.component';
+import { HeaderComponent } from './core/header/header.component';
+import { NavbarStudentComponent } from './core/navbar-student/navbar-student.component';
+import { FinancialcardStudentComponent } from './financialcard-student/financialcard-student.component';
 
 
 @NgModule({
@@ -15,17 +23,23 @@ import { PreexamObligationComponent } from './preexam-obligation/preexam-obligat
     StudentDetailsComponent,
     StudentsComponent,
     LoginComponent,
-<<<<<<< HEAD
-    ],
-=======
     PreexamObligationComponent,
+    HeaderComponent,
+    NavbarStudentComponent,
+    FinancialcardStudentComponent,
   ],
->>>>>>> 613fad851e17b1579a23dc142f53e288715f15bd
+
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+		ReactiveFormsModule,
+		BrowserAnimationsModule, // required animations module
+		ToastrModule.forRoot(),
+		HttpClientModule
+
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

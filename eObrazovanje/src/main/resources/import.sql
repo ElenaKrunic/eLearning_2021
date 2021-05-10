@@ -3,20 +3,21 @@ use eobrazovanje;
 INSERT INTO authority (id, name) VALUES (1, 'ROLE_ADMIN');
 INSERT INTO authority (id, name) VALUES (2, 'ROLE_PROFESOR');
 INSERT INTO authority (id, name) VALUES (3, 'ROLE_STUDENT');
-
-INSERT INTO user (id, password,username) VALUES (1, 'nekalozinka','admin');
-INSERT INTO user (id, password,username) VALUES (2, 'nekalozinka','profesor');
-INSERT INTO user (id, password,username) VALUES (3, 'nekalozinka','student');
+--za admina je sifra admin
+INSERT INTO user (id, password,username) VALUES (1, '$2a$04$SwzgBrIJZhfnzOw7KFcdzOTiY6EFVwIpG7fkF/D1w26G1.fWsi.aK','admin');
+--za profesora i studenta je user
+INSERT INTO user (id, password,username) VALUES (2, '$2a$04$Amda.Gm4Q.ZbXz9wcohDHOhOBaNQAkSS1QO26Eh8Hovu3uzEpQvcq','profesor');
+INSERT INTO user (id, password,username) VALUES (3, '$2a$04$Amda.Gm4Q.ZbXz9wcohDHOhOBaNQAkSS1QO26Eh8Hovu3uzEpQvcq','student');
 --lozinka je Elena 
-INSERT INTO user (id, password, username) VALUES (4, '$2a$10$Nig935e8V2Zgx0zDd31RJe1bdHchJiG9wvS8VDO.UFIKt7O.WbRIS', 'Elena');
+--INSERT INTO user (id, password, username) VALUES (4, '$2a$10$Nig935e8V2Zgx0zDd31RJe1bdHchJiG9wvS8VDO.UFIKt7O.WbRIS', 'Elena');
 
 INSERT INTO user_authority (id, authority,user) VALUES (1, 1, 1);
 INSERT INTO user_authority (id, authority,user) VALUES (2, 2, 2);
 INSERT INTO user_authority (id, authority,user) VALUES (3, 3, 3);
-INSERT INTO user_authority (id, authority,user) VALUES (4, 1, 4);
+--INSERT INTO user_authority (id, authority,user) VALUES (4, 1, 4);
 
 INSERT INTO admin (id,user) VALUES (1,1);
-INSERT INTO admin (id,user) VALUES (2,4);
+--INSERT INTO admin (id,user) VALUES (2,4);
 
 INSERT INTO professor (id, first_name,last_name,user) VALUES (1, 'Sima','Popovic',2);
 
@@ -32,6 +33,13 @@ INSERT INTO pay_out (id, date_of_pay_out,description_pay_out,pay_out_amount,fina
 
 INSERT INTO payment (id, date_of_payment,payment_amount,payment_description,financial_card) VALUES (1, '2012-11-05 14:29:36',200.00,'Osnove web programiranja',1);
 INSERT INTO payment (id, date_of_payment,payment_amount,payment_description,financial_card) VALUES (2, '2013-11-05 14:29:36',2000.00,'Overa semestra',1);
+
+INSERT INTO pay_out (id, date_of_pay_out,description_pay_out,pay_out_amount,financial_card) VALUES (1, '2015-11-05','Prijava ispita',500.00,1);
+INSERT INTO pay_out (id, date_of_pay_out,description_pay_out,pay_out_amount,financial_card) VALUES (2, '2013-11-05','Overa semestra',2000.00,1);
+
+INSERT INTO payment (id, payment_date ,payment_amount,payment_description,financial_card) VALUES (1, '2012-11-05',200.00,'Osnove web programiranja',1);
+INSERT INTO payment (id, payment_date ,payment_amount,payment_description,financial_card) VALUES (2, '2013-11-05',2000.00,'Overa semestra',1);
+
 
 INSERT INTO document_type (id, code,name) VALUES (1, 'FO','form');
 INSERT INTO document_type (id, code,name) VALUES (2, 'CR','certificate');
@@ -52,15 +60,15 @@ INSERT INTO teaching (id, end_date,start_date,courses,professor,teaching_type) V
 INSERT INTO enrollments (enrollment_id, enrollment_end_date,enrollment_start_date,courses,student) VALUES (1, '2015-11-05','2013-11-05',1,1);
 INSERT INTO enrollments (enrollment_id, enrollment_end_date,enrollment_start_date,courses,student) VALUES (2, '2015-11-05','2013-11-05',2,1);
 
-INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (1, '2015-01-11',8,71.00,true,1);
-INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (2, '2016-01-12',8,71.00,false,1);
-INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (3, '2016-02-11',8,71.00,true,1);
+INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (1, '2015-05-10',8,71.00,true,1);
+INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (2, '2016-05-09',8,71.00,false,2);
+INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (3, '2016-05-07',8,71.00,true,1);
 
 INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (1, '2020-02-10','january',200.0,'2020-01-10',1);
 INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (2, '2020-02-20','february',200.0,'2020-02-11',1);
 INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (3, '2020-05-10','april',200.0,'2020-05-04',2);
-INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (4, '2020-10-07','june',200.0,'2020-06-10',2);
-INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (5, '2020-07-25','july',200.0,'2020-07-11',3);
+INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (4, '2020-06-15','june',200.0,'2020-06-10',2);
+INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (5, '2020-07-25','july',200.0,'2020-07-15',3);
 INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (6, '2020-09-20','september',200.0,'2020-09-10',3);
 INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (7, '2020-10-20','october',200.0,'2020-10-11',3);
 

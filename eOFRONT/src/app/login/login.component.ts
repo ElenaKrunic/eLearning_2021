@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthenticationService } from './authentication.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { AuthenticationService } from './authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -11,12 +11,12 @@ import { AuthenticationService } from './authentication.service';
 })
 export class LoginComponent implements OnInit {
 	form: FormGroup;
-
+	
 	constructor(
 		private fb: FormBuilder,
 		private authenticationService: AuthenticationService,
 		private router: Router,
-		private toastr: ToastrService
+		private toastr: ToastrService,
 	) {
 		this.form = this.fb.group({
 			username : [null, Validators.required],
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
 			result => {
 				this.toastr.success('Successful login!');
 				localStorage.setItem('user', JSON.stringify(result));
-				this.router.navigate(['students']);
+				this.router.navigate(['financialcard']);
 			},
 			error => {
 				this.toastr.error(error.error);
