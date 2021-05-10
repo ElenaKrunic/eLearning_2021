@@ -41,7 +41,9 @@ public class ExamController {
 	ExamService examService;
 	
 	
+
 	@RequestMapping(value="/passed-exams", method = RequestMethod.GET)
+
 	public ResponseEntity<List<ExamDTO>> getPassedExams(){
 		
 		List<Exam> exams = examService.findPassedExams();
@@ -63,7 +65,7 @@ public class ExamController {
 		}
 		return new ResponseEntity<>(examDto, HttpStatus.OK);
 	}
-	
+
 	@RolesAllowed("ROLE_ADMIN")
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<ExamDTO>> getExams() {

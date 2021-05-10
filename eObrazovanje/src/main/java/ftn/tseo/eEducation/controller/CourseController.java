@@ -17,8 +17,11 @@ import ftn.tseo.eEducation.DTO.CourseDTO;
 import ftn.tseo.eEducation.DTO.FinancialCardDTO;
 import ftn.tseo.eEducation.DTO.TeachingDTO;
 import ftn.tseo.eEducation.model.Course;
+import ftn.tseo.eEducation.model.Enrollment;
+import ftn.tseo.eEducation.model.TypeOfFinancing;
 import ftn.tseo.eEducation.repository.TeachingRepository;
 import ftn.tseo.eEducation.service.CourseService;
+import ftn.tseo.eEducation.service.EnrollmentService;
 import ftn.tseo.eEducation.service.TeachingService;
 
 @RestController
@@ -26,7 +29,8 @@ import ftn.tseo.eEducation.service.TeachingService;
 public class CourseController {
 	@Autowired
 	private CourseService courseService;
-	
+	@Autowired
+	EnrollmentService eService;
 	@Autowired
 	TeachingService teachingService;
 
@@ -55,6 +59,12 @@ public class CourseController {
 	public ResponseEntity<CourseDTO> saveCourse(@RequestBody CourseDTO courseDTO) {
 		Course course = new Course();
 		course.setTitle(courseDTO.getTitle());
+		course.setECTS(courseDTO.getECTS());
+		course.setCourseCode(courseDTO.getCourseCode());
+		course.setEnrollments(null);
+		course.setStartDate(courseDTO.getStartDate());
+		course.setEndDate(courseDTO.getEndDate());
+		
 
 		course = courseService.save(course);
 		return new ResponseEntity<>(new CourseDTO(course), HttpStatus.CREATED);
@@ -69,6 +79,12 @@ public class CourseController {
 		}
 
 		course.setTitle(courseDTO.getTitle());
+		course.setECTS(courseDTO.getECTS());
+		course.setCourseCode(courseDTO.getCourseCode());
+		course.setEnrollments(null);
+		course.setStartDate(courseDTO.getStartDate());
+		course.setEndDate(courseDTO.getEndDate());
+		
 
 		course = courseService.save(course);
 		return new ResponseEntity<>(new CourseDTO(course), HttpStatus.OK);

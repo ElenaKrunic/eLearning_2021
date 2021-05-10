@@ -16,9 +16,10 @@ public class ExamDTO {
 	private Date examDate;
 	private ExamPeriodDTO examPeriodDTO;
 	private EnrollmentDTO enrollmentDTO;
+	private int ects;
 	private String courseName;
 	private boolean status;
-	private int ects;
+	
 //	private String professorName;
 
 	@SuppressWarnings("unchecked")
@@ -26,9 +27,11 @@ public class ExamDTO {
 		super();
 		id = exam.getId();
 		courseName=exam.getEnrollments().getCourses().getTitle();
+
 //		if( ((Set<Teaching>) exam.getEnrollments().getCourses().getTeachings().iterator().next().getProfessor()).size()>0) {
 //			professorName=exam.getEnrollments().getCourses().getTeachings().iterator().next().getProfessor().getFirstName()+exam.getEnrollments().getCourses().getTeachings().iterator().next().getProfessor().getLastName();
 //		}
+
 		ects=exam.getEnrollments().getCourses().getECTS();
 		grade = exam.getGrade();
 		points = exam.getPoints();
