@@ -2,13 +2,13 @@
 
     <div class="row" *ngIf="role === 'ADMIN' || role === 'PROFFESOR' || role === 'STUDENT' " >
       <div class="col">
-        <app-wc-header></app-wc-header>
+        <app-header></app-header>
       </div>
     </div>
   
     <div class="row primer">
       <div class="col">
-        <app-navbar-user *ngIf="role === 'STUDENT'"></app-navbar-user>
+        <app-navbar-student *ngIf="role === 'STUDENT'"></app-navbar-student>
       </div>
     </div>
   
