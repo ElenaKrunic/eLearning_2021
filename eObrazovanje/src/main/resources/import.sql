@@ -60,15 +60,15 @@ INSERT INTO teaching (id, end_date,start_date,courses,professor,teaching_type) V
 INSERT INTO enrollments (enrollment_id, enrollment_end_date,enrollment_start_date,courses,student) VALUES (1, '2015-11-05','2013-11-05',1,1);
 INSERT INTO enrollments (enrollment_id, enrollment_end_date,enrollment_start_date,courses,student) VALUES (2, '2015-11-05','2013-11-05',2,1);
 
-INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (1, '2015-01-11',8,71.00,true,1);
-INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (2, '2016-01-12',8,71.00,false,2);
-INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (3, '2016-02-11',8,71.00,true,1);
+INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (1, '2015-05-10',8,71.00,true,1);
+INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (2, '2016-05-09',8,71.00,false,2);
+INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (3, '2016-05-07',8,71.00,true,1);
 
 INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (1, '2020-02-10','january',200.0,'2020-01-10',1);
 INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (2, '2020-02-20','february',200.0,'2020-02-11',1);
 INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (3, '2020-05-10','april',200.0,'2020-05-04',2);
-INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (4, '2020-10-07','june',200.0,'2020-06-10',2);
-INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (5, '2020-07-25','july',200.0,'2020-07-11',3);
+INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (4, '2020-06-15','june',200.0,'2020-06-10',2);
+INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (5, '2020-07-25','july',200.0,'2020-07-15',3);
 INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (6, '2020-09-20','september',200.0,'2020-09-10',3);
 INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (7, '2020-10-20','october',200.0,'2020-10-11',3);
 
