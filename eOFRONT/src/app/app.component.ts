@@ -8,21 +8,21 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	public role?: string;
+	// public role?: string;
 
-	constructor(private router: Router) {}
+	// constructor(private router: Router) {}
 
-	checkRole() {
-		const item = localStorage.getItem('user');
+	// checkRole() {
+	// 	const item = localStorage.getItem('user');
 
-		if (!item) {
-			this.router.navigate(['login']);
-			this.role = undefined;
-			return;
-		}
+	// 	if (!item) {
+	// 		this.router.navigate(['login']);
+	// 		this.role = undefined;
+	// 		return;
+	// 	}
 
-		const jwt: JwtHelperService = new JwtHelperService();
-		this.role = jwt.decodeToken(item).role[0].authority;
-	}
+	// 	const jwt: JwtHelperService = new JwtHelperService();
+	// 	this.role = jwt.decodeToken(item).role[0].authority;
+	// }
 
 }

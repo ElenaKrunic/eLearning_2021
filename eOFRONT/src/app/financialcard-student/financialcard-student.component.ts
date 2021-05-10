@@ -8,7 +8,7 @@ import { FinancialCard } from '../model/financial-card';
 })
 export class FinancialcardStudentComponent implements OnInit {
 
-  @Input() financialcard?: FinancialCard[];
+  @Input() financialcards?: FinancialCard[];
 
 	constructor() {}
 
