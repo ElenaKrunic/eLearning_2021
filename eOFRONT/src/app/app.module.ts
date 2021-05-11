@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Interceptor } from './interceptors/intercept.service';
 
+
 import { AppRoutingModule } from './routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
@@ -22,6 +23,7 @@ import { ProfessorCoursesComponent } from './professor-courses/professor-courses
 import { ProfessorStudentsComponent } from './professor-students/professor-students.component';
 import { ProfessorProfileComponent } from './professor-profile/professor-profile.component';
 import { ProfessorExamsComponent } from './professor-exams/professor-exams.component';
+import { ExamPeriodComponent } from './exam-period/exam-period.component';
 
 
 @NgModule({
@@ -41,6 +43,7 @@ import { ProfessorExamsComponent } from './professor-exams/professor-exams.compo
     ProfessorStudentsComponent,
     ProfessorProfileComponent,
     ProfessorExamsComponent,
+    ExamPeriodComponent,
   ],
 
   imports: [
