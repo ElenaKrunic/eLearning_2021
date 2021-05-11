@@ -2,16 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { HttpResponse, HttpClient } from '@angular/common/http';
 import { PreexamObligation } from '../model/preexam-obligation';
-import { Observable } from 'rxjs';
-import { HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { HttpResponse } from '@angular/common/http';
-import { HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { HttpResponse } from '@angular/common/http';
 
-
-@Injectable()
+@Injectable
 export class PreexamObligationService {
 
   private path="api/preexamObligation";
@@ -45,7 +37,7 @@ export class PreexamObligationService {
 
     deletePreexamObligation(id: number) : Observable<HttpResponse<any>> {
         const url = `${this.path}/${id}`;
-        return this.http.delete<any>(url, {observe: 'response'});
+        return this.http.delete<any>(url, {observe: 'response'})
     }
 
 }

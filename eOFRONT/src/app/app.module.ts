@@ -23,6 +23,11 @@ import { ProfessorProfileComponent } from './professor-profile/professor-profile
 import { ProfessorExamsComponent } from './professor-exams/professor-exams.component';
 import { ExamPeriodComponent } from './exam-period/exam-period.component';
 import { PaymentComponent } from './payment/payment.component';
+import { AdminExamPeriodComponent } from './admin-exam-period/admin-exam-period.component';
+import { AdminFinancialCardComponent } from './admin-financial-card/admin-financial-card.component';
+import { AdminPaymentComponent } from './admin-payment/admin-payment.component';
+import { AdminPreexamObligationComponent } from './admin-preexam-obligation/admin-preexam-obligation.component';
+import { AdminStudentComponent } from './admin-student/admin-student.component';
 
 
 @NgModule({
@@ -42,6 +47,11 @@ import { PaymentComponent } from './payment/payment.component';
     ProfessorExamsComponent,
     ExamPeriodComponent,
     PaymentComponent,
+    AdminExamPeriodComponent,
+    AdminFinancialCardComponent,
+    AdminPaymentComponent,
+    AdminPreexamObligationComponent,
+    AdminStudentComponent,
   ],
 
   imports: [

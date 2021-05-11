@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { HttpResponse, HttpClient } from '@angular/common/http';import { Exam } from '../model/exam';
 
-
 @Injectable()
 export class ExamService {
 
