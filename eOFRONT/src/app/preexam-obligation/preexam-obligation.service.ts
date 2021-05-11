@@ -2,12 +2,19 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { HttpResponse, HttpClient } from '@angular/common/http';
 import { PreexamObligation } from '../model/preexam-obligation';
+import { Observable } from 'rxjs';
+import { HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { HttpResponse } from '@angular/common/http';
+import { HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { HttpResponse } from '@angular/common/http';
 
 
 @Injectable()
 export class PreexamObligationService {
 
-  private path="api/preexamObligation"
+  private path="api/preexamObligation";
 
   constructor(private http: HttpClient) { }
 
@@ -18,10 +25,27 @@ export class PreexamObligationService {
     announceChange() {
         this.RegenerateData.next();
     }
+
+    getPreexamObligation(id: number) : Observable<HttpResponse<PreexamObligation>> {
+        const url = `${this.path}/${id}`;
+        return this.http.get<PreexamObligation>(url, {observe: 'response'});
+    }
+
     getAllPreexamObligations(): Observable<HttpResponse<PreexamObligation[]>> {
-  
         return this.http.get<PreexamObligation[]>(this.path, {observe: 'response'});
     }
    
+    addPreexamObligation(preexamObligation: PreexamObligation) : Observable<HttpResponse<PreexamObligation>> {
+        return this.http.post<PreexamObligation>(this.path, preexamObligation, {observe: 'response'});
+    }
+
+    editPreexamObligation(preexamObligation: PreexamObligation) : Observable<HttpResponse<PreexamObligation>> {
+        return this.http.put<PreexamObligation>(this.path, preexamObligation, {observe: 'response'});
+    }
+
+    deletePreexamObligation(id: number) : Observable<HttpResponse<any>> {
+        const url = `${this.path}/${id}`;
+        return this.http.delete<any>(url, {observe: 'response'});
+    }
 
 }

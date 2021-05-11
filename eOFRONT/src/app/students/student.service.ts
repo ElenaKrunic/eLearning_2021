@@ -7,10 +7,11 @@ import { FinancialCard } from '../model/financial-card';
 import { Payment } from '../model/payment';
 import { Payout } from '../model/payout';
 import { Enrollment } from '../model/enrollment';
+
 @Injectable()
 export class StudentService {
 
-  private path="api/student"
+  private path="api/student";
 
   constructor(private http: HttpClient) { }
 
@@ -20,6 +21,28 @@ export class StudentService {
 
     announceChange() {
         this.RegenerateData.next();
+    }
+
+  getStudents(): Observable<HttpResponse<Student[]>> {
+      return this.http.get<Student[]>(this.path, {observe: 'response'});
+    }
+
+  getStudent(id: number): Observable<HttpResponse<Student>> {
+      const url = `${this.path}/${id}`;
+      return this.http.get<Student>(url, {observe: 'response'});
+    }
+
+  addStudent(student: Student): Observable<HttpResponse<Student>> {
+      return this.http.post<Student>(this.path, student, {observe: 'response'});
+    }
+
+  editStudent(student: Student): Observable<HttpResponse<Student>> {
+      return this.http.put<Student>(this.path, student, {observe: 'response'});
+    }
+
+  deleteStudent(studentId: number): Observable<HttpResponse<any>> {
+      const url = `${this.path}/${studentId}`;
+      return this.http.delete<any>(url, {observe: 'response'});
     }
 
     getStudentsExams(id:number): Observable<HttpResponse<Exam[]>> {
@@ -37,11 +60,12 @@ export class StudentService {
       return this.http.get<Payment[]>(url, {observe: 'response'});
       
   }
+
   getStudentPayout(id: number): Observable<HttpResponse<Payout[]>> {
     const url = `${this.path}/${id}/payout`;
-    return this.http.get<Payout[]>(url, {observe: 'response'});
-    
-}
+    return this.http.get<Payout[]>(url, {observe: 'response'});  
+ }
+
 getStudentDocument(id: number): Observable<HttpResponse<Document[]>> {
   const url = `${this.path}/${id}/document`;
   return this.http.get<Document[]>(url, {observe: 'response'});

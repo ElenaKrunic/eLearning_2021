@@ -24,6 +24,7 @@ import { ProfessorStudentsComponent } from './professor-students/professor-stude
 import { ProfessorProfileComponent } from './professor-profile/professor-profile.component';
 import { ProfessorExamsComponent } from './professor-exams/professor-exams.component';
 import { ExamPeriodComponent } from './exam-period/exam-period.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { ExamPeriodComponent } from './exam-period/exam-period.component';
     ProfessorProfileComponent,
     ProfessorExamsComponent,
     ExamPeriodComponent,
+    PaymentComponent,
   ],
 
   imports: [
