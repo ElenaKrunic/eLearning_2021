@@ -16,21 +16,28 @@ public class ExamDTO {
 	private Date examDate;
 	private ExamPeriodDTO examPeriodDTO;
 	private EnrollmentDTO enrollmentDTO;
+	private int ects;
 	private String courseName;
-	private String professorName;
+	private boolean status;
+	
+//	private String professorName;
 
 	@SuppressWarnings("unchecked")
 	public ExamDTO(Exam exam) {
 		super();
 		id = exam.getId();
 		courseName=exam.getEnrollments().getCourses().getTitle();
-	/*	if(( (Set<Teaching>) exam.getEnrollments().getCourses().getTeachings().iterator().next().getProfessor()).size()>0) {
-			professorName=exam.getEnrollments().getCourses().getTeachings().iterator().next().getProfessor().getFirstName()+exam.getEnrollments().getCourses().getTeachings().iterator().next().getProfessor().getLastName();
-		}*/
-		
+
+//		if( ((Set<Teaching>) exam.getEnrollments().getCourses().getTeachings().iterator().next().getProfessor()).size()>0) {
+//			professorName=exam.getEnrollments().getCourses().getTeachings().iterator().next().getProfessor().getFirstName()+exam.getEnrollments().getCourses().getTeachings().iterator().next().getProfessor().getLastName();
+//		}
+
+		ects=exam.getEnrollments().getCourses().getECTS();
 		grade = exam.getGrade();
 		points = exam.getPoints();
 		examDate = exam.getExamDate();
+		status=exam.isStatus();
+		enrollmentDTO=new EnrollmentDTO(exam.getEnrollments());
 		examPeriodDTO=new ExamPeriodDTO(exam.getExamPeriod().iterator().next());
 		
 	}
@@ -76,11 +83,17 @@ public class ExamDTO {
 	public void setCourseName(String courseName) {
 		this.courseName = courseName;
 	}
-	public String getProfessorName() {
-		return professorName;
+//	public String getProfessorName() {
+//		return professorName;
+//	}
+//	public void setProfessorName(String professorName) {
+//		this.professorName = professorName;
+//	}
+	public boolean isStatus() {
+		return status;
 	}
-	public void setProfessorName(String professorName) {
-		this.professorName = professorName;
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 
 	

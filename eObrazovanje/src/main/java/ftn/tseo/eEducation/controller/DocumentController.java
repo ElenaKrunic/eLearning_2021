@@ -13,10 +13,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import ftn.tseo.eEducation.DTO.DocumentDTO;
+import ftn.tseo.eEducation.DTO.StudentDTO;
 import ftn.tseo.eEducation.model.Document;
 import ftn.tseo.eEducation.model.DocumentType;
+import ftn.tseo.eEducation.model.Exam;
 import ftn.tseo.eEducation.model.Student;
+import ftn.tseo.eEducation.model.TypeOfFinancing;
 import ftn.tseo.eEducation.service.DocumentService;
+import ftn.tseo.eEducation.service.StudentService;
 
 @RestController
 @RequestMapping(value = "api/documents")
@@ -24,6 +28,10 @@ public class DocumentController {
 
 	@Autowired
 	private DocumentService dService;
+	@Autowired
+	private StudentService studentService;
+	
+	StudentDTO studentDTO;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<DocumentDTO>> getDocuments() {
@@ -48,11 +56,12 @@ public class DocumentController {
 
 	@RequestMapping(method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<DocumentDTO> saveDocument(@RequestBody DocumentDTO dDTO) {
+		Student student = studentService.findOne(dDTO.getStudentDTO().getId());
 		Document d = new Document();
 		d.setTitle(dDTO.getTitle());
 		d.setUrl(dDTO.getUrl());
-	//	d.setStudent(dDTO.getStudentDTO());
-
+		d.setStudent(student);
+		//d.setDocumentType(dDTO.getDocumentType());
 		d= dService.save(d);
 		return new ResponseEntity<>(new DocumentDTO(d), HttpStatus.CREATED);
 	}
@@ -64,9 +73,11 @@ public class DocumentController {
 		if (d == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-
+		Student student = studentService.findOne(dDTO.getStudentDTO().getId());
 		d.setTitle(dDTO.getTitle());
 		d.setUrl(dDTO.getUrl());
+		d.setStudent(student);
+		//d.setDocumentType(null);
 		
 
 		d = dService.save(d);

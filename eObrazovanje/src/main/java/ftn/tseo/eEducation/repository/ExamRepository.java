@@ -26,10 +26,7 @@ public interface ExamRepository extends JpaRepository<Exam, Long>{
 //	
 //	   Long registeredExam(Long studentId,Long examId,String location,float points);
 //	    
-//	  List<ExamDTO> getCurrentExams(Long id);
-//	List<Exam> findStudentExams(Long id);
-//	 @Query
-//	List<Exam> getStudentExams(long id);
+
 		
 		
 }

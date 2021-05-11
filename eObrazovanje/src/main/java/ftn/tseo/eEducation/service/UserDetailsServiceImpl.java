@@ -24,16 +24,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	
 	@Autowired
 	UserRepository userRepository;
+//	
+//	@Autowired
+//	UserMapper userMapper; 
 	
-	@Autowired
-	UserMapper userMapper; 
-	
-	public UserDetailsServiceImpl(
-		      UserRepository userRepository, UserMapper userMapper) {
-		    this.userRepository = userRepository;
-		    this.userMapper = userMapper;
-		  }
-	
+//	public UserDetailsServiceImpl(
+//		      UserRepository userRepository, UserMapper userMapper) {
+//		    this.userRepository = userRepository;
+//		    this.userMapper = userMapper;
+//		  }
+//	
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -47,8 +47,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			for(UserAuthority ua : user.getUserAuthorities()) {
 				ga.add(new SimpleGrantedAuthority(ua.getAuthority().getName()));
 			}
+			return new org.springframework.security.core.userdetails.User(
+		    		  user.getUsername(),
+		    		  user.getPassword(),
+		    		  ga);
 		}
+		
 			
-		return userMapper.toUserDetails(user);
+//		return userMapper.toUserDetails(user);
 	}
 }
