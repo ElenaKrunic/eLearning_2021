@@ -17,8 +17,6 @@ import { HeaderComponent } from './core/header/header.component';
 import { NavbarStudentComponent } from './core/navbar-student/navbar-student.component';
 import { FinancialcardStudentComponent } from './financialcard-student/financialcard-student.component';
 import { NavbarProfessorComponent } from './core/navbar-professor/navbar-professor.component';
-import { ExamsComponent } from './exams/exams.component';
-import { CoursesComponent } from './courses/courses/courses.component';
 import { ProfessorCoursesComponent } from './professor-courses/professor-courses.component';
 import { ProfessorStudentsComponent } from './professor-students/professor-students.component';
 import { ProfessorProfileComponent } from './professor-profile/professor-profile.component';
@@ -38,8 +36,6 @@ import { PaymentComponent } from './payment/payment.component';
     NavbarStudentComponent,
     FinancialcardStudentComponent,
     NavbarProfessorComponent,
-    ExamsComponent,
-    CoursesComponent,
     ProfessorCoursesComponent,
     ProfessorStudentsComponent,
     ProfessorProfileComponent,
