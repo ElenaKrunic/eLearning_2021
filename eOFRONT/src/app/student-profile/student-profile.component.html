@@ -1,73 +1,67 @@
-<!-- <div class="container bootstrap snippets bootdey">
-<div class="row ng-scope">
-<div class="h4 text-center">Contact Information</div>
-<div class="row pv-lg">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
-        <form class="form-horizontal ng-pristine ng-valid">
-            <div class="form-group">
-                <label class="col-sm-2 control-label" for="inputContact1">Name</label>
-                <div class="col-sm-10">
-                    <input class="form-control" id="inputContact1" type="text" placeholder="" value="Audrey Hunt">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label" for="inputContact2">Email</label>
-                <div class="col-sm-10">
-                    <input class="form-control" id="inputContact2" type="email" value="mail@example.com">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label" for="inputContact3">Phone</label>
-                <div class="col-sm-10">
-                    <input class="form-control" id="inputContact3" type="text" value="(123) 465 789">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label" for="inputContact4">Mobile</label>
-                <div class="col-sm-10">
-                    <input class="form-control" id="inputContact4" type="text" value="(12) 123 987 465">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label" for="inputContact5">Website</label>
-                <div class="col-sm-10">
-                    <input class="form-control" id="inputContact5" type="text" value="http://some.wesbite.com">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label" for="inputContact6">Address</label>
-                <div class="col-sm-10">
-                    <textarea class="form-control" id="inputContact6" row="4">Some nice Street, 1234</textarea>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label" for="inputContact7">Social</label>
-                <div class="col-sm-10">
-                    <input class="form-control" id="inputContact7" type="text" value="@Social">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label" for="inputContact8">Company</label>
-                <div class="col-sm-10">
-                    <input class="form-control" id="inputContact8" type="text" placeholder="No Company">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox"> Favorite contact?</label>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button class="btn btn-info" type="submit">Update</button>
-                </div>
-            </div>
-        </form>
-        <div class="text-right"><a class="text-muted" href="#">Delete this contact?</a></div>
-    </div>
-</div>
-</div> -->
+<div>
+    <h3>Student</h3>
+  </div>
+  
+  <div>
+  
+    <form >
+          <div class="form-group">
+            <label for="field1c" class="form-control-label">Card number</label>
+            <input type="text" [(ngModel)]="student.cardNumber" placeholder="Card number" 
+               class="form-control" id="field1c" name="field1">
+          </div>
+  
+          <div class="form-group">
+            <label for="field2c" class="form-control-label">First name</label>
+            <input type="text" [(ngModel)]="student.firstName" placeholder="First name" 
+               class="form-control" id="field2c" name="field2">
+          </div>
+         
+          <div class="form-group">
+            <label for="field3c" class="form-control-label">Last name</label>
+            <input type="text" [(ngModel)]="student.lastName" placeholder="Last name" 
+               class="form-control" id="field3c" name="field3">
+          </div>
+          <div class="form-group">
+            <label for="field4c" class="form-control-label">Phone number</label>
+            <input type="text" [(ngModel)]="student.phoneNumber" placeholder="Phone number" 
+               class="form-control" id="field4c" name="field4">
+          </div>
+          <div class="form-group">
+            <label for="field5c" class="form-control-label">Email</label>
+            <input type="text" [(ngModel)]="student.eMail" placeholder="Email" 
+               class="form-control" id="field5c" name="field5">
+          </div>
+          
+          <div class="form-group">
+            <label for="field6c" class="form-control-label">UMNC</label>
+            <input type="text" [(ngModel)]="student.umnc" placeholder="Umns" 
+               class="form-control" id="field6c" name="field6">
+          </div>
+          
+          <div class="form-group">
+            <label for="field7c" class="form-control-label">Started college in</label>
+            <input type="number" [(ngModel)]="student.startedCollegeIn" placeholder="Started college in" 
+               class="form-control" id="field7c" name="field7">
+          </div>
+          <div class="form-group">
+            <label for="field8c" class="form-control-label">Model number</label>
+            <input type="number" [(ngModel)]="student.modelNumber" placeholder="Model number" 
+               class="form-control" id="field8c" name="field8">
+          </div>
+          <div class="form-group">
+            <label for="field8c" class="form-control-label">Reference number</label>
+            <input type="number" [(ngModel)]="student.referenceNumber" placeholder="Reference number" 
+               class="form-control" id="field8c" name="field8">
+          </div>
+          <div class="form-group">
+            <label for="field9c" class="form-control-label">Account number</label>
+            <input type="text" [(ngModel)]="student.accountNumber" placeholder="Account number" 
+               class="form-control" id="field9c" name="field9">
+          </div>
+     </form>
+     
+  </div>
+  <div>
+    <button class="btn btn-primary" (click)="goBack()">Cancel</button>
+     </div> 

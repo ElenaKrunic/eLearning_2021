@@ -5,6 +5,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Interceptor } from './interceptors/intercept.service';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
 
 
 import { AppRoutingModule } from './routing/app-routing.module';
@@ -55,7 +57,9 @@ import { StudentProfileComponent } from './student-profile/student-profile.compo
 		ReactiveFormsModule,
 		BrowserAnimationsModule, // required animations module
 		ToastrModule.forRoot(),
-		HttpClientModule
+		HttpClientModule,
+    NgbModule,
+    CommonModule
 
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true}],
