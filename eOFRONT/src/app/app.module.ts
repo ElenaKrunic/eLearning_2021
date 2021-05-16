@@ -24,7 +24,6 @@ import { ProfessorExamsComponent } from './professor-exams/professor-exams.compo
 import { ExamPeriodComponent } from './exam-period/exam-period.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PayoutComponent } from './payout/payout.component';
-import { StudentprofileComponent } from './studentprofile/studentprofile.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 
 
@@ -46,7 +45,6 @@ import { StudentProfileComponent } from './student-profile/student-profile.compo
     ExamPeriodComponent,
     PaymentComponent,
     PayoutComponent,
-    StudentprofileComponent,
     StudentProfileComponent,
   ],
 
