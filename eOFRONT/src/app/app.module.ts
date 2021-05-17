@@ -5,6 +5,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Interceptor } from './interceptors/intercept.service';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
 
 
 import { AppRoutingModule } from './routing/app-routing.module';
@@ -21,13 +23,15 @@ import { ProfessorCoursesComponent } from './professor-courses/professor-courses
 import { ProfessorStudentsComponent } from './professor-students/professor-students.component';
 import { ProfessorProfileComponent } from './professor-profile/professor-profile.component';
 import { ProfessorExamsComponent } from './professor-exams/professor-exams.component';
-import { ExamPeriodComponent } from './exam-period/exam-period.component';
+//import { ExamPeriodComponent } from './exam-period/exam-period.component';
 import { PaymentComponent } from './payment/payment.component';
 import { AdminExamPeriodComponent } from './admin-exam-period/admin-exam-period.component';
 import { AdminFinancialCardComponent } from './admin-financial-card/admin-financial-card.component';
 import { AdminPaymentComponent } from './admin-payment/admin-payment.component';
 import { AdminPreexamObligationComponent } from './admin-preexam-obligation/admin-preexam-obligation.component';
 import { AdminStudentComponent } from './admin-student/admin-student.component';
+import { PayoutComponent } from './payout/payout.component';
+import { StudentProfileComponent } from './student-profile/student-profile.component';
 
 
 @NgModule({
@@ -45,13 +49,15 @@ import { AdminStudentComponent } from './admin-student/admin-student.component';
     ProfessorStudentsComponent,
     ProfessorProfileComponent,
     ProfessorExamsComponent,
-    ExamPeriodComponent,
+    //ExamPeriodComponent,
     PaymentComponent,
     AdminExamPeriodComponent,
     AdminFinancialCardComponent,
     AdminPaymentComponent,
     AdminPreexamObligationComponent,
     AdminStudentComponent,
+    PayoutComponent,
+    StudentProfileComponent,
   ],
 
   imports: [
@@ -61,7 +67,9 @@ import { AdminStudentComponent } from './admin-student/admin-student.component';
 		ReactiveFormsModule,
 		BrowserAnimationsModule, // required animations module
 		ToastrModule.forRoot(),
-		HttpClientModule
+		HttpClientModule,
+    NgbModule,
+    CommonModule
 
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true}],

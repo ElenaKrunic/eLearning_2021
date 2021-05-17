@@ -21,7 +21,7 @@ export class AuthenticationService {
 	}
 
 	isLoggedIn(): boolean {
-		if (!localStorage.getItem('user')) {
+		if (!localStorage.getItem("user")) {
 				return false;
 		}
 		return true;
