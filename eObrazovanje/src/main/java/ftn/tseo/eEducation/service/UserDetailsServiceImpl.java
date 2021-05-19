@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ftn.tseo.eEducation.model.User;
 import ftn.tseo.eEducation.model.UserAuthority;
-import ftn.tseo.eEducation.model.UserMapper;
 import ftn.tseo.eEducation.repository.UserRepository;
 
 @Service
@@ -47,6 +46,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			for(UserAuthority ua : user.getUserAuthorities()) {
 				ga.add(new SimpleGrantedAuthority(ua.getAuthority().getName()));
 			}
+			System.out.println("roles"+ga);
 			return new org.springframework.security.core.userdetails.User(
 		    		  user.getUsername(),
 		    		  user.getPassword(),
