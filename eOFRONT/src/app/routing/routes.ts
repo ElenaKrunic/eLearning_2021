@@ -56,6 +56,27 @@ export const routes: Routes = [
 		canActivate: [RoleGuard],
 		data: {expectedRoles: 'ADMIN|PROFESSOR'}
 	},
+
+	{
+		path: 'preexamObligation',
+		component: ProfessorProfileComponent,
+		canActivate: [RoleGuard],
+		data: {expectedRoles: 'ADMIN'}
+	},
+
+	{
+		path: 'payment',
+		component: ProfessorProfileComponent,
+		canActivate: [RoleGuard],
+		data: {expectedRoles: 'ADMIN'}
+	},
+
+	{
+		path: 'examPeriod',
+		component: ProfessorProfileComponent,
+		canActivate: [RoleGuard],
+		data: {expectedRoles: 'ADMIN'}
+	},
 	{
 		path: 'app-navbar-student',
 		component: NavbarStudentComponent,

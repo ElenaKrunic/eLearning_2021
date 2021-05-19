@@ -3,7 +3,6 @@ import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthenticationService } from './authentication.service';
 
-
 @Injectable({
 	providedIn: 'root'
 })

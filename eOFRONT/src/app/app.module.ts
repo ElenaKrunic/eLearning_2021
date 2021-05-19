@@ -23,10 +23,20 @@ import { ProfessorCoursesComponent } from './professor-courses/professor-courses
 import { ProfessorStudentsComponent } from './professor-students/professor-students.component';
 import { ProfessorProfileComponent } from './professor-profile/professor-profile.component';
 import { ProfessorExamsComponent } from './professor-exams/professor-exams.component';
-import { ExamPeriodComponent } from './exam-period/exam-period.component';
+//import { ExamPeriodComponent } from './exam-period/exam-period.component';
 import { PaymentComponent } from './payment/payment.component';
+import { AdminExamPeriodComponent } from './admin-exam-period/admin-exam-period.component';
+import { AdminFinancialCardComponent } from './admin-financial-card/admin-financial-card.component';
+import { AdminPaymentComponent } from './admin-payment/admin-payment.component';
+import { AdminPreexamObligationComponent } from './admin-preexam-obligation/admin-preexam-obligation.component';
+import { AdminStudentComponent } from './admin-student/admin-student.component';
 import { PayoutComponent } from './payout/payout.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
+import { AdminExamComponent } from './admin-exam/admin-exam.component';
+import { AdminDocumentsComponent } from './admin-documents/admin-documents.component';
+import { AdminCourseComponent } from './admin-course/admin-course.component';
+import { AdminProfessorsComponent } from './admin-professors/admin-professors.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -44,10 +54,20 @@ import { StudentProfileComponent } from './student-profile/student-profile.compo
     ProfessorStudentsComponent,
     ProfessorProfileComponent,
     ProfessorExamsComponent,
-    ExamPeriodComponent,
+    //ExamPeriodComponent,
     PaymentComponent,
+    AdminExamPeriodComponent,
+    AdminFinancialCardComponent,
+    AdminPaymentComponent,
+    AdminPreexamObligationComponent,
+    AdminStudentComponent,
     PayoutComponent,
     StudentProfileComponent,
+    AdminExamComponent,
+    AdminDocumentsComponent,
+    AdminCourseComponent,
+    AdminProfessorsComponent,
+    AdminComponent,
   ],
 
   imports: [
