@@ -32,6 +32,11 @@ import { AdminPreexamObligationComponent } from './admin-preexam-obligation/admi
 import { AdminStudentComponent } from './admin-student/admin-student.component';
 import { PayoutComponent } from './payout/payout.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
+import { AdminExamComponent } from './admin-exam/admin-exam.component';
+import { AdminDocumentsComponent } from './admin-documents/admin-documents.component';
+import { AdminCourseComponent } from './admin-course/admin-course.component';
+import { AdminProfessorsComponent } from './admin-professors/admin-professors.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -58,6 +63,11 @@ import { StudentProfileComponent } from './student-profile/student-profile.compo
     AdminStudentComponent,
     PayoutComponent,
     StudentProfileComponent,
+    AdminExamComponent,
+    AdminDocumentsComponent,
+    AdminCourseComponent,
+    AdminProfessorsComponent,
+    AdminComponent,
   ],
 
   imports: [
