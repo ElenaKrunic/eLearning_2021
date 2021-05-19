@@ -13,7 +13,7 @@ export class AppComponent {
 	constructor(private router: Router) {}
 
 	checkRole() {
-		const item = localStorage.getItem('user');
+		const item = localStorage.getItem("user");
 
 		if (!item) {
 			this.router.navigate(['login']);
