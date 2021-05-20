@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { JwtserviceutilsService } from '../jwtservice/jwtserviceutils.service';
 
 @Injectable({
@@ -19,21 +20,31 @@ export class AuthenticationService {
 		var headers:HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
 		return this.http.post(this.loginPath, JSON.stringify({username,password}), {headers})
+		.pipe(map((res:any)=>{
+			let token=res && res['token'];
+			if (token){
+				localStorage.setItem('currentUser',JSON.stringify({
+					username:username,
+					roles:this.jwtUtilsService.getRoles(token),
+					token:token.split(' ')[1]
+				}));
+				return true;
+			}else{
+				return false;
+			}
+		}))
+
+		// .catch((error:any)=>{
+		// 	if(error.status===400){
+		// 		return Observable.throw("Ilegale login");
+				
+		// 	}
+		// 	else{
+		// 		return Observable.throw(error.json().error|| 'Server error');
+				
+		// 	}
+		// })
 		
-		.map((res:any)=>{
-				let token=res && res['token'];
-				if (token){
-					localStorage.setItem('currentUser',JSON.stringify({
-						username:username,
-						roles:this.jwtUtilsService.getRoles(token),
-						token:token.split(' ')[1]
-					}));
-					return true;
-				}else{
-					return false;
-				}
-			
-			})
 		
 	}
 
