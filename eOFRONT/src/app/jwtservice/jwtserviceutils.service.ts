@@ -12,7 +12,7 @@ export class JwtserviceutilsService {
     let decodedJWTJsonData=window.atob(jwtData);
     let decodedJWTData=JSON.parse(decodedJWTJsonData);
 
-    return [decodedJWTData.roles];
+    return [decodedJWTData.roles.split(':')[1]];
 
   }
 }

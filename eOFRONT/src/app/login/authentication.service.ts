@@ -21,12 +21,12 @@ export class AuthenticationService {
 
 		return this.http.post(this.loginPath, JSON.stringify({username,password}), {headers})
 		.pipe(map((res:any)=>{
-			let token=res && res['token'];
+			let token=res;
 			if (token){
 				localStorage.setItem('currentUser',JSON.stringify({
 					username:username,
 					roles:this.jwtUtilsService.getRoles(token),
-					token:token.split(' ')[1]
+					token:token.split[1]
 				}));
 				return true;
 			}else{
