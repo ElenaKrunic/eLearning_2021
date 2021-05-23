@@ -19,14 +19,14 @@ export class AuthenticationService {
 	login(username:string,password:string): Observable<boolean> {
 		var headers:HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
-		return this.http.post(this.loginPath, JSON.stringify({username,password}), {headers})
+		return this.http.post(this.loginPath, JSON.stringify({username,password}), {headers:headers,responseType:"text"})
 		.pipe(map((res:any)=>{
 			let token=res;
 			if (token){
 				localStorage.setItem('currentUser',JSON.stringify({
 					username:username,
 					roles:this.jwtUtilsService.getRoles(token),
-					token:token.split[1]
+					token:token
 				}));
 				return true;
 			}else{
