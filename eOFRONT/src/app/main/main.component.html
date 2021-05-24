@@ -1,0 +1,24 @@
+<div class="container-fluid"> 
+
+    <div class="row" *ngIf="role === 'ROLE_ADMIN' || role === 'ROLE_PROFESOR' || role === 'ROLE_STUDENT' " >
+      <div class="col">
+        <app-header></app-header>
+      </div>
+    </div>
+  
+    <div class="row primer">
+      <div class="col">
+        <app-navbar-student *ngIf="role === 'ROLE_STUDENT'"></app-navbar-student>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col">
+        <router-outlet (activate)="checkRole()"></router-outlet>
+        
+      </div>
+    </div>
+</div>
+    
+
+  

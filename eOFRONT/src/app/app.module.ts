@@ -36,6 +36,7 @@ import { AdminDocumentsComponent } from './admin-documents/admin-documents.compo
 import { AdminCourseComponent } from './admin-course/admin-course.component';
 import { AdminProfessorsComponent } from './admin-professors/admin-professors.component';
 import { AdminComponent } from './admin/admin.component';
+import { MainComponent } from './main/main.component';
 
 
 @NgModule({
@@ -67,6 +68,7 @@ import { AdminComponent } from './admin/admin.component';
     AdminCourseComponent,
     AdminProfessorsComponent,
     AdminComponent,
+    MainComponent,
   ],
 
   imports: [

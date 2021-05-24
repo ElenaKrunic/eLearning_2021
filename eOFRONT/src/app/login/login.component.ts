@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 		this.authenticationService.login(this.user.username,this.user.password).subscribe(
 			(loggedIn:boolean) =>{
 				if(loggedIn){
-					this.router.navigate(["/financialCard"]);
+					this.router.navigate(["main"]);
 				}
 			}
 			
