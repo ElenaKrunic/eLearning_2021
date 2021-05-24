@@ -1444,14 +1444,14 @@ class AuthenticationService {
     }
     login(username, password) {
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({ 'Content-Type': 'application/json' });
-        return this.http.post(this.loginPath, JSON.stringify({ username, password }), { headers })
+        return this.http.post(this.loginPath, JSON.stringify({ username, password }), { headers: headers, responseType: "text" })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((res) => {
-            let token = res && res['token'];
+            let token = res;
             if (token) {
                 localStorage.setItem('currentUser', JSON.stringify({
                     username: username,
                     roles: this.jwtUtilsService.getRoles(token),
-                    token: token.split(' ')[1]
+                    token: token
                 }));
                 return true;
             }
