@@ -40,17 +40,22 @@ public class UserController {
 	AuthenticationManager aManager;
 	
 	@Autowired
-	private UserDetailsService uDService;
+	UserDetailsService uDService;
 	
 	@Autowired
 	TokenUtils tokenUtils;
 	
-	@RequestMapping(value = "/api/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/api/login", method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+
+			)
 	public ResponseEntity<String> login (@RequestBody LoginDTO lDTO){
 		try {
 			UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(lDTO.getUsername(), lDTO.getPassword());
-            Authentication authentication = aManager.authenticate(token);
             UserDetails details = uDService.loadUserByUsername(lDTO.getUsername());
+            System.out.println("details"+details);
+//            SecurityContextHolder.getContext().setAuthentication(authentication);
             return new ResponseEntity<String>(tokenUtils.generateToken(details), HttpStatus.OK);
         } catch (Exception ex) {
             return new ResponseEntity<String>("Login failed", HttpStatus.BAD_REQUEST);

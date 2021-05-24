@@ -1,46 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from './authentication.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { JwtserviceutilsService } from '../jwtservice/jwtserviceutils.service';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  encapsulation:ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
-	form: FormGroup;
-	
-	constructor(
-		private fb: FormBuilder,
-		private authenticationService: AuthenticationService,
-		private router: Router,
-		private toastr: ToastrService,
-	) {
-		this.form = this.fb.group({
-			username : [null, Validators.required],
-			password: [null, Validators.required]
-		});
+	public user:any;
+	constructor(private authenticationService: AuthenticationService,private router: Router,
+	)
+	 {
+		this.user={};
 	}
 
 	ngOnInit() {
 	}
 
-	submit() {
-		const auth: any = {};
-		auth.username = this.form.value.username;
-		auth.password = this.form.value.password;
-
-		this.authenticationService.login(auth).subscribe(
-			result => {
-				this.toastr.success('Successful login!');
-				localStorage.setItem("user", JSON.stringify(result));
-				this.router.navigate(['app-navbar-student']);
-			},
-			error => {
-				this.toastr.error(error.error);
+	login():void {
+		this.authenticationService.login(this.user.username,this.user.password).subscribe(
+			(loggedIn:boolean) =>{
+				if(loggedIn){
+					this.router.navigate(["/financialCard"]);
+				}
 			}
-		);
-	}
+			
+		)}
 }

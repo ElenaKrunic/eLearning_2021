@@ -21,16 +21,8 @@ export class NavbarProfessorComponent implements OnInit {
   }
 
   logout() {
-		this.authenticationService.logout().subscribe(
-			result => {
-				localStorage.removeItem('user');
-				this.toastr.success(result);
-				this.router.navigate(['login']);
-			},
-			error => {
-				this.toastr.error(error.error);
-			}
-		);
+		this.authenticationService.logOut();
+		
 	}
 
  

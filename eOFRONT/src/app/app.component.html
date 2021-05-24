@@ -1,6 +1,6 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid"> -->
 
-    <div class="row" *ngIf="role === 'ROLE_ADMIN' || role === 'ROLE_PROFESOR' || role === 'ROLE_STUDENT' " >
+    <!-- <div class="row" *ngIf="role === 'ROLE_ADMIN' || role === 'ROLE_PROFESOR' || role === 'ROLE_STUDENT' " >
       <div class="col">
         <app-header></app-header>
       </div>
@@ -17,6 +17,12 @@
         <router-outlet (activate)="checkRole()"></router-outlet>
         
       </div>
-    </div>
-    <!-- <app-login></app-login> -->
+    </div> -->
+    
+  <!-- </div> -->
+  <div align="center">
+    <router-outlet></router-outlet>
+    <app-login></app-login>
   </div>
+  
+  

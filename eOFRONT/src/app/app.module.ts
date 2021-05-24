@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Interceptor } from './interceptors/intercept.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 
@@ -32,6 +31,11 @@ import { AdminPreexamObligationComponent } from './admin-preexam-obligation/admi
 import { AdminStudentComponent } from './admin-student/admin-student.component';
 import { PayoutComponent } from './payout/payout.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
+import { AdminExamComponent } from './admin-exam/admin-exam.component';
+import { AdminDocumentsComponent } from './admin-documents/admin-documents.component';
+import { AdminCourseComponent } from './admin-course/admin-course.component';
+import { AdminProfessorsComponent } from './admin-professors/admin-professors.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -58,6 +62,11 @@ import { StudentProfileComponent } from './student-profile/student-profile.compo
     AdminStudentComponent,
     PayoutComponent,
     StudentProfileComponent,
+    AdminExamComponent,
+    AdminDocumentsComponent,
+    AdminCourseComponent,
+    AdminProfessorsComponent,
+    AdminComponent,
   ],
 
   imports: [
@@ -72,7 +81,7 @@ import { StudentProfileComponent } from './student-profile/student-profile.compo
     CommonModule
 
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true}],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
