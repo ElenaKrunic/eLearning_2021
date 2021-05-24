@@ -11,12 +11,14 @@ import { ProfessorProfileComponent } from "../professor-profile/professor-profil
 import { ProfessorStudentsComponent } from "../professor-students/professor-students.component";
 
 export const routes: Routes = [
+	
 	{
 		path: 'financialcard',
 		component: FinancialcardStudentComponent,
 		canActivate: [RoleGuard],
 		data: {expectedRoles: 'ROLE_ADMIN|ROLE_STUDENT'}
 	},
+	
 	{
 		path: 'payment',
 		component: PaymentComponent,

@@ -6,8 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
-
-
 import { AppRoutingModule } from './routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
@@ -78,8 +76,7 @@ import { AdminComponent } from './admin/admin.component';
 		ToastrModule.forRoot(),
 		HttpClientModule,
     NgbModule,
-    CommonModule
-
+    CommonModule,
   ],
  
   bootstrap: [AppComponent]
