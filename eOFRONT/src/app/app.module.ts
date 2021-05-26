@@ -35,6 +35,9 @@ import { AdminCourseComponent } from './admin-course/admin-course.component';
 import { AdminProfessorsComponent } from './admin-professors/admin-professors.component';
 import { AdminComponent } from './admin/admin.component';
 import { MainComponent } from './main/main.component';
+import { StudentExamsComponent } from './student-exams/student-exams.component';
+import { StudentDocumentsComponent } from './student-documents/student-documents.component';
+import { StudentEnrollmentComponent } from './student-enrollment/student-enrollment.component';
 
 
 @NgModule({
@@ -67,6 +70,9 @@ import { MainComponent } from './main/main.component';
     AdminProfessorsComponent,
     AdminComponent,
     MainComponent,
+    StudentExamsComponent,
+    StudentDocumentsComponent,
+    StudentEnrollmentComponent,
   ],
 
   imports: [

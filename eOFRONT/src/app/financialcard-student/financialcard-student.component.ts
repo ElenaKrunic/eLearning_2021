@@ -18,27 +18,21 @@ export class FinancialcardStudentComponent implements OnInit {
 
   //  subscription: Subscription;
 
+  
+
    constructor(private studentService: StudentService, private router: Router,private authService:AuthenticationService) {
     //  this.subscription = studentService.RegenerateData$.subscribe(() =>
-    //   //  this.getFinancialCard()
+    //   //  this.getFinancialCard(studentId?:number)
 
     //  );
    }
 
 	ngOnInit() {
-    // this.getFinancialCard();
+    // this.getFinancialCard(studentId:number);
   }
-  // getFinancialCard(studentId:number)
-  //   {
-  //     const headInfo={
-  //       'Content - Type': 'application/json',
-  //       'X-Auth-Token':"" + this.authService.getToken(),
-  //     }
-  //     const requestOptions={
-  //       headers:new HttpHeaders(headInfo)
-  //     }
-  //     this.studentService.getStudentFinancialCard(studentId,requestOptions);
-
-  //   }
+  getFinancialCard(studentId:number)
+    {
+      this.studentService.getStudentFinancialCard(studentId);
+    }
 
 }

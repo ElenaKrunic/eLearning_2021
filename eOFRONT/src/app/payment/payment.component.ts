@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../login/authentication.service';
 import { Payment } from '../model/payment';
+import { StudentService } from '../students/student.service';
 
 @Component({
   selector: 'app-payment',
@@ -7,11 +10,24 @@ import { Payment } from '../model/payment';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-  @Input() payments?: Payment[];
+   payments?: Payment[];
 
-  constructor() { }
+    //  subscription: Subscription;
+
+  constructor(private studentService: StudentService, private router: Router,private authService:AuthenticationService) {
+    //  this.subscription = studentService.RegenerateData$.subscribe(() =>
+    //   //  this.getPayment(studentId?:number)
+
+    //  );
+   }
 
   ngOnInit(): void {
+    // this.getPayment(studentId:number);
+  }
+
+  getPayment(studentId:number)
+  {
+    this.studentService.getStudentPayment(studentId);
   }
 
 }

@@ -1,0 +1,17 @@
+<table class="table table-striped pera">
+    <thead>
+      <tr>
+        <th>Initial state <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
+        <th>Total payment <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
+        <th>Total payout <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
+        <th>Total cost <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let financialcard of financialcards">
+        <td>{{financialcard.initialState}}</td>
+        <td>{{financialcard.totalPayment}}</td>
+        <td>{{financialcard.totalPayout}}</td>
+        <td>{{financialcard.totalCost}}</td>
+      </tr>
+    </tbody>
+  </table>

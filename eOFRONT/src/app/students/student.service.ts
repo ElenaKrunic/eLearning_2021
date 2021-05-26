@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { HttpResponse, HttpClient } from '@angular/common/http';
+import { HttpResponse, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Student } from '../model/student';
 import { Exam } from '../model/exam';
 import { FinancialCard } from '../model/financial-card';
 import { Payment } from '../model/payment';
 import { Payout } from '../model/payout';
 import { Enrollment } from '../model/enrollment';
+import { AuthenticationService } from '../login/authentication.service';
 
 @Injectable()
 export class StudentService {
 
   private path="api/student";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private authService:AuthenticationService) { }
 
     private RegenerateData = new Subject<void>();
 
@@ -45,35 +46,79 @@ export class StudentService {
       return this.http.delete<any>(url, {observe: 'response'});
     }
 
-    getStudentsExams(id:number): Observable<HttpResponse<Exam[]>> {
+    getStudentsExams(id:number): Observable<Exam[]> {
+
+            const headInfo={
+              'Content - Type': 'application/json',
+              'X-Auth-Token':"" + this.authService.getToken(),
+                  }
+            const requestOptions={
+              headers:new HttpHeaders(headInfo)
+            }
+
         const url=`${this.path}/${id}/exams`;
-        return this.http.get<Exam[]>(url, {observe: 'response'});
+        return this.http.get<Exam[]>(url, requestOptions);
     }
 
-   getStudentFinancialCard(id: number): Observable<HttpResponse<FinancialCard>> {
+   getStudentFinancialCard(id: number): Observable<FinancialCard> {
+             const headInfo={
+        'Content - Type': 'application/json',
+        'X-Auth-Token':"" + this.authService.getToken(),
+            }
+            const requestOptions={
+              headers:new HttpHeaders(headInfo)
+            }
         const url = `${this.path}/${id}/financial-card`;
-        return this.http.get<FinancialCard>(url, {observe: 'response'});
+        return this.http.get<FinancialCard>(url,requestOptions);
 
     }
-    getStudentPayment(id: number): Observable<HttpResponse<Payment[]>> {
+    getStudentPayment(id: number): Observable<Payment[]> {
+            const headInfo={
+              'Content - Type': 'application/json',
+              'X-Auth-Token':"" + this.authService.getToken(),
+                  }
+            const requestOptions={
+              headers:new HttpHeaders(headInfo)
+            }
       const url = `${this.path}/${id}/payment`;
-      return this.http.get<Payment[]>(url, {observe: 'response'});
+      return this.http.get<Payment[]>(url, requestOptions);
       
   }
 
-  getStudentPayout(id: number): Observable<HttpResponse<Payout[]>> {
+  getStudentPayout(id: number): Observable<Payout[]> {
+    const headInfo={
+      'Content - Type': 'application/json',
+      'X-Auth-Token':"" + this.authService.getToken(),
+          }
+          const requestOptions={
+            headers:new HttpHeaders(headInfo)
+          }
     const url = `${this.path}/${id}/payout`;
-    return this.http.get<Payout[]>(url, {observe: 'response'});  
+    return this.http.get<Payout[]>(url, requestOptions);  
  }
 
-getStudentDocument(id: number): Observable<HttpResponse<Document[]>> {
+getStudentDocument(id: number): Observable<Document[]> {
+  const headInfo={
+    'Content - Type': 'application/json',
+    'X-Auth-Token':"" + this.authService.getToken(),
+        }
+        const requestOptions={
+          headers:new HttpHeaders(headInfo)
+        }
   const url = `${this.path}/${id}/document`;
-  return this.http.get<Document[]>(url, {observe: 'response'});
+  return this.http.get<Document[]>(url, requestOptions);
   
 }
-getStudentEnrollment(id: number): Observable<HttpResponse<Enrollment[]>> {
+getStudentEnrollment(id: number): Observable<Enrollment[]> {
+  const headInfo={
+    'Content - Type': 'application/json',
+    'X-Auth-Token':"" + this.authService.getToken(),
+        }
+        const requestOptions={
+          headers:new HttpHeaders(headInfo)
+        }
   const url = `${this.path}/${id}/enrollment`;
-  return this.http.get<Enrollment[]>(url, {observe: 'response'});
+  return this.http.get<Enrollment[]>(url, requestOptions);
   
 }
 
