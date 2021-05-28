@@ -27,7 +27,8 @@ export class RoleGuard implements CanActivate {
 		const roles: string[] = expectedRoles.split('|', 3);
 
 		if (roles.indexOf(info.role[0].authority) === -1) {
-			this.router.navigate(['/financialcard']);
+			//this.router.navigate(['/financialcard']);
+			this.router.navigate(['/payment']);
 			return false;
 		}
 		return true;

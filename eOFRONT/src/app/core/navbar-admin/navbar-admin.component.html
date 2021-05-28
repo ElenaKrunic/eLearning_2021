@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/adminExamPeriod']">About exam periods</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/adminFinancialCard']">About financial cards</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/adminPayment']"> About payments </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/adminPreexamObligation']">About preexam obligations </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/adminStudent']"> Info about students </a>
+      </li>
+    </ul>
+  
+    <ul class="navbar-nav ml-auto">   
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </nav>

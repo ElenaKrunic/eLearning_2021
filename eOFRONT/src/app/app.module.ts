@@ -38,6 +38,7 @@ import { MainComponent } from './main/main.component';
 import { StudentExamsComponent } from './student-exams/student-exams.component';
 import { StudentDocumentsComponent } from './student-documents/student-documents.component';
 import { StudentEnrollmentComponent } from './student-enrollment/student-enrollment.component';
+import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { StudentEnrollmentComponent } from './student-enrollment/student-enrollm
     StudentExamsComponent,
     StudentDocumentsComponent,
     StudentEnrollmentComponent,
+    NavbarAdminComponent,
   ],
 
   imports: [
