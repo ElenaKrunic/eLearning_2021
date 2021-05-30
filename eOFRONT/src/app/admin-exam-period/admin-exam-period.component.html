@@ -1,1 +1,38 @@
-<p>admin-exam-period works!</p>
+<!-- start date, end date, name-->
+<div>
+    <h3> Exam period </h3>
+</div>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Start date</th>
+            <th>End date</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let examPeriod of examPeriods">
+            <td>
+                {{examPeriod.name}}
+            </td>
+            <td>
+                {{examPeriod.startDate}}
+            </td>
+            <td>
+                {{examPeriod.endDate}}
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary" aria-label="Edit" (click)="gotoEdit(examPeriod)">
+                    <span class="fa fa-edit" aria-hidden="true"></span>
+                </button>
+
+                <button type="button" class="btn btn-primary" aria-label="Delete" (click)="gotoDelete(examPeriod.id)">
+                    <span class="fa fa-trash" aria-hidden="true"></span>
+                </button>
+            </td>
+        </tr>
+    </table>
+    <div class="right">
+        <button type="button" class="btn btn-primary" aria-label="Add" click="gotoAdd()">
+            <span class="fa fa-plus" aria-hidden="true"></span>
+        </button>
+    </div>

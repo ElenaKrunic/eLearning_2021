@@ -39,6 +39,7 @@ import { StudentExamsComponent } from './student-exams/student-exams.component';
 import { StudentDocumentsComponent } from './student-documents/student-documents.component';
 import { StudentEnrollmentComponent } from './student-enrollment/student-enrollment.component';
 import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
+import { ExamPeriodDetailsComponent } from './exam-period-details/exam-period-details.component';
 
 
 @NgModule({
@@ -75,6 +76,7 @@ import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
     StudentDocumentsComponent,
     StudentEnrollmentComponent,
     NavbarAdminComponent,
+    ExamPeriodDetailsComponent,
   ],
 
   imports: [
