@@ -1,1 +1,27 @@
-<p>exam-period-details works!</p>
+<div>
+    <h3>Exam period</h3>
+</div>
+
+<div>
+    <form>
+        <div class="form-group">
+            <label for="field1c" class="form-control-label"> Name: </label>
+            <input type="text" [(ngModel)]="examPeriod.name" placeholder="Name" class="form-control" id="field1c" name="field1">
+        </div>
+        <br/>
+        <div class="form-group">
+            <label for="field1c" class="form-control-label"> Start date: </label>
+            <input type="text" [(ngModel)]="examPeriod.startDate" placeholder="Start date" class="form-control" id="field1c" name="field1">
+        </div>
+        <br/>
+        <div class="form-group">
+            <label for="field1c" class="form-control-label"> End date: </label>
+            <input type="text" [(ngModel)]="examPeriod.endDate" placeholder="End date" class="form-control" id="field1c" name="field1">
+        </div>
+        <br/>
+    </form>
+</div>
+<div>
+    <button class="btn btn-primary" (click)="save()">OK</button>
+    <button class="btn btn-primary" (click)="goBack()">Cancel</button>
+  </div>
