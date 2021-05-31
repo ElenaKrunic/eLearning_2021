@@ -24,7 +24,6 @@ export class FinancialCardDetailsComponent implements OnInit {
 
   constructor(private financialCardService : FinancialcardService, private route: ActivatedRoute, private location: Location, private router : Router) { }
 
-
   ngOnInit(): void {
     if(this.route.snapshot.params['id']) {
       this.route.params.pipe(switchMap((params : Params) =>

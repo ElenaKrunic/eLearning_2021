@@ -1,1 +1,38 @@
-<p>admin-payment works!</p>
+<div>
+    <h3> Payment </h3>
+</div>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Date of payment</th>
+            <th>Payment description</th>
+            <th>Payment amount</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let payment of payments">
+            <td>
+                {{payment.dateOfPayment}}
+            </td>
+            <td>
+                {{payment.paymentDescription}}
+            </td>
+            <td>
+                {{payment.paymentAmount}}
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary" aria-label="Edit" (click)="gotoEdit(payment)">
+                    <span class="fa fa-edit" aria-hidden="true"></span>
+                </button>
+
+                <button type="button" class="btn btn-primary" aria-label="Delete" (click)="gotoDelete(payment.id)">
+                    <span class="fa fa-trash" aria-hidden="true"></span>
+                </button>
+            </td>
+        </tr>
+    </table>
+    <div class="right">
+        <button type="button" class="btn btn-primary" aria-label="Add" click="gotoAdd()">
+            <span class="fa fa-plus" aria-hidden="true"></span>
+        </button>
+    </div>
+

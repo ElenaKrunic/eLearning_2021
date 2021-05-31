@@ -9,9 +9,11 @@ import { ExamPeriodDetailsComponent } from '../exam-period-details/exam-period-d
 import { FinancialCardDetailsComponent } from '../financial-card-details/financial-card-details.component';
 import { FinancialcardStudentComponent } from '../financialcard-student/financialcard-student.component';
 import { MainComponent } from '../main/main.component';
+import { PaymentDetailsComponent } from '../payment-details/payment-details.component';
 import { PaymentComponent } from '../payment/payment.component';
 import { PayoutComponent } from '../payout/payout.component';
 import { PreexamObligationDetailsComponent } from '../preexam-obligation-details/preexam-obligation-details.component';
+import { StudentDetailsComponent } from '../student-details/student-details.component';
 import { StudentProfileComponent } from '../student-profile/student-profile.component';
 import { StudentsComponent } from '../students/students.component';
 
@@ -25,10 +27,12 @@ const routes: Routes = [
   { path : 'editExamPeriod/:id', component: ExamPeriodDetailsComponent},
   { path: 'addFinancialCard', component: FinancialCardDetailsComponent},
   { path : 'editFinancialCard/:id', component: FinancialCardDetailsComponent},
-  { path: 'adminPayment', component: AdminPaymentComponent},
   { path: 'addPreexamObligation', component: PreexamObligationDetailsComponent},
   { path: 'editPreexamObligation/:id', component: PreexamObligationDetailsComponent},
-  { path: 'adminStudent', component: AdminStudentComponent}
+  { path: 'addStudent', component: StudentDetailsComponent},
+  { path: 'editStudent/:id', component: StudentDetailsComponent},
+  { path: 'addPayment', component: PaymentDetailsComponent},
+  { path: 'editPayment/:id', component: PaymentDetailsComponent}
   // { path: '**', redirectTo: '' }
 ];
 
