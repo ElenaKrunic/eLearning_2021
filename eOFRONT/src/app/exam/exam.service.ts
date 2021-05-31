@@ -16,8 +16,16 @@ export class ExamService {
     announceChange() {
         this.RegenerateData.next();
     }
-
-    
+    addExam(exam: Exam) : Observable<HttpResponse<Exam>> {
+      return this.http.post<Exam>(this.path, exam, {observe: 'response'});
+    }
+    editExam(exam: Exam) : Observable<HttpResponse<Exam>> {
+      return this.http.put<Exam>(this.path, exam, {observe: 'response'});
+    }
+    deleteExam(id : number): Observable<HttpResponse<any>> {
+      const url = `${this.path}/${id}`;
+      return this.http.delete<any>(url, {observe: 'response'});
+    }
     getExams(): Observable<HttpResponse<Exam[]>> {
   
       return this.http.get<Exam[]>(this.path, {observe: 'response'});
