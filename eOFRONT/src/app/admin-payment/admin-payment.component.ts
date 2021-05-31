@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Payment } from '../model/payment';
 
 @Component({
   selector: 'app-admin-payment',
@@ -6,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-payment.component.css']
 })
 export class AdminPaymentComponent implements OnInit {
+
+  payments : Payment[];
+  subscription : Subscription; 
 
   constructor() { }
 

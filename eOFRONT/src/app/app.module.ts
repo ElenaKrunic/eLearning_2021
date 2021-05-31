@@ -41,6 +41,8 @@ import { StudentEnrollmentComponent } from './student-enrollment/student-enrollm
 import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 import { ExamPeriodDetailsComponent } from './exam-period-details/exam-period-details.component';
 import { FinancialCardDetailsComponent } from './financial-card-details/financial-card-details.component';
+import { PaymentDetailsComponent } from './payment-details/payment-details.component';
+import { PreexamObligationDetailsComponent } from './preexam-obligation-details/preexam-obligation-details.component';
 
 
 @NgModule({
@@ -79,6 +81,8 @@ import { FinancialCardDetailsComponent } from './financial-card-details/financia
     NavbarAdminComponent,
     ExamPeriodDetailsComponent,
     FinancialCardDetailsComponent,
+    PaymentDetailsComponent,
+    PreexamObligationDetailsComponent,
   ],
 
   imports: [
