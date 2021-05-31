@@ -11,10 +11,9 @@ import { FinancialcardStudentComponent } from '../financialcard-student/financia
 import { MainComponent } from '../main/main.component';
 import { PaymentComponent } from '../payment/payment.component';
 import { PayoutComponent } from '../payout/payout.component';
+import { PreexamObligationDetailsComponent } from '../preexam-obligation-details/preexam-obligation-details.component';
 import { StudentProfileComponent } from '../student-profile/student-profile.component';
 import { StudentsComponent } from '../students/students.component';
-
-
 
 const routes: Routes = [
   { path: 'financialCard', component: FinancialcardStudentComponent },
@@ -27,7 +26,8 @@ const routes: Routes = [
   { path: 'addFinancialCard', component: FinancialCardDetailsComponent},
   { path : 'editFinancialCard/:id', component: FinancialCardDetailsComponent},
   { path: 'adminPayment', component: AdminPaymentComponent},
-  { path : 'adminPreexamObligation', component: AdminPreexamObligationComponent},
+  { path: 'addPreexamObligation', component: PreexamObligationDetailsComponent},
+  { path: 'editPreexamObligation/:id', component: PreexamObligationDetailsComponent},
   { path: 'adminStudent', component: AdminStudentComponent}
   // { path: '**', redirectTo: '' }
 ];

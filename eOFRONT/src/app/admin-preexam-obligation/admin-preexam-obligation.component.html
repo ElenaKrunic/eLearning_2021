@@ -1,1 +1,50 @@
-<p>admin-preexam-obligation works!</p>
+<!-- points, location, dateofobligation, passed, preexamObligation type, preexamObligation status-->
+<div>
+    <h3> Preexam Obligation  </h3>
+</div>
+
+    <table class="table table-bordered">
+        <tr>
+            <th> Points </th>
+            <th> Location </th>
+            <th> Date of obligation</th>
+            <th> Passed </th>
+            <th> Preexam Obligation type </th>
+            <th> Preexam Obligation status </th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let preexamObligation of preexamObligations">
+            <td>
+                {{preexamObligation.points}}
+            </td>
+            <td>
+                {{preexamObligation.location}}
+            </td>
+            <td>
+                {{preexamObligation.dateOfObligation}}
+            </td>
+            <td>
+                {{preexamObligation.passed}}
+            </td>
+            <td>
+                {{preexamObligation.preexamObligationType}}
+            </td>
+            <td>
+                {{preexamObligation.preexamObligationStatus}}
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary" aria-label="Edit" (click)="gotoEdit(preexamObligation)">
+                    <span class="fa fa-edit" aria-hidden="true"></span>
+                </button>
+
+                <button type="button" class="btn btn-primary" aria-label="Delete" (click)="gotoDelete(preexamObligation.id)">
+                    <span class="fa fa-trash" aria-hidden="true"></span>
+                </button>
+            </td>
+        </tr>
+    </table>
+    <div class="right">
+        <button type="button" class="btn btn-primary" aria-label="Add" click="gotoAdd()">
+            <span class="fa fa-plus" aria-hidden="true"></span>
+        </button>
+    </div>
