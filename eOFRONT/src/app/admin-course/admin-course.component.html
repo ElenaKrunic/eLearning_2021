@@ -1,1 +1,53 @@
-<p>admin-course works!</p>
+<!-- start date, end date, name-->
+<div>
+    <h3> Course </h3>
+</div>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Title</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>Course code</th>
+        <th>ECTS</th>
+        <th>Enrollments</th>
+        <th>Teachings</th>
+    </tr>
+    <tr *ngFor="let course of Course">
+        <td>
+            {{course.title}}
+        </td>
+        <td>
+            {{course.startDate}}
+        </td>
+        <td>
+            {{course.endDate}}
+        </td>
+        <td>
+            {{course.courseCode}}
+        </td>
+        <td>
+            {{course.ECTS}}
+        </td>
+        <td>
+            {{course.enrollments}}
+        </td>
+        <td>
+            {{course.teachings}}
+        </td>
+        <td>
+            <button type="button" class="btn btn-primary" aria-label="Edit" (click)="gotoEdit(course)">
+                    <span class="fa fa-edit" aria-hidden="true"></span>
+                </button>
+
+            <button type="button" class="btn btn-primary" aria-label="Delete" (click)="gotoDelete(course.id)">
+                    <span class="fa fa-trash" aria-hidden="true"></span>
+                </button>
+        </td>
+    </tr>
+</table>
+<div class="right">
+    <button type="button" class="btn btn-primary" aria-label="Add" click="gotoAdd()">
+            <span class="fa fa-plus" aria-hidden="true"></span>
+        </button>
+</div>

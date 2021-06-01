@@ -17,7 +17,20 @@ export class CoursesService {
     announceChange() {
         this.RegenerateData.next();
     }
-
+    addCourse(course: Course) : Observable<HttpResponse<Course>> {
+      return this.http.post<Course>(this.path, course, {observe: 'response'});
+    }
+    editCourse(course: Course) : Observable<HttpResponse<Course>> {
+      return this.http.put<Course>(this.path, course, {observe: 'response'});
+    }
+    deleteCourse(id : number): Observable<HttpResponse<any>> {
+      const url = `${this.path}/${id}`;
+      return this.http.delete<any>(url, {observe: 'response'});
+    }
+    getCourses(): Observable<HttpResponse<Course[]>> {
+  
+      return this.http.get<Course[]>(this.path, {observe: 'response'});
+  }
     getProfsesorCourses(courseId:number): Observable<HttpResponse<Course[]>> {
       const url=`${this.path}/{courseId}/proffesorCourses`;
       return this.http.get<Course[]>(url, {observe: 'response'});
