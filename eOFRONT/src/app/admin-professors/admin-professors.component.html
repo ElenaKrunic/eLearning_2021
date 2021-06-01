@@ -1,1 +1,36 @@
-<p>admin-professors works!</p>
+
+<div>
+    <h3> Professor </h3>
+</div>
+
+    <table class="table table-bordered">
+        <tr>
+            
+            <th>First name </th>
+            <th>Last name </th>
+    
+        </tr>
+        <tr *ngFor="let professor of professors">
+           
+            <td>
+                {{professor.firstName}}
+            </td>
+            <td>
+                {{professor.lastName}}
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary" aria-label="Edit" (click)="gotoEdit(professor)">
+                    <span class="fa fa-edit" aria-hidden="true"></span>
+                </button>
+
+                <button type="button" class="btn btn-primary" aria-label="Delete" (click)="gotoDelete(professor.id)">
+                    <span class="fa fa-trash" aria-hidden="true"></span>
+                </button>
+            </td>
+        </tr>
+    </table>
+    <div class="right">
+        <button type="button" class="btn btn-primary" aria-label="Add" click="gotoAdd()">
+            <span class="fa fa-plus" aria-hidden="true"></span>
+        </button>
+    </div>
