@@ -10,6 +10,7 @@ export class FinancialCard {
 	public totalCost:number;
     public student:Student;
 
+
     constructor(financialCardConf:FinancialCardInterface){
         this.id=financialCardConf.id;
         this.initialState=financialCardConf.initialState;

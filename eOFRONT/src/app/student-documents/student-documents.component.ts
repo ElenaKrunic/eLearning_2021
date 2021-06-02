@@ -20,10 +20,10 @@ export class StudentDocumentsComponent implements OnInit {
 
     //  );
    }
-  // ngOnInit(): void {
+  ngOnInit(): void {
   //   this.getDocuments(studentId?:number);
 
-  // }
+  }
 
   getDocuments(studentId:number){
 

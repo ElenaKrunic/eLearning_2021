@@ -3,7 +3,7 @@ import { Observable, Subject } from 'rxjs';
 import { HttpResponse, HttpClient } from '@angular/common/http';
 import { PreexamObligation } from '../model/preexam-obligation';
 
-@Injectable
+@Injectable()
 export class PreexamObligationService {
 
   private path="api/preexamObligation";
