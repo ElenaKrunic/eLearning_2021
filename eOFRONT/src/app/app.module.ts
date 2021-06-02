@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,8 +38,9 @@ import { MainComponent } from './main/main.component';
 import { StudentExamsComponent } from './student-exams/student-exams.component';
 import { StudentDocumentsComponent } from './student-documents/student-documents.component';
 import { StudentEnrollmentComponent } from './student-enrollment/student-enrollment.component';
-import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 import { ExamPeriodDetailsComponent } from './exam-period-details/exam-period-details.component';
+import { NavbarAdminComponent } from './core/navbar-admin/navbar-admin.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
