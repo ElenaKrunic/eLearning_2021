@@ -4,7 +4,7 @@ import { AuthenticationService } from '../login/authentication.service';
 import { Location } from '@angular/common';
 import { StudentService } from '../students/student.service';
 import { switchMap } from 'rxjs/operators';
-import { Document } from '../model/document';
+
 
 @Component({
   selector: 'app-student-documents',
