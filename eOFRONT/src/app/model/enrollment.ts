@@ -9,19 +9,21 @@ export class Enrollment implements EnrollmentInterface {
     public endDate: Date;
     public student: Student;
     public courses: Course;
-
+   
     constructor(enrollmentCgf: EnrollmentInterface){
         this.id= enrollmentCgf.id;
         this.startDate= enrollmentCgf.startDate;
         this.endDate= enrollmentCgf.endDate;
         this.student= enrollmentCgf.student;
         this.courses= enrollmentCgf.courses;
-
+       
     }
+    courseName: string;
 
 }
 
 interface EnrollmentInterface{
+    courseName: string;
     id?:number;
     startDate: Date;
     endDate: Date;
