@@ -31,8 +31,5 @@ export class CoursesService {
   
       return this.http.get<Course[]>(this.path, {observe: 'response'});
   }
-    getProfsesorCourses(courseId:number): Observable<HttpResponse<Course[]>> {
-      const url=`${this.path}/{courseId}/proffesorCourses`;
-      return this.http.get<Course[]>(url, {observe: 'response'});
-    }
+   
 }

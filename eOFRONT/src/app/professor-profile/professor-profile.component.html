@@ -6,62 +6,21 @@
   
     <form >
           <div class="form-group">
-            <label for="field1c" class="form-control-label">Card number</label>
-            <input type="text" [(ngModel)]="student.cardNumber" placeholder="Card number" 
+            <label for="field1c" class="form-control-label">First name</label>
+            <input type="text" [(ngModel)]="professor.firstName" placeholder="First name" 
                class="form-control" id="field1c" name="field1">
           </div>
   
           <div class="form-group">
-            <label for="field2c" class="form-control-label">First name</label>
-            <input type="text" [(ngModel)]="student.firstName" placeholder="First name" 
+            <label for="field2c" class="form-control-label">Last name</label>
+            <input type="text" [(ngModel)]="professor.lastName" placeholder="Last name" 
                class="form-control" id="field2c" name="field2">
           </div>
          
-          <div class="form-group">
-            <label for="field3c" class="form-control-label">Last name</label>
-            <input type="text" [(ngModel)]="student.lastName" placeholder="Last name" 
-               class="form-control" id="field3c" name="field3">
-          </div>
-          <div class="form-group">
-            <label for="field4c" class="form-control-label">Phone number</label>
-            <input type="text" [(ngModel)]="student.phoneNumber" placeholder="Phone number" 
-               class="form-control" id="field4c" name="field4">
-          </div>
-          <div class="form-group">
-            <label for="field5c" class="form-control-label">Email</label>
-            <input type="text" [(ngModel)]="student.eMail" placeholder="Email" 
-               class="form-control" id="field5c" name="field5">
-          </div>
-          
-          <div class="form-group">
-            <label for="field6c" class="form-control-label">UMNC</label>
-            <input type="text" [(ngModel)]="student.umnc" placeholder="Umns" 
-               class="form-control" id="field6c" name="field6">
-          </div>
-          
-          <div class="form-group">
-            <label for="field7c" class="form-control-label">Started college in</label>
-            <input type="number" [(ngModel)]="student.startedCollegeIn" placeholder="Started college in" 
-               class="form-control" id="field7c" name="field7">
-          </div>
-          <div class="form-group">
-            <label for="field8c" class="form-control-label">Model number</label>
-            <input type="number" [(ngModel)]="student.modelNumber" placeholder="Model number" 
-               class="form-control" id="field8c" name="field8">
-          </div>
-          <div class="form-group">
-            <label for="field8c" class="form-control-label">Reference number</label>
-            <input type="number" [(ngModel)]="student.referenceNumber" placeholder="Reference number" 
-               class="form-control" id="field8c" name="field8">
-          </div>
-          <div class="form-group">
-            <label for="field9c" class="form-control-label">Account number</label>
-            <input type="text" [(ngModel)]="student.accountNumber" placeholder="Account number" 
-               class="form-control" id="field9c" name="field9">
-          </div>
+         
      </form>
-     
-  </div>
+     </div>
   <div>
     <button class="btn btn-primary" (click)="goBack()">Cancel</button>
-     </div> 
+  </div> 
+

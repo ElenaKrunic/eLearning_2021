@@ -16,7 +16,7 @@
     
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/profile/'+professor.id]">Profile</a>
+          <a class="nav-link" [routerLink]="['/professorProfile/']">Profile</a>
         </li>
     </ul>
   
@@ -48,4 +48,7 @@
     </tr>
   </tbody>
 </table>
+<div>
+  <button class="btn btn-primary" (click)="goBack()">Cancel</button>
+</div> 
 
