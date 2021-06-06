@@ -7,18 +7,23 @@
       <tr>
         <th>Title <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
         <th>Download <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
+        <th>Url <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
+        <th>Student <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
+        <th>Type <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
         
     </thead>
     <tbody>
-      <!--
- <tr *ngFor="let document of documents">
-      -->
+      
+      <tr *ngFor="let document of documents">
+      
         <td>{{document.title}}</td>
         <td><button>{{document.download}}</button></td>
-       
-      </tr>
+        <td>{{document.student.firstname}}</td>
+        <td>{{document.url}}</td>
+        <td>{{document.documentType.name}}</td>
+    </tr>
     </tbody>
   </table>
   <div>
     <button class="btn btn-primary" (click)="goBack()">Cancel</button>
-     </div> 
+  </div> 

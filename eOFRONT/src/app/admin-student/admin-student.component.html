@@ -1,1 +1,72 @@
-<p>admin-student works!</p>
+<div>
+    <h3> Student </h3>
+</div>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Card number </th>
+            <th>First name </th>
+            <th>Last name </th>
+            <th>Phone number </th>
+            <th>Email </th>
+            <th>UMNC </th>
+            <th>Started college in</th>
+            <th>Model number </th>
+            <th>Reference number </th>
+            <th>Account number </th>
+            <th>Card amount </th>
+            <th>Type of financing </th>
+        </tr>
+        <tr *ngFor="let student of students">
+            <td>
+                {{student.cardNumber}}
+            </td>
+            <td>
+                {{student.firstName}}
+            </td>
+            <td>
+                {{student.lastName}}
+            </td>
+            <td>
+                {{student.phoneNumber}}
+            </td>
+            <td>
+                {{student.email}}
+            </td>
+            <td>
+                {{student.umnc}}
+            </td>
+            <td>
+                {{student.startedCollegeIn}}
+            </td>
+            <td>
+                {{student.modelNumber}}
+            </td>
+            <td>
+                {{student.referenceNumber}}
+            </td>
+            <td>
+                {{student.accountNumber}}
+            </td>
+            <td>
+                {{student.cardAmount}}
+            </td>
+            <td>
+                {{student.typeOfFinancing}}
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary" aria-label="Edit" (click)="gotoEdit(student)">
+                    <span class="fa fa-edit" aria-hidden="true"></span>
+                </button>
+
+                <button type="button" class="btn btn-primary" aria-label="Delete" (click)="gotoDelete(student.id)">
+                    <span class="fa fa-trash" aria-hidden="true"></span>
+                </button>
+            </td>
+        </tr>
+    </table>
+    <div class="right">
+        <button type="button" class="btn btn-primary" aria-label="Add" click="gotoAdd()">
+            <span class="fa fa-plus" aria-hidden="true"></span>
+        </button>
+    </div>

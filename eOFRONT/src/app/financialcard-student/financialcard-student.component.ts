@@ -1,11 +1,10 @@
-import { HttpHeaders } from '@angular/common/http';
+import { Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 import { AuthenticationService } from '../login/authentication.service';
 import { FinancialCard } from '../model/financial-card';
 import { StudentService } from '../students/student.service';
-import { FinancialcardService } from './financialcard.service';
 
 @Component({
   selector: 'app-financialcard-student',
@@ -14,25 +13,30 @@ import { FinancialcardService } from './financialcard.service';
 })
 export class FinancialcardStudentComponent implements OnInit {
 
-   financialcards?: FinancialCard[];
-
-  //  subscription: Subscription;
-
+  financialCard: FinancialCard = new FinancialCard({
+    initialState : 0,
+    totalPayment : 0,
+    totalPayout: 0, 
+    totalCost : 0,
+    student : null
+  });
   
 
-   constructor(private studentService: StudentService, private router: Router,private authService:AuthenticationService) {
-    //  this.subscription = studentService.RegenerateData$.subscribe(() =>
-    //   //  this.getFinancialCard(studentId?:number)
-
-    //  );
+   constructor(private studentService: StudentService, private route: ActivatedRoute,private authService:AuthenticationService,private router:Router,private location:Location) {
+    
    }
 
-	ngOnInit() {
-    // this.getFinancialCard(studentId:number);
-  }
-  getFinancialCard(studentId:number)
-    {
-      this.studentService.getStudentFinancialCard(studentId);
+	 ngOnInit(): void {
+    if(this.route.snapshot.params['id']) {
+      this.route.params.pipe(switchMap((params : Params) =>
+      this.studentService.getStudentFinancialCard(+params['id'])))
+      .subscribe(res => {
+        this.financialCard = res;
+      });
     }
+  }
+  goBack() : void {
+    this.location.back();
+  }
 
 }

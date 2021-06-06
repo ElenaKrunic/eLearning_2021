@@ -6,20 +6,14 @@ import { PreexamObligationStatus } from "./preexam-obligation-status";
 export class PreexamObligation implements preexamObligationInterface {
 
     public  id?:number;
-	
 	public points:number;
-
 	public  location:String;
-	
 	public  dateOfObligation:Date;
-	
 	public passed:boolean; 
-
 	public  exam:Exam;
-	
 	public  preexamObligationType:PreexamObligationType;
-	
 	public  preexamObligationStatus:PreexamObligationStatus;
+
 	constructor(preexamObligationCfg:preexamObligationInterface){
         this.id= preexamObligationCfg.id;
         this.points= preexamObligationCfg.points;

@@ -4,14 +4,12 @@ import { Student } from "./student";
 export class FinancialCard {
 
     public id?:number;
-	
 	public initialState:number;
-	
 	public totalPayment:number;
-	
-	public  totalPayout:number;
+	public totalPayout:number;
 	public totalCost:number;
     public student:Student;
+
 
     constructor(financialCardConf:FinancialCardInterface){
         this.id=financialCardConf.id;
@@ -21,11 +19,6 @@ export class FinancialCard {
         this.totalCost=financialCardConf.totalCost;
         this.student=financialCardConf.student;
     }
-
-	
-
-
-
 }
 interface FinancialCardInterface{
     id?:number;

@@ -19,6 +19,21 @@ export class ProfessorService {
     announceChange() {
         this.RegenerateData.next();
     }
+    addProfessor(professor: Professor): Observable<HttpResponse<Professor>> {
+      return this.http.post<Professor>(this.path, professor, {observe: 'response'});
+    }
+
+  editProfessor(professor: Professor): Observable<HttpResponse<Professor>> {
+      return this.http.put<Professor>(this.path, professor, {observe: 'response'});
+    }
+
+  deleteProfessor(professorId: number): Observable<HttpResponse<any>> {
+      const url = `${this.path}/${professorId}`;
+      return this.http.delete<any>(url, {observe: 'response'});
+    }
+    getProfessors(): Observable<HttpResponse<Professor[]>> {
+      return this.http.get<Professor[]>(this.path, {observe: 'response'});
+    }
 
     getProfessor(id:number):Observable<HttpResponse<Professor[]>>{
       const url=`${this.path}/{id}`;

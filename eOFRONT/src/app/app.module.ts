@@ -13,7 +13,6 @@ import { StudentsComponent } from './students/students.component';
 import { LoginComponent } from './login/login.component';
 import { PreexamObligationComponent } from './preexam-obligation/preexam-obligation.component';
 import { HeaderComponent } from './core/header/header.component';
-import { NavbarStudentComponent } from './core/navbar-student/navbar-student.component';
 import { FinancialcardStudentComponent } from './financialcard-student/financialcard-student.component';
 import { NavbarProfessorComponent } from './core/navbar-professor/navbar-professor.component';
 import { ProfessorCoursesComponent } from './professor-courses/professor-courses.component';
@@ -39,8 +38,16 @@ import { StudentExamsComponent } from './student-exams/student-exams.component';
 import { StudentDocumentsComponent } from './student-documents/student-documents.component';
 import { StudentEnrollmentComponent } from './student-enrollment/student-enrollment.component';
 import { ExamPeriodDetailsComponent } from './exam-period-details/exam-period-details.component';
+<<<<<<< HEAD
 import { NavbarAdminComponent } from './core/navbar-admin/navbar-admin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+=======
+import { FinancialCardDetailsComponent } from './financial-card-details/financial-card-details.component';
+import { PaymentDetailsComponent } from './payment-details/payment-details.component';
+import { PreexamObligationDetailsComponent } from './preexam-obligation-details/preexam-obligation-details.component';
+import { NavbarAdminComponent } from './core/navbar-admin/navbar-admin.component';
+import { NavbarStudentComponent } from './core/navbar-student/navbar-student.component';
+>>>>>>> 4742507875c0c93843de991ed06477b188999abc
 
 
 @NgModule({
@@ -78,6 +85,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     StudentEnrollmentComponent,
     NavbarAdminComponent,
     ExamPeriodDetailsComponent,
+    FinancialCardDetailsComponent,
+    PaymentDetailsComponent,
+    PreexamObligationDetailsComponent,
   ],
 
   imports: [

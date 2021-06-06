@@ -1,7 +1,9 @@
+
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AuthenticationService } from '../login/authentication.service';
-import { Document } from '../model/document';
+import { Enrollment } from '../model/enrollment';
+import { switchMap } from 'rxjs/operators';
 import { StudentService } from '../students/student.service';
 
 @Component({
@@ -10,22 +12,25 @@ import { StudentService } from '../students/student.service';
   styleUrls: ['./student-enrollment.component.css']
 })
 export class StudentEnrollmentComponent implements OnInit {
-  documents?: Document[];
-
-  //  subscription: Subscription;
-  constructor(private studentService: StudentService, private router: Router,private authService:AuthenticationService) { 
-    //  this.subscription = studentService.RegenerateData$.subscribe(() =>
-    //   //  this.getEnrollment(studentId?:number)
-
-    //  );
+  
+  enrollments: Enrollment[];
+  
+   constructor(private studentService: StudentService, private router: Router,private authService:AuthenticationService,private route:ActivatedRoute) { 
+  
   }
+
 
   ngOnInit(): void {
-    // this.getEnrollment(studentId:number);
+    if(this.route.snapshot.params['id']) {
+      this.route.params.pipe(switchMap((params : Params) =>
+      this.studentService.getStudentEnrollment(+params['id'])))
+      .subscribe(res => {
+        this.enrollments = res;
+        
+      });
+    }
   }
 
-  getEnrollment(studentId:number){
-    this.studentService.getStudentEnrollment(studentId);
-  }
+  
 
 }

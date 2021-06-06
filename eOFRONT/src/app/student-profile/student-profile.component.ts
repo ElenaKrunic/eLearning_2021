@@ -12,24 +12,24 @@ import { switchMap } from 'rxjs/operators';
 })
 
 export class StudentProfileComponent implements OnInit {
-  student?:Student;
-  constructor(private location:Location,private studentService: StudentService, private route: ActivatedRoute) {
-    // this.student=new Student({
-    //   cardNumber:'',
-    //   firstName:'',
-    //   lastName:'',
-    //   phoneNumber:'',
-    //   email:'',
-    //   umnc:'',
-    //   modelNumber:0,
-    //   referenceNumber:'',
-    //   accountNumber:'',
-    //   typeOfFinancing:TypeOfFinancing{},
+  student=new Student({
+    cardNumber:'',
+    firstName:'',
+    lastName:'',
+    phoneNumber:'',
+    email:'',
+    umnc:'',
+    modelNumber:0,
+    startedCollegeIn:0,
+    referenceNumber:'',
+    cardAmount:0,
+    accountNumber:'',
+    typeOfFinancing:null,
+    financialCards:null
+  });
 
 
-  //  )
-  }
-    ;
+  constructor(private location:Location,private studentService: StudentService, private route: ActivatedRoute) {}
    
 
   ngOnInit(): void {

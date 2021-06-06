@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AuthenticationService } from '../login/authentication.service';
-import { Document } from '../model/document';
+import { Location } from '@angular/common';
 import { StudentService } from '../students/student.service';
+import { switchMap } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-student-documents',
@@ -10,24 +12,26 @@ import { StudentService } from '../students/student.service';
   styleUrls: ['./student-documents.component.css']
 })
 export class StudentDocumentsComponent implements OnInit {
-  document?: Document[];
+  documents:Document[];
+ 
+  constructor(private studentService: StudentService, private router: Router,private authService:AuthenticationService,private route:ActivatedRoute,private location:Location) { 
   
-  //  subscription: Subscription;
-
-  constructor(private studentService: StudentService, private router: Router,private authService:AuthenticationService) {
-    //  this.subscription = studentService.RegenerateData$.subscribe(() =>
-    //   //  this.getDocuments(studentId?:number)
-
-    //  );
-   }
-  // ngOnInit(): void {
-  //   this.getDocuments(studentId?:number);
-
-  // }
-
-  getDocuments(studentId:number){
-
-    this.studentService.getStudentDocument(studentId);
+  }
+  ngOnInit(): void {
+    if(this.route.snapshot.params['id']) {
+      this.route.params.pipe(switchMap((params : Params) =>
+      this.studentService.getStudentDocument(+params['id'])))
+      .subscribe(res => {
+        this.documents = res;
+        
+      });
+    }
+      
+  }
+  
+  goBack(): void {
+    this.location.back();
   }
 
-}
+  }
+

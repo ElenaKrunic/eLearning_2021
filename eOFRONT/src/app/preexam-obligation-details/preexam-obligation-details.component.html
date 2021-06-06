@@ -1,0 +1,37 @@
+<div>
+    <h3>Preexam Obligation</h3>
+</div>
+
+<div>
+    <form>
+        <div class="form-group">
+            <label for="field1c" class="form-control-label"> Points: </label>
+            <input type="text" [(ngModel)]="preexamObligation.points" placeholder="Points" class="form-control" id="field1c" name="field1">
+        </div>
+        <br/>
+        <div class="form-group">
+            <label for="field1c" class="form-control-label"> Location: </label>
+            <input type="text" [(ngModel)]="preexamObligation.location" placeholder="Location" class="form-control" id="field1c" name="field1">
+        </div>
+        <br/>
+        <div class="form-group">
+            <label for="field1c" class="form-control-label"> Date of obligation: </label>
+            <input type="text" [(ngModel)]="preexamObligation.dateOfObligation" placeholder="Date of obligation" class="form-control" id="field1c" name="field1">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="field1c" class="form-control-label"> Passed: </label>
+            <select [(ngModel)]="preexamObligation.passed" class="form-control", id="field1c", name="field1">
+                <option value="true">True</option>
+                <option value="false"> False </option>
+            </select>
+        </div>
+        <br/>
+    </form>
+</div>
+<div>
+    <button class="btn btn-primary" (click)="save()">OK</button>
+    <button class="btn btn-primary" (click)="goBack()">Cancel</button>
+  </div>
+
+<!-- dodati status i tip -->

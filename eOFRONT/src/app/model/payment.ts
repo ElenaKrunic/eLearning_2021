@@ -2,12 +2,8 @@ import { FinancialCard } from "./financial-card";
 
 export class Payment implements PaymentInterface{
     public id?:number;
-	
 	public  dateOfPayment:Date;
-	
-	
 	public paymentDescription:String ;
-	
 	public paymentAmount:number;
     public financialCard:FinancialCard;
 

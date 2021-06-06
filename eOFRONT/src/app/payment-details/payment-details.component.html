@@ -1,0 +1,32 @@
+<div>
+    <h3>Payment</h3>
+</div>
+
+<div>
+    <form>
+        <div class="form-group">
+            <label for="field1c" class="form-control-label"> Date of payment: </label>
+            <input type="text" [(ngModel)]="payment.dateOfPayment" placeholder="Date of payment" class="form-control" id="field1c" name="field1">
+        </div>
+        <br/>
+        <div class="form-group">
+            <label for="field1c" class="form-control-label"> Payment amount: </label>
+            <input type="text" [(ngModel)]="payment.paymentAmount" placeholder="Payment amount" class="form-control" id="field1c" name="field1">
+        </div>
+        <br/>
+        <div class="form-group">
+            <label for="field1c" class="form-control-label"> Payment description: </label>
+            <input type="text" [(ngModel)]="payment.paymentDescription" placeholder="Payment description" class="form-control" id="field1c" name="field1">
+        </div>
+        <br/>
+    </form>
+</div>
+<div>
+    <button class="btn btn-primary" (click)="save()">OK</button>
+    <button class="btn btn-primary" (click)="goBack()">Cancel</button>
+  </div>
+
+  dateOfPayment : new Date(), 
+  paymentAmount : 0, 
+  paymentDescription : '',
+  financialCard : null
