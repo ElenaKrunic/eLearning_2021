@@ -93,6 +93,7 @@ import { NavbarStudentComponent } from './core/navbar-student/navbar-student.com
 		BrowserAnimationsModule, // required animations module
 		ToastrModule.forRoot(),
 		HttpClientModule,
+    
     NgbModule,
     CommonModule,
   ],

@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { AuthenticationService } from './authentication.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -13,21 +13,23 @@ import { User } from '../model/user';
   encapsulation:ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
-	public user:any;
+	
+	
 	constructor(private authenticationService: AuthenticationService,private router: Router,
 	)
 	 {
-		this.user={};
 	}
 
 	ngOnInit() {
 	}
 
-	login():void {
-		this.authenticationService.login(this.user.username,this.user.password).subscribe(
+	login(form:NgForm):void {
+		var username:string=form.value.username;
+		var password:string=form.value.password;
+		this.authenticationService.login(username,password).subscribe(
 			(loggedIn:boolean) =>{
 				if(loggedIn){
-					this.router.navigate(["main"]);
+					this.router.navigate(['']);
 				}
 			}
 			

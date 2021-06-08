@@ -8,6 +8,7 @@ import { AdminStudentComponent } from '../admin-student/admin-student.component'
 import { ExamPeriodDetailsComponent } from '../exam-period-details/exam-period-details.component';
 import { FinancialCardDetailsComponent } from '../financial-card-details/financial-card-details.component';
 import { FinancialcardStudentComponent } from '../financialcard-student/financialcard-student.component';
+import { LoginComponent } from '../login/login.component';
 import { MainComponent } from '../main/main.component';
 import { PaymentDetailsComponent } from '../payment-details/payment-details.component';
 import { PaymentComponent } from '../payment/payment.component';
@@ -32,12 +33,12 @@ const routes: Routes = [
   { path: 'addStudent', component: StudentDetailsComponent},
   { path: 'editStudent/:id', component: StudentDetailsComponent},
   { path: 'addPayment', component: PaymentDetailsComponent},
-  { path: 'editPayment/:id', component: PaymentDetailsComponent}
-  // { path: '**', redirectTo: '' }
+  { path: 'editPayment/:id', component: PaymentDetailsComponent},
+  { path: '**', component: LoginComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{useHash: true})
+  imports: [RouterModule.forRoot(routes,{useHash: false})
   ],
   exports: [RouterModule]
   
