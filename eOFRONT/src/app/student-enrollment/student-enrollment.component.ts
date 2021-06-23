@@ -1,12 +1,10 @@
-import { Route } from '@angular/compiler/src/core';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AuthenticationService } from '../login/authentication.service';
-import { Document } from '../model/document';
 import { Enrollment } from '../model/enrollment';
 import { switchMap } from 'rxjs/operators';
 import { StudentService } from '../students/student.service';
-import { Course } from '../model/course';
 
 @Component({
   selector: 'app-student-enrollment',

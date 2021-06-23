@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,11 +38,14 @@ import { StudentExamsComponent } from './student-exams/student-exams.component';
 import { StudentDocumentsComponent } from './student-documents/student-documents.component';
 import { StudentEnrollmentComponent } from './student-enrollment/student-enrollment.component';
 import { ExamPeriodDetailsComponent } from './exam-period-details/exam-period-details.component';
+
 import { FinancialCardDetailsComponent } from './financial-card-details/financial-card-details.component';
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
 import { PreexamObligationDetailsComponent } from './preexam-obligation-details/preexam-obligation-details.component';
 import { NavbarAdminComponent } from './core/navbar-admin/navbar-admin.component';
 import { NavbarStudentComponent } from './core/navbar-student/navbar-student.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @NgModule({
@@ -90,13 +93,15 @@ import { NavbarStudentComponent } from './core/navbar-student/navbar-student.com
     AppRoutingModule,
     FormsModule,
 		ReactiveFormsModule,
-		BrowserAnimationsModule, // required animations module
+    BrowserAnimationsModule, // required animations module
 		ToastrModule.forRoot(),
 		HttpClientModule,
+    
     NgbModule,
     CommonModule,
   ],
- 
+
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
