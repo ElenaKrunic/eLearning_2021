@@ -32,13 +32,7 @@
     "ngx-toastr": "^13.2.1",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",
-    "tslib": "^2.2.0",
-<<<<<<< HEAD
-    "web-animations-js": "^2.3.2",
-    "zone.js": "~0.11.3"
-=======
-    "zone.js": "~0.11.4"
->>>>>>> f721dbc5c2f5a7c192403527e84cf48f156e698c
+    "tslib": "^2.2.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^12.0.3",
