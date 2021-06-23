@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { HttpResponse, HttpClient } from '@angular/common/http';
+import { HttpResponse, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Course } from '../model/course';
 import { Student } from '../model/student';
 import { Professor } from '../model/professor';
+import { AuthenticationService } from '../login/authentication.service';
 
 @Injectable()
 export class ProfessorService {
 
   private path="api/professors"
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService:AuthenticationService) { }
 
     private RegenerateData = new Subject<void>();
 
@@ -42,8 +43,27 @@ export class ProfessorService {
 
 
     getProfessorStudents(professorId:number): Observable<HttpResponse<Student[]>> {
+      const headInfo={
+        'Content - Type': 'application/json',
+        'X-Auth-Token':"" + this.authService.getToken(),
+            }
+            const requestOptions={
+              headers:new HttpHeaders(headInfo)
+            }
       const url=`${this.path}/{professorId}/professorStudents`;
       return this.http.get<Student[]>(url, {observe: 'response'});
+    }
+
+    getProfsesorCourses(courseId:number): Observable<Course[]> {
+      const headInfo={
+        'Content - Type': 'application/json',
+        'X-Auth-Token':"" + this.authService.getToken(),
+            }
+            const requestOptions={
+              headers:new HttpHeaders(headInfo)
+            }
+      const url=`${this.path}/{courseId}/proffesorCourses`;
+      return this.http.get<Course[]>(url, requestOptions);
     }
 
 }

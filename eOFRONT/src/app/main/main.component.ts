@@ -10,9 +10,15 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class MainComponent {
 
+<<<<<<< HEAD
   	// public roles: string[]=[];
 	// currentUser:any;
 	// constructor(private router: Router) {}
+=======
+
+
+  public role?: string;
+>>>>>>> f721dbc5c2f5a7c192403527e84cf48f156e698c
 
 	// // checkRole() {
 	// // 	const item = localStorage.getItem('currentUser');

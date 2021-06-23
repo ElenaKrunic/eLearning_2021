@@ -10,10 +10,12 @@ import { FinancialCardDetailsComponent } from '../financial-card-details/financi
 import { FinancialcardStudentComponent } from '../financialcard-student/financialcard-student.component';
 import { LoginComponent } from '../login/login.component';
 import { MainComponent } from '../main/main.component';
+import { Professor } from '../model/professor';
 import { PaymentDetailsComponent } from '../payment-details/payment-details.component';
 import { PaymentComponent } from '../payment/payment.component';
 import { PayoutComponent } from '../payout/payout.component';
 import { PreexamObligationDetailsComponent } from '../preexam-obligation-details/preexam-obligation-details.component';
+import { ProfessorProfileComponent } from '../professor-profile/professor-profile.component';
 import { StudentDetailsComponent } from '../student-details/student-details.component';
 import { StudentProfileComponent } from '../student-profile/student-profile.component';
 import { StudentsComponent } from '../students/students.component';
@@ -21,6 +23,7 @@ import { StudentsComponent } from '../students/students.component';
 const routes: Routes = [
   { path: 'financialCard', component: FinancialcardStudentComponent },
   { path: 'studentProfile', component: StudentProfileComponent },
+  {path: 'professorProfile', component: ProfessorProfileComponent},
   { path: 'studentPayment', component: PaymentComponent },
   { path: 'studentPayout', component: PayoutComponent },
   { path: 'main', component: MainComponent },
