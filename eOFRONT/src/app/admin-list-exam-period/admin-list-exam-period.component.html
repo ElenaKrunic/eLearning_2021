@@ -1,0 +1,46 @@
+
+<div class="list row">
+    <div class="col-md-6">
+      <h4>Lista ispitnih rokova </h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let examPeriod of examPeriods; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveExamPeriod(examPeriod, i)"
+        >
+          {{ examPeriod.name }}
+        </li>
+      </ul>
+      
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentExamPeriod">
+        <h4> Ispitni rok </h4>
+        <div>
+          <label><strong>Naziv :</strong></label> {{ currentExamPeriod.name }}
+        </div>
+        <div>
+          <label><strong>Datum pocetka:</strong></label>
+          {{ currentExamPeriod.startDate}}
+        </div>
+        <div>
+          <label><strong>Datum zavrsetka:</strong></label>
+          {{ currentExamPeriod.endDate}}
+        </div>
+        <div>
+            <label><strong>Iznos za uplatu:</strong></label>
+            {{ currentExamPeriod.paymentAmount}}
+          </div>
+      
+        <a class="badge badge-warning" routerLink="/examPeriods/{{ currentExamPeriod.id }}">
+          Uredi
+        </a>
+      </div>
+  
+      <div *ngIf="!currentExamPeriod">
+        <br />
+        <p>Kliknite na odredjeni ispitni rok..</p>
+      </div>
+    </div>
+  </div>

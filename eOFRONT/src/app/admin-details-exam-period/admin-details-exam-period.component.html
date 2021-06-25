@@ -1,0 +1,59 @@
+<div style="width: 400px;margin: auto;">
+    <div *ngIf="currentExamPeriod" class="edit-form">
+        <h4> Ispitni rok </h4>
+        <form>
+            <div class="form-group">
+                <label for="name">Naziv</label>
+                <input type="text" 
+                class="form-control"
+                 id="name"
+                  [(ngModel)]="currentExamPeriod.name" 
+                  name="name">
+            </div>
+            <div class="form-group">
+                <label for="description"> Datum pocetka </label>
+                <input type="text"
+                class="form-control"
+                id="startDate"
+                [(ngModel)] = "currentExamPeriod.startDate"
+                name="startDate"
+                >
+            </div>
+            <div class="form-group">
+                <label for="description"> Datum kraja </label>
+                <input type="date"
+                class="form-control"
+                id="endDate"
+                [(ngModel)] = "currentExamPeriod.endDate"
+                name="endDate"
+                >
+            </div>
+            <div class="form-group">
+                <label for="paymentAmount"> Iznos za uplatu </label>
+                <input type="number"
+                class="form-control"
+                id="paymentAmount"
+                [(ngModel)] = "currentExamPeriod.paymentAmount"
+                name="paymentAmount"
+                >
+            </div>
+        </form>
+
+        <button
+        class="badge badge-primary mr-2"
+        (click)="deleteExamPeriod()"        
+        > Obrisi ispitni rok </button>
+
+        <button
+        type="submit"
+        class="badge badge-success"
+        (click)="updateExamPeriod()"
+        > Izmijeni ispitni rok </button>
+        <p> {{message}}</p>
+    </div>
+
+    <div *ngIf="!currentExamPeriod">
+        <br/>
+        <p>Nemoguc pristup ispitnom roku!</p>
+    </div>
+</div>

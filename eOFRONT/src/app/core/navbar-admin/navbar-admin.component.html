@@ -1,3 +1,4 @@
+<!--
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
   
     <ul class="navbar-nav mr-auto">
@@ -24,3 +25,22 @@
       </li>
     </ul>
   </nav>
+-->
+
+  <div>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a href="#" class="navbar-brand">Admin panel</a>
+      <div class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a routerLink="examPeriods" class="nav-link">Ispitni rokovi </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="addExamPeriod" class="nav-link">Dodaj novi ispitni rok</a>
+        </li>
+      </div>
+    </nav>
+  
+    <div class="container mt-3">
+      <router-outlet></router-outlet>
+    </div>
+  </div>

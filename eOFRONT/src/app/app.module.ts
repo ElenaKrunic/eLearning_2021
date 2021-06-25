@@ -38,13 +38,15 @@ import { StudentExamsComponent } from './student-exams/student-exams.component';
 import { StudentDocumentsComponent } from './student-documents/student-documents.component';
 import { StudentEnrollmentComponent } from './student-enrollment/student-enrollment.component';
 import { ExamPeriodDetailsComponent } from './exam-period-details/exam-period-details.component';
-
 import { FinancialCardDetailsComponent } from './financial-card-details/financial-card-details.component';
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
 import { PreexamObligationDetailsComponent } from './preexam-obligation-details/preexam-obligation-details.component';
 import { NavbarAdminComponent } from './core/navbar-admin/navbar-admin.component';
 import { NavbarStudentComponent } from './core/navbar-student/navbar-student.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminAddExamPeriodComponent } from './admin-add-exam-period/admin-add-exam-period.component';
+import { AdminDetailsExamPeriodComponent } from './admin-details-exam-period/admin-details-exam-period.component';
+import { AdminListExamPeriodComponent } from './admin-list-exam-period/admin-list-exam-period.component';
 
 
 
@@ -86,6 +88,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FinancialCardDetailsComponent,
     PaymentDetailsComponent,
     PreexamObligationDetailsComponent,
+    AdminAddExamPeriodComponent,
+    AdminDetailsExamPeriodComponent,
+    AdminListExamPeriodComponent,
   ],
 
   imports: [

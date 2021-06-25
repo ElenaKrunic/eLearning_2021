@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminAddExamPeriodComponent } from '../admin-add-exam-period/admin-add-exam-period.component';
+import { AdminDetailsExamPeriodComponent } from '../admin-details-exam-period/admin-details-exam-period.component';
 import { AdminExamPeriodComponent } from '../admin-exam-period/admin-exam-period.component';
 import { AdminFinancialCardComponent } from '../admin-financial-card/admin-financial-card.component';
+import { AdminListExamPeriodComponent } from '../admin-list-exam-period/admin-list-exam-period.component';
 import { AdminPaymentComponent } from '../admin-payment/admin-payment.component';
 import { AdminPreexamObligationComponent } from '../admin-preexam-obligation/admin-preexam-obligation.component';
 import { AdminStudentComponent } from '../admin-student/admin-student.component';
@@ -27,8 +30,11 @@ const routes: Routes = [
   { path: 'studentPayment', component: PaymentComponent },
   { path: 'studentPayout', component: PayoutComponent },
   { path: 'main', component: MainComponent },
-  { path: 'addExamPeriod', component: ExamPeriodDetailsComponent},
-  { path : 'editExamPeriod/:id', component: ExamPeriodDetailsComponent},
+  //{ path: 'addExamPeriod', component: ExamPeriodDetailsComponent},
+  //{ path : 'editExamPeriod/:id', component: ExamPeriodDetailsComponent},
+  { path: 'examPeriods', component: AdminListExamPeriodComponent },
+  { path: 'examPeriods/:id', component: AdminDetailsExamPeriodComponent },
+  { path: 'addExamPeriod', component: AdminAddExamPeriodComponent },
   { path: 'addFinancialCard', component: FinancialCardDetailsComponent},
   { path : 'editFinancialCard/:id', component: FinancialCardDetailsComponent},
   { path: 'addPreexamObligation', component: PreexamObligationDetailsComponent},

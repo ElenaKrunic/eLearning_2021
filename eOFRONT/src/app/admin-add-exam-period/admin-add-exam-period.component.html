@@ -1,0 +1,34 @@
+<div style="width: 400px; margin: auto;">
+    <div class="submit-form">
+        <div *ngIf="!submitted">
+            <div class="form-group">
+                <label for="name"> Ime </label>
+                <input type="text" class="form-control" id="name" required [(ngModel)]="examPeriod.name" name="name"/>
+            </div>
+
+            <div class="form-group">
+                <label for="description"> Datum pocetka </label>
+                <input type="text" class="form-control" id="startDate" required [(ngModel)]="examPeriod.startDate" name="startDate"/>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="description"> Datum kraja </label>
+                <input type="text" class="form-control" id="endDate" required [(ngModel)]="examPeriod.endDate" name="endDate"/>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="description"> Iznos za uplatu </label>
+                <input type="number" class="form-control" id="paymentAmount" required [(ngModel)]="examPeriod.paymentAmount" name="paymentAmount"/>
+            </div>
+
+            <button (click)="saveExamPeriod()" class="btn btn-success"> Potvrdi </button>
+        </div>
+
+        <div *ngIf="submitted">
+            <h4> Uspjesno ste kreirali novi ispitni rok!</h4>
+            <button class="btn btn-success" (click)="newExamPeriod()"> Dodaj novi ispitni rok </button>
+        </div>
+    </div>
+</div>
