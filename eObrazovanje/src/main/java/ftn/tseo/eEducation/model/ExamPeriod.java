@@ -26,11 +26,7 @@ public class ExamPeriod {
 	
 	private String name;
 	
-
 	private Date startDate;
-
-	
-
 
 	private Date endDate;
 	
@@ -38,7 +34,7 @@ public class ExamPeriod {
 	
 	@ManyToOne
 	@JsonIgnore
-	@JoinColumn(name = "exam", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "exam", referencedColumnName = "id", nullable = true)
 	private Exam exam;
 
 	public Long getId() {
@@ -67,6 +63,16 @@ public class ExamPeriod {
 //		this.exam = exam;
 	}
 
+	public ExamPeriod(Long id, String name, Date startDate, Date endDate, float paymentAmount) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.paymentAmount = paymentAmount;
+	}
+
+	
 	public 	Date getStartDate() {
 		return startDate;
 	}
