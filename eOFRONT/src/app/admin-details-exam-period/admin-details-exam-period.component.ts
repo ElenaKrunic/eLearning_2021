@@ -59,45 +59,4 @@ export class AdminDetailsExamPeriodComponent implements OnInit {
     );
   }
 
-  /*
-  getExamPeriod(id: any) : void {
-    this.examPeriodService.getExamPeriod(id)
-    .subscribe(
-      data => {
-        this.currentExamPeriod = data; 
-        console.log(data); 
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  }
-
-  updateExamPeriod() : void {
-    this.examPeriodService.updateExamPeriod(this.currentExamPeriod.id, this.currentExamPeriod)
-    .subscribe(
-      response => {
-        console.log(response); 
-        this.message = "Uspjesno ste izmijeniti ispitni rok!"; 
-      },
-      error => {
-        console.log(error); 
-      }
-    );
-  }
-
-  deleteExamPeriod(): void {
-    this.examPeriodService.deleteExamPeriod(this.currentExamPeriod.id)
-    .subscribe(
-      response => {
-        console.log(response); 
-        this.router.navigate(['/examPeriods']); 
-      }, 
-      error => {
-        console.log(error);
-      }
-    );
-  }
-  */
-
 }

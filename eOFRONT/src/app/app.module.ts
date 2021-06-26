@@ -21,7 +21,6 @@ import { ProfessorProfileComponent } from './professor-profile/professor-profile
 import { ProfessorExamsComponent } from './professor-exams/professor-exams.component';
 //import { ExamPeriodComponent } from './exam-period/exam-period.component';
 import { PaymentComponent } from './payment/payment.component';
-import { AdminExamPeriodComponent } from './admin-exam-period/admin-exam-period.component';
 import { AdminFinancialCardComponent } from './admin-financial-card/admin-financial-card.component';
 import { AdminPaymentComponent } from './admin-payment/admin-payment.component';
 import { AdminPreexamObligationComponent } from './admin-preexam-obligation/admin-preexam-obligation.component';
@@ -47,7 +46,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminAddExamPeriodComponent } from './admin-add-exam-period/admin-add-exam-period.component';
 import { AdminDetailsExamPeriodComponent } from './admin-details-exam-period/admin-details-exam-period.component';
 import { AdminListExamPeriodComponent } from './admin-list-exam-period/admin-list-exam-period.component';
-
+import { AdminAddFinancialCardComponent } from './admin-add-financial-card/admin-add-financial-card.component';
+import { AdminDetailsFinancialCardComponent } from './admin-details-financial-card/admin-details-financial-card.component';
+import { AdminListFinancialCardComponent } from './admin-list-financial-card/admin-list-financial-card.component';
 
 
 @NgModule({
@@ -67,7 +68,6 @@ import { AdminListExamPeriodComponent } from './admin-list-exam-period/admin-lis
     ProfessorExamsComponent,
     //ExamPeriodComponent,
     PaymentComponent,
-    AdminExamPeriodComponent,
     AdminFinancialCardComponent,
     AdminPaymentComponent,
     AdminPreexamObligationComponent,
@@ -91,6 +91,12 @@ import { AdminListExamPeriodComponent } from './admin-list-exam-period/admin-lis
     AdminAddExamPeriodComponent,
     AdminDetailsExamPeriodComponent,
     AdminListExamPeriodComponent,
+    AdminAddFinancialCardComponent,
+    AdminDetailsFinancialCardComponent,
+    AdminListFinancialCardComponent,
+    AdminAddFinancialCardComponent,
+    AdminDetailsFinancialCardComponent,
+    AdminListFinancialCardComponent,
   ],
 
   imports: [

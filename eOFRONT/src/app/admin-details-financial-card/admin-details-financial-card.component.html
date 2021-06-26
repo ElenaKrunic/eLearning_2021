@@ -1,0 +1,59 @@
+<div style="width: 400px;margin: auto;">
+    <div *ngIf="currentFinancialCard" class="edit-form">
+        <h4> Finansijska kartica </h4>
+        <form>
+            <div class="form-group">
+                <label for="initialState"> Pocetno stanje</label>
+                <input type="number" 
+                class="form-control"
+                 id="number"
+                  [(ngModel)]="currentFinancialCard.initialState" 
+                  name="initialState">
+            </div>
+            <div class="form-group">
+                <label for="totalPayment"> Ukupan iznos </label>
+                <input type="number"
+                class="form-control"
+                id="totalPayment"
+                [(ngModel)] = "currentFinancialCard.totalPayment"
+                name="totalPayment"
+                >
+            </div>
+            <div class="form-group">
+                <label for="totalPayout"> Ukupna isplata </label>
+                <input type="number"
+                class="form-control"
+                id="totalPayout"
+                [(ngModel)] = "currentFinancialCard.totalPayout"
+                name="totalPayout"
+                >
+            </div>
+            <div class="form-group">
+                <label for="totalCost"> Ukupni troskovi:  </label>
+                <input type="number"
+                class="form-control"
+                id="totalCost"
+                [(ngModel)] = "currentFinancialCard.totalCost"
+                name="totalCost"
+                >
+            </div>
+        </form>
+
+        <button
+        class="badge badge-primary mr-2"
+        (click)="deleteFinancialCard()"        
+        > Obrisi finansijsku karticu </button>
+
+        <button
+        type="submit"
+        class="badge badge-success"
+        (click)="updateFinancialCard()"
+        > Izmijeni finansijsku karticu </button>
+        <p> {{message}}</p>
+    </div>
+
+    <div *ngIf="!currentFinancialCard">
+        <br/>
+        <p>Nemoguc pristup kartici!</p>
+    </div>
+</div>

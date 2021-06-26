@@ -2,7 +2,7 @@ import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { FinancialcardService } from '../financialcard-student/financialcard.service';
+import { FinancialcardService } from '../financial-card/financialcard.service';
 import { FinancialCard } from '../model/financial-card';
 
 @Component({

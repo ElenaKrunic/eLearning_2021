@@ -10,7 +10,8 @@ export class FinancialCard {
 	public totalCost:number;
     public student:Student;
 
-
+    //inicijalni konstruktor 
+/*
     constructor(financialCardConf:FinancialCardInterface){
         this.id=financialCardConf.id;
         this.initialState=financialCardConf.initialState;
@@ -19,7 +20,18 @@ export class FinancialCard {
         this.totalCost=financialCardConf.totalCost;
         this.student=financialCardConf.student;
     }
+*/
+    constructor(financialCardConf:FinancialCardInterface){
+        this.initialState=financialCardConf.initialState;
+        this.totalPayment=financialCardConf.totalPayment;
+        this.totalPayout=financialCardConf.totalPayout;
+        this.totalCost=financialCardConf.totalCost;
+    }
 }
+
+//inicijalni interfejs 
+
+/*
 interface FinancialCardInterface{
     id?:number;
     initialState:number;
@@ -27,4 +39,15 @@ interface FinancialCardInterface{
     totalPayout:number;
     totalCost:number;
     student:Student;
+}
+*/
+
+interface FinancialCardInterface{
+   
+    initialState:number;
+    totalPayment:number;
+    totalPayout:number;
+    totalCost:number;
+    student : Student
+   
 }

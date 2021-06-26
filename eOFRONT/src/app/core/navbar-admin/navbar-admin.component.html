@@ -37,10 +37,24 @@
         <li class="nav-item">
           <a routerLink="addExamPeriod" class="nav-link">Dodaj novi ispitni rok</a>
         </li>
+        <li class="nav-item">
+          <a routerLink="financialCards" class="nav-link"> Finansijske kartice </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="adminAddFinancialCard" class="nav-link"> Dodajte novu finansijsku karticu </a>
+        </li>
       </div>
     </nav>
   
     <div class="container mt-3">
       <router-outlet></router-outlet>
     </div>
+    
+    <ul class="navbar-nav ml-auto">   
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+
+   
   </div>

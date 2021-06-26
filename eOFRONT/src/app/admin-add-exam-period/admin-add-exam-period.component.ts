@@ -52,38 +52,4 @@ export class AdminAddExamPeriodComponent implements OnInit {
       paymentAmount: 445
     };
   }
-
-  /*
-  saveExamPeriod() {
-    const data = {
-      name : this.examPeriod.name, 
-      startDate : this.examPeriod.startDate,
-      endDate : this.examPeriod.endDate, 
-      paymentAmount: this.examPeriod.paymentAmount
-    }; 
-
-    this.examPeriodService.addExamPeriod(data)
-    .subscribe(
-      response => {
-        console.log(response); 
-        this.submitted = true; 
-      },
-      error => {
-        console.log(error)
-      }
-    );
-  }
-
-  newExamPeriod(){
-    this.submitted=false; 
-    this.examPeriod = {
-      name : '',
-      startDate: '',
-      endDate : '', 
-      paymentAmount: 0
-    };
-  }
-
-  */
-
 }

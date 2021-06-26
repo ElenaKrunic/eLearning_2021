@@ -49,20 +49,9 @@ export class ExamPeriodService {
     this.RegenerateData.next();
   }
 
-  /*
-  findByName(name : string): Observable<any> {
-    return this.http.get(`${this.examPeriodUrl}?name=${name}`);
-  }*/
-
   getExamPeriods() : Observable<HttpResponse<ExamPeriod[]>> {
     return this.http.get<ExamPeriod[]>(baseUrl, {observe: 'response'});
   }
-
-  /*
-  getAll(): Observable<any> {
-    return this.http.get(this.examPeriodUrl); 
-  }
-*/
 
   getExamPeriod(id: number) : Observable<HttpResponse<ExamPeriod>> {
     const url = `${baseUrl}/${id}`;

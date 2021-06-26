@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { FinancialcardService } from '../financialcard-student/financialcard.service';
+import { FinancialcardService } from '../financial-card/financialcard.service';
 import { FinancialCard } from '../model/financial-card';
 
 @Component({

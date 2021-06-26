@@ -1,0 +1,32 @@
+<div style="width: 400px; margin: auto;">
+    <div class="submit-form">
+        <div *ngIf="!submitted">
+            <div class="form-group">
+                <label for="initialState"> Pocetno stanje </label>
+                <input type="number" class="form-control" id="initialState" required [(ngModel)]="financialCard.initialState" name="initialState"/>
+            </div>
+
+            <div class="form-group">
+                <label for="totalPayment"> Ukupan iznos </label>
+                <input type="number" class="form-control" id="totalPayment" required [(ngModel)]="financialCard.totalPayment" name="totalPayment"/>
+            </div>
+            
+            <div class="form-group">
+                <label for="totalPayout"> Ukupna isplata </label>
+                <input type="number" class="form-control" id="totalPayout" required [(ngModel)]="financialCard.totalPayout" name="totalPayout"/>
+            </div>
+
+            <div class="form-group">
+                <label for="totalCost"> Ukupni troskovi </label>
+                <input type="number" class="form-control" id="totalCost" required [(ngModel)]="financialCard.totalCost" name="totalCost"/>
+            </div>
+
+            <button (click)="saveFinancialCard()" class="btn btn-success"> Potvrdi </button>
+        </div>
+
+        <div *ngIf="submitted">
+            <h4> Uspjesno ste kreirali novu finansijsku karticu!</h4>
+            <button class="btn btn-success" (click)="newFinancialCard()"> Dodaj novu finansijsku karticu.. </button>
+        </div>
+    </div>
+</div>

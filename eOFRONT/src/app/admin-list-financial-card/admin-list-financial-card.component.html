@@ -1,0 +1,47 @@
+
+<div class="list row">
+    <div class="col-md-6">
+      <h4>Lista finansijskih kartica </h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let financialCard of financialCards; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveFinancialCard(financialCard, i)"
+        >
+          {{ financialCard.totalCost }}
+        </li>
+      </ul>
+      
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentFinancialCard">
+        <h4> Finansijska kartica </h4>
+        <div>
+          <label><strong> Pocetno stanje: </strong></label>
+           {{ currentFinancialCard.initialState }}
+        </div>
+        <div>
+          <label><strong> Ukupan iznos: </strong></label>
+          {{ currentFinancialCard.totalPayment }}
+        </div>
+        <div>
+          <label><strong> Ukupna isplata: </strong></label>
+          {{ currentFinancialCard.totalPayout }}
+        </div>
+        <div>
+            <label><strong> Ukupni troskovi:</strong></label>
+            {{ currentFinancialCard.totalCost }}
+          </div>
+      
+        <a class="badge badge-warning" routerLink="/financialCards/{{ currentFinancialCard.id }}">
+          Uredi
+        </a>
+      </div>
+  
+      <div *ngIf="!currentFinancialCard">
+        <br />
+        <p>Kliknite na odredjenu finanskijsku karticu da biste vidjeli detalje iste..</p>
+      </div>
+    </div>
+  </div>
