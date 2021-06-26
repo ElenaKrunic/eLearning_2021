@@ -49,6 +49,9 @@ import { AdminListExamPeriodComponent } from './admin-list-exam-period/admin-lis
 import { AdminAddFinancialCardComponent } from './admin-add-financial-card/admin-add-financial-card.component';
 import { AdminDetailsFinancialCardComponent } from './admin-details-financial-card/admin-details-financial-card.component';
 import { AdminListFinancialCardComponent } from './admin-list-financial-card/admin-list-financial-card.component';
+import { AdminAddPaymentComponent } from './admin-add-payment/admin-add-payment.component';
+import { AdminDetailsPaymentComponent } from './admin-details-payment/admin-details-payment.component';
+import { AdminListPaymentComponent } from './admin-list-payment/admin-list-payment.component';
 
 
 @NgModule({
@@ -97,6 +100,12 @@ import { AdminListFinancialCardComponent } from './admin-list-financial-card/adm
     AdminAddFinancialCardComponent,
     AdminDetailsFinancialCardComponent,
     AdminListFinancialCardComponent,
+    AdminAddPaymentComponent,
+    AdminDetailsPaymentComponent,
+    AdminListPaymentComponent,
+    AdminAddPaymentComponent,
+    AdminDetailsPaymentComponent,
+    AdminListPaymentComponent
   ],
 
   imports: [

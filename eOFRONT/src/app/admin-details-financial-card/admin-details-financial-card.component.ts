@@ -37,7 +37,7 @@ export class AdminDetailsFinancialCardComponent implements OnInit {
     .subscribe(
       response => {
         console.log(response); 
-        this.message =  "Uspjesno ste izmijenili finansijsku karticu!";
+        this.message =  "You successfully updated financial card!";
       },
       error => {
         console.log(error);

@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Payment } from '../model/payment';
 
+const baseUrl = "https://localhost:8443/api/payments"; 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,6 +13,31 @@ export class PaymentService {
   private paymentUrl = "api/payment";
 
   constructor(private http: HttpClient) { }
+
+  getAll(): Observable<any> {
+    return this.http.get(baseUrl); 
+  }
+
+  get(id: number): Observable<any>{
+    return this.http.get(`${baseUrl}/${id}`);
+  }
+
+  create(data: any) : Observable<any> {
+    return this.http.post(baseUrl, data);
+  }
+
+  update(id: number, data: any) : Observable<any>{
+     return this.http.put(`${baseUrl}/${id}`, data);
+  }
+
+  delete(id: number) : Observable<any> {
+    return this.http.delete(`${baseUrl}/${id}`);
+  }
+
+  deleteAll(): Observable<any> {
+    return this.http.delete(baseUrl);
+  }
+
 
   private RegenerateData = new Subject<void>();
 

@@ -2,31 +2,31 @@
     <div class="submit-form">
         <div *ngIf="!submitted">
             <div class="form-group">
-                <label for="initialState"> Pocetno stanje </label>
+                <label for="initialState"> Initial state </label>
                 <input type="number" class="form-control" id="initialState" required [(ngModel)]="financialCard.initialState" name="initialState"/>
             </div>
 
             <div class="form-group">
-                <label for="totalPayment"> Ukupan iznos </label>
+                <label for="totalPayment"> Total payment </label>
                 <input type="number" class="form-control" id="totalPayment" required [(ngModel)]="financialCard.totalPayment" name="totalPayment"/>
             </div>
             
             <div class="form-group">
-                <label for="totalPayout"> Ukupna isplata </label>
+                <label for="totalPayout"> Total payout </label>
                 <input type="number" class="form-control" id="totalPayout" required [(ngModel)]="financialCard.totalPayout" name="totalPayout"/>
             </div>
 
             <div class="form-group">
-                <label for="totalCost"> Ukupni troskovi </label>
+                <label for="totalCost"> Total cost </label>
                 <input type="number" class="form-control" id="totalCost" required [(ngModel)]="financialCard.totalCost" name="totalCost"/>
             </div>
 
-            <button (click)="saveFinancialCard()" class="btn btn-success"> Potvrdi </button>
+            <button (click)="saveFinancialCard()" class="btn btn-success"> Submit </button>
         </div>
 
         <div *ngIf="submitted">
-            <h4> Uspjesno ste kreirali novu finansijsku karticu!</h4>
-            <button class="btn btn-success" (click)="newFinancialCard()"> Dodaj novu finansijsku karticu.. </button>
+            <h4> Financial card was added successfully!</h4>
+            <button class="btn btn-success" (click)="newFinancialCard()"> Add new financial card... </button>
         </div>
     </div>
 </div>

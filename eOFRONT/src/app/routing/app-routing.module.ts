@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminAddExamPeriodComponent } from '../admin-add-exam-period/admin-add-exam-period.component';
 import { AdminAddFinancialCardComponent } from '../admin-add-financial-card/admin-add-financial-card.component';
+import { AdminAddPaymentComponent } from '../admin-add-payment/admin-add-payment.component';
 import { AdminDetailsExamPeriodComponent } from '../admin-details-exam-period/admin-details-exam-period.component';
 import { AdminDetailsFinancialCardComponent } from '../admin-details-financial-card/admin-details-financial-card.component';
+import { AdminDetailsPaymentComponent } from '../admin-details-payment/admin-details-payment.component';
 import { AdminFinancialCardComponent } from '../admin-financial-card/admin-financial-card.component';
 import { AdminListExamPeriodComponent } from '../admin-list-exam-period/admin-list-exam-period.component';
 import { AdminListFinancialCardComponent } from '../admin-list-financial-card/admin-list-financial-card.component';
+import { AdminListPaymentComponent } from '../admin-list-payment/admin-list-payment.component';
 import { AdminPaymentComponent } from '../admin-payment/admin-payment.component';
 import { AdminPreexamObligationComponent } from '../admin-preexam-obligation/admin-preexam-obligation.component';
 import { AdminStudentComponent } from '../admin-student/admin-student.component';
@@ -40,6 +43,9 @@ const routes: Routes = [
   { path : 'financialCards', component: AdminListFinancialCardComponent},
   { path: 'financialCards/:id', component: AdminDetailsFinancialCardComponent}, 
   { path: 'adminAddFinancialCard', component: AdminAddFinancialCardComponent},
+  { path: 'payments', component: AdminListPaymentComponent},
+  { path: 'payments/:id', component: AdminDetailsPaymentComponent},
+  { path: 'adminAddPayment', component: AdminAddPaymentComponent},
   { path: 'addFinancialCard', component: FinancialCardDetailsComponent},
   { path : 'editFinancialCard/:id', component: FinancialCardDetailsComponent},
   { path: 'addPreexamObligation', component: PreexamObligationDetailsComponent},

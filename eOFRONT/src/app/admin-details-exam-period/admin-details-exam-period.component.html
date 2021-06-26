@@ -1,9 +1,9 @@
 <div style="width: 400px;margin: auto;">
     <div *ngIf="currentExamPeriod" class="edit-form">
-        <h4> Ispitni rok </h4>
+        <h4> Exam period </h4>
         <form>
             <div class="form-group">
-                <label for="name">Naziv</label>
+                <label for="name"> Name </label>
                 <input type="text" 
                 class="form-control"
                  id="name"
@@ -11,7 +11,7 @@
                   name="name">
             </div>
             <div class="form-group">
-                <label for="description"> Datum pocetka </label>
+                <label for="startDate"> Start date </label>
                 <input type="text"
                 class="form-control"
                 id="startDate"
@@ -20,7 +20,7 @@
                 >
             </div>
             <div class="form-group">
-                <label for="description"> Datum kraja </label>
+                <label for="endDate"> End date </label>
                 <input type="date"
                 class="form-control"
                 id="endDate"
@@ -29,7 +29,7 @@
                 >
             </div>
             <div class="form-group">
-                <label for="paymentAmount"> Iznos za uplatu </label>
+                <label for="paymentAmount"> Payment amount </label>
                 <input type="number"
                 class="form-control"
                 id="paymentAmount"
@@ -42,18 +42,18 @@
         <button
         class="badge badge-primary mr-2"
         (click)="deleteExamPeriod()"        
-        > Obrisi ispitni rok </button>
+        > Delete exam period </button>
 
         <button
         type="submit"
         class="badge badge-success"
         (click)="updateExamPeriod()"
-        > Izmijeni ispitni rok </button>
+        > Edit selected exam period! </button>
         <p> {{message}}</p>
     </div>
 
     <div *ngIf="!currentExamPeriod">
         <br/>
-        <p>Nemoguc pristup ispitnom roku!</p>
+        <p>Exam period is unavailable!</p>
     </div>
 </div>

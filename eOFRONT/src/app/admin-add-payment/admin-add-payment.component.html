@@ -1,0 +1,27 @@
+<div style="width: 400px; margin: auto;">
+    <div class="submit-form">
+        <div *ngIf="!submitted">
+            <div class="form-group">
+                <label for="paymentAmount"> Payment amount </label>
+                <input type="number" class="form-control" id="paymentAmount" required [(ngModel)]="payment.paymentAmount" name="paymentAmount"/>
+            </div>
+
+            <div class="form-group">
+                <label for="paymentDate"> Payment date </label>
+                <input type="date" class="form-control" id="paymentDate" required [(ngModel)]="payment.paymentDate" name="paymentDate"/>
+            </div>
+
+            <div class="form-group">
+                <label for="paymentDescription"> Payment description </label>
+                <input type="text" class="form-control" id="paymentDescription" required [(ngModel)]="payment.paymentDescription" name="paymentDescription"/>
+            </div>
+
+            <button (click)="savePayment()" class="btn btn-success"> Submit </button>
+        </div>
+
+        <div *ngIf="submitted">
+            <h4> The payment was added successfully!</h4>
+            <button class="btn btn-success" (click)="newPayment()"> Add new payment </button>
+        </div>
+    </div>
+</div>

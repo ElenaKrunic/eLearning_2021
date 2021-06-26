@@ -1,0 +1,43 @@
+
+<div class="list row">
+    <div class="col-md-6">
+      <h4> List of payments </h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let payment of payments; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActivePayment(payment, i)"
+        >
+          {{ payment.paymentAmount }}
+          {{ payment.paymentDescription }}
+        </li>
+      </ul>
+      
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentPayment">
+        <h4> Payment </h4>
+        <div>
+          <label><strong>Payment amount :</strong></label> {{ currentPayment.paymentAmount }}
+        </div>
+        <div>
+          <label><strong>Payment date:</strong></label>
+          {{ currentPayment.paymentDate }}
+        </div>
+        <div>
+          <label><strong>Payment description:</strong></label>
+          {{ currentPayment.paymentDescription }}
+        </div>
+      
+        <a class="badge badge-warning" routerLink="/payments/{{ currentPayment.id }}">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentPayment">
+        <br />
+        <p>Please click on payments to see details..</p>
+      </div>
+    </div>
+  </div>
