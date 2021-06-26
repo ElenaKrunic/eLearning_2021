@@ -8,7 +8,7 @@ public class PaymentDTO {
 	private java.util.Date paymentDate;
 	private String paymentDescription;
 	private float paymentAmount;
-	private FinancialCardDTO financialCardDTO;
+	//private FinancialCardDTO financialCardDTO;
 		
 	public PaymentDTO() {
 		super();
@@ -20,7 +20,7 @@ public class PaymentDTO {
 		this.paymentDate = payment.getDateOfPayment();
 		this.paymentDescription = payment.getPaymentDescription();
 		this.paymentAmount = payment.getPaymentAmount();
-		financialCardDTO=new FinancialCardDTO(payment.getFinancialCard());
+		//financialCardDTO=new FinancialCardDTO(payment.getFinancialCard());
 	}
 
 	public Long getId() {
@@ -55,6 +55,7 @@ public class PaymentDTO {
 		this.paymentAmount = paymentAmount;
 	}
 
+	/*
 	public FinancialCardDTO getFinancialCardDTO() {
 		return financialCardDTO;
 	}
@@ -62,6 +63,6 @@ public class PaymentDTO {
 	public void setFinancialCardDTO(FinancialCardDTO financialCardDTO) {
 		this.financialCardDTO = financialCardDTO;
 	}
-	
+	*/
 	
 }

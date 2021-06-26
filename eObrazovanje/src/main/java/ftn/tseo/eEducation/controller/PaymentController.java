@@ -21,8 +21,13 @@ import ftn.tseo.eEducation.service.ExamPeriodService;
 import ftn.tseo.eEducation.service.FinancialCardService;
 import ftn.tseo.eEducation.service.PaymentService;
 
+/**
+ * Implementiran API sa metodama koje nude osnovne CRUD funkcionalnosti prilikom rada sa placanjem/ima 
+ * @author Elena Krunic 
+ *
+ */
 @RestController
-@RequestMapping(value="api/payment")
+@RequestMapping(value="/api")
 public class PaymentController {
 
 	@Autowired
@@ -31,7 +36,7 @@ public class PaymentController {
 	@Autowired
 	private FinancialCardService financialCardService; 
 	
-	@RequestMapping(value="/all", method = RequestMethod.GET)
+	@RequestMapping(value="/payments", method = RequestMethod.GET)
 	public ResponseEntity<List<PaymentDTO>> getAllPayments(){
 		
 		List<Payment> payments = paymentService.findAll();
@@ -42,7 +47,7 @@ public class PaymentController {
 		return new ResponseEntity<>(paymentDto, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="payments/{id}", method=RequestMethod.GET)
 	public ResponseEntity<PaymentDTO> getPayment(@PathVariable Long id){
 		Payment payment = paymentService.findOne(id);
 		if(payment == null){
@@ -52,17 +57,18 @@ public class PaymentController {
 		return new ResponseEntity<>(new PaymentDTO(payment), HttpStatus.OK);
 	}
 	
-	@RequestMapping(method=RequestMethod.POST, value="/{financialCardId}", consumes="application/json")
-	public ResponseEntity<PaymentDTO> savePayment(@RequestBody PaymentDTO paymentDTO, @PathVariable("financialCardId") Long financialCardId){		
-		
+	@RequestMapping(method=RequestMethod.POST, value="/payments", consumes="application/json")
+	public ResponseEntity<PaymentDTO> savePayment(@RequestBody PaymentDTO paymentDTO){		
+		/*
 		FinancialCard financialCard = financialCardService.findOne(financialCardId);
 
 		if (financialCard == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
+		*/
 		Payment payment = new Payment(); 
 		payment.setDateOfPayment(paymentDTO.getPaymentDate());
-		payment.setFinancialCard(financialCard);
+		//payment.setFinancialCard(financialCard);
 		payment.setPaymentAmount(paymentDTO.getPaymentAmount());
 		payment.setPaymentDescription(paymentDTO.getPaymentDescription());
 		
@@ -71,7 +77,7 @@ public class PaymentController {
 		return new ResponseEntity<>(new PaymentDTO(payment), HttpStatus.CREATED);	
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, value="/{id}", consumes="application/json")
+	@RequestMapping(method=RequestMethod.PUT, value="/payments/{id}", consumes="application/json")
 	public ResponseEntity<PaymentDTO> updatePayment(@RequestBody PaymentDTO paymentDTO, @PathVariable("id") Long id){
 		
 		Payment payment = paymentService.findOne(id); 
@@ -87,7 +93,7 @@ public class PaymentController {
 		return new ResponseEntity<>(new PaymentDTO(payment), HttpStatus.CREATED);	
 	}
 	
-	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+	@RequestMapping(value="/payments/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Void> deleteExamPeriod(@PathVariable Long id){
 		Payment payment = paymentService.findOne(id);
 		if (payment != null){

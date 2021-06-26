@@ -27,7 +27,7 @@ public class Payment {
 	private float paymentAmount;
 	
 	@OneToOne
-	@JoinColumn(name = "financialCard", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "financialCard", referencedColumnName = "id", nullable = true)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private FinancialCard financialCard;
 	
