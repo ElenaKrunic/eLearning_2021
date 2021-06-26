@@ -20,8 +20,13 @@ import ftn.tseo.eEducation.model.Student;
 import ftn.tseo.eEducation.service.FinancialCardService;
 import ftn.tseo.eEducation.service.StudentService;
 
+/**
+ * Implementiran API sa metodama koje nude osnovne CRUD funkcionalnosti prilikom rada sa finansijskom karticom/ama
+ * @author Elena Krunic 
+ *
+ */
 @RestController
-@RequestMapping(value="api/financialCard")
+@RequestMapping(value="/api")
 public class FinancialCardController {
 	
 	@Autowired
@@ -30,7 +35,7 @@ public class FinancialCardController {
 	@Autowired
 	private StudentService studentService; 
 
-	@RequestMapping(value="/all", method = RequestMethod.GET)
+	@RequestMapping(value="/financialCards", method = RequestMethod.GET)
 	public ResponseEntity<List<FinancialCardDTO>> getAllFinancialCards(){
 		
 		List<FinancialCard> financialCards = financialCardService.findAll();
@@ -41,7 +46,7 @@ public class FinancialCardController {
 		return new ResponseEntity<>(financialCardDto, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/financialCards/{id}", method=RequestMethod.GET)
 	public ResponseEntity<FinancialCardDTO> getFinancialCard(@PathVariable Long id){
 		FinancialCard financialCard = financialCardService.findOne(id);
 		if(financialCard == null){
@@ -51,28 +56,30 @@ public class FinancialCardController {
 		return new ResponseEntity<>(new FinancialCardDTO(financialCard), HttpStatus.OK);
 	}
 	
-	@RequestMapping(method=RequestMethod.POST,value="/{studentId}", consumes="application/json")
-	public ResponseEntity<FinancialCardDTO> saveFinancialCard(@RequestBody FinancialCardDTO financialCardDto, @PathVariable("studentId") Long studentId){		
+	@RequestMapping(method=RequestMethod.POST,value="/financialCards", consumes="application/json")
+	public ResponseEntity<FinancialCardDTO> saveFinancialCard(@RequestBody FinancialCardDTO financialCardDto){		
 		
+		/*
 		Student student = studentService.findOne(studentId); 
 		
 		if(student == null) {
 			return new ResponseEntity<FinancialCardDTO>(HttpStatus.NOT_FOUND);
 		}
+		*/
 		
 		FinancialCard financialCard = new FinancialCard(); 
 		
 		financialCard.setInitialState(financialCardDto.getInitialState());
 		financialCard.setTotalCost(financialCardDto.getTotalCost());
 		financialCard.setTotalPayment(financialCardDto.getTotalPayment());
-		financialCard.setStudent(student);
+		//financialCard.setStudent(student);
 		
 		financialCard = financialCardService.save(financialCard);
 		return new ResponseEntity<>(new FinancialCardDTO(financialCard), HttpStatus.CREATED);	
 	}
 	
 
-	@RequestMapping(method=RequestMethod.PUT,value="/{id}", consumes="application/json")
+	@RequestMapping(method=RequestMethod.PUT,value="/financialCards/{id}", consumes="application/json")
 	public ResponseEntity<FinancialCardDTO> updateFinancialCard(@RequestBody FinancialCardDTO financialCardDto, @PathVariable("id") Long id){		
 
 		FinancialCard financialCard = financialCardService.findOne(id); 
@@ -88,7 +95,7 @@ public class FinancialCardController {
 		return new ResponseEntity<>(new FinancialCardDTO(financialCard), HttpStatus.OK);	
 	}
 
-	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+	@RequestMapping(value="/financialCards/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Void> deleteFinancialCard(@PathVariable Long id){
 		FinancialCard financialCard = financialCardService.findOne(id);
 		if (financialCard != null){
