@@ -25,6 +25,11 @@ public class PreexamObligationStatus {
 	
 	private String name;
 	
+	private String code;
+	
+	//veza sa preexam 
+	@OneToMany(mappedBy="preexamObligationStatus",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
+	private Set<PreexamObligation> preexamObligation = new HashSet<PreexamObligation>();
 	
 	public PreexamObligationStatus() {
 		super();
@@ -70,9 +75,5 @@ public class PreexamObligationStatus {
 		this.preexamObligation = preexamObligation;
 	}
 
-	private String code;
 	
-	//veza sa preexam 
-	@OneToMany(mappedBy="preexamObligationStatus",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
-	private Set<PreexamObligation> preexamObligation = new HashSet<PreexamObligation>();
 }

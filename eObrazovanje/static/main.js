@@ -2881,7 +2881,10 @@ AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_55__["ɵ�
         _admin_details_preexam_obligation_status_admin_details_preexam_obligation_status_component__WEBPACK_IMPORTED_MODULE_51__.AdminDetailsPreexamObligationStatusComponent,
         _admin_list_preexam_obligation_status_admin_list_preexam_obligation_status_component__WEBPACK_IMPORTED_MODULE_52__.AdminListPreexamObligationStatusComponent,
         _admin_add_preexam_obligation_type_admin_add_preexam_obligation_type_component__WEBPACK_IMPORTED_MODULE_53__.AdminAddPreexamObligationTypeComponent,
-        _admin_details_preexam_obligation_type_admin_details_preexam_obligation_type_component__WEBPACK_IMPORTED_MODULE_54__.AdminDetailsPreexamObligationTypeComponent], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_56__.BrowserModule,
+        _admin_details_preexam_obligation_type_admin_details_preexam_obligation_type_component__WEBPACK_IMPORTED_MODULE_54__.AdminDetailsPreexamObligationTypeComponent,
+        _admin_add_preexam_obligation_status_admin_add_preexam_obligation_status_component__WEBPACK_IMPORTED_MODULE_50__.AdminAddPreexamObligationStatusComponent,
+        _admin_add_preexam_obligation_status_admin_add_preexam_obligation_status_component__WEBPACK_IMPORTED_MODULE_50__.AdminAddPreexamObligationStatusComponent,
+        _admin_list_preexam_obligation_status_admin_list_preexam_obligation_status_component__WEBPACK_IMPORTED_MODULE_52__.AdminListPreexamObligationStatusComponent], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_56__.BrowserModule,
         _routing_app_routing_module__WEBPACK_IMPORTED_MODULE_0__.AppRoutingModule,
         _angular_forms__WEBPACK_IMPORTED_MODULE_57__.FormsModule,
         _angular_forms__WEBPACK_IMPORTED_MODULE_57__.ReactiveFormsModule,
@@ -2955,7 +2958,7 @@ class NavbarAdminComponent {
     }
 }
 NavbarAdminComponent.ɵfac = function NavbarAdminComponent_Factory(t) { return new (t || NavbarAdminComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_login_authentication_service__WEBPACK_IMPORTED_MODULE_0__.AuthenticationService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ngx_toastr__WEBPACK_IMPORTED_MODULE_2__.ToastrService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.Router)); };
-NavbarAdminComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: NavbarAdminComponent, selectors: [["app-navbar-admin"]], decls: 35, vars: 0, consts: [[1, "navbar", "navbar-expand", "navbar-dark", "bg-dark"], ["href", "#", 1, "navbar-brand"], [1, "navbar-nav", "mr-auto"], [1, "nav-item"], ["routerLink", "examPeriods", 1, "nav-link"], ["routerLink", "addExamPeriod", 1, "nav-link"], ["routerLink", "financialCards", 1, "nav-link"], ["routerLink", "adminAddFinancialCard", 1, "nav-link"], ["routerLink", "payments", 1, "nav-link"], ["routerLink", "adminAddPayment", 1, "nav-link"], ["routerLink", "preexamObligations", 1, "nav-link"], ["routerLink", "adminAddPreexamObligation", 1, "nav-link"], [1, "container", "mt-3"], [1, "navbar-nav", "ml-auto"], [1, "nav-link", 3, "click"]], template: function NavbarAdminComponent_Template(rf, ctx) { if (rf & 1) {
+NavbarAdminComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: NavbarAdminComponent, selectors: [["app-navbar-admin"]], decls: 41, vars: 0, consts: [[1, "navbar", "navbar-expand", "navbar-dark", "bg-dark"], ["href", "#", 1, "navbar-brand"], [1, "navbar-nav", "mr-auto"], [1, "nav-item"], ["routerLink", "examPeriods", 1, "nav-link"], ["routerLink", "addExamPeriod", 1, "nav-link"], ["routerLink", "financialCards", 1, "nav-link"], ["routerLink", "adminAddFinancialCard", 1, "nav-link"], ["routerLink", "payments", 1, "nav-link"], ["routerLink", "adminAddPayment", 1, "nav-link"], ["routerLink", "preexamObligationStatus", 1, "nav-link"], ["routerLink", "adminAddPreexamObligationStatus", 1, "nav-link"], ["routerLink", "preexamObligations", 1, "nav-link"], ["routerLink", "adminAddPreexamObligation", 1, "nav-link"], [1, "container", "mt-3"], [1, "navbar-nav", "ml-auto"], [1, "nav-link", 3, "click"]], template: function NavbarAdminComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "nav", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "a", 1);
@@ -2994,24 +2997,34 @@ NavbarAdminComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODUL
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](23, "li", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](24, "a", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](25, " Preexam obligations ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](25, " Preexam obligation status ");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](26, "li", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](27, "a", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](28, " Add new preexam obligation ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](28, " Add new preexam obligation status");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](29, "li", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](30, "a", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](31, " Preexam obligations ");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](29, "div", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](30, "router-outlet");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](31, "ul", 13);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](32, "li", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](33, "a", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function NavbarAdminComponent_Template_a_click_33_listener() { return ctx.logout(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](34, "Logout");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](33, "a", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](34, " Add new preexam obligation ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](35, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](36, "router-outlet");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](37, "ul", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](38, "li", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](39, "a", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function NavbarAdminComponent_Template_a_click_39_listener() { return ctx.logout(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](40, "Logout");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
@@ -4203,6 +4216,29 @@ class Payment {
 
 /***/ }),
 
+/***/ 364:
+/*!****************************************************!*\
+  !*** ./src/app/model/preexam-obligation-status.ts ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "PreexamObligationStatus": () => (/* binding */ PreexamObligationStatus)
+/* harmony export */ });
+class PreexamObligationStatus {
+    constructor(preexamObligatinStatusCfg) {
+        this.id = preexamObligatinStatusCfg.id;
+        this.name = preexamObligatinStatusCfg.name;
+        this.code = preexamObligatinStatusCfg.code;
+        this.preexamObligation = preexamObligatinStatusCfg.preexamObligation;
+    }
+}
+
+
+/***/ }),
+
 /***/ 188:
 /*!*********************************************!*\
   !*** ./src/app/model/preexam-obligation.ts ***!
@@ -5277,29 +5313,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppRoutingModule": () => (/* binding */ AppRoutingModule)
 /* harmony export */ });
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @angular/router */ 9895);
 /* harmony import */ var _admin_add_exam_period_admin_add_exam_period_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../admin-add-exam-period/admin-add-exam-period.component */ 1177);
 /* harmony import */ var _admin_add_financial_card_admin_add_financial_card_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../admin-add-financial-card/admin-add-financial-card.component */ 3206);
 /* harmony import */ var _admin_add_payment_admin_add_payment_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../admin-add-payment/admin-add-payment.component */ 1663);
-/* harmony import */ var _admin_add_preexam_obligation_admin_add_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../admin-add-preexam-obligation/admin-add-preexam-obligation.component */ 4786);
-/* harmony import */ var _admin_details_exam_period_admin_details_exam_period_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../admin-details-exam-period/admin-details-exam-period.component */ 8322);
-/* harmony import */ var _admin_details_financial_card_admin_details_financial_card_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../admin-details-financial-card/admin-details-financial-card.component */ 3257);
-/* harmony import */ var _admin_details_payment_admin_details_payment_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../admin-details-payment/admin-details-payment.component */ 7103);
-/* harmony import */ var _admin_details_preexam_obligation_admin_details_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../admin-details-preexam-obligation/admin-details-preexam-obligation.component */ 2151);
-/* harmony import */ var _admin_list_exam_period_admin_list_exam_period_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../admin-list-exam-period/admin-list-exam-period.component */ 8723);
-/* harmony import */ var _admin_list_financial_card_admin_list_financial_card_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../admin-list-financial-card/admin-list-financial-card.component */ 2009);
-/* harmony import */ var _admin_list_payment_admin_list_payment_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../admin-list-payment/admin-list-payment.component */ 6311);
-/* harmony import */ var _admin_list_preexam_obligation_admin_list_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../admin-list-preexam-obligation/admin-list-preexam-obligation.component */ 5489);
-/* harmony import */ var _financialcard_student_financialcard_student_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../financialcard-student/financialcard-student.component */ 947);
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../login/login.component */ 8458);
-/* harmony import */ var _main_main_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../main/main.component */ 2284);
-/* harmony import */ var _payment_details_payment_details_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../payment-details/payment-details.component */ 9290);
-/* harmony import */ var _payment_payment_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../payment/payment.component */ 9082);
-/* harmony import */ var _payout_payout_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../payout/payout.component */ 9730);
-/* harmony import */ var _professor_profile_professor_profile_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../professor-profile/professor-profile.component */ 8789);
-/* harmony import */ var _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../student-details/student-details.component */ 2202);
-/* harmony import */ var _student_profile_student_profile_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../student-profile/student-profile.component */ 6794);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _admin_add_preexam_obligation_status_admin_add_preexam_obligation_status_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../admin-add-preexam-obligation-status/admin-add-preexam-obligation-status.component */ 5727);
+/* harmony import */ var _admin_add_preexam_obligation_admin_add_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../admin-add-preexam-obligation/admin-add-preexam-obligation.component */ 4786);
+/* harmony import */ var _admin_details_exam_period_admin_details_exam_period_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../admin-details-exam-period/admin-details-exam-period.component */ 8322);
+/* harmony import */ var _admin_details_financial_card_admin_details_financial_card_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../admin-details-financial-card/admin-details-financial-card.component */ 3257);
+/* harmony import */ var _admin_details_payment_admin_details_payment_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../admin-details-payment/admin-details-payment.component */ 7103);
+/* harmony import */ var _admin_details_preexam_obligation_status_admin_details_preexam_obligation_status_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../admin-details-preexam-obligation-status/admin-details-preexam-obligation-status.component */ 4723);
+/* harmony import */ var _admin_details_preexam_obligation_admin_details_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../admin-details-preexam-obligation/admin-details-preexam-obligation.component */ 2151);
+/* harmony import */ var _admin_list_exam_period_admin_list_exam_period_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../admin-list-exam-period/admin-list-exam-period.component */ 8723);
+/* harmony import */ var _admin_list_financial_card_admin_list_financial_card_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../admin-list-financial-card/admin-list-financial-card.component */ 2009);
+/* harmony import */ var _admin_list_payment_admin_list_payment_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../admin-list-payment/admin-list-payment.component */ 6311);
+/* harmony import */ var _admin_list_preexam_obligation_admin_list_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../admin-list-preexam-obligation/admin-list-preexam-obligation.component */ 5489);
+/* harmony import */ var _financialcard_student_financialcard_student_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../financialcard-student/financialcard-student.component */ 947);
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../login/login.component */ 8458);
+/* harmony import */ var _main_main_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../main/main.component */ 2284);
+/* harmony import */ var _model_preexam_obligation_status__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../model/preexam-obligation-status */ 364);
+/* harmony import */ var _payment_details_payment_details_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../payment-details/payment-details.component */ 9290);
+/* harmony import */ var _payment_payment_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../payment/payment.component */ 9082);
+/* harmony import */ var _payout_payout_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../payout/payout.component */ 9730);
+/* harmony import */ var _professor_profile_professor_profile_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../professor-profile/professor-profile.component */ 8789);
+/* harmony import */ var _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../student-details/student-details.component */ 2202);
+/* harmony import */ var _student_profile_student_profile_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../student-profile/student-profile.component */ 6794);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @angular/core */ 7716);
+
+
+
 
 
 
@@ -5325,37 +5367,40 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: 'financialCard', component: _financialcard_student_financialcard_student_component__WEBPACK_IMPORTED_MODULE_12__.FinancialcardStudentComponent },
-    { path: 'studentProfile', component: _student_profile_student_profile_component__WEBPACK_IMPORTED_MODULE_20__.StudentProfileComponent },
-    { path: 'professorProfile', component: _professor_profile_professor_profile_component__WEBPACK_IMPORTED_MODULE_18__.ProfessorProfileComponent },
-    { path: 'studentPayment', component: _payment_payment_component__WEBPACK_IMPORTED_MODULE_16__.PaymentComponent },
-    { path: 'studentPayout', component: _payout_payout_component__WEBPACK_IMPORTED_MODULE_17__.PayoutComponent },
-    { path: 'main', component: _main_main_component__WEBPACK_IMPORTED_MODULE_14__.MainComponent },
-    { path: 'examPeriods', component: _admin_list_exam_period_admin_list_exam_period_component__WEBPACK_IMPORTED_MODULE_8__.AdminListExamPeriodComponent },
-    { path: 'examPeriods/:id', component: _admin_details_exam_period_admin_details_exam_period_component__WEBPACK_IMPORTED_MODULE_4__.AdminDetailsExamPeriodComponent },
+    { path: 'financialCard', component: _financialcard_student_financialcard_student_component__WEBPACK_IMPORTED_MODULE_14__.FinancialcardStudentComponent },
+    { path: 'studentProfile', component: _student_profile_student_profile_component__WEBPACK_IMPORTED_MODULE_23__.StudentProfileComponent },
+    { path: 'professorProfile', component: _professor_profile_professor_profile_component__WEBPACK_IMPORTED_MODULE_21__.ProfessorProfileComponent },
+    { path: 'studentPayment', component: _payment_payment_component__WEBPACK_IMPORTED_MODULE_19__.PaymentComponent },
+    { path: 'studentPayout', component: _payout_payout_component__WEBPACK_IMPORTED_MODULE_20__.PayoutComponent },
+    { path: 'main', component: _main_main_component__WEBPACK_IMPORTED_MODULE_16__.MainComponent },
+    { path: 'examPeriods', component: _admin_list_exam_period_admin_list_exam_period_component__WEBPACK_IMPORTED_MODULE_10__.AdminListExamPeriodComponent },
+    { path: 'examPeriods/:id', component: _admin_details_exam_period_admin_details_exam_period_component__WEBPACK_IMPORTED_MODULE_5__.AdminDetailsExamPeriodComponent },
     { path: 'addExamPeriod', component: _admin_add_exam_period_admin_add_exam_period_component__WEBPACK_IMPORTED_MODULE_0__.AdminAddExamPeriodComponent },
-    { path: 'financialCards', component: _admin_list_financial_card_admin_list_financial_card_component__WEBPACK_IMPORTED_MODULE_9__.AdminListFinancialCardComponent },
-    { path: 'financialCards/:id', component: _admin_details_financial_card_admin_details_financial_card_component__WEBPACK_IMPORTED_MODULE_5__.AdminDetailsFinancialCardComponent },
+    { path: 'financialCards', component: _admin_list_financial_card_admin_list_financial_card_component__WEBPACK_IMPORTED_MODULE_11__.AdminListFinancialCardComponent },
+    { path: 'financialCards/:id', component: _admin_details_financial_card_admin_details_financial_card_component__WEBPACK_IMPORTED_MODULE_6__.AdminDetailsFinancialCardComponent },
     { path: 'adminAddFinancialCard', component: _admin_add_financial_card_admin_add_financial_card_component__WEBPACK_IMPORTED_MODULE_1__.AdminAddFinancialCardComponent },
-    { path: 'payments', component: _admin_list_payment_admin_list_payment_component__WEBPACK_IMPORTED_MODULE_10__.AdminListPaymentComponent },
-    { path: 'payments/:id', component: _admin_details_payment_admin_details_payment_component__WEBPACK_IMPORTED_MODULE_6__.AdminDetailsPaymentComponent },
+    { path: 'payments', component: _admin_list_payment_admin_list_payment_component__WEBPACK_IMPORTED_MODULE_12__.AdminListPaymentComponent },
+    { path: 'payments/:id', component: _admin_details_payment_admin_details_payment_component__WEBPACK_IMPORTED_MODULE_7__.AdminDetailsPaymentComponent },
     { path: 'adminAddPayment', component: _admin_add_payment_admin_add_payment_component__WEBPACK_IMPORTED_MODULE_2__.AdminAddPaymentComponent },
-    { path: 'addStudent', component: _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_19__.StudentDetailsComponent },
-    { path: 'editStudent/:id', component: _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_19__.StudentDetailsComponent },
-    { path: 'addPayment', component: _payment_details_payment_details_component__WEBPACK_IMPORTED_MODULE_15__.PaymentDetailsComponent },
-    { path: 'editPayment/:id', component: _payment_details_payment_details_component__WEBPACK_IMPORTED_MODULE_15__.PaymentDetailsComponent },
-    { path: '**', component: _login_login_component__WEBPACK_IMPORTED_MODULE_13__.LoginComponent },
-    { path: 'preexamObligations', component: _admin_list_preexam_obligation_admin_list_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_11__.AdminListPreexamObligationComponent },
-    { path: 'preexamObligations/:id', component: _admin_details_preexam_obligation_admin_details_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_7__.AdminDetailsPreexamObligationComponent },
-    { path: 'adminAddPreexamObligation', component: _admin_add_preexam_obligation_admin_add_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_3__.AdminAddPreexamObligationComponent }
+    { path: 'addStudent', component: _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_22__.StudentDetailsComponent },
+    { path: 'editStudent/:id', component: _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_22__.StudentDetailsComponent },
+    { path: 'addPayment', component: _payment_details_payment_details_component__WEBPACK_IMPORTED_MODULE_18__.PaymentDetailsComponent },
+    { path: 'editPayment/:id', component: _payment_details_payment_details_component__WEBPACK_IMPORTED_MODULE_18__.PaymentDetailsComponent },
+    { path: '**', component: _login_login_component__WEBPACK_IMPORTED_MODULE_15__.LoginComponent },
+    { path: 'preexamObligations', component: _admin_list_preexam_obligation_admin_list_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_13__.AdminListPreexamObligationComponent },
+    { path: 'preexamObligations/:id', component: _admin_details_preexam_obligation_admin_details_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_9__.AdminDetailsPreexamObligationComponent },
+    { path: 'adminAddPreexamObligation', component: _admin_add_preexam_obligation_admin_add_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_4__.AdminAddPreexamObligationComponent },
+    { path: 'preexamObligationStatus', component: _model_preexam_obligation_status__WEBPACK_IMPORTED_MODULE_17__.PreexamObligationStatus },
+    { path: 'preexamObligationStatus/:id', component: _admin_details_preexam_obligation_status_admin_details_preexam_obligation_status_component__WEBPACK_IMPORTED_MODULE_8__.AdminDetailsPreexamObligationStatusComponent },
+    { path: 'adminAddPreexamObligationStatus', component: _admin_add_preexam_obligation_status_admin_add_preexam_obligation_status_component__WEBPACK_IMPORTED_MODULE_3__.AdminAddPreexamObligationStatusComponent }
 ];
 class AppRoutingModule {
 }
 AppRoutingModule.ɵfac = function AppRoutingModule_Factory(t) { return new (t || AppRoutingModule)(); };
-AppRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_21__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
-AppRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_21__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_22__.RouterModule.forRoot(routes, { useHash: false })
-        ], _angular_router__WEBPACK_IMPORTED_MODULE_22__.RouterModule] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_21__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_22__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_22__.RouterModule] }); })();
+AppRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_24__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
+AppRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_24__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_25__.RouterModule.forRoot(routes, { useHash: false })
+        ], _angular_router__WEBPACK_IMPORTED_MODULE_25__.RouterModule] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_24__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_25__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_25__.RouterModule] }); })();
 
 
 /***/ }),
