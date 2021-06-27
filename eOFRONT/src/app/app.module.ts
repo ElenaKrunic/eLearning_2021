@@ -52,7 +52,17 @@ import { AdminListFinancialCardComponent } from './admin-list-financial-card/adm
 import { AdminAddPaymentComponent } from './admin-add-payment/admin-add-payment.component';
 import { AdminDetailsPaymentComponent } from './admin-details-payment/admin-details-payment.component';
 import { AdminListPaymentComponent } from './admin-list-payment/admin-list-payment.component';
-
+import { AdminAddPreexamObligationComponent } from './admin-add-preexam-obligation/admin-add-preexam-obligation.component';
+import { AdminDetailsPreexamObligationComponent } from './admin-details-preexam-obligation/admin-details-preexam-obligation.component';
+import { AdminListPreexamObligationComponent } from './admin-list-preexam-obligation/admin-list-preexam-obligation.component';
+import { AdminAddStudentComponent } from './admin-add-student/admin-add-student.component';
+import { AdminDetailsStudentComponent } from './admin-details-student/admin-details-student.component';
+import { AdminListStudentsComponent } from './admin-list-students/admin-list-students.component';
+import { AdminAddPreexamObligationStatusComponent } from './admin-add-preexam-obligation-status/admin-add-preexam-obligation-status.component';
+import { AdminDetailsPreexamObligationStatusComponent } from './admin-details-preexam-obligation-status/admin-details-preexam-obligation-status.component';
+import { AdminListPreexamObligationStatusComponent } from './admin-list-preexam-obligation-status/admin-list-preexam-obligation-status.component';
+import { AdminAddPreexamObligationTypeComponent } from './admin-add-preexam-obligation-type/admin-add-preexam-obligation-type.component';
+import { AdminDetailsPreexamObligationTypeComponent } from './admin-details-preexam-obligation-type/admin-details-preexam-obligation-type.component';
 
 @NgModule({
   declarations: [
@@ -105,7 +115,21 @@ import { AdminListPaymentComponent } from './admin-list-payment/admin-list-payme
     AdminListPaymentComponent,
     AdminAddPaymentComponent,
     AdminDetailsPaymentComponent,
-    AdminListPaymentComponent
+    AdminListPaymentComponent,
+    AdminAddPreexamObligationComponent,
+    AdminDetailsPreexamObligationComponent,
+    AdminListPreexamObligationComponent,
+    AdminAddStudentComponent,
+    AdminDetailsStudentComponent,
+    AdminListStudentsComponent,
+    AdminAddPreexamObligationComponent,
+    AdminDetailsPreexamObligationComponent,
+    AdminListPreexamObligationComponent,
+    AdminAddPreexamObligationStatusComponent,
+    AdminDetailsPreexamObligationStatusComponent,
+    AdminListPreexamObligationStatusComponent,
+    AdminAddPreexamObligationTypeComponent,
+    AdminDetailsPreexamObligationTypeComponent
   ],
 
   imports: [

@@ -1,10 +1,10 @@
 import { FinancialCard } from "./financial-card";
 
 export class Payment implements PaymentInterface{
-    public id?:number;
-	public  dateOfPayment:Date;
-	public paymentDescription:String ;
-	public paymentAmount:number;
+    public id?: number;
+	public dateOfPayment: string;
+	public paymentDescription: string;
+	public paymentAmount: number;
     public financialCard:FinancialCard;
 
     constructor(paymentConf:PaymentInterface){
@@ -17,8 +17,8 @@ export class Payment implements PaymentInterface{
 }
 interface PaymentInterface{
     id?:number;
-    dateOfPayment:Date;
-    paymentDescription:String;
+    dateOfPayment:string;
+    paymentDescription:string;
     paymentAmount:number;
     financialCard:FinancialCard;
 }

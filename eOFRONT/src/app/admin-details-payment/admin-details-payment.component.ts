@@ -15,6 +15,8 @@ export class AdminDetailsPaymentComponent implements OnInit {
   constructor(private paymentService: PaymentService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.message = ''; 
+    this.getPayment(this.route.snapshot.paramMap.get('id'));
   }
 
   getPayment(id: any) : void {

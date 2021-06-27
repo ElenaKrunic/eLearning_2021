@@ -3,12 +3,38 @@ import { Observable, Subject } from 'rxjs';
 import { HttpResponse, HttpClient } from '@angular/common/http';
 import { PreexamObligation } from '../model/preexam-obligation';
 
+const baseUrl = "https://localhost:8443/api/preexamObligations"; 
+
 @Injectable()
 export class PreexamObligationService {
 
   private path="api/preexamObligation";
 
   constructor(private http: HttpClient) { }
+
+  getAll(): Observable<any> {
+    return this.http.get(baseUrl); 
+  }
+
+  get(id: number): Observable<any>{
+    return this.http.get(`${baseUrl}/${id}`);
+  }
+
+  create(data: any) : Observable<any> {
+    return this.http.post(baseUrl, data);
+  }
+
+  update(id: number, data: any) : Observable<any>{
+     return this.http.put(`${baseUrl}/${id}`, data);
+  }
+
+  delete(id: number) : Observable<any> {
+    return this.http.delete(`${baseUrl}/${id}`);
+  }
+
+  deleteAll(): Observable<any> {
+    return this.http.delete(baseUrl);
+  }
 
     private RegenerateData = new Subject<void>();
 

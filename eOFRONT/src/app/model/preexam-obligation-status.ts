@@ -7,7 +7,6 @@ export class PreexamObligationStatus implements PreexamObligationStatusInterface
 	
 	public name:string;
 	
-	
 	public code:string;
 
     public preexamObligation:PreexamObligation;

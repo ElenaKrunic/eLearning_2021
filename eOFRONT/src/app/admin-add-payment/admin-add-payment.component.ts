@@ -10,7 +10,7 @@ import { PaymentService } from '../payment/payment.service';
 export class AdminAddPaymentComponent implements OnInit {
 
   payment: Payment = new Payment({
-    dateOfPayment: new Date,
+    dateOfPayment: '',
     paymentDescription : '', 
     paymentAmount: 0,
     financialCard : null
@@ -45,7 +45,7 @@ export class AdminAddPaymentComponent implements OnInit {
   newPayment(){
     this.submitted = false; 
     this.payment = {
-      dateOfPayment: new Date,
+      dateOfPayment: '',
       paymentDescription : '', 
       paymentAmount: 0,
       financialCard : null

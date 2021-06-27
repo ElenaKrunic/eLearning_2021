@@ -3,8 +3,6 @@ export class ExamPeriod  implements ExamPeriodInterface {
 
     public id?: number;
     public name: string;
-    //public startDate: Date;
-    //public endDate: Date;
     public startDate: string;
     public endDate: string;
     public paymentAmount: number;
@@ -21,8 +19,6 @@ export class ExamPeriod  implements ExamPeriodInterface {
 interface ExamPeriodInterface {
     id?: number;
     name: string;
-    //startDate: Date;
-    //endDate: Date;
     startDate: string;
     endDate: string;
     paymentAmount: number;
