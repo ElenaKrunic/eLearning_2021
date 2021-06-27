@@ -1,11 +1,13 @@
 package ftn.tseo.eEducation.DTO;
 
+import java.sql.Date;
+
 import ftn.tseo.eEducation.model.Payment;
 
 public class PaymentDTO {
 	
 	private Long id;
-	private java.util.Date paymentDate;
+	private Date paymentDate;
 	private String paymentDescription;
 	private float paymentAmount;
 	//private FinancialCardDTO financialCardDTO;
@@ -31,11 +33,11 @@ public class PaymentDTO {
 		this.id = id;
 	}
 
-	public java.util.Date getPaymentDate() {
+	public Date getPaymentDate() {
 		return paymentDate;
 	}
 
-	public void setPaymentDate(java.util.Date paymentDate) {
+	public void setPaymentDate(Date paymentDate) {
 		this.paymentDate = paymentDate;
 	}
 

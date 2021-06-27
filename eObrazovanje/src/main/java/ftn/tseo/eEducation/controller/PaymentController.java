@@ -72,8 +72,9 @@ public class PaymentController {
 		payment.setPaymentAmount(paymentDTO.getPaymentAmount());
 		payment.setPaymentDescription(paymentDTO.getPaymentDescription());
 		
-		
 		payment = paymentService.save(payment);
+		
+		System.out.println(payment.getDateOfPayment());
 		return new ResponseEntity<>(new PaymentDTO(payment), HttpStatus.CREATED);	
 	}
 	
