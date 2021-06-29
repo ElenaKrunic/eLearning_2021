@@ -9,8 +9,30 @@ import { Payout } from '../model/payout';
 import { Enrollment } from '../model/enrollment';
 import { AuthenticationService } from '../login/authentication.service';
 
+const baseUrl = "https://localhost:8443/api/students"; 
+
 @Injectable()
 export class StudentService {
+
+  getAll(): Observable<any> {
+    return this.http.get(baseUrl); 
+  }
+
+  get(id: number): Observable<any>{
+    return this.http.get(`${baseUrl}/${id}`);
+  }
+
+  create(data: any) : Observable<any> {
+    return this.http.post(baseUrl, data);
+  }
+
+  update(id: number, data: any) : Observable<any>{
+     return this.http.put(`${baseUrl}/${id}`, data);
+  }
+
+  delete(id: number) : Observable<any> {
+    return this.http.delete(`${baseUrl}/${id}`);
+  }
 
   private path="api/student";
 

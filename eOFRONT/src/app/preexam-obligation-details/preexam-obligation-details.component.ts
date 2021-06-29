@@ -15,11 +15,11 @@ export class PreexamObligationDetailsComponent implements OnInit {
   preexamObligation: PreexamObligation = new PreexamObligation({
     points : 0, 
     location : '',
-    dateOfObligation : new Date(),
-    passed : false, 
-    preexamObligationStatus : null, 
-    preexamObligationType : null,
-    exam : null
+    dateOfObligation : '',
+    //passed : false, 
+    //preexamObligationStatus : null, 
+    //preexamObligationType : null,
+   // exam : null
   });
 
   mode : string = 'ADD'; 

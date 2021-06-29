@@ -8,7 +8,7 @@ export class PreexamObligation implements preexamObligationInterface {
     public  id?:number;
 	public points:number;
 	public  location:String;
-	public  dateOfObligation:Date;
+	public  dateOfObligation:String;
 	public passed:boolean; 
 	public  exam:Exam;
 	public  preexamObligationType:PreexamObligationType;
@@ -19,10 +19,10 @@ export class PreexamObligation implements preexamObligationInterface {
         this.points= preexamObligationCfg.points;
         this.location= preexamObligationCfg.location;
 		this.dateOfObligation= preexamObligationCfg.dateOfObligation;
-		this.passed= preexamObligationCfg.passed;
-		this.exam= preexamObligationCfg.exam;
-		this.preexamObligationType= preexamObligationCfg.preexamObligationType;
-		this.preexamObligationStatus= preexamObligationCfg.preexamObligationStatus;
+	//	this.passed= preexamObligationCfg.passed;
+	//	this.exam= preexamObligationCfg.exam;
+	//	this.preexamObligationType= preexamObligationCfg.preexamObligationType;
+	//	this.preexamObligationStatus= preexamObligationCfg.preexamObligationStatus;
 
     }
 
@@ -31,11 +31,11 @@ interface preexamObligationInterface{
 	id?: number;
     points: number;
     location: String;
-    dateOfObligation:Date;
-    passed:boolean;
-    exam:Exam;
-    preexamObligationType:PreexamObligationType;
-    preexamObligationStatus:PreexamObligationStatus;
+    dateOfObligation:String;
+   // passed:boolean;
+   // exam:Exam;
+   // preexamObligationType:PreexamObligationType;
+   // preexamObligationStatus:PreexamObligationStatus;
    
     
 

@@ -58,9 +58,6 @@ import { AdminListPreexamObligationComponent } from './admin-list-preexam-obliga
 import { AdminAddStudentComponent } from './admin-add-student/admin-add-student.component';
 import { AdminDetailsStudentComponent } from './admin-details-student/admin-details-student.component';
 import { AdminListStudentsComponent } from './admin-list-students/admin-list-students.component';
-import { AdminAddPreexamObligationStatusComponent } from './admin-add-preexam-obligation-status/admin-add-preexam-obligation-status.component';
-import { AdminDetailsPreexamObligationStatusComponent } from './admin-details-preexam-obligation-status/admin-details-preexam-obligation-status.component';
-import { AdminListPreexamObligationStatusComponent } from './admin-list-preexam-obligation-status/admin-list-preexam-obligation-status.component';
 import { AdminAddPreexamObligationTypeComponent } from './admin-add-preexam-obligation-type/admin-add-preexam-obligation-type.component';
 import { AdminDetailsPreexamObligationTypeComponent } from './admin-details-preexam-obligation-type/admin-details-preexam-obligation-type.component';
 
@@ -116,20 +113,20 @@ import { AdminDetailsPreexamObligationTypeComponent } from './admin-details-pree
     AdminAddPaymentComponent,
     AdminDetailsPaymentComponent,
     AdminListPaymentComponent,
-    AdminAddPreexamObligationComponent,
-    AdminDetailsPreexamObligationComponent,
-    AdminListPreexamObligationComponent,
     AdminAddStudentComponent,
     AdminDetailsStudentComponent,
     AdminListStudentsComponent,
     AdminAddPreexamObligationComponent,
     AdminDetailsPreexamObligationComponent,
     AdminListPreexamObligationComponent,
-    AdminAddPreexamObligationStatusComponent,
-    AdminDetailsPreexamObligationStatusComponent,
-    AdminListPreexamObligationStatusComponent,
     AdminAddPreexamObligationTypeComponent,
-    AdminDetailsPreexamObligationTypeComponent
+    AdminDetailsPreexamObligationTypeComponent,
+    AdminAddPreexamObligationComponent,
+    AdminDetailsPreexamObligationComponent,
+    AdminListPreexamObligationComponent,
+    AdminAddStudentComponent,
+    AdminListStudentsComponent,
+    AdminDetailsStudentComponent
   ],
 
   imports: [

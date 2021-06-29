@@ -17,7 +17,8 @@ export class Student implements StudentInterface {
 	//testno 
 	public cardAmount:number; 
     public  typeOfFinancing:TypeOfFinancing;
-	public financialCards:FinancialCard ;
+	public financialCards:FinancialCard;
+    
     constructor(studentCfg:StudentInterface)
 	{	
 		this.id = studentCfg.id;

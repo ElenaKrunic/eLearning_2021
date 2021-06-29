@@ -4,7 +4,7 @@ import { HttpResponse, HttpClient } from '@angular/common/http';
 import { PreexamObligation } from '../model/preexam-obligation';
 
 const baseUrl = "https://localhost:8443/api/preexamObligations"; 
-
+//aa
 @Injectable()
 export class PreexamObligationService {
 
