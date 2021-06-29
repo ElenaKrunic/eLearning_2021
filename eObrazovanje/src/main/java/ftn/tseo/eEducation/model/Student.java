@@ -49,7 +49,7 @@ public class Student {
 	private Double cardAmount; 
 	
 	@OneToOne
-	@JoinColumn(name = "type_of_financing", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "type_of_financing", referencedColumnName = "id", nullable = true)
 	private TypeOfFinancing typeOfFinancing;
 	
 	@OneToMany(mappedBy="student" ,fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
@@ -59,11 +59,9 @@ public class Student {
 //	@JoinColumn(name = "financial_card", referencedColumnName = "id", nullable = false)
 	private FinancialCard financialCards;
 	
-
 	@OneToMany(mappedBy="student",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
 	private Set<Document> document=new HashSet<Document>();
 	
-
 	//testna 
 	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<PreexamObligation> preexamObligation;

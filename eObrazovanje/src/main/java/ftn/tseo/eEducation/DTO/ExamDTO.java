@@ -10,7 +10,6 @@ import ftn.tseo.eEducation.model.Teaching;
 
 public class ExamDTO {
 	private Long id;
-
 	private int grade;
 	private float points;
 	private Date examDate;

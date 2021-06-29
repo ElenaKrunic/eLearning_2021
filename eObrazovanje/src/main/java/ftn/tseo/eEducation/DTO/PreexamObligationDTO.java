@@ -11,21 +11,29 @@ public class PreexamObligationDTO {
 	private String location;
 	private Date dateOfObligation;
 	private boolean passed; 
-	private ExamDTO exam;
+	//private ExamDTO exam;
 	
-	public PreexamObligationDTO(Long id, float points, String location, Date dateOfObligation, boolean passed,
-			ExamDTO exam) {
-		super();
+	public PreexamObligationDTO(Long id, float points, String location, Date dateOfObligation, boolean passed) {
 		this.id = id;
 		this.points = points;
 		this.location = location;
 		this.dateOfObligation = dateOfObligation;
 		this.passed = passed;
-		this.exam = exam;
+		//this.exam = exam;
 	}
+	
 	public PreexamObligationDTO(PreexamObligation preexamObligation) {
-		// TODO Auto-generated constructor stub
+		id = preexamObligation.getId(); 
+		points = preexamObligation.getPoints(); 
+		location = preexamObligation.getLocation(); 
+		dateOfObligation = preexamObligation.getDateOfObligation(); 
+		passed = preexamObligation.isPassed(); 
 	}
+	
+	public PreexamObligationDTO() {
+		
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -56,12 +64,13 @@ public class PreexamObligationDTO {
 	public void setPassed(boolean passed) {
 		this.passed = passed;
 	}
+	/*
 	public ExamDTO getExam() {
 		return exam;
 	}
 	public void setExam(ExamDTO exam) {
 		this.exam = exam;
 	} 
-	
+	*/
 
 }

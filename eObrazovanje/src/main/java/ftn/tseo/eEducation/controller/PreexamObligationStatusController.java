@@ -26,7 +26,7 @@ public class PreexamObligationStatusController {
 	@Autowired 
 	private PreexamObligationStatusService preexamObligationStatusService; 
 	
-	@RequestMapping(value="/preexamObligationStatus", method = RequestMethod.GET)
+	@RequestMapping(value="/preexamObligationsStatus", method = RequestMethod.GET)
 	public ResponseEntity<List<PreexamObligationStatusDTO>> getAllPreexamObligationStatus(){
 		
 		List<PreexamObligationStatus> listOfPreexamObligationStatus = preexamObligationStatusService.findAll();
@@ -34,10 +34,12 @@ public class PreexamObligationStatusController {
 		for(PreexamObligationStatus preexamObligationStatus : listOfPreexamObligationStatus) {
 			preexamObligationStatusDTO.add(new PreexamObligationStatusDTO(preexamObligationStatus));
 		}
+		
+		System.out.println(listOfPreexamObligationStatus);
 		return new ResponseEntity<>(preexamObligationStatusDTO, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="preexamObligationStatus/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/preexamObligationsStatus/{id}", method=RequestMethod.GET)
 	public ResponseEntity<PreexamObligationStatusDTO> getPreexamObligationStatus(@PathVariable Long id){
 		PreexamObligationStatus preexamObligationStatus = preexamObligationStatusService.findOne(id);
 		
@@ -48,7 +50,7 @@ public class PreexamObligationStatusController {
 		return new ResponseEntity<>(new PreexamObligationStatusDTO(preexamObligationStatus), HttpStatus.OK);
 	}
 	
-	@PostMapping(value="/preexamObligationStatus", consumes="application/json")
+	@PostMapping(value="/preexamObligationsStatus", consumes="application/json")
 	public ResponseEntity<PreexamObligationStatusDTO> savePreexamObligationStatus(@RequestBody PreexamObligationDTO preexamObligationDTO){		
 		
 		PreexamObligationStatus preexamObligationStatus = new PreexamObligationStatus();
@@ -59,7 +61,7 @@ public class PreexamObligationStatusController {
 		return new ResponseEntity<>(new PreexamObligationStatusDTO(preexamObligationStatus), HttpStatus.CREATED);	
 	}
 	
-	@PutMapping(value="/preexamObligationStatus/{id}", consumes="application/json")
+	@PutMapping(value="/preexamObligationsStatus/{id}", consumes="application/json")
 	public ResponseEntity<PreexamObligationStatusDTO> updatePreexamObligationStatus(@RequestBody PreexamObligationStatusDTO preexamObligationStatusDto, @PathVariable("id") Long id){
 		
 		PreexamObligationStatus preexamObligationStatus = preexamObligationStatusService.findOne(preexamObligationStatusDto.getId()); 
@@ -75,7 +77,7 @@ public class PreexamObligationStatusController {
 		return new ResponseEntity<>(new PreexamObligationStatusDTO(preexamObligationStatus), HttpStatus.OK);	
 	}
 	
-	@RequestMapping(value="/preexamObligationStatus/{id}", method=RequestMethod.DELETE)
+	@RequestMapping(value="/preexamObligationsStatus/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Void> deletePreexamObligationStatus(@PathVariable Long id){
 		PreexamObligationStatus preexamObligationStatus = preexamObligationStatusService.findOne(id);
 		if (preexamObligationStatus != null){

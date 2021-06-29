@@ -24,7 +24,6 @@ public class PreexamObligation {
 	
 	private float points;
 
-	
 	private String location;
 	
 	private Date dateOfObligation;
@@ -33,15 +32,15 @@ public class PreexamObligation {
 
 	//veza ka ispitu 
 	@OneToOne
-	@JoinColumn(name = "exam", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "exam", referencedColumnName = "id", nullable = true)
 	private Exam exam;
 	
 	@OneToOne
-	@JoinColumn(name = "preexam_obligation_type", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "preexam_obligation_type", referencedColumnName = "id", nullable = true)
 	private PreexamObligationType preexamObligationType;
 	
 	@OneToOne
-	@JoinColumn(name = "preexam_obligation_status", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "preexam_obligation_status", referencedColumnName = "id", nullable = true)
 	private PreexamObligationStatus preexamObligationStatus;
 	
 	//testna 
@@ -140,8 +139,5 @@ public class PreexamObligation {
 		this.preexamObligationStatus = preexamObligationStatus;
 		this.student = student;
 	}
-	
-	
-	
 	
 }

@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,9 +39,8 @@ import ftn.tseo.eEducation.service.PreExamObligationService;
 import ftn.tseo.eEducation.service.StudentService;
 import ftn.tseo.eEducation.service.TypeOfFinancingService;
 
-
 @RestController
-@RequestMapping("api/student")
+@RequestMapping("/api")
 public class StudentController {
 
 	@Autowired
@@ -69,7 +70,7 @@ public class StudentController {
 	TypeOfFinancingService typeOfFinancingService;
 	
 	
-	@RequestMapping(value="/all", method = RequestMethod.GET)
+	@RequestMapping(value="/students", method = RequestMethod.GET)
 	public ResponseEntity<List<StudentDTO>> getAllStudents() {
 		List<Student> students = studentService.findAll();
 		//convert students to DTOs
@@ -80,7 +81,7 @@ public class StudentController {
 		return new ResponseEntity<>(studentsDTO, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="students/{id}", method=RequestMethod.GET)
 	public ResponseEntity<StudentDTO> getStudent(@PathVariable Long id){
 		Student student = studentService.findOne(id);
 		if(student == null){
@@ -90,7 +91,7 @@ public class StudentController {
 		return new ResponseEntity<>(new StudentDTO(student), HttpStatus.OK);
 	}
 	
-	@RequestMapping(method=RequestMethod.POST, consumes="application/json")
+	@PostMapping(value="/students", consumes="application/json")
 	public ResponseEntity<StudentDTO> saveStudent(@RequestBody StudentDTO studentDTO){		
 		Student student = new Student();
 		student.setCardNumber(studentDTO.getCardNumber());
@@ -108,7 +109,7 @@ public class StudentController {
 		return new ResponseEntity<>(new StudentDTO(student), HttpStatus.CREATED);	
 	}
 	
-	@RequestMapping(value="/{id}",method=RequestMethod.PUT, consumes="application/json")
+	@PutMapping(value="/students/{id}", consumes="application/json")
 	public ResponseEntity<StudentDTO> updateStudent(@RequestBody StudentDTO studentDTO){
 		//a student must exist
 		Student student = studentService.findOne(studentDTO.getId()); 
@@ -135,7 +136,7 @@ public class StudentController {
 		return new ResponseEntity<>(new StudentDTO(student), HttpStatus.OK);	
 	}
 	
-	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+	@RequestMapping(value="/students/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Void> deleteStudent(@PathVariable Long id){
 		Student student = studentService.findOne(id);
 		if (student != null){
