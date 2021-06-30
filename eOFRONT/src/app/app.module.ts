@@ -126,6 +126,7 @@ import { AdminDetailsPreexamObligationTypeComponent } from './admin-details-pree
     AdminListPreexamObligationComponent,
     AdminAddStudentComponent,
     AdminListStudentsComponent,
+    NavbarProfessorComponent,
     AdminDetailsStudentComponent
   ],
 

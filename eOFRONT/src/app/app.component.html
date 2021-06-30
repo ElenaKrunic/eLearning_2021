@@ -6,6 +6,7 @@
           <app-header></app-header>
           <app-navbar-student *ngIf="roles.includes('ROLE_STUDENT')"></app-navbar-student>
           <app-navbar-admin *ngIf="roles.includes('ROLE_ADMIN')"></app-navbar-admin>
+          <app-navbar-professor *ngIf="roles.includes('ROLE_PROFESOR')"></app-navbar-professor>
         </div>
       </div>
       <div align="center">

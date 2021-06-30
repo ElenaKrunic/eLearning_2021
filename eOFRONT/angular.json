@@ -1,5 +1,5 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "$schema": "C:/Users/Korisnik/Desktop/e/eObrazovanje2021/eOFRONT/node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
     "analytics": "8842e22e-3533-4375-b9d8-9ad2c01100ba"
   },
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath" : "C:/Users/lenovo/Desktop/eoBackStari/eObrazovanje2021/eObrazovanje/static",
+            "outputPath" : "C:/Users/Korisnik/Desktop/e/eObrazovanje2021/eObrazovanje/static",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",

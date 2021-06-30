@@ -15,6 +15,7 @@ import { AdminListFinancialCardComponent } from '../admin-list-financial-card/ad
 import { AdminListPaymentComponent } from '../admin-list-payment/admin-list-payment.component';
 import { AdminListPreexamObligationComponent } from '../admin-list-preexam-obligation/admin-list-preexam-obligation.component';
 import { AdminListStudentsComponent } from '../admin-list-students/admin-list-students.component';
+import { NavbarProfessorComponent } from '../core/navbar-professor/navbar-professor.component';
 import { FinancialcardStudentComponent } from '../financialcard-student/financialcard-student.component';
 import { LoginComponent } from '../login/login.component';
 import { MainComponent } from '../main/main.component';
@@ -51,6 +52,7 @@ const routes: Routes = [
   { path: 'adminAddPreexamObligation', component: AdminAddPreexamObligationComponent},
   { path: 'students', component: AdminListStudentsComponent },
   { path: 'students/:id', component: AdminDetailsStudentComponent },
+  {path:'professorCourses', component:NavbarProfessorComponent},
   { path: 'adminAddsStudent', component: AdminAddStudentComponent },
 ];
 
