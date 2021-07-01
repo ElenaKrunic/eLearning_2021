@@ -60,6 +60,7 @@ import { AdminDetailsStudentComponent } from './admin-details-student/admin-deta
 import { AdminListStudentsComponent } from './admin-list-students/admin-list-students.component';
 import { AdminAddPreexamObligationTypeComponent } from './admin-add-preexam-obligation-type/admin-add-preexam-obligation-type.component';
 import { AdminDetailsPreexamObligationTypeComponent } from './admin-details-preexam-obligation-type/admin-details-preexam-obligation-type.component';
+import { ValidationComponent } from './validation/validation.component';
 
 @NgModule({
   declarations: [
@@ -127,7 +128,8 @@ import { AdminDetailsPreexamObligationTypeComponent } from './admin-details-pree
     AdminAddStudentComponent,
     AdminListStudentsComponent,
     NavbarProfessorComponent,
-    AdminDetailsStudentComponent
+    AdminDetailsStudentComponent,
+    ValidationComponent
   ],
 
   imports: [

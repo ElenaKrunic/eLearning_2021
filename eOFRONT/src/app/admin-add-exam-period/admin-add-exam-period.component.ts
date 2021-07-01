@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ExamPeriodService } from '../exam-period/exam-period.service';
 import { ExamPeriod } from '../model/exam-period';
 
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ValidationComponent } from '../validation/validation.component';
+
 @Component({
   selector: 'app-admin-add-exam-period',
   templateUrl: './admin-add-exam-period.component.html',
@@ -16,12 +19,28 @@ export class AdminAddExamPeriodComponent implements OnInit {
     paymentAmount : 0
   });
 
+  form!: FormGroup;
   submitted = false; 
 
-  constructor(private examPeriodService: ExamPeriodService) { }
+  constructor(private examPeriodService: ExamPeriodService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      name: [
+        '',
+        [
+          Validators.required, 
+          Validators.minLength(3),
+          Validators.maxLength(13)
+        ] 
+      ],
+      startDate: ['', Validators.required], 
+      endDate: ['', Validators.required],
+      paymentAmount: [0, Validators.required]
+    });
   }
+
+  get f(): { [key: string]: AbstractControl} { return this.form.controls;}
 
   saveExamPeriod() {
     const data = {
