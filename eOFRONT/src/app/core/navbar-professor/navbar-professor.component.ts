@@ -13,20 +13,13 @@ import { ProfessorService } from 'src/app/professor/professor.service';
   styleUrls: ['./navbar-professor.component.css']
 })
 export class NavbarProfessorComponent implements OnInit {
-  courses: Course[];
-  constructor(private professorService: ProfessorService, private router: Router,private authService:AuthenticationService,private route:ActivatedRoute,private location:Location) { 
+ 
+  constructor(private router: Router,private authService:AuthenticationService,private route:ActivatedRoute,private location:Location) { 
       }
 
 
   ngOnInit(): void {
-    if(this.route.snapshot.params['courseId']) {
-      this.route.params.pipe(switchMap((params : Params) =>
-      this.professorService.getProfsesorCourses(+params['courseId'])))
-      .subscribe(res => {
-        this.courses = res;
-        
-      });
-    }
+
   }
 
   logout() {

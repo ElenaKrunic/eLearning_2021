@@ -19,6 +19,12 @@
           <a class="nav-link" [routerLink]="['/professorProfile/']">Profile</a>
         </li>
     </ul>
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/professorCourses/']">Courses</a>
+      </li>
+  </ul>
   
   
     <ul class="navbar-nav ml-auto">   
@@ -29,25 +35,6 @@
 
 </nav>
 
-<table class="table table-striped pera">
-  <thead>
-    <tr>
-      <th>Title <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
-      <th>Code <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
-      <th>Ects <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
-      <th>Start Date <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
-      <th>End Date <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>      </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let course of courses">
-      <td>{{course.title}}</td>
-      <td>{{course.courseCode}}</td>
-      <td>{{course.ECTS}}</td>
-      <td>{{course.startDate}}</td>
-      <td>{{course.endDate}}</td>
-    </tr>
-  </tbody>
-</table>
 <div>
   <button class="btn btn-primary" (click)="goBack()">Cancel</button>
 </div> 
