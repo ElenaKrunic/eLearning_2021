@@ -1,4 +1,6 @@
-<div style="width: 400px; margin: auto;">
+<!--
+
+    <div style="width: 400px; margin: auto;">
     <div class="submit-form">
         <div *ngIf="!submitted">
             <div class="form-group">
@@ -30,3 +32,113 @@
         </div>
     </div>
 </div>
+-->
+
+<div class="submit-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Initial state</label>
+        <input
+          type="number"
+          formControlName="initialState"
+          class="form-control"
+          [(ngModel)]="financialCard.initialState" 
+          id = "initialState"
+          name="initialState"
+          [ngClass]="{ 'is-invalid': submitted && f.initialState.errors }"
+        />
+        <div *ngIf="submitted && f.initialState.errors" class="invalid-feedback">
+          <div *ngIf="f.initialState.errors.required"> Initial state is required! </div>
+          <div *ngIf="f.initialState.errors.minlength">
+            Initial state must have at least 3 digits! 
+          </div>
+          <div *ngIf="f.initialState.errors.maxlength">
+            Initial state must not exceed 9 digits
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Total payment</label>
+        <input
+          type="number"
+          formControlName="totalPayment"
+          class="form-control"
+          [(ngModel)]="financialCard.totalPayment" 
+          id = "totalPayment"
+          name="totalPayment"
+          [ngClass]="{ 'is-invalid': submitted && f.totalPayment.errors }"
+        />
+        <div *ngIf="submitted && f.totalPayment.errors" class="invalid-feedback">
+          <div *ngIf="f.totalPayment.errors.required">Total payment is required</div>
+          <div *ngIf="f.totalPayment.errors.minlength">
+            Initial state must have at least 3 digits! 
+          </div>
+          <div *ngIf="f.totalPayment.errors.maxlength">
+            Initial state must not exceed 9 digits
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Total payout</label>
+        <input
+          type="number"
+          formControlName="number"
+          class="form-control"
+          [(ngModel)]="financialCard.totalPayout" 
+          id = "totalPayout"
+          name="totalPayout"
+          [ngClass]="{ 'is-invalid': submitted && f.totalPayout.errors }"
+        />
+        <div *ngIf="submitted && f.totalPayout.errors" class="invalid-feedback">
+          <div *ngIf="f.totalPayout.errors.required">Total payout is required</div>
+          <div *ngIf="f.totalPayout.errors.minlength">
+            Initial state must have at least 3 digits! 
+          </div>
+          <div *ngIf="f.totalPayout.errors.maxlength">
+            Initial state must not exceed 9 digits
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Total cost</label>
+        <input
+          type="number"
+          formControlName="totalCost"
+          class="form-control"
+          [(ngModel)]="financialCard.totalCost" 
+          id = "totalCost"
+          name="totalCost"
+          [ngClass]="{ 'is-invalid': submitted && f.totalCost.errors }"
+        />
+        <div *ngIf="submitted && f.totalCost.errors" class="invalid-feedback">
+          <div *ngIf="f.totalCost.errors.required">Total cost is required</div>
+          <div *ngIf="f.totalCost.errors.minlength">
+            Initial state must have at least 3 digits! 
+          </div>
+          <div *ngIf="f.totalCost.errors.maxlength">
+            Initial state must not exceed 9 digits
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="submitted">
+        <h4> The initial financial card is created! Good luck..</h4>
+        <button class="btn btn-success" (click)="newFinancialCard()"> Add new financial card </button>
+    </div>
+
+      <div class="form-group">
+       <button (click)="saveFinancialCard()" class="btn btn-success"> Submit </button>
+        <button
+          type="button"
+          (click)="onReset()"
+          class="btn btn-warning float-right"
+        >
+          Reset
+        </button>
+      </div>
+    </form>
+  </div>
+
