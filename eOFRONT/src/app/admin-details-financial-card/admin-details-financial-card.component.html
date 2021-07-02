@@ -1,3 +1,4 @@
+<!--
 <div style="width: 400px;margin: auto;">
     <div *ngIf="currentFinancialCard" class="edit-form">
         <h4> Financial card </h4>
@@ -57,3 +58,117 @@
         <p> Unavailable financial card!</p>
     </div>
 </div>
+
+-->
+
+
+<div class="submit-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Initial state</label>
+        <input
+          type="number"
+          formControlName="initialState"
+          class="form-control"
+          [(ngModel)]="currentFinancialCard.initialState" 
+          id = "initialState"
+          name="initialState"
+          [ngClass]="{ 'is-invalid': submitted && f.initialState.errors }"
+        />
+        <div *ngIf="submitted && f.initialState.errors" class="invalid-feedback">
+          <div *ngIf="f.initialState.errors.required"> Initial state is required! </div>
+          <div *ngIf="f.initialState.errors.minlength">
+            Initial state must have at least 3 digits! 
+          </div>
+          <div *ngIf="f.initialState.errors.maxlength">
+            Initial state must not exceed 9 digits
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Total payment</label>
+        <input
+          type="number"
+          formControlName="totalPayment"
+          class="form-control"
+          [(ngModel)]="currentFinancialCard.totalPayment" 
+          id = "totalPayment"
+          name="totalPayment"
+          [ngClass]="{ 'is-invalid': submitted && f.totalPayment.errors }"
+        />
+        <div *ngIf="submitted && f.totalPayment.errors" class="invalid-feedback">
+          <div *ngIf="f.totalPayment.errors.required">Total payment is required</div>
+          <div *ngIf="f.totalPayment.errors.minlength">
+            Initial state must have at least 3 digits! 
+          </div>
+          <div *ngIf="f.totalPayment.errors.maxlength">
+            Initial state must not exceed 9 digits
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Total payout</label>
+        <input
+          type="number"
+          formControlName="number"
+          class="form-control"
+          [(ngModel)]="currentFinancialCard.totalPayout" 
+          id = "totalPayout"
+          name="totalPayout"
+          [ngClass]="{ 'is-invalid': submitted && f.totalPayout.errors }"
+        />
+        <div *ngIf="submitted && f.totalPayout.errors" class="invalid-feedback">
+          <div *ngIf="f.totalPayout.errors.required">Total payout is required</div>
+          <div *ngIf="f.totalPayout.errors.minlength">
+            Initial state must have at least 3 digits! 
+          </div>
+          <div *ngIf="f.totalPayout.errors.maxlength">
+            Initial state must not exceed 9 digits
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Total cost</label>
+        <input
+          type="number"
+          formControlName="totalCost"
+          class="form-control"
+          [(ngModel)]="currentFinancialCard.totalCost" 
+          id = "totalCost"
+          name="totalCost"
+          [ngClass]="{ 'is-invalid': submitted && f.totalCost.errors }"
+        />
+        <div *ngIf="submitted && f.totalCost.errors" class="invalid-feedback">
+          <div *ngIf="f.totalCost.errors.required">Total cost is required</div>
+          <div *ngIf="f.totalCost.errors.minlength">
+            Initial state must have at least 3 digits! 
+          </div>
+          <div *ngIf="f.totalCost.errors.maxlength">
+            Initial state must not exceed 9 digits
+          </div>
+        </div>
+      </div>
+
+      <button
+      class="badge badge-primary mr-2"
+      (click)="deleteFinancialCard()"        
+      > Delete financial card </button>
+
+      <button
+      type="submit"
+      class="badge badge-success"
+      (click)="updateFinancialCard()"
+      > Update selected financial card </button>
+      <p> {{message}}</p>
+
+    <div *ngIf="!currentFinancialCard">
+      <br/>
+      <p> Unavailable financial card!</p>
+    </div>
+    </form>
+  </div>
+
+
