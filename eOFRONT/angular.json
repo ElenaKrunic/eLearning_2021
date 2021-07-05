@@ -1,5 +1,7 @@
 {
-  "$schema": "C:/Users/Korisnik/Desktop/e/eObrazovanje2021/eOFRONT/node_modules/@angular/cli/lib/config/schema.json",
+
+  "$schema": "C:/Users/Korisnik/Desktop/eo/eObrazovanje2021/eOFRONT/node_modules/@angular/cli/lib/config/schema.json",
+
   "cli": {
     "analytics": "8842e22e-3533-4375-b9d8-9ad2c01100ba"
   },
