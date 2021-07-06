@@ -13,8 +13,14 @@ export class ExamPeriodService {
 
   constructor(private http: HttpClient) { }
 
+  /*
   getAll(): Observable<any> {
     return this.http.get(baseUrl); 
+  }
+  */
+
+  getAll(params: any): Observable<any> {
+    return this.http.get<any>(baseUrl, { params });
   }
 
   get(id: number): Observable<any>{

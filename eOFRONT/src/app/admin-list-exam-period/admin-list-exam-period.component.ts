@@ -9,10 +9,15 @@ import { ExamPeriod } from '../model/exam-period';
 })
 export class AdminListExamPeriodComponent implements OnInit {
 
-  examPeriods: any; 
-  currentExamPeriod: null | any; 
+  examPeriods: ExamPeriod[] = [];
+  currentExamPeriod: ExamPeriod; 
   currentIndex = -1; 
   name = '';
+
+  page = 1;
+  count = 0;
+  pageSize = 3;
+  pageSizes = [3, 6, 9];
 
   constructor(private examPeriodService: ExamPeriodService) { }
 
@@ -20,6 +25,54 @@ export class AdminListExamPeriodComponent implements OnInit {
     this.retrieveExamPeriods(); 
   }
 
+  getRequestParams(searchName: string, page: number, pageSize: number): any {
+    let params: any = {};
+
+    if (searchName) {
+      params[`name`] = searchName;
+    }
+
+    if (page) {
+      params[`page`] = page - 1;
+    }
+
+    if (pageSize) {
+      params[`size`] = pageSize;
+    }
+
+    return params;
+  }
+
+  retrieveExamPeriods(): void {
+    const params = this.getRequestParams(this.name, this.page, this.pageSize);
+
+    this.examPeriodService.getAll(params)
+    .subscribe(
+      response => {
+        const { examPeriods, totalItems } = response;
+        this.examPeriods = examPeriods;
+        this.count = totalItems;
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      });
+  }
+
+  handlePageChange(event: number): void {
+    this.page = event;
+    this.retrieveExamPeriods();
+  }
+
+  handlePageSizeChange(event: any): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
+    this.retrieveExamPeriods();
+  }
+
+  
+  
+  /*
   retrieveExamPeriods() : void {
     this.examPeriodService.getAll()
     .subscribe(
@@ -32,6 +85,8 @@ export class AdminListExamPeriodComponent implements OnInit {
       }
     );
   }
+*/
+
 
   refreshList(): void {
     this.retrieveExamPeriods();
@@ -43,5 +98,45 @@ export class AdminListExamPeriodComponent implements OnInit {
     this.currentExamPeriod = examPeriod;
     this.currentIndex = index;
   }
+
+  
+  searchName(): void {
+    this.page = 1;
+    this.retrieveExamPeriods();
+  }
+  
+  /*
+  searchName(): void {
+    this.currentExamPeriod = null; 
+    this.currentIndex = -1;
+
+    this.examPeriodService.findByName(this.name)
+      .subscribe(
+        data => {
+          this.examPeriods = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+  /*
+
+ 
+/*
+  searchName(): void {
+    this.examPeriodService.findByName(this.name)
+    .subscribe(
+      data => {
+        this.examPeriods = data; 
+        console.log(data);
+      },
+      error => {
+        console.log(error); 
+      }
+    );
+  }
+  */
   
 }

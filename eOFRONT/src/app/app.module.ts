@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination'; 
 
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './routing/app-routing.module';
@@ -146,6 +147,7 @@ import { ProfessorService } from './professor/professor.service';
     BrowserAnimationsModule, // required animations module
 		ToastrModule.forRoot(),
 		HttpClientModule,
+    NgxPaginationModule,
     
     NgbModule,
     CommonModule,
