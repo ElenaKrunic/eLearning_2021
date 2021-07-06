@@ -5,7 +5,6 @@ import { ToastrService } from 'ngx-toastr';
 import { switchMap } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/login/authentication.service';
 import { Course } from 'src/app/model/course';
-import { ProfessorService } from 'src/app/professor/professor.service';
 
 @Component({
   selector: 'app-navbar-professor',
