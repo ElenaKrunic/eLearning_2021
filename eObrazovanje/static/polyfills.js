@@ -250,93 +250,19 @@ if (objCtr.defineProperty) {
 
 /***/ }),
 
-/***/ 7435:
-/*!**************************!*\
-  !*** ./src/polyfills.ts ***!
-  \**************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var classlist_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! classlist.js */ 5416);
-/* harmony import */ var classlist_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(classlist_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var web_animations_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! web-animations-js */ 6799);
-/* harmony import */ var web_animations_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(web_animations_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var zone_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! zone.js */ 203);
-/* harmony import */ var zone_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(zone_js__WEBPACK_IMPORTED_MODULE_2__);
-/**
- * This file includes polyfills needed by Angular and is loaded before the app.
- * You can add your own extra polyfills to this file.
- *
- * This file is divided into 2 sections:
- *   1. Browser polyfills. These are applied before loading ZoneJS and are sorted by browsers.
- *   2. Application imports. Files imported after ZoneJS that should be loaded before your main
- *      file.
- *
- * The current setup is for so-called "evergreen" browsers; the last versions of browsers that
- * automatically update themselves. This includes Safari >= 10, Chrome >= 55 (including Opera),
- * Edge >= 13 on the desktop, and iOS 10 and Chrome on mobile.
- *
- * Learn more in https://angular.io/guide/browser-support
- */
-/***************************************************************************************************
- * BROWSER POLYFILLS
- */
-/**
- * IE11 requires the following for NgClass support on SVG elements
- */
- // Run `npm install --save classlist.js`.
-/**
- * Web Animations `@angular/platform-browser/animations`
- * Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.
- * Standard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).
- */
- // Run `npm install --save web-animations-js`.
-/**
- * By default, zone.js will patch all possible macroTask and DomEvents
- * user can disable parts of macroTask/DomEvents patch by setting following flags
- * because those flags need to be set before `zone.js` being loaded, and webpack
- * will put import in the top of bundle, so user need to create a separate file
- * in this directory (for example: zone-flags.ts), and put the following flags
- * into that file, and then add the following code before importing zone.js.
-  import './zone-flags';
- *
- * The flags allowed in zone-flags.ts are listed here.
- *
- * The following flags will work for all browsers.
- *
- * (window as any).__Zone_disable_requestAnimationFrame = true; // disable patch requestAnimationFrame
- * (window as any).__Zone_disable_on_property = true; // disable patch onProperty such as onclick
- * (window as any).__zone_symbol__UNPATCHED_EVENTS = ['scroll', 'mousemove']; // disable patch specified eventNames
- *
- *  in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js
- *  with the following flag, it will bypass `zone.js` patch for IE/Edge
- *
- *  (window as any).__Zone_enable_cross_context_check = true;
- *
- */
-/***************************************************************************************************
- * Zone JS is required by default for Angular itself.
- */
- // Included with Angular CLI.
-/***************************************************************************************************
- * APPLICATION IMPORTS
- */
-
-
-/***/ }),
-
-/***/ 203:
-/*!*********************************************************!*\
-  !*** ../../../../node_modules/zone.js/fesm2015/zone.js ***!
-  \*********************************************************/
+/***/ 7277:
+/*!***********************************************!*\
+  !*** ./node_modules/zone.js/fesm2015/zone.js ***!
+  \***********************************************/
 /***/ (() => {
 
+"use strict";
+
 /**
-* @license Angular v11.0.0-next.6+162.sha-170af07
-* (c) 2010-2020 Google LLC. https://angular.io/
-* License: MIT
-*/
+ * @license Angular v12.0.0-next.0
+ * (c) 2010-2020 Google LLC. https://angular.io/
+ * License: MIT
+ */
 /**
  * @license
  * Copyright Google LLC All Rights Reserved.
@@ -409,9 +335,12 @@ const Zone$1 = (function (global) {
             return _currentTask;
         }
         // tslint:disable-next-line:require-internal-with-underscore
-        static __load_patch(name, fn) {
+        static __load_patch(name, fn, ignoreDuplicate = false) {
             if (patches.hasOwnProperty(name)) {
-                if (checkDuplicate) {
+                // `checkDuplicate` option is defined from global variable
+                // so it works for all modules.
+                // `ignoreDuplicate` can work for the specified module
+                if (!ignoreDuplicate && checkDuplicate) {
                     throw Error('Already loaded patch: ' + name);
                 }
             }
@@ -1294,7 +1223,7 @@ function patchMethod(target, name, patchFn) {
     }
     const delegateName = zoneSymbol(name);
     let delegate = null;
-    if (proto && !(delegate = proto[delegateName])) {
+    if (proto && (!(delegate = proto[delegateName]) || !proto.hasOwnProperty(delegateName))) {
         delegate = proto[delegateName] = proto[name];
         // check whether proto[name] is writable
         // some property is readonly in safari, such as HtmlCanvasElement.prototype.toBlob
@@ -2867,29 +2796,9 @@ function patchTimer(window, setName, cancelName, nameSuffix) {
     const tasksByHandleId = {};
     function scheduleTask(task) {
         const data = task.data;
-        function timer() {
-            try {
-                task.invoke.apply(this, arguments);
-            }
-            finally {
-                // issue-934, task will be cancelled
-                // even it is a periodic task such as
-                // setInterval
-                if (!(task.data && task.data.isPeriodic)) {
-                    if (typeof data.handleId === 'number') {
-                        // in non-nodejs env, we remove timerId
-                        // from local cache
-                        delete tasksByHandleId[data.handleId];
-                    }
-                    else if (data.handleId) {
-                        // Node returns complex objects as handleIds
-                        // we remove task reference from timer object
-                        data.handleId[taskSymbol] = null;
-                    }
-                }
-            }
-        }
-        data.args[0] = timer;
+        data.args[0] = function () {
+            return task.invoke.apply(this, arguments);
+        };
         data.handleId = setNative.apply(window, data.args);
         return task;
     }
@@ -2904,6 +2813,33 @@ function patchTimer(window, setName, cancelName, nameSuffix) {
                     delay: (nameSuffix === 'Timeout' || nameSuffix === 'Interval') ? args[1] || 0 :
                         undefined,
                     args: args
+                };
+                const callback = args[0];
+                args[0] = function timer() {
+                    try {
+                        return callback.apply(this, arguments);
+                    }
+                    finally {
+                        // issue-934, task will be cancelled
+                        // even it is a periodic task such as
+                        // setInterval
+                        // https://github.com/angular/angular/issues/40387
+                        // Cleanup tasksByHandleId should be handled before scheduleTask
+                        // Since some zoneSpec may intercept and doesn't trigger
+                        // scheduleFn(scheduleTask) provided here.
+                        if (!(options.isPeriodic)) {
+                            if (typeof options.handleId === 'number') {
+                                // in non-nodejs env, we remove timerId
+                                // from local cache
+                                delete tasksByHandleId[options.handleId];
+                            }
+                            else if (options.handleId) {
+                                // Node returns complex objects as handleIds
+                                // we remove task reference from timer object
+                                options.handleId[taskSymbol] = null;
+                            }
+                        }
+                    }
                 };
                 const task = scheduleMacroTaskWithCurrentZone(setName, args[0], options, scheduleTask, clearTask);
                 if (!task) {
@@ -3037,6 +2973,13 @@ Zone.__load_patch('legacy', (global) => {
     if (legacyPatch) {
         legacyPatch();
     }
+});
+Zone.__load_patch('queueMicrotask', (global, Zone, api) => {
+    api.patchMethod(global, 'queueMicrotask', delegate => {
+        return function (self, args) {
+            Zone.current.scheduleMicroTask('queueMicrotask', args[0]);
+        };
+    });
 });
 Zone.__load_patch('timers', (global) => {
     const set = 'set';
@@ -3270,6 +3213,82 @@ Zone.__load_patch('PromiseRejectionEvent', (global, Zone) => {
             findPromiseRejectionHandler('rejectionhandled');
     }
 });
+
+
+/***/ }),
+
+/***/ 7435:
+/*!**************************!*\
+  !*** ./src/polyfills.ts ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var classlist_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! classlist.js */ 5416);
+/* harmony import */ var classlist_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(classlist_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var web_animations_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! web-animations-js */ 6799);
+/* harmony import */ var web_animations_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(web_animations_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var zone_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! zone.js */ 7277);
+/* harmony import */ var zone_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(zone_js__WEBPACK_IMPORTED_MODULE_2__);
+/**
+ * This file includes polyfills needed by Angular and is loaded before the app.
+ * You can add your own extra polyfills to this file.
+ *
+ * This file is divided into 2 sections:
+ *   1. Browser polyfills. These are applied before loading ZoneJS and are sorted by browsers.
+ *   2. Application imports. Files imported after ZoneJS that should be loaded before your main
+ *      file.
+ *
+ * The current setup is for so-called "evergreen" browsers; the last versions of browsers that
+ * automatically update themselves. This includes Safari >= 10, Chrome >= 55 (including Opera),
+ * Edge >= 13 on the desktop, and iOS 10 and Chrome on mobile.
+ *
+ * Learn more in https://angular.io/guide/browser-support
+ */
+/***************************************************************************************************
+ * BROWSER POLYFILLS
+ */
+/**
+ * IE11 requires the following for NgClass support on SVG elements
+ */
+ // Run `npm install --save classlist.js`.
+/**
+ * Web Animations `@angular/platform-browser/animations`
+ * Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.
+ * Standard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).
+ */
+ // Run `npm install --save web-animations-js`.
+/**
+ * By default, zone.js will patch all possible macroTask and DomEvents
+ * user can disable parts of macroTask/DomEvents patch by setting following flags
+ * because those flags need to be set before `zone.js` being loaded, and webpack
+ * will put import in the top of bundle, so user need to create a separate file
+ * in this directory (for example: zone-flags.ts), and put the following flags
+ * into that file, and then add the following code before importing zone.js.
+  import './zone-flags';
+ *
+ * The flags allowed in zone-flags.ts are listed here.
+ *
+ * The following flags will work for all browsers.
+ *
+ * (window as any).__Zone_disable_requestAnimationFrame = true; // disable patch requestAnimationFrame
+ * (window as any).__Zone_disable_on_property = true; // disable patch onProperty such as onclick
+ * (window as any).__zone_symbol__UNPATCHED_EVENTS = ['scroll', 'mousemove']; // disable patch specified eventNames
+ *
+ *  in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js
+ *  with the following flag, it will bypass `zone.js` patch for IE/Edge
+ *
+ *  (window as any).__Zone_enable_cross_context_check = true;
+ *
+ */
+/***************************************************************************************************
+ * Zone JS is required by default for Angular itself.
+ */
+ // Included with Angular CLI.
+/***************************************************************************************************
+ * APPLICATION IMPORTS
+ */
 
 
 /***/ }),

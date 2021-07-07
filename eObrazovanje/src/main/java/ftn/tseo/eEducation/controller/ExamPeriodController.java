@@ -1,12 +1,19 @@
 package ftn.tseo.eEducation.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -38,7 +45,11 @@ public class ExamPeriodController {
 
 	@Autowired
 	private ExamPeriodService examPeriodService; 
+	
+	@Autowired 
+	private ExamPeriodRepository examPeriodRepository; 
 		
+	/*
 	@RequestMapping(value="/examPeriods", method = RequestMethod.GET)
 	public ResponseEntity<List<ExamPeriodDTO>> getAllExamPeriods(){
 		
@@ -49,6 +60,90 @@ public class ExamPeriodController {
 		}
 		return new ResponseEntity<>(examPeriodDto, HttpStatus.OK);
 	}
+	*/
+	
+	
+	/*
+	@RequestMapping(value="/examPeriods", method = RequestMethod.GET)
+	public ResponseEntity<Map<String,Object>> getAllExamPeriods(
+			@RequestParam(required=false) String name, 
+			@RequestParam(defaultValue="0") int page,
+			@RequestParam(defaultValue="3") int size) {
+		
+		try {
+			List<ExamPeriod> examPeriods = new ArrayList<ExamPeriod>(); 
+			Pageable paging = PageRequest.of(page, size); 
+			
+			Page<ExamPeriod> pageExamPeriods; 
+			if (name == null) 
+				pageExamPeriods = examPeriodRepository.findAll(paging);
+			else 
+				pageExamPeriods = examPeriodRepository.findByName(name, paging); 
+			
+			examPeriods = pageExamPeriods.getContent(); 
+			
+			Map<String, Object> response = new HashMap<>();
+			response.put("examPeriods", examPeriods); 
+			response.put("currentPage", pageExamPeriods.getNumber()); 
+			response.put("totalItems", pageExamPeriods.getTotalElements());
+			response.put("totalPages", pageExamPeriods.getTotalPages());
+			
+			return new ResponseEntity<>(response, HttpStatus.OK);
+		} catch(Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	*/
+	
+	@RequestMapping(value="/examPeriods", method = RequestMethod.GET)
+	public ResponseEntity<Map<String,Object>> getAllExamPeriods(
+			@RequestParam(required=false) String name, 
+			@RequestParam(defaultValue="0") int page,
+			@RequestParam(defaultValue="3") int size,
+			@RequestParam(defaultValue="id, desc") String[] sort) {
+		
+		try {
+			
+			 List<Order> orders = new ArrayList<Order>();
+
+		      if (sort[0].contains(",")) {
+		        // will sort more than 2 fields
+		        // sortOrder="field, direction"
+		        for (String sortOrder : sort) {
+		          String[] _sort = sortOrder.split(",");
+		          orders.add(new Order(getSortDirection(_sort[1]), _sort[0]));
+		        }
+		      } else {
+		        // sort=[field, direction]
+		        orders.add(new Order(getSortDirection(sort[1]), sort[0]));
+		      }
+		      
+			List<ExamPeriod> examPeriods = new ArrayList<ExamPeriod>(); 
+
+			Pageable paging = PageRequest.of(page, size); 
+			
+			Page<ExamPeriod> pageExamPeriods; 
+			if (name == null) 
+				pageExamPeriods = examPeriodRepository.findAll(paging);
+			else 
+				pageExamPeriods = examPeriodRepository.findByName(name, paging); 
+			
+			examPeriods = pageExamPeriods.getContent(); 
+			
+			Map<String, Object> response = new HashMap<>();
+			response.put("examPeriods", examPeriods); 
+			response.put("currentPage", pageExamPeriods.getNumber()); 
+			response.put("totalItems", pageExamPeriods.getTotalElements());
+			response.put("totalPages", pageExamPeriods.getTotalPages());
+			
+			return new ResponseEntity<>(response, HttpStatus.OK);
+		} catch(Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
 	
 	@RequestMapping(value="examPeriods/{id}", method=RequestMethod.GET)
 	public ResponseEntity<ExamPeriodDTO> getExamPeriod(@PathVariable Long id){
@@ -102,4 +197,15 @@ public class ExamPeriodController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+	//helper method 
+	private Sort.Direction getSortDirection(String direction) {
+	    if (direction.equals("asc")) {
+	      return Sort.Direction.ASC;
+	    } else if (direction.equals("desc")) {
+	      return Sort.Direction.DESC;
+	    }
+
+	    return Sort.Direction.ASC;
+	  }
 }
