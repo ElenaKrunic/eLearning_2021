@@ -1,0 +1,43 @@
+
+<div class="list row">
+    <div class="col-md-6">
+      <h4> List of students </h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let student of students; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveStudent(student, i)"
+        >
+          {{ student.firstName }} 
+          {{ student.lastName }}
+        </li>
+      </ul>
+      
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentStudent">
+        <h4> About student </h4>
+        <div>
+          <label><strong>Card number :</strong></label> {{ currentStudent.cardNumber }}
+        </div>
+        <div>
+          <label><strong> First name: </strong></label>
+          {{ currentStudent.firstName}}
+        </div>
+        <div>
+          <label><strong> Last name: </strong></label>
+          {{ currentStudent.lastName}}
+        </div>
+        
+        <a class="badge badge-warning" routerLink="/students/{{ currentStudent.id }}">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentStudent">
+        <br />
+        <p>Please click on particular student..</p>
+      </div>
+    </div>
+  </div>

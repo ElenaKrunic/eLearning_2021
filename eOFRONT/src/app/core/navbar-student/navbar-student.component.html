@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+
+    <a class="navbar-brand">financial card</a>
+  
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/financialcard']" >Financial card</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/payouts']">Financial card payouts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/payment']">Financial card payment</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/studentProfile/']">Profile</a>
+      </li>
+    </ul>
+  
+    <ul class="navbar-nav ml-auto">   
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </nav>

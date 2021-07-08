@@ -1,0 +1,40 @@
+<div>
+    <h3> Financial card </h3>
+</div>
+
+    <table class="table table-bordered">
+        <tr>
+            <th> Initial state </th>
+            <th> Total payment<th>
+            <th> Total payout </th>
+            <th> Total cost </th>
+        </tr>
+        <tr *ngFor="let financialCard of financialCards">
+            <td>
+                {{financialCard.initialState}}
+            </td>
+            <td>
+                {{financialCard.totalPayment}}
+            </td>
+            <td>
+                {{examPeriod.totalPayout}}
+            </td>
+            <td>
+                {{examPeriod.totalCost}}
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary" aria-label="Edit" (click)="gotoEdit(financialCard)">
+                    <span class="fa fa-edit" aria-hidden="true"></span>
+                </button>
+
+                <button type="button" class="btn btn-primary" aria-label="Delete" (click)="gotoDelete(financialCard.id)">
+                    <span class="fa fa-trash" aria-hidden="true"></span>
+                </button>
+            </td>
+        </tr>
+    </table>
+    <div class="right">
+        <button type="button" class="btn btn-primary" aria-label="Add" click="gotoAdd()">
+            <span class="fa fa-plus" aria-hidden="true"></span>
+        </button>
+    </div>
