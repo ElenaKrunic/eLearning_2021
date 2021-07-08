@@ -70,24 +70,6 @@ export class AdminListExamPeriodComponent implements OnInit {
     this.retrieveExamPeriods();
   }
 
-  
-  
-  /*
-  retrieveExamPeriods() : void {
-    this.examPeriodService.getAll()
-    .subscribe(
-      data => {
-        this.examPeriods = data;
-        console.log(data); 
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  }
-*/
-
-
   refreshList(): void {
     this.retrieveExamPeriods();
     this.currentIndex = -1; 
@@ -99,44 +81,9 @@ export class AdminListExamPeriodComponent implements OnInit {
     this.currentIndex = index;
   }
 
-  
   searchName(): void {
     this.page = 1;
     this.retrieveExamPeriods();
   }
-  
-  /*
-  searchName(): void {
-    this.currentExamPeriod = null; 
-    this.currentIndex = -1;
-
-    this.examPeriodService.findByName(this.name)
-      .subscribe(
-        data => {
-          this.examPeriods = data;
-          console.log(data);
-        },
-        error => {
-          console.log(error);
-        });
-  }
-
-  /*
-
- 
-/*
-  searchName(): void {
-    this.examPeriodService.findByName(this.name)
-    .subscribe(
-      data => {
-        this.examPeriods = data; 
-        console.log(data);
-      },
-      error => {
-        console.log(error); 
-      }
-    );
-  }
-  */
   
 }
