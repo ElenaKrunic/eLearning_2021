@@ -1,0 +1,31 @@
+<div>
+    <h3>Financial card</h3>
+</div>
+
+<div>
+    <form>
+        <div class="form-group">
+            <label for="field1c" class="form-control-label"> Initial state: </label>
+            <input type="text" [(ngModel)]="financialCard.initialState" placeholder="Initial state" class="form-control" id="field1c" name="field1">
+        </div>
+        <br/>
+        <div class="form-group">
+            <label for="field1c" class="form-control-label"> Total payment: </label>
+            <input type="text" [(ngModel)]="financialCard.totalPayment" placeholder="Total payment" class="form-control" id="field1c" name="field1">
+        </div>
+        <br/>
+        <div class="form-group">
+            <label for="field1c" class="form-control-label"> Total payout: </label>
+            <input type="text" [(ngModel)]="financialCard.totalPayout" placeholder="Total payout" class="form-control" id="field1c" name="field1">
+        </div>
+        <div class="form-group">
+            <label for="field1c" class="form-control-label"> Total cost: </label>
+            <input type="text" [(ngModel)]="financialCard.totalCost" placeholder="Total cost" class="form-control" id="field1c" name="field1">
+        </div>
+        <br/>
+    </form>
+</div>
+<div>
+    <button class="btn btn-primary" (click)="save()">OK</button>
+    <button class="btn btn-primary" (click)="goBack()">Cancel</button>
+  </div>

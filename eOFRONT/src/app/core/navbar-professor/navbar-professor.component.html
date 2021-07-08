@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+
+    <a class="navbar-brand">professor</a>
+  
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/exams']">Exams</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/students']">Students</a>
+        </li>
+      </ul>
+    
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/professorProfile/']">Profile</a>
+        </li>
+    </ul>
+
+    <table class="table table-striped pera">
+      <thead>
+        <tr>
+          <th>Title <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
+          <th>Code <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
+          <th>Ects <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
+          <th>Start Date <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
+          <th>End Date <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>      </tr>
+      </thead>
+    </table>
+    <div>
+    
+  
+    <ul class="navbar-nav ml-auto">   
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+
+
+<div>
+  <button class="btn btn-primary" (click)="goBack()">Cancel</button>
+</div> 
+
