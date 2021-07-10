@@ -1,1 +1,26 @@
-<p>professor-exams works!</p>
+<div>
+    <h3> Exams </h3>
+</div>
+
+<table class="table table-bordered">
+    <tr>
+        <th> Grade </th>
+        <th> Points</th>
+        <th> Exam date</th>
+        <th> Status </th>
+    </tr>
+    <tr *ngFor="let exam of exams">
+        <td>
+            {{exam.grade}}
+        </td>
+        <td>
+            {{exam.points}}
+        </td>
+        <td>
+            {{exam.examDate}}
+        </td>
+        <td>
+            {{exam.status}}
+        </td>
+    </tr>
+</table>

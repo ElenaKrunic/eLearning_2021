@@ -22,14 +22,18 @@ import { MainComponent } from '../main/main.component';
 import { PaymentDetailsComponent } from '../payment-details/payment-details.component';
 import { PaymentComponent } from '../payment/payment.component';
 import { PayoutComponent } from '../payout/payout.component';
+import { ProfessorExamsComponent } from '../professor-exams/professor-exams.component';
 import { ProfessorProfileComponent } from '../professor-profile/professor-profile.component';
+import { ProfessorStudentsComponent } from '../professor-students/professor-students.component';
 import { StudentDetailsComponent } from '../student-details/student-details.component';
 import { StudentProfileComponent } from '../student-profile/student-profile.component';
 
 const routes: Routes = [
   { path: 'financialCard', component: FinancialcardStudentComponent },
   { path: 'studentProfile', component: StudentProfileComponent },
-  {path: 'professorProfile', component: ProfessorProfileComponent},
+  {path: 'professorProfile/:id', component: ProfessorProfileComponent},
+  {path: 'studentsForProfessor', component: ProfessorStudentsComponent},
+  {path: 'examsForProfessor', component: ProfessorExamsComponent},
   { path: 'studentPayment', component: PaymentComponent },
   { path: 'studentPayout', component: PayoutComponent },
   { path: 'main', component: MainComponent },
