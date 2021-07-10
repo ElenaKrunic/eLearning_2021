@@ -29,7 +29,7 @@ export class FinancialcardStudentComponent implements OnInit {
 	 ngOnInit(): void {
     if(this.route.snapshot.params['id']) {
       this.route.params.pipe(switchMap((params : Params) =>
-      this.studentService.getStudentFinancialCard(+params['id'])))
+      this.studentService.getStudentFinancialCard()))
       .subscribe(res => {
         this.financialCard = res;
       });

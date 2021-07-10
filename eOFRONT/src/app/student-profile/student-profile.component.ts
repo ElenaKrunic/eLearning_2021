@@ -12,40 +12,18 @@ import { switchMap } from 'rxjs/operators';
 })
 
 export class StudentProfileComponent implements OnInit {
-  student=new Student({
-    cardNumber:'',
-    firstName:'',
-    lastName:'',
-    phoneNumber:'',
-    email:'',
-    umnc:'',
-    modelNumber:0,
-    startedCollegeIn:0,
-    referenceNumber:'',
-    cardAmount:0,
-    accountNumber:'',
-    typeOfFinancing:null,
-    financialCards:null
-  });
-
-
+ 
+  student:Student;
   constructor(private location:Location,private studentService: StudentService, private route: ActivatedRoute) {}
    
 
   ngOnInit(): void {
-    this.route.snapshot.params['id'];
-    if (this.route.snapshot.params['id']) {
-      // fetch student if we edit the existing student
-      this.route.params.pipe(switchMap((params: Params) => 
-          this.studentService.getStudent(+params['id']))) // convert to number
-        .subscribe(res => {
-          this.student = res.body;
-          
-          }
-        );
-    } 
+    this.getStudentDetails();
   }
 
+  getStudentDetails() {
+    this.studentService.getStudent().subscribe( res=>this.student=res.body);
+  }
   goBack(): void {
     this.location.back();
   }

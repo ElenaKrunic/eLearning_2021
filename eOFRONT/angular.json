@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath" : "C:/Users/Korisnik/git/kkhkh/eObrazovanje2021/eObrazovanje/static",
+            "outputPath" : "C:/Users/Win10/git/eObrazovanje2021/eObrazovanje2021/eObrazovanje/static",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",

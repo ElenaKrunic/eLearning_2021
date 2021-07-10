@@ -18,17 +18,12 @@ export class StudentDocumentsComponent implements OnInit {
   
   }
   ngOnInit(): void {
-    if(this.route.snapshot.params['id']) {
-      this.route.params.pipe(switchMap((params : Params) =>
-      this.studentService.getStudentDocument(+params['id'])))
-      .subscribe(res => {
-        this.documents = res;
-        
-      });
-    }
-      
+
   }
   
+  getStudentDocuments(){
+    this.studentService.getStudentDocument().subscribe(res=>this.documents=this.documents)
+  }
   goBack(): void {
     this.location.back();
   }
