@@ -24,6 +24,6 @@ export class PayoutComponent implements OnInit {
   }
   getPayout(studentId:number)
   {
-    this.studentService.getStudentPayout(studentId);
+    this.studentService.getStudentPayout();
   }
 }

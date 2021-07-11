@@ -21,14 +21,6 @@ export class StudentEnrollmentComponent implements OnInit {
 
 
   ngOnInit(): void {
-    if(this.route.snapshot.params['id']) {
-      this.route.params.pipe(switchMap((params : Params) =>
-      this.studentService.getStudentEnrollment(+params['id'])))
-      .subscribe(res => {
-        this.enrollments = res;
-        
-      });
-    }
   }
 
   

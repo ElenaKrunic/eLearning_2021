@@ -37,7 +37,7 @@ export class StudentDetailsComponent implements OnInit {
   ngOnInit(): void {
     if(this.route.snapshot.params['id']) {
       this.route.params.pipe(switchMap((params: Params) =>
-      this.studentService.getStudent(+params['id'])))
+      this.studentService.getStudent()))
       .subscribe(res => {
         this.student = res.body;
       });

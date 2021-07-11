@@ -24,7 +24,7 @@ export class StudentExamsComponent implements OnInit {
   }
 
   getExams(studentId:number){
-    this.studentService.getStudentsExams(studentId);
+    this.studentService.getStudentsExams();
   }
 
 }

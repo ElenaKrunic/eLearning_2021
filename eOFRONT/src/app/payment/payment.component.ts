@@ -27,7 +27,7 @@ export class PaymentComponent implements OnInit {
 
   getPayment(studentId:number)
   {
-    this.studentService.getStudentPayment(studentId);
+    this.studentService.getStudentPayment();
   }
 
 }
