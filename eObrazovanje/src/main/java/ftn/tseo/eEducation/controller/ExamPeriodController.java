@@ -48,54 +48,7 @@ public class ExamPeriodController {
 	
 	@Autowired 
 	private ExamPeriodRepository examPeriodRepository; 
-		
-	/*
-	@RequestMapping(value="/examPeriods", method = RequestMethod.GET)
-	public ResponseEntity<List<ExamPeriodDTO>> getAllExamPeriods(){
-		
-		List<ExamPeriod> examPeriods = examPeriodService.findAll();
-		List<ExamPeriodDTO> examPeriodDto = new ArrayList<>();
-		for(ExamPeriod examPeriod : examPeriods) {
-			examPeriodDto.add(new ExamPeriodDTO(examPeriod));
-		}
-		return new ResponseEntity<>(examPeriodDto, HttpStatus.OK);
-	}
-	*/
-	
-	
-	/*
-	@RequestMapping(value="/examPeriods", method = RequestMethod.GET)
-	public ResponseEntity<Map<String,Object>> getAllExamPeriods(
-			@RequestParam(required=false) String name, 
-			@RequestParam(defaultValue="0") int page,
-			@RequestParam(defaultValue="3") int size) {
-		
-		try {
-			List<ExamPeriod> examPeriods = new ArrayList<ExamPeriod>(); 
-			Pageable paging = PageRequest.of(page, size); 
 			
-			Page<ExamPeriod> pageExamPeriods; 
-			if (name == null) 
-				pageExamPeriods = examPeriodRepository.findAll(paging);
-			else 
-				pageExamPeriods = examPeriodRepository.findByName(name, paging); 
-			
-			examPeriods = pageExamPeriods.getContent(); 
-			
-			Map<String, Object> response = new HashMap<>();
-			response.put("examPeriods", examPeriods); 
-			response.put("currentPage", pageExamPeriods.getNumber()); 
-			response.put("totalItems", pageExamPeriods.getTotalElements());
-			response.put("totalPages", pageExamPeriods.getTotalPages());
-			
-			return new ResponseEntity<>(response, HttpStatus.OK);
-		} catch(Exception e) {
-			e.printStackTrace();
-			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
-	*/
-	
 	@RequestMapping(value="/examPeriods", method = RequestMethod.GET)
 	public ResponseEntity<Map<String,Object>> getAllExamPeriods(
 			@RequestParam(required=false) String name, 
