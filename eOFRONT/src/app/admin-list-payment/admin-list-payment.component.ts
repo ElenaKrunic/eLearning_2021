@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Payment } from '../model/payment';
 import { PaymentService } from '../payment/payment.service';
 
 @Component({
@@ -8,11 +9,16 @@ import { PaymentService } from '../payment/payment.service';
 })
 export class AdminListPaymentComponent implements OnInit {
 
-  payments: any; 
-  currentPayment: null | any; 
+  payments: Payment[] = []; 
+  currentPayment: Payment; 
   currentIndex = -1; 
   name = '';
   paymentAmount = 0;
+
+  page = 1;
+  count = 0;
+  pageSize = 3;
+  pageSizes = [3, 6, 9];
 
   constructor(private paymentService: PaymentService) { }
 
@@ -20,17 +26,55 @@ export class AdminListPaymentComponent implements OnInit {
     this.retrievePayments();
   }
 
+  getRequestParams(paymentAmount: number, page: number, pageSize: number): any {
+    let params: any = {};
+
+    if (paymentAmount) {
+      params[`paymentAmount`] = paymentAmount;
+    }
+
+    if (page) {
+      params[`page`] = page - 1;
+    }
+
+    if (pageSize) {
+      params[`size`] = pageSize;
+    }
+
+    return params;
+  }
+
   retrievePayments() : void {
-    this.paymentService.getAll()
+    const params = this.getRequestParams(this.paymentAmount, this.page, this.pageSize);
+
+    this.paymentService.getAll(params)
     .subscribe(
-      data => {
-        this.payments = data;
-        console.log(data); 
+      response => {
+        const {payments, totalItems} = response;
+        this.payments = payments;
+        this.count = totalItems;
+        console.log(response); 
       },
       error => {
         console.log(error);
       }
     );
+  }
+
+  handlePageChange(event: number): void {
+    this.page = event;
+    this.retrievePayments();
+  }
+
+  handlePageSizeChange(event: any): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
+    this.retrievePayments();
+  }
+
+  searchPaymentAmount() : void {
+    this.page = 1; 
+    this.retrievePayments();
   }
 
   refreshList(): void {
