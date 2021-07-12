@@ -12,14 +12,16 @@ import { localizedString } from '@angular/compiler/src/output/output_ast';
 
 const baseUrl = "https://localhost:8443/api/students"; 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class StudentService {
+
   id: any;
 
   constructor(private http: HttpClient,private authService:AuthenticationService) {
     this.id= localStorage.getItem('id');
    }
-  
   
   private RegenerateData = new Subject<void>();
 
@@ -27,10 +29,12 @@ export class StudentService {
   
   announceChange() {
       this.RegenerateData.next();
-
   }
-  getAll(): Observable<any> {
-    return this.http.get(baseUrl); 
+
+  //Elena//////////////////////////////////////////////////////
+
+  getAll(params: any): Observable<any> {
+    return this.http.get<any>(baseUrl, { params });
   }
 
   get(id: number): Observable<any>{
@@ -49,9 +53,8 @@ export class StudentService {
     return this.http.delete(`${baseUrl}/${id}`);
   }
 
- 
+ //////////////////////////////////////////////////////////////
 
- 
 
   getStudents(): Observable<HttpResponse<Student[]>> {
       return this.http.get<Student[]>(baseUrl, {observe: 'response'});
