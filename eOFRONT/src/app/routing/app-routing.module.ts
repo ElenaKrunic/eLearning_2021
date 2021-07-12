@@ -40,6 +40,9 @@ const routes: Routes = [
   { path: 'examPeriods', component: AdminListExamPeriodComponent },
   { path: 'examPeriods/:id', component: AdminDetailsExamPeriodComponent },
   { path: 'addExamPeriod', component: AdminAddExamPeriodComponent },
+  { path: 'students', component: AdminListStudentsComponent },
+  { path: 'students/:id', component: AdminDetailsStudentComponent },
+  { path: 'adminAddsStudent', component: AdminAddStudentComponent },
   { path : 'financialCards', component: AdminListFinancialCardComponent},
   { path: 'financialCards/:id', component: AdminDetailsFinancialCardComponent}, 
   { path: 'adminAddFinancialCard', component: AdminAddFinancialCardComponent},
@@ -54,10 +57,7 @@ const routes: Routes = [
   { path: 'preexamObligations', component: AdminListPreexamObligationComponent},
   { path: 'preexamObligations/:id', component: AdminDetailsPreexamObligationComponent},
   { path: 'adminAddPreexamObligation', component: AdminAddPreexamObligationComponent},
-  { path: 'students', component: AdminListStudentsComponent },
-  { path: 'students/:id', component: AdminDetailsStudentComponent },
-  {path:'professorCourses', component:NavbarProfessorComponent},
-  { path: 'adminAddsStudent', component: AdminAddStudentComponent },
+  { path: 'professorCourses', component:NavbarProfessorComponent}
 ];
 
 @NgModule({
