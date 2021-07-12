@@ -1,41 +1,11 @@
-<!--
-
-    <div style="width: 400px; margin: auto;">
-    <div class="submit-form">
-        <div *ngIf="!submitted">
-            <div class="form-group">
-                <label for="paymentAmount"> Payment amount </label>
-                <input type="number" class="form-control" id="paymentAmount" required [(ngModel)]="payment.paymentAmount" name="paymentAmount"/>
-            </div>
-
-            <div class="form-group">
-                <label for="paymentDate"> Payment date </label>
-                <input type="date" class="form-control" id="paymentDate" required [(ngModel)]="payment.paymentDate" name="paymentDate"/>
-            </div>
-
-            <div class="form-group">
-                <label for="paymentDescription"> Payment description </label>
-                <input type="text" class="form-control" id="paymentDescription" required [(ngModel)]="payment.paymentDescription" name="paymentDescription"/>
-            </div>
-
-            <button (click)="savePayment()" class="btn btn-success"> Submit </button>
-        </div>
-
-        <div *ngIf="submitted">
-            <h4> The payment was added successfully!</h4>
-            <button class="btn btn-success" (click)="newPayment()"> Add new payment </button>
-        </div>
-    </div>
-</div>
-
--->
 
 <div class="submit-form">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
       <div class="form-group">
         <label>Date of payment</label>
         <input
-          type="date"
+          type="text"
           formControlName="dateOfPayment"
           class="form-control"
           [(ngModel)]="payment.dateOfPayment" 
@@ -68,7 +38,7 @@
         <label>Payment amount</label>
         <input
           type="number"
-          formControlName="number"
+          formControlName="paymentAmount"
           class="form-control"
           [(ngModel)]="payment.paymentAmount" 
           id = "paymentAmount"
@@ -76,13 +46,7 @@
           [ngClass]="{ 'is-invalid': submitted && f.paymentAmount.errors }"
         />
         <div *ngIf="submitted && f.paymentAmount.errors" class="invalid-feedback">
-          <div *ngIf="f.paymentAmount.errors.required">Payment amount is required</div>
-          <div *ngIf="f.paymentAmount.errors.minlength">
-            Payment amount must have at least 3 digits! 
-          </div>
-          <div *ngIf="f.paymentAmount.errors.maxlength">
-            Payment amount must not exceed 9 digits!
-          </div>
+          <div *ngIf="f.paymentAmount.errors.required">Payment is required</div>
         </div>
       </div>
 
