@@ -13,18 +13,13 @@ public class StudentDTO {
 	private Long startedCollegeIn;
 	private String accountNumber;
 	private int modelNumber;
-<<<<<<< HEAD
+
 	private FinancialCardDTO financialCardDTO;
-=======
 	private Double cardAmount; 
 	private String referenceNumber; 
 	
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
 	private TypeOfFinancingDTO typeOfFinancing;
-<<<<<<< HEAD
 	private UserDTO user;
-=======
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
 	public StudentDTO() {
 		super();
 	}
@@ -38,21 +33,19 @@ public class StudentDTO {
 		this.phoneNumber = student.getPhoneNumber();
 		this.email = student.getEmail();
 		this.umnc = student.getUmnc();
-<<<<<<< HEAD
+
 		this.financialCardDTO=new FinancialCardDTO(student.getFinancialCards());
 		this.typeOfFinancing=new  TypeOfFinancingDTO(student.getTypeOfFinancing());
-=======
-		//this.typeOfFinancing=new  TypeOfFinancingDTO(student.getTypeOfFinancing());
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
+
 		this.accountNumber=student.getAccountNumber();
 		this.modelNumber=student.getModelNumber();
 		this.startedCollegeIn=student.getStartedCollegeIn();
-<<<<<<< HEAD
+
 		this.user=new UserDTO(student.getUser());
-=======
+
 		this.cardAmount = student.getCardAmount(); 
 		this.referenceNumber = student.getReferenceNumber();
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
+
 	}
 
 	
