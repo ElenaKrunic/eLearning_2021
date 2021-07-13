@@ -165,10 +165,12 @@ public class StudentController {
 		student.setUmnc(studentDTO.getUmnc());
 		student.setPhoneNumber(studentDTO.getPhoneNumber());
 		student.setAccountNumber(student.getAccountNumber());
+		student.setCardAmount(studentDTO.getCardAmount());
+		student.setReferenceNumber(studentDTO.getReferenceNumber());
 		student.setModelNumber(studentDTO.getModelNumber());
 		student.setStartedCollegeIn(studentDTO.getStartedCollegeIn());
-		TypeOfFinancing typeOfFinancing =  typeOfFinancingService.findOne(studentDTO.getTypeOfFinancing().getId());
-		student.setTypeOfFinancing(typeOfFinancing);
+		//TypeOfFinancing typeOfFinancing =  typeOfFinancingService.findOne(studentDTO.getTypeOfFinancing().getId());
+		//student.setTypeOfFinancing(typeOfFinancing);
 		student = studentService.save(student);
 		return new ResponseEntity<>(new StudentDTO(student), HttpStatus.CREATED);	
 	}
@@ -192,9 +194,12 @@ public class StudentController {
 		student.setAccountNumber(student.getAccountNumber());
 		student.setModelNumber(studentDTO.getModelNumber());
 		student.setStartedCollegeIn(studentDTO.getStartedCollegeIn());
-		TypeOfFinancing typeOfFinancing =  typeOfFinancingService.findOne(studentDTO.getTypeOfFinancing().getId());
+		student.setCardAmount(studentDTO.getCardAmount());
+		student.setReferenceNumber(studentDTO.getReferenceNumber());
+		student.setModelNumber(studentDTO.getModelNumber());
+		//TypeOfFinancing typeOfFinancing =  typeOfFinancingService.findOne(studentDTO.getTypeOfFinancing().getId());
 		
-		student.setTypeOfFinancing(typeOfFinancing);
+		//student.setTypeOfFinancing(typeOfFinancing);
 		
 		student = studentService.save(student);
 		return new ResponseEntity<>(new StudentDTO(student), HttpStatus.OK);	

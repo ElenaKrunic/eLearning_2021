@@ -6,21 +6,17 @@ public class StudentDTO {
 	private Long id;
 	private String cardNumber;
 	private String firstName;
-	
 	private String lastName;
-	
 	private String phoneNumber;
-	
 	private String email;
-	
 	private String umnc;
-	
 	private Long startedCollegeIn;
 	private String accountNumber;
 	private int modelNumber;
+	private Double cardAmount; 
+	private String referenceNumber; 
 	
 	private TypeOfFinancingDTO typeOfFinancing;
-
 	public StudentDTO() {
 		super();
 	}
@@ -34,11 +30,12 @@ public class StudentDTO {
 		this.phoneNumber = student.getPhoneNumber();
 		this.email = student.getEmail();
 		this.umnc = student.getUmnc();
-		this.typeOfFinancing=new  TypeOfFinancingDTO(student.getTypeOfFinancing());
+		//this.typeOfFinancing=new  TypeOfFinancingDTO(student.getTypeOfFinancing());
 		this.accountNumber=student.getAccountNumber();
 		this.modelNumber=student.getModelNumber();
 		this.startedCollegeIn=student.getStartedCollegeIn();
-	
+		this.cardAmount = student.getCardAmount(); 
+		this.referenceNumber = student.getReferenceNumber();
 	}
 
 	
@@ -130,11 +127,20 @@ public class StudentDTO {
 		this.modelNumber = modelNumber;
 	}
 	
-	
-	
-	
-	
+	public Double getCardAmount() {
+		return cardAmount;
+	}
 
-	
+	public void setCardAmount(Double cardAmount) {
+		this.cardAmount = cardAmount;
+	}
 
+	public String getReferenceNumber() {
+		return referenceNumber;
+	}
+
+	public void setReferenceNumber(String referenceNumber) {
+		this.referenceNumber = referenceNumber;
+	}
+	
 }

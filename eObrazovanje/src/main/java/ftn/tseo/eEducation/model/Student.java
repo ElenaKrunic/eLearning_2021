@@ -56,7 +56,7 @@ public class Student {
 	private TypeOfFinancing typeOfFinancing;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy="student" ,fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
+	@OneToMany(mappedBy="student" ,fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 	private Set<Enrollment> enrollments=new HashSet<Enrollment>();
 	
 	@JsonIgnore
