@@ -1,67 +1,211 @@
-<div style="width: 400px; margin: auto;">
-    <div class="submit-form">
-        <div *ngIf="!submitted">
-            <div class="form-group">
-                <label for="name"> First name </label>
-                <input type="text" class="form-control" id="firstName" required [(ngModel)]="student.firstName" name="firstName"/>
-            </div>
 
-            <div class="form-group">
-                <label for="lastName"> Last name </label>
-                <input type="text" class="form-control" id="lastName" required [(ngModel)]="student.lastName" name="lastName"/>
+<div class="submit-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      
+        <div class="form-group">
+            <label for="cardNumber"> Card number </label>
+            <input type="text" 
+            class="form-control"
+            id="cardNumber"
+            [(ngModel)]="student.cardNumber" 
+            name="cardNumber"
+            formControlName="cardNumber"
+            [ngClass]="{ 'is-invalid': submitted && f.cardNumber.errors }"
+            />
+            <div *ngIf="submitted && f.cardNumber.errors" class="invalid-feedback">
+                <div *ngIf="f.cardNumber.errors.required">Card number</div>
+                <div *ngIf="f.name.errors.minlength">
+                  Card number must be at least 3 characters!
+                </div>
+                <div *ngIf="f.name.errors.maxlength">
+                  Card number must not exceed 13 characters!
+                </div>
             </div>
-
-            <div class="form-group">
-                <label for="cardNumber"> Card number </label>
-                <input type="text" class="form-control" id="cardNumber" required [(ngModel)]="student.cardNumber" name="cardNumber"/>
-            </div>
-
-            <div class="form-group">
-                <label for="phoneNumber"> Phone number </label>
-                <input type="text" class="form-control" id="phoneNumber" required [(ngModel)]="student.phoneNumber" name="phoneNumber"/>
-            </div>
-
-            <div class="form-group">
-                <label for="email"> Email  </label>
-                <input type="text" class="form-control" id="email" required [(ngModel)]="student.email" name="email"/>
-            </div>
-
-            <div class="form-group">
-                <label for="umnc"> UMNC  </label>
-                <input type="text" class="form-control" id="umnc" required [(ngModel)]="student.umnc" name="umnc"/>
-            </div>
-
-            <div class="form-group">
-                <label for="startedCollegeIn"> Started college in  </label>
-                <input type="number" class="form-control" id="startedCollegeIn" required [(ngModel)]="student.startedCollegeIn" name="startedCollegeIn"/>
-            </div>
-
-            <div class="form-group">
-                <label for="modelNumber"> Model number </label>
-                <input type="number" class="form-control" id="modelNumber" required [(ngModel)]="student.modelNumber" name="modelNumber"/>
-            </div>
-
-            <div class="form-group">
-                <label for="referenceNumber"> Reference number  </label>
-                <input type="text" class="form-control" id="referenceNumber" required [(ngModel)]="student.referenceNumber" name="referenceNumber"/>
-            </div>
-
-            <div class="form-group">
-                <label for="accountNumber"> Account number  </label>
-                <input type="text" class="form-control" id="accountNumber" required [(ngModel)]="student.accountNumber" name="accountNumber"/>
-            </div>
-            
-            <div class="form-group">
-                <label for="cardAmount"> Card amount </label>
-                <input type="text" class="form-control" id="cardAmount" required [(ngModel)]="student.cardAmount" name="cardAmount"/>
-            </div>
-
-            <button (click)="saveStudent()" class="btn btn-success"> Submit </button>
         </div>
+
+        <div class="form-group">
+            <label for="firstName"> First name </label>
+            <input type="text"
+            class="form-control"
+            id="firstName"
+            [(ngModel)] = "student.firstName"
+            name="firstName"
+            formControlName="firstName"
+            [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+            />
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">First name</div>
+                <div *ngIf="f.firstName.errors.minlength">
+                  First must be at least 3 characters
+                </div>
+                <div *ngIf="f.firstName.errors.maxlength">
+                  First must not exceed 13 characters
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="lastName"> Last name </label>
+            <input type="text"
+            class="form-control"
+            id="lastName"
+            [(ngModel)] = "student.lastName"
+            name="lastName"
+            formControlName="lastName"
+            [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+            />
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors.required">First name</div>
+                <div *ngIf="f.lastName.errors.minlength">
+                  Last name must be at least 3 characters
+                </div>
+                <div *ngIf="f.firstName.errors.maxlength">
+                  Last name must not exceed 13 characters
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="umnc"> UMNC </label>
+            <input type="text"
+            class="form-control"
+            id="umnc"
+            [(ngModel)] = "student.umnc"
+            name="umnc"
+            formControlName="umnc"
+            [ngClass]="{ 'is-invalid': submitted && f.umnc.errors }"
+            />
+            <div *ngIf="submitted && f.umnc.errors" class="invalid-feedback">
+                <div *ngIf="f.umnc.errors.required"> UMNC </div>
+                <div *ngIf="f.umnc.errors.minlength">
+                  UMNC must be at least 9 characters
+                </div>
+                <div *ngIf="f.umnc.errors.maxlength">
+                 UMNC must not exceed 13 characters
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email"> Email </label>
+            <input type="text"
+            class="form-control"
+            id="email"
+            [(ngModel)] = "student.email"
+            name="email"
+            formControlName="email"
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+            >
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+              <div *ngIf="f.email.errors.email">Invalid email format</div>
+            </div>
+         </div>
+
+        <div class="form-group">
+            <label for="phoneNumber"> Phone number </label>
+            <input type="string"
+            class="form-control"
+            id="phoneNumber"
+            [(ngModel)] = "student.phoneNumber"
+            name="phoneNumber"
+            formControlName="phoneNumber"
+            [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"
+            />
+            <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+                <div *ngIf="f.phoneNumber.errors.required">Phone number is required</div>
+            </div>
+        </div>
+
+            <div class="form-group">
+                <label for="startedCollegeIn"> Started college in </label>
+                <input type="number"
+                class="form-control"
+                id="startedCollegeIn"
+                [(ngModel)] = "student.startedCollegeIn"
+                name="startedCollegeIn"
+                formControlName="startedCollegeIn"
+                [ngClass]="{ 'is-invalid': submitted && f.startedCollegeIn.errors }"
+                />
+                <div *ngIf="submitted && f.startedCollegeIn.errors" class="invalid-feedback">
+                    <div *ngIf="f.startedCollegeIn.errors.required"> The year of the start of college is mandatory</div>
+                </div>
+            </div>
+
+        <div class="form-group">
+                <label for="modelNumber"> Model number </label>
+                <input type="number"
+                class="form-control"
+                id="modelNumber"
+                [(ngModel)] = "student.modelNumber"
+                name="modelNumber"
+                formControlName="modelNumber"
+                [ngClass]="{ 'is-invalid': submitted && f.modelNumber.errors }"
+                />
+                <div *ngIf="submitted && f.modelNumber.errors" class="invalid-feedback">
+                    <div *ngIf="f.modelNumber.errors.required"> Model number is required! </div>
+                </div>
+        </div>
+
+        <div class="form-group">
+                <label for="referenceNumber"> Reference number </label>
+                <input type="text"
+                class="form-control"
+                id="referenceNumber"
+                [(ngModel)] = "student.referenceNumber"
+                name="referenceNumber"
+                formControlName="referenceNumber"
+                [ngClass]="{ 'is-invalid': submitted && f.referenceNumber.errors }"
+                />
+                <div *ngIf="submitted && f.referenceNumber.errors" class="invalid-feedback">
+                    <div *ngIf="f.referenceNumber.errors.required"> Reference number is required! </div>
+                </div>    
+        </div>
+
+        <div class="form-group">
+                <label for="accountNumber"> Account number </label>
+                <input type="text"
+                class="form-control"
+                id="accountNumber"
+                [(ngModel)] = "student.accountNumber"
+                name="accountNumber"
+                formControlName="accountNumber"
+                [ngClass]="{ 'is-invalid': submitted && f.accountNumber.errors }"
+                />
+                <div *ngIf="submitted && f.accountNumber.errors" class="invalid-feedback">
+                    <div *ngIf="f.accountNumber.errors.required"> Account number is required! </div>
+                </div>
+        </div>
+
+        <div class="form-group">
+          <label for="cardAmount"> Card amount </label>
+          <input type="number"
+          class="form-control"
+          id="cardAmount"
+          [(ngModel)] = "student.cardAmount"
+          name="cardAmount"
+          formControlName="cardAmount"
+          [ngClass]="{ 'is-invalid': submitted && f.cardAmount.errors }"
+          />
+          <div *ngIf="submitted && f.cardAmount.errors" class="invalid-feedback">
+              <div *ngIf="f.cardAmount.errors.required"> Card amount is required! </div>
+          </div>
+         </div>
 
         <div *ngIf="submitted">
             <h4> The student was added successfully!</h4>
             <button class="btn btn-success" (click)="newStudent()"> Add new student </button>
         </div>
-    </div>
+    
+          <div class="form-group">
+           <button (click)="saveStudent()" class="btn btn-success"> Submit </button>
+            <button
+              type="button"
+              (click)="onReset()"
+              class="btn btn-warning float-right"
+            >
+              Reset
+            </button>
+          </div>
+    </form>
 </div>

@@ -12,6 +12,8 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Payment {
 	
@@ -25,6 +27,7 @@ public class Payment {
 	
 	private float paymentAmount;
 	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "financialCard", referencedColumnName = "id", nullable = true)
 	@OnDelete(action = OnDeleteAction.CASCADE)

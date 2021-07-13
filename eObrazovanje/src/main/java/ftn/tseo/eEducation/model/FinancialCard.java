@@ -16,6 +16,8 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class FinancialCard {
 	
@@ -31,14 +33,17 @@ public class FinancialCard {
 	
 	private float totalCost;
 	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "student", referencedColumnName = "id", nullable = true)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Student student;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="financialCard",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
 	private Set<Payment> payments=new HashSet<Payment>();
 
+	@JsonIgnore
 	@OneToMany(mappedBy="financialCard",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
 	private Set<PayOut> payouts=new HashSet<PayOut>();
 	

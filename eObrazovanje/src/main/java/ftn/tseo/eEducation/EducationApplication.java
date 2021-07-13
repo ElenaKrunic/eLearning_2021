@@ -18,14 +18,14 @@ public class EducationApplication {
 	public SimpleFilterProvider simpleFilter() {
 		return new SimpleFilterProvider();
 	}
-	private static final String path="/error";
-	
-	@RequestMapping(value=path)
-	public String error() {
-		return "forward:/index.html";
-	}
-
-	public String getErrorPath() {
-		return path;
-	}
+//	private static final String path="/error";
+//	
+//	@RequestMapping(value=path)
+//	public String error() {
+//		return "forward:/index.html";
+//	}
+//
+//	public String getErrorPath() {
+//		return path;
+//	}
 }

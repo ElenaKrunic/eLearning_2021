@@ -4,16 +4,20 @@ import { HttpResponse, HttpClient } from '@angular/common/http';
 import { PreexamObligation } from '../model/preexam-obligation';
 
 const baseUrl = "https://localhost:8443/api/preexamObligations"; 
-//aa
-@Injectable()
+
+@Injectable({
+  providedIn:'root'
+})
 export class PreexamObligationService {
 
   private path="api/preexamObligation";
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<any> {
-    return this.http.get(baseUrl); 
+  //Elena
+  ///////////////////////////////////////////////////////////
+  getAll(params: any): Observable<any> {
+    return this.http.get<any>(baseUrl, { params });
   }
 
   get(id: number): Observable<any>{
@@ -35,6 +39,8 @@ export class PreexamObligationService {
   deleteAll(): Observable<any> {
     return this.http.delete(baseUrl);
   }
+
+  ///////////////////////////////////////////////////////////
 
     private RegenerateData = new Subject<void>();
 

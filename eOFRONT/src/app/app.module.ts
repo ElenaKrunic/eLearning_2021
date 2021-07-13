@@ -12,7 +12,6 @@ import { AppComponent } from './app.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
 import { StudentsComponent } from './students/students.component';
 import { LoginComponent } from './login/login.component';
-import { PreexamObligationComponent } from './preexam-obligation/preexam-obligation.component';
 import { HeaderComponent } from './core/header/header.component';
 import { FinancialcardStudentComponent } from './financialcard-student/financialcard-student.component';
 import { NavbarProfessorComponent } from './core/navbar-professor/navbar-professor.component';
@@ -59,7 +58,6 @@ import { AdminListPreexamObligationComponent } from './admin-list-preexam-obliga
 import { AdminAddStudentComponent } from './admin-add-student/admin-add-student.component';
 import { AdminDetailsStudentComponent } from './admin-details-student/admin-details-student.component';
 import { AdminListStudentsComponent } from './admin-list-students/admin-list-students.component';
-import { AdminAddPreexamObligationTypeComponent } from './admin-add-preexam-obligation-type/admin-add-preexam-obligation-type.component';
 import { AdminDetailsPreexamObligationTypeComponent } from './admin-details-preexam-obligation-type/admin-details-preexam-obligation-type.component';
 import { ValidationComponent } from './validation/validation.component';
 import { ProfessorService } from './professor/professor.service';
@@ -71,7 +69,6 @@ import { StudentService } from './students/student.service';
     StudentDetailsComponent,
     StudentsComponent,
     LoginComponent,
-    PreexamObligationComponent,
     HeaderComponent,
     NavbarStudentComponent,
     FinancialcardStudentComponent,
@@ -120,14 +117,10 @@ import { StudentService } from './students/student.service';
     AdminAddStudentComponent,
     AdminDetailsStudentComponent,
     AdminListStudentsComponent,
-    AdminAddPreexamObligationComponent,
-    AdminDetailsPreexamObligationComponent,
-    AdminListPreexamObligationComponent,
-    AdminAddPreexamObligationTypeComponent,
     AdminDetailsPreexamObligationTypeComponent,
-    AdminAddPreexamObligationComponent,
-    AdminDetailsPreexamObligationComponent,
     AdminListPreexamObligationComponent,
+    AdminDetailsPreexamObligationComponent,
+    AdminAddPreexamObligationComponent,
     AdminAddStudentComponent,
     AdminListStudentsComponent,
     NavbarProfessorComponent,
@@ -154,7 +147,6 @@ import { StudentService } from './students/student.service';
     NgbModule,
     CommonModule,
   ],
-
 
   bootstrap: [AppComponent]
 })

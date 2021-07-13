@@ -104,9 +104,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 				.and()
 			.authorizeRequests()
+
 				.antMatchers( "/","/api/examPeriods/**","/api/financialCards/**", "/api/payments/**",  "/api/preexamObligations/**" , "/api/students/**",  
 						"/api/login","/styles.css","/runtime.js","/polyfills.js","/vendor.js","/main.js","/favicon.ico","/styles.css.map","/runtime.js.map","/polyfills.js.map","/vendor.js.map","/main.js.map").permitAll() 
-				.antMatchers(HttpMethod.POST, "/api/**")
+//=======
+//				.antMatchers( "/","/api/login","/styles.css","/runtime.js","/polyfills.js","/vendor.js","/main.js","/favicon.ico","/styles.css.map","/runtime.js.map","/polyfills.js.map","/vendor.js.map","/main.js.map","/bootstrap.css","/bootstrap.css.map").permitAll() 
+//>>>>>>> branch 'milicinaGrana' of https://github.com/ElenaKrunic/eObrazovanje2021.git
+		.antMatchers(HttpMethod.POST, "/api/**")
 				.hasAuthority("ROLE_ADMIN")
 				.anyRequest().authenticated();
 				 
