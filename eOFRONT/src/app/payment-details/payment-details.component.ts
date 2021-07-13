@@ -16,7 +16,7 @@ export class PaymentDetailsComponent implements OnInit {
     dateOfPayment : '', 
     paymentAmount : 0, 
     paymentDescription : '',
-    financialCard : null
+    // financialCard : null
   });
 
   mode : string = 'ADD'; 

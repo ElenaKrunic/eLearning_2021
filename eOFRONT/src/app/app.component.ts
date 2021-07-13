@@ -9,8 +9,6 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class AppComponent {
 
-
-
 	public roles: string[]=[];
 	currentUser:any;
 	constructor(private router: Router) {}

@@ -1,35 +1,52 @@
-<div style="width: 400px; margin: auto;">
-    <div class="submit-form">
-      <div *ngIf="!submitted">
-        <div class="form-group">
-          <label for="date">Date</label>
-          <input
-            type="date"
-            class="form-control"
-            id="date"
-            required
-            [(ngModel)]="preexamObligation.date"
-            name="date"
-          />
+<div class="submit-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="text">Date of obligation</label>
+        <input
+          type="text"
+          class="form-control"
+          id="dateOfObligation"
+          required
+          [(ngModel)]="preexamObligation.dateOfObligation"
+          name="dateOfObligation"
+          formControlName="dateOfObligation"
+          [ngClass]="{ 'is-invalid': submitted && f.dateOfObligation.errors }"
+        />
+        <div *ngIf="submitted && f.dateOfObligation.errors" class="invalid-feedback">
+          <div *ngIf="f.dateOfObligation.errors.required">Date of obligation is required</div>
         </div>
-  
-        <div class="form-group">
-          <label for="location">Location</label>
-          <input
-            class="form-control"
-            id="location"
-            required
-            [(ngModel)]="preexamObligation.location"
-            name="location"
-          />
-        </div>
-  
-        <button (click)="savePreexamObligation()" class="btn btn-success">Submit</button>
       </div>
-  
+
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input
+          class="form-control"
+          id="location"
+          required
+          [(ngModel)]="preexamObligation.location"
+          name="location"
+          formControlName="location"
+          [ngClass]="{ 'is-invalid': submitted && f.location.errors }"
+        />
+        <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+          <div *ngIf="f.location.errors.required">Location is required! </div>
+        </div>
+      </div>
+
       <div *ngIf="submitted">
-        <h4>You submitted successfully!</h4>
-        <button class="btn btn-success" (click)="newPreexamObligation()">Add</button>
+        <h4> The preexam obligation was added successfully!</h4>
+        <button class="btn btn-success" (click)="newPreexamObligation()"> Add new preexam obligation </button>
       </div>
-    </div>
-  </div>
+
+      <div class="form-group">
+       <button (click)="savePreexamObligation()" class="btn btn-success"> Submit </button>
+        <button
+          type="button"
+          (click)="onReset()"
+          class="btn btn-warning float-right"
+        >
+          Reset
+        </button>
+      </div>
+  </form>
+</div>

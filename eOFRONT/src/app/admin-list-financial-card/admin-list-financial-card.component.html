@@ -33,11 +33,18 @@
       <h4>List of financial cards </h4>
       <ul class="list-group">
         <li
-          class="list-group-item"
-          *ngFor="let financialCard of financialCards; let i = index"
-          [class.active]="i == currentIndex"
-          (click)="setActiveFinancialCard(financialCard, i)"
-        >
+        class="list-group-item"
+        *ngFor="
+          let financialCard of financialCards | paginate : {
+            itemsPerPage: pageSize, 
+            currentPage: page, 
+            totalItems: count
+        };
+        let i = index
+        "
+        [class.active]="i == currentIndex"
+        (click)="setActiveFinancialCard(financialCard, i)"
+      >
         Total cost of financial card with id {{ financialCard.id}} is 
           {{ financialCard.totalCost }}
         </li>

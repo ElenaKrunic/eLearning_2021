@@ -22,12 +22,12 @@ export class PaymentComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    // this.getPayment(studentId:number);
+    // this.getPayment(studentId);
   }
 
-  getPayment(studentId:number)
+  getPayment(studentId:any)
   {
-    this.studentService.getStudentPayment();
+    this.studentService.getStudentPayment(studentId);
   }
 
 }

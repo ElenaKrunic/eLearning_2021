@@ -1,4 +1,5 @@
 import { Enrollment } from "./enrollment";
+import { ExamPeriod } from "./exam-period";
 
 export class Exam implements ExamInterface {
 
@@ -9,6 +10,7 @@ export class Exam implements ExamInterface {
 	public  points:number;
 	
 	public examDate:Date;
+    public examPeriod:ExamPeriod;
 	
 	public status:boolean;
 	public enrollment:Enrollment;
@@ -20,6 +22,7 @@ export class Exam implements ExamInterface {
         this.status=examConf.status;
         this.examDate=examConf.examDate; 
         this.enrollment=examConf.enrollment;
+        this.examPeriod=examConf.examPeriod;
         
 
     }
@@ -32,5 +35,6 @@ interface ExamInterface{
     examDate:Date;
     status:boolean;
     enrollment:Enrollment;
+    examPeriod:ExamPeriod;
 
 }

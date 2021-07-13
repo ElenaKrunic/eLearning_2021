@@ -8,8 +8,7 @@ export class FinancialCard {
 	public totalPayment:number;
 	public totalPayout:number;
 	public totalCost:number;
-    public student:Student;
-
+    
     //inicijalni konstruktor 
 /*
     constructor(financialCardConf:FinancialCardInterface){
@@ -48,6 +47,6 @@ interface FinancialCardInterface{
     totalPayment:number;
     totalPayout:number;
     totalCost:number;
-    student : Student
+    
    
 }

@@ -41,7 +41,13 @@ export class ProfessorService {
       return this.http.get<Professor[]>(url, {observe: 'response'});
     } 
 
-
+    getMe(){
+      
+      const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+    
+      return this.http.get<Professor>(this.path + "/me", {headers: headers});
+    
+    }
     getProfessorStudents(professorId:number): Observable<HttpResponse<Student[]>> {
       const headInfo={
         'Content - Type': 'application/json',

@@ -1,5 +1,5 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Student } from '../model/student';
 import { StudentService } from '../students/student.service';
 
@@ -27,12 +27,61 @@ export class AdminAddStudentComponent implements OnInit {
 
   });
 
+  form!: FormGroup;
   submitted = false; 
 
-  constructor(private studentService: StudentService) { }
+  constructor(private studentService: StudentService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      firstName: [
+        '',
+        [
+          Validators.required, 
+          Validators.minLength(3),
+          Validators.maxLength(13)
+        ] 
+      ],
+      lastName: [
+        '',
+        [
+          Validators.required, 
+          Validators.minLength(3),
+          Validators.maxLength(13)
+        ] 
+      ],
+      cardNumber: [
+        '',
+        [
+          Validators.required, 
+          Validators.minLength(3),
+          Validators.maxLength(13)
+        ] 
+      ],
+      phoneNumber: [
+        '',
+        [
+          Validators.required, 
+        ] 
+      ],
+      email: ['', [Validators.required, Validators.email]],
+      umnc: [
+        '',
+        [
+          Validators.required, 
+          Validators.minLength(9),
+          Validators.maxLength(13)
+        ] 
+      ],
+      startedCollegeIn: [0, Validators.required], 
+      modelNumber: [0, Validators.required],
+      referenceNumber: ['', Validators.required],
+      accountNumber: ['', Validators.required],
+      cardAmount: [0, Validators.required] 
+    });
   }
+
+  get f(): { [key: string]: AbstractControl} { return this.form.controls;}
 
   saveStudent() {
     const data = {
@@ -61,5 +110,39 @@ export class AdminAddStudentComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  newStudent(){
+    this.submitted = false; 
+    this.student = {
+      cardNumber : '',
+      firstName: '', 
+      lastName: '', 
+      phoneNumber: '', 
+      email: '', 
+      umnc: '', 
+      startedCollegeIn: 1999, 
+      modelNumber: 2, 
+      referenceNumber :'', 
+      accountNumber : '', 
+      cardAmount : 124223,
+      typeOfFinancing : null, 
+      financialCards: null
+    };
+  }
+
+  onSubmit(): void {
+    this.submitted = true;
+
+    if (this.form.invalid) {
+      return;
+    }
+
+    console.log(JSON.stringify(this.form.value, null, 2));
+  }
+
+  onReset(): void {
+    this.submitted = false;
+    this.form.reset();
   }
 }

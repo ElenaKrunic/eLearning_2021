@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Student } from '../model/student';
 import { StudentService } from '../students/student.service';
 
 @Component({
@@ -8,11 +9,15 @@ import { StudentService } from '../students/student.service';
 })
 export class AdminListStudentsComponent implements OnInit {
 
-  students : any; 
-  currentStudent: null | any; 
+  students : Student[] = []; 
+  currentStudent: Student; 
   currentIndex = -1; 
   firstName = '' ;
-  lastName = ''; 
+
+  page = 1;
+  count = 0;
+  pageSize = 3;
+  pageSizes = [3, 6, 9];
 
   constructor(private studentService: StudentService) { }
 
@@ -20,17 +25,48 @@ export class AdminListStudentsComponent implements OnInit {
     this.retrieveStudents();
   }
 
+  getRequestParams(searchFirstName: string, page: number, pageSize: number): any {
+    let params: any = {};
+
+    if (searchFirstName) {
+      params[`firstName`] = searchFirstName;
+    }
+
+    if (page) {
+      params[`page`] = page - 1;
+    }
+
+    if (pageSize) {
+      params[`size`] = pageSize;
+    }
+
+    return params;
+  }
+
   retrieveStudents() : void {
-    this.studentService.getAll()
+    const params = this.getRequestParams(this.firstName, this.page, this.pageSize);
+    this.studentService.getAll(params)
     .subscribe(
-      data => {
-        this.students = data;
-        console.log(data); 
+      response => {
+        const { students, totalItems } = response;
+        this.students = students;
+        this.count = totalItems;
+        console.log(response);
       },
       error => {
         console.log(error);
-      }
-    );
+      });
+  }
+
+  handlePageChange(event: number): void {
+    this.page = event;
+    this.retrieveStudents();
+  }
+
+  handlePageSizeChange(event: any): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
+    this.retrieveStudents();
   }
 
   refreshList(): void {
@@ -44,5 +80,9 @@ export class AdminListStudentsComponent implements OnInit {
     this.currentIndex = index;
   }
 
+  searchFirstName(): void {
+    this.page = 1;
+    this.retrieveStudents();
+  }
 
 }

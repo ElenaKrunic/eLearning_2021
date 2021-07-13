@@ -12,14 +12,17 @@ import { localizedString } from '@angular/compiler/src/output/output_ast';
 
 const baseUrl = "https://localhost:8443/api/students"; 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class StudentService {
+
   id: any;
+  studentId:any;
 
   constructor(private http: HttpClient,private authService:AuthenticationService) {
-    this.id= localStorage.getItem('id');
+    
    }
-  
   
   private RegenerateData = new Subject<void>();
 
@@ -27,10 +30,13 @@ export class StudentService {
   
   announceChange() {
       this.RegenerateData.next();
-
   }
-  getAll(): Observable<any> {
-    return this.http.get(baseUrl); 
+
+  //Elena
+  //////////////////////////////////////////////////////////
+
+  getAll(params: any): Observable<any> {
+    return this.http.get<any>(baseUrl, { params });
   }
 
   get(id: number): Observable<any>{
@@ -49,16 +55,15 @@ export class StudentService {
     return this.http.delete(`${baseUrl}/${id}`);
   }
 
- 
+ //////////////////////////////////////////////////////////////
 
- 
 
   getStudents(): Observable<HttpResponse<Student[]>> {
       return this.http.get<Student[]>(baseUrl, {observe: 'response'});
     }
 
-  getStudent(): Observable<HttpResponse<Student>> {
-      const url = `${baseUrl}/${this.id}`;
+  getStudent(id:number): Observable<HttpResponse<Student>> {
+      const url = `${baseUrl}/${id}`;
       return this.http.get<Student>(url, {observe: 'response'});
     }
 
@@ -70,12 +75,12 @@ export class StudentService {
       return this.http.put<Student>(baseUrl, student, {observe: 'response'});
     }
 
-  deleteStudent(studentId: number): Observable<HttpResponse<any>> {
-      const url = `${baseUrl}/${studentId}`;
+  deleteStudent(id: number): Observable<HttpResponse<any>> {
+      const url = `${baseUrl}/${id}`;
       return this.http.delete<any>(url, {observe: 'response'});
     }
 
-    getStudentsExams(): Observable<Exam[]> {
+    getStudentsExams(studentId:number): Observable<Exam[]> {
 
             const headInfo={
               'Content - Type': 'application/json',
@@ -85,11 +90,21 @@ export class StudentService {
               headers:new HttpHeaders(headInfo)
             }
 
-        const url=`${baseUrl}/${this.id}/exams`;
+        const url=`${baseUrl}/${studentId}/exams`;
         return this.http.get<Exam[]>(url, requestOptions);
     }
+    
+    getStudentMe(): Observable<Student> {
 
-   getStudentFinancialCard(): Observable<FinancialCard> {
+    
+        const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+    
+        return this.http.get<Student>(baseUrl + "/me", {headers: headers});
+      
+ 
+}
+
+   getStudentFinancialCard(studentId:number): Observable<FinancialCard> {
              const headInfo={
         'Content - Type': 'application/json',
         'X-Auth-Token':"" + this.authService.getToken(),
@@ -97,11 +112,11 @@ export class StudentService {
             const requestOptions={
               headers:new HttpHeaders(headInfo)
             }
-        const url = `${baseUrl}/${this.id}/financial-card`;
+        const url = `${baseUrl}/${studentId}/financial-card`;
         return this.http.get<FinancialCard>(url,requestOptions);
 
     }
-    getStudentPayment(): Observable<Payment[]> {
+    getStudentPayment(studentId:number): Observable<Payment[]> {
             const headInfo={
               'Content - Type': 'application/json',
               'X-Auth-Token':"" + this.authService.getToken(),
@@ -109,12 +124,12 @@ export class StudentService {
             const requestOptions={
               headers:new HttpHeaders(headInfo)
             }
-      const url = `${baseUrl}/${this.id}/payment`;
+      const url = `${baseUrl}/${studentId}/payment`;
       return this.http.get<Payment[]>(url, requestOptions);
       
   }
 
-  getStudentPayout(): Observable<Payout[]> {
+  getStudentPayout(studentId:number): Observable<Payout[]> {
     const headInfo={
       'Content - Type': 'application/json',
       'X-Auth-Token':"" + this.authService.getToken(),
@@ -122,11 +137,11 @@ export class StudentService {
           const requestOptions={
             headers:new HttpHeaders(headInfo)
           }
-    const url = `${baseUrl}/${this.id}/payout`;
+    const url = `${baseUrl}/${studentId}/payout`;
     return this.http.get<Payout[]>(url, requestOptions);  
  }
 
-getStudentDocument(): Observable<Document[]> {
+getStudentDocument(studentId:number): Observable<Document[]> {
   const headInfo={
     'Content - Type': 'application/json',
     'X-Auth-Token':"" + this.authService.getToken(),
@@ -134,11 +149,11 @@ getStudentDocument(): Observable<Document[]> {
         const requestOptions={
           headers:new HttpHeaders(headInfo)
         }
-  const url = `${baseUrl}/${this.id}/document`;
+  const url = `${baseUrl}/${studentId}/document`;
   return this.http.get<Document[]>(url, requestOptions);
   
 }
-getStudentEnrollment(): Observable<Enrollment[]> {
+getStudentEnrollment(studentId:number): Observable<Enrollment[]> {
   const headInfo={
     'Content - Type': 'application/json',
     'X-Auth-Token':"" + this.authService.getToken(),
@@ -146,7 +161,7 @@ getStudentEnrollment(): Observable<Enrollment[]> {
         const requestOptions={
           headers:new HttpHeaders(headInfo)
         }
-  const url = `${baseUrl}/${this.id}/enrollment`;
+  const url = `${baseUrl}/${studentId}/enrollment`;
   return this.http.get<Enrollment[]>(url, requestOptions);
   
 }
