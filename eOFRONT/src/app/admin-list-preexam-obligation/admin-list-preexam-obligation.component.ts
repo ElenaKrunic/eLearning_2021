@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PreexamObligation } from '../model/preexam-obligation';
 import { PreexamObligationService } from '../preexam-obligation/preexam-obligation.service';
 
 @Component({
@@ -8,10 +9,15 @@ import { PreexamObligationService } from '../preexam-obligation/preexam-obligati
 })
 export class AdminListPreexamObligationComponent implements OnInit {
 
-  preexamObligations: any; 
-  currentPreexamObligation: null | any; 
+  preexamObligations: PreexamObligation[] = []; 
+  currentPreexamObligation: PreexamObligation; 
   currentIndex = -1; 
-  name = '';
+  location = '';
+
+  page = 1;
+  count = 0;
+  pageSize = 3;
+  pageSizes = [3, 6, 9];
 
   constructor(private preexamObligationService: PreexamObligationService) { }
 
@@ -19,17 +25,49 @@ export class AdminListPreexamObligationComponent implements OnInit {
     this.retrievePreexamObligations(); 
   }
 
+  getRequestParams(searchLocation: string, page: number, pageSize: number): any {
+    let params: any = {};
+
+    if (searchLocation) {
+      params[`location`] = searchLocation;
+    }
+
+    if (page) {
+      params[`page`] = page - 1;
+    }
+
+    if (pageSize) {
+      params[`size`] = pageSize;
+    }
+
+    return params;
+  }
+
   retrievePreexamObligations() : void {
-    this.preexamObligationService.getAll()
+    const params = this.getRequestParams(this.location, this.page, this.pageSize);
+    this.preexamObligationService.getAll(params)
     .subscribe(
-      data => {
-        this.preexamObligations = data;
-        console.log(data); 
+      response => {
+        const { preexamObligations, totalItems } = response;
+        this.preexamObligationService = preexamObligations;
+        this.count = totalItems;
+        console.log(response);
       },
       error => {
         console.log(error);
       }
     );
+  }
+
+  handlePageChange(event: number): void {
+    this.page = event;
+    this.retrievePreexamObligations();
+  }
+
+  handlePageSizeChange(event: any): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
+    this.retrievePreexamObligations();
   }
 
   refreshList(): void {
@@ -41,5 +79,10 @@ export class AdminListPreexamObligationComponent implements OnInit {
   setActivePreexamObligation(preexamObligation : null | any, index=-1) : void {
     this.currentPreexamObligation = preexamObligation;
     this.currentIndex = index;
+  }
+
+  searchLocation(): void {
+    this.page = 1;
+    this.retrievePreexamObligations();
   }
 }

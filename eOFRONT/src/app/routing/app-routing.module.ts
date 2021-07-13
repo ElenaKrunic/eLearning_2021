@@ -29,6 +29,9 @@ import { StudentDetailsComponent } from '../student-details/student-details.comp
 import { StudentProfileComponent } from '../student-profile/student-profile.component';
 
 const routes: Routes = [
+  { path: 'preexamObligations', component: AdminListPreexamObligationComponent},
+  { path: 'preexamObligations/:id', component: AdminDetailsPreexamObligationComponent},
+  { path: 'adminAddPreexamObligation', component: AdminAddPreexamObligationComponent},
   { path: 'financialCard', component: FinancialcardStudentComponent },
   { path: 'studentProfile', component: StudentProfileComponent },
   { path: 'professorProfile/:id', component: ProfessorProfileComponent},
@@ -54,9 +57,6 @@ const routes: Routes = [
   { path: 'addPayment', component: PaymentDetailsComponent},
   { path: 'editPayment/:id', component: PaymentDetailsComponent},
   { path: '**', component: LoginComponent },
-  { path: 'preexamObligations', component: AdminListPreexamObligationComponent},
-  { path: 'preexamObligations/:id', component: AdminDetailsPreexamObligationComponent},
-  { path: 'adminAddPreexamObligation', component: AdminAddPreexamObligationComponent},
   { path: 'professorCourses', component:NavbarProfessorComponent}
 ];
 
