@@ -18,9 +18,9 @@ public class StudentDTO {
 	private Long startedCollegeIn;
 	private String accountNumber;
 	private int modelNumber;
-	
+	private FinancialCardDTO financialCardDTO;
 	private TypeOfFinancingDTO typeOfFinancing;
-
+	private UserDTO user;
 	public StudentDTO() {
 		super();
 	}
@@ -34,11 +34,12 @@ public class StudentDTO {
 		this.phoneNumber = student.getPhoneNumber();
 		this.email = student.getEmail();
 		this.umnc = student.getUmnc();
+		this.financialCardDTO=new FinancialCardDTO(student.getFinancialCards());
 		this.typeOfFinancing=new  TypeOfFinancingDTO(student.getTypeOfFinancing());
 		this.accountNumber=student.getAccountNumber();
 		this.modelNumber=student.getModelNumber();
 		this.startedCollegeIn=student.getStartedCollegeIn();
-	
+		this.user=new UserDTO(student.getUser());
 	}
 
 	
@@ -68,6 +69,14 @@ public class StudentDTO {
 
 	public String getLastName() {
 		return lastName;
+	}
+
+	public FinancialCardDTO getFinancialCardDTO() {
+		return financialCardDTO;
+	}
+
+	public void setFinancialCardDTO(FinancialCardDTO financialCardDTO) {
+		this.financialCardDTO = financialCardDTO;
 	}
 
 	public void setLastName(String lastName) {
@@ -128,6 +137,14 @@ public class StudentDTO {
 
 	public void setModelNumber(int modelNumber) {
 		this.modelNumber = modelNumber;
+	}
+
+	public UserDTO getUser() {
+		return user;
+	}
+
+	public void setUser(UserDTO user) {
+		this.user = user;
 	}
 	
 	

@@ -65,7 +65,10 @@ public class Student {
 	//testna 
 	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<PreexamObligation> preexamObligation;
-
+	
+	@OneToOne
+	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
+	private User user;
 	public Set<Document> getDocument() {
 		return document;
 	}
@@ -82,16 +85,30 @@ public class Student {
 	public void setPreexamObligation(Set<PreexamObligation> preexamObligation) {
 		this.preexamObligation = preexamObligation;
 	}
+	
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 
 	public Student() {
 		super();
 	}
 
 
+	
+
+
 	public Student(Long id, String cardNumber, String firstName, String lastName, String phoneNumber, String email,
 			String umnc, Long startedCollegeIn, int modelNumber, String referenceNumber, String accountNumber,
 			Double cardAmount, TypeOfFinancing typeOfFinancing, Set<Enrollment> enrollments,
-			FinancialCard financialCards, Set<Document> document, Set<PreexamObligation> preexamObligation) {
+			FinancialCard financialCards, Set<Document> document, Set<PreexamObligation> preexamObligation, User user) {
 		super();
 		this.id = id;
 		this.cardNumber = cardNumber;
@@ -110,6 +127,7 @@ public class Student {
 		this.financialCards = financialCards;
 		this.document = document;
 		this.preexamObligation = preexamObligation;
+		this.user = user;
 	}
 
 

@@ -45,7 +45,7 @@ public class EnrollmentService {
 	
 	public List<EnrollmentDTO> findEnrollmentForStudent(Long id){
 		List<EnrollmentDTO> enrollmentToDTO = new ArrayList<>();
-		List<Enrollment> enrollment=enrollmentRepository.findByStudentId(id);
+		List<Enrollment> enrollment=enrollmentRepository.findByStudent(id);
 		System.out.println("Enrollment service  "+enrollmentToDTO);
 		
 		if(enrollment!=null) {

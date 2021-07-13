@@ -10,15 +10,15 @@ public class PayoutDTO {
 	private String descriptionPayOut;
 	private float payOutAmount;
 	private Date dateOfPayOut;
-	private FinancialCardDTO financialCardDTO;
+	
 	
 	public PayoutDTO(PayOut payout) {
 		super();
+		
 		this.id=payout.getId();
 		this.descriptionPayOut = payout.getDescriptionPayOut();
 		this.payOutAmount = payout.getPayOutAmount();
 		this.dateOfPayOut = payout.getDateOfPayOut();
-		this.financialCardDTO = new FinancialCardDTO(payout.getFinancialCard());
 	}
 
 	public PayoutDTO() {
@@ -49,14 +49,6 @@ public class PayoutDTO {
 
 	public void setDateOfPayout(Date dateOfPayout) {
 		this.dateOfPayOut = dateOfPayout;
-	}
-
-	public FinancialCardDTO getFinancialCardDTO() {
-		return financialCardDTO;
-	}
-
-	public void setFinancialCardDTO(FinancialCardDTO financialCardDTO) {
-		this.financialCardDTO = financialCardDTO;
 	}
 
 	public Long getId() {

@@ -24,7 +24,7 @@ INSERT INTO professor (id, first_name,last_name,user) VALUES (1, 'Sima','Popovic
 INSERT INTO type_of_financing (id, code,name) VALUES (1, 'SF','self financing');
 INSERT INTO type_of_financing (id, code,name) VALUES (2, 'BU','budget');
 
-INSERT INTO student (id, account_number,card_amount,card_number,email,first_name,last_name,model_number,phone_number,reference_number,started_college_in,umnc,type_of_financing) VALUES (1, '1236548-896-6',800.00,'125-698-365','pera@gmail.com','Pera','Simic',97,'065-489-986','1254-78-965-65',2015,'145879652345',1);
+INSERT INTO student (id, account_number,card_amount,card_number,email,first_name,last_name,model_number,phone_number,reference_number,started_college_in,umnc,type_of_financing,user) VALUES (1, '1236548-896-6',800.00,'125-698-365','pera@gmail.com','Pera','Simic',97,'065-489-986','1254-78-965-65',2015,'145879652345',1,3);
 
 INSERT INTO financial_card (id, initial_state,total_cost,total_payment,total_payout,student) VALUES (1, 800.00,1000.00,2000.00,5000.00,1);
 

@@ -103,6 +103,13 @@ public class StudentService {
 		return studentToDTO;
 		
 	}
+	public Student findUserByUsername(String username) {
+		Student student= studentRepository.findByUser_Username(username);
+		System.out.println("Student" + student);
+		return student;
+		
+		
+	}
 	
 	
 	//proveriti da li treba examDTO ili exam registration i da li je potrebno dodavati atribut bool za polozeni ispit u celosti

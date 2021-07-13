@@ -1,10 +1,14 @@
 package ftn.tseo.eEducation.model;
-import javax.persistence.Entity;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -18,6 +22,8 @@ public class Professor {
 	private String lastName;
 	
 
+	@OneToMany(mappedBy = "professor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Set<Teaching> teachings;
 	
 	@OneToOne
 	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
@@ -34,13 +40,26 @@ public class Professor {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
-//		this.user = user;
+		this.user = user;
 	}
 
 
 
 	public Long getId() {
 		return id;
+	}
+	
+
+
+
+	public Set<Teaching> getTeachings() {
+		return teachings;
+	}
+
+
+
+	public void setTeachings(Set<Teaching> teachings) {
+		this.teachings = teachings;
 	}
 
 

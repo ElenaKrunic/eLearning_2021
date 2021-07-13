@@ -33,6 +33,10 @@ public class ProfessorService {
 		professorRepository.deleteById(id);
 	}
 	
+	public Professor findUserByUsername(String username) {
+		return professorRepository.findByUser_Username(username);
+	}
+	
 	
 	
 	

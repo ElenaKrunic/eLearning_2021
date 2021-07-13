@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -68,6 +70,15 @@ public class StudentController {
 	FinancialCardService financialCardService;
 	@Autowired 
 	TypeOfFinancingService typeOfFinancingService;
+	
+	
+	@RequestMapping(value="students/me")
+	public ResponseEntity<?> getStudent(@AuthenticationPrincipal UserDetails userDetails){
+		Student student=studentService.findUserByUsername(userDetails.getUsername());
+		System.out.println("student me"+student);
+		return new ResponseEntity<>(student,HttpStatus.OK);
+		
+	}
 	
 	
 	@RequestMapping(value="/students", method = RequestMethod.GET)

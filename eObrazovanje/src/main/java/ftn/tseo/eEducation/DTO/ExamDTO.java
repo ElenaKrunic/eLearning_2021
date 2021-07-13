@@ -94,6 +94,12 @@ public class ExamDTO {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+	public int getEcts() {
+		return ects;
+	}
+	public void setEcts(int ects) {
+		this.ects = ects;
+	}
 
 	
 	

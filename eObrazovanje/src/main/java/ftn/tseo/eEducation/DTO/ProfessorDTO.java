@@ -1,6 +1,7 @@
 package ftn.tseo.eEducation.DTO;
 
 import ftn.tseo.eEducation.model.Professor;
+import ftn.tseo.eEducation.model.User;
 
 /**
  * 
@@ -12,6 +13,8 @@ public class ProfessorDTO {
 	private Long id;
 	private String lastName;
 	private String firstName;
+
+	private UserDTO user;
 
 	public Long getId() {
 		return id;
@@ -25,6 +28,7 @@ public class ProfessorDTO {
 		this.id = professor.getId();
 		this.firstName=professor.getFirstName();
 		this.lastName=professor.getLastName();
+		this.user=new UserDTO(professor.getUser());
 	}
 
 	public String getLastName() {
@@ -42,6 +46,16 @@ public class ProfessorDTO {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
+	public UserDTO getUser() {
+		return user;
+	}
+
+	public void setUser(UserDTO user) {
+		this.user = user;
+	}
+	
+	
 	
 	
 	

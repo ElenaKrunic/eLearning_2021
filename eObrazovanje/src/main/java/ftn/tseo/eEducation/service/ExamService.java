@@ -18,6 +18,7 @@ import ftn.tseo.eEducation.model.FinancialCard;
 import ftn.tseo.eEducation.model.Payment;
 import ftn.tseo.eEducation.model.PreexamObligation;
 import ftn.tseo.eEducation.model.Student;
+import ftn.tseo.eEducation.model.Teaching;
 import ftn.tseo.eEducation.repository.EnrollmentRepository;
 import ftn.tseo.eEducation.repository.ExamRepository;
 import ftn.tseo.eEducation.repository.FinancialCardRepository;
@@ -50,6 +51,7 @@ public class ExamService {
 	
 	@Autowired
 	PreExamObligationRepository preexamRepository;
+	
 	
 
 	public Exam findOne(Long id) {
@@ -107,11 +109,9 @@ public class ExamService {
 	
 	}
 	
-	
-	//ova klasa
-	public List<ExamDTO> findStudentExams(Long id) {
+		public List<ExamDTO> findStudentExams(Long id) {
 		
-		List<Enrollment> enrollment=enrollmentRepository.findByStudentId(id);
+		List<Enrollment> enrollment=enrollmentRepository.findByStudent(id);
 		System.out.println("Enrollment"+enrollment);
 		List<ExamDTO> examsToDTO=new  ArrayList<ExamDTO>();
 		Set<Exam> exams= new  HashSet<Exam>();
@@ -120,6 +120,22 @@ public class ExamService {
 			exams.addAll( e.getExam());
 			
 		}
+		for(Exam ex : exams) {
+			examsToDTO.add(new ExamDTO(ex));
+		}
+		
+		return examsToDTO;
+	}
+	//ova klasa
+	public List<ExamDTO> findProffesorExams(Long id) {
+		
+		Teaching teaching= teachingRepository.findTeachingByProfessorId(id);
+		System.out.println("Enrollment"+teaching);
+		
+		List<ExamDTO> examsToDTO=new  ArrayList<ExamDTO>();
+		Set<Exam> exams= teaching.getCourses().getEnrollments().iterator().next().getExam();
+		
+		
 		for(Exam ex : exams) {
 			examsToDTO.add(new ExamDTO(ex));
 		}
