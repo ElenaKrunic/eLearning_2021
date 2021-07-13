@@ -65,7 +65,7 @@ export class AdminAddStudentComponent implements OnInit {
         ] 
       ],
       email: ['', [Validators.required, Validators.email]],
-      UMNC: [
+      umnc: [
         '',
         [
           Validators.required, 
@@ -77,6 +77,7 @@ export class AdminAddStudentComponent implements OnInit {
       modelNumber: [0, Validators.required],
       referenceNumber: ['', Validators.required],
       accountNumber: ['', Validators.required],
+      cardAmount: [0, Validators.required] 
     });
   }
 

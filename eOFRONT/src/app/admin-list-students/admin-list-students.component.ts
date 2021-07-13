@@ -13,7 +13,6 @@ export class AdminListStudentsComponent implements OnInit {
   currentStudent: Student; 
   currentIndex = -1; 
   firstName = '' ;
-  lastName = ''; 
 
   page = 1;
   count = 0;

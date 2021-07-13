@@ -31,7 +31,8 @@ export class StudentService {
       this.RegenerateData.next();
   }
 
-  //Elena//////////////////////////////////////////////////////
+  //Elena
+  //////////////////////////////////////////////////////////
 
   getAll(params: any): Observable<any> {
     return this.http.get<any>(baseUrl, { params });

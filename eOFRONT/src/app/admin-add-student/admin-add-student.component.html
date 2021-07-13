@@ -1,6 +1,6 @@
 
 <div class="submit-form">
-    <form [formGroup="form" (ngSubmit)="onSubmit()">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
       
         <div class="form-group">
             <label for="cardNumber"> Card number </label>
@@ -98,13 +98,13 @@
             >
             <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
               <div *ngIf="f.email.errors.required">Email is required</div>
-              <div *ngIf="f.email.errors.email">Email is invalid</div>
+              <div *ngIf="f.email.errors.email">Invalid email format</div>
             </div>
          </div>
 
         <div class="form-group">
             <label for="phoneNumber"> Phone number </label>
-            <input type="number"
+            <input type="string"
             class="form-control"
             id="phoneNumber"
             [(ngModel)] = "student.phoneNumber"
@@ -176,6 +176,21 @@
                     <div *ngIf="f.accountNumber.errors.required"> Account number is required! </div>
                 </div>
         </div>
+
+        <div class="form-group">
+          <label for="cardAmount"> Card amount </label>
+          <input type="number"
+          class="form-control"
+          id="cardAmount"
+          [(ngModel)] = "student.cardAmount"
+          name="cardAmount"
+          formControlName="cardAmount"
+          [ngClass]="{ 'is-invalid': submitted && f.cardAmount.errors }"
+          />
+          <div *ngIf="submitted && f.cardAmount.errors" class="invalid-feedback">
+              <div *ngIf="f.cardAmount.errors.required"> Card amount is required! </div>
+          </div>
+         </div>
 
         <div *ngIf="submitted">
             <h4> The student was added successfully!</h4>

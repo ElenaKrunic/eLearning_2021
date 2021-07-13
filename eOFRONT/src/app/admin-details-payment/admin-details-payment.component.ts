@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PaymentService } from '../payment/payment.service';
 import { FormBuilder, FormGroup, AbstractControl, Validators } from '@angular/forms';
 
-
 @Component({
   selector: 'app-admin-details-payment',
   templateUrl: './admin-details-payment.component.html',

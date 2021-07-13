@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Student } from '../model/student';
 import { StudentService } from '../students/student.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { StudentService } from '../students/student.service';
 })
 export class AdminDetailsStudentComponent implements OnInit {
 
-  currentStudent: any | null; 
+  currentStudent: Student = {} as Student;
   message = ''; 
   form!: FormGroup; 
   submitted=false; 
@@ -52,7 +53,7 @@ export class AdminDetailsStudentComponent implements OnInit {
         ] 
       ],
       email: ['', [Validators.required, Validators.email]],
-      UMNC: [
+      umnc: [
         '',
         [
           Validators.required, 
@@ -64,6 +65,7 @@ export class AdminDetailsStudentComponent implements OnInit {
       modelNumber: [0, Validators.required],
       referenceNumber: ['', Validators.required],
       accountNumber: ['', Validators.required],
+      cardAmount: [0, Validators.required] 
     });
   }
 
@@ -84,6 +86,7 @@ export class AdminDetailsStudentComponent implements OnInit {
     this.studentService.update(this.currentStudent.id, this.currentStudent)
     .subscribe(
       response => {
+        this.message= 'Student updated! ';
         console.log(response); 
       },
       error => {
