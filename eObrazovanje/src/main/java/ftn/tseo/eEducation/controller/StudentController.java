@@ -132,19 +132,6 @@ public class StudentController {
 		}
 	}
 	
-	/*
-	@RequestMapping(value="/students", method = RequestMethod.GET)
-	public ResponseEntity<List<StudentDTO>> getAllStudents() {
-		List<Student> students = studentService.findAll();
-		//convert students to DTOs
-		List<StudentDTO> studentsDTO = new ArrayList<>();
-		for (Student s : students) {
-			studentsDTO.add(new StudentDTO(s));
-		}
-		return new ResponseEntity<>(studentsDTO, HttpStatus.OK);
-	}
-	*/
-	
 	@RequestMapping(value="students/{id}", method=RequestMethod.GET)
 	public ResponseEntity<StudentDTO> getStudent(@PathVariable Long id){
 		Student student = studentService.findOne(id);
@@ -262,14 +249,14 @@ public class StudentController {
 	
 
 	//helper method 
-		private Sort.Direction getSortDirection(String direction) {
-		    if (direction.equals("asc")) {
-		      return Sort.Direction.ASC;
-		    } else if (direction.equals("desc")) {
-		      return Sort.Direction.DESC;
-		    }
+			private Sort.Direction getSortDirection(String direction) {
+			    if (direction.equals("asc")) {
+			      return Sort.Direction.ASC;
+			    } else if (direction.equals("desc")) {
+			      return Sort.Direction.DESC;
+			    }
 
-		    return Sort.Direction.ASC;
-		}
-	
+			    return Sort.Direction.ASC;
+			}
+		
 }

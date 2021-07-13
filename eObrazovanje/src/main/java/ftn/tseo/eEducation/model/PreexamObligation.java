@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * 
  * @author Elena Krunic 
@@ -30,20 +32,23 @@ public class PreexamObligation {
 	
 	private boolean passed; 
 
-	//veza ka ispitu 
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "exam", referencedColumnName = "id", nullable = true)
 	private Exam exam;
 	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "preexam_obligation_type", referencedColumnName = "id", nullable = true)
 	private PreexamObligationType preexamObligationType;
 	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "preexam_obligation_status", referencedColumnName = "id", nullable = true)
 	private PreexamObligationStatus preexamObligationStatus;
 	
 	//testna 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn
 	private Student student;
