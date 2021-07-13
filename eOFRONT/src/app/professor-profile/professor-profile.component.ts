@@ -13,23 +13,18 @@ import { ProfessorService } from '../professor/professor.service';
 export class ProfessorProfileComponent implements OnInit {
   professor= new Professor({
     firstName:'',
-    lastName:''
+    lastName:'',
+    user:{
+      id:0,
+      username:"",
+      password:""
+    }
   })
 
   constructor(private location:Location,private professorService: ProfessorService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.snapshot.params['id'];
-    if (this.route.snapshot.params['id']) {
-      // fetch professor if we edit the existing professor
-      this.route.params.pipe(switchMap((params: Params) => 
-          this.professorService.getProfessor(+params['id']))) // convert to number
-        .subscribe(res => {
-         // this.professor = res.body;
-          
-          }
-        );
-    } 
+    this.professorService.getMe().subscribe( (professor) => (this.professor = professor));
   }
 
   goBack(): void {

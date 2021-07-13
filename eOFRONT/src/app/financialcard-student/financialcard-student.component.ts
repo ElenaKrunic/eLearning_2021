@@ -18,7 +18,7 @@ export class FinancialcardStudentComponent implements OnInit {
     totalPayment : 0,
     totalPayout: 0, 
     totalCost : 0,
-    student : null
+    // student : null
   });
   
 
@@ -29,7 +29,7 @@ export class FinancialcardStudentComponent implements OnInit {
 	 ngOnInit(): void {
     if(this.route.snapshot.params['id']) {
       this.route.params.pipe(switchMap((params : Params) =>
-      this.studentService.getStudentFinancialCard()))
+      this.studentService.getStudentFinancialCard(+params['id'])))
       .subscribe(res => {
         this.financialCard = res;
       });

@@ -26,11 +26,14 @@ import { ProfessorExamsComponent } from '../professor-exams/professor-exams.comp
 import { ProfessorProfileComponent } from '../professor-profile/professor-profile.component';
 import { ProfessorStudentsComponent } from '../professor-students/professor-students.component';
 import { StudentDetailsComponent } from '../student-details/student-details.component';
+import { StudentExamsComponent } from '../student-exams/student-exams.component';
 import { StudentProfileComponent } from '../student-profile/student-profile.component';
 
 const routes: Routes = [
   { path: 'financialCard', component: FinancialcardStudentComponent },
   { path: 'studentProfile', component: StudentProfileComponent },
+  { path: 'studentExams', component: StudentExamsComponent },
+ 
   {path: 'professorProfile/:id', component: ProfessorProfileComponent},
   {path: 'studentsForProfessor', component: ProfessorStudentsComponent},
   {path: 'examsForProfessor', component: ProfessorExamsComponent},

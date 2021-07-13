@@ -21,8 +21,8 @@ export class StudentDocumentsComponent implements OnInit {
 
   }
   
-  getStudentDocuments(){
-    this.studentService.getStudentDocument().subscribe(res=>this.documents=this.documents)
+  getStudentDocuments(studentId:number){
+    this.studentService.getStudentDocument(studentId).subscribe(res=>this.documents=this.documents)
   }
   goBack(): void {
     this.location.back();

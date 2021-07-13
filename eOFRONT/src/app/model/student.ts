@@ -1,6 +1,8 @@
 import { Identifiers } from "@angular/compiler";
 import { FinancialCard } from "./financial-card";
 import { TypeOfFinancing } from "./type-of-financing";
+import { User } from "./user";
+
 
 export class Student implements StudentInterface {
    	public id?:number;	
@@ -18,6 +20,7 @@ export class Student implements StudentInterface {
 	public cardAmount:number; 
     public  typeOfFinancing:TypeOfFinancing;
 	public financialCards:FinancialCard;
+    public user:User;
     
     constructor(studentCfg:StudentInterface)
 	{	
@@ -34,7 +37,8 @@ export class Student implements StudentInterface {
         this.cardAmount=studentCfg.cardAmount;
         this.accountNumber=studentCfg.accountNumber;
 		this.firstName = studentCfg.firstName;
-		this.lastName = studentCfg.lastName;		
+		this.lastName = studentCfg.lastName;
+        this.user=studentCfg.user;
 	}
  
 }
@@ -53,5 +57,5 @@ interface StudentInterface {
     typeOfFinancing:TypeOfFinancing;
     cardAmount:number;
     financialCards:FinancialCard;
-        
+    user:User
 }

@@ -63,6 +63,7 @@ import { AdminAddPreexamObligationTypeComponent } from './admin-add-preexam-obli
 import { AdminDetailsPreexamObligationTypeComponent } from './admin-details-preexam-obligation-type/admin-details-preexam-obligation-type.component';
 import { ValidationComponent } from './validation/validation.component';
 import { ProfessorService } from './professor/professor.service';
+import { StudentService } from './students/student.service';
 
 @NgModule({
   declarations: [
@@ -136,7 +137,8 @@ import { ProfessorService } from './professor/professor.service';
   ],
 
   providers: [
-    ProfessorService
+    ProfessorService,
+    StudentService
   ],
 
   imports: [
