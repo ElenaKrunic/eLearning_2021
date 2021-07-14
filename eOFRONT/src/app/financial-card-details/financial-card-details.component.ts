@@ -16,9 +16,7 @@ export class FinancialCardDetailsComponent implements OnInit {
     initialState : 0,
     totalPayment : 0,
     totalPayout: 0, 
-    totalCost : 0,
-    student : null
-  });
+    totalCost : 0  });
 
   mode: string = 'ADD'; 
 
