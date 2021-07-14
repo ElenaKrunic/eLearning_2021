@@ -4,6 +4,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { AuthenticationService } from '../login/authentication.service';
 import { FinancialCard } from '../model/financial-card';
+import { Student } from '../model/student';
 import { StudentService } from '../students/student.service';
 
 @Component({
@@ -12,29 +13,73 @@ import { StudentService } from '../students/student.service';
   styleUrls: ['./financialcard-student.component.css']
 })
 export class FinancialcardStudentComponent implements OnInit {
+  student:Student 
+  = {
+    id: 0,
+    firstName: "",
+    phoneNumber:"",
+    email:"",
+    umnc:"",
+    startedCollegeIn:0,
+    modelNumber:0,
+    referenceNumber:null,
+    cardAmount:0,
+    typeOfFinancing:{
+      id:0,
+      name:"",
+      code:""
+    },
+    lastName: "",
+    cardNumber: "",
+    financialCards:{
+      id:0,
+      initialState:0,
+      totalPayment:0,
+      totalPayout:0,
+      totalCost:0
 
-  financialCard: FinancialCard = new FinancialCard({
+    },
+    accountNumber: "",
+    user: {
+      username: "",
+      password: ""
+    }
+  };
+  financialCard: FinancialCard= {
     initialState : 0,
     totalPayment : 0,
     totalPayout: 0, 
     totalCost : 0,
     // student : null
-  });
+  };
   
+    
 
    constructor(private studentService: StudentService, private route: ActivatedRoute,private authService:AuthenticationService,private router:Router,private location:Location) {
     
    }
+   
+   getMe():void{
+    this.studentService.getMeAgain().subscribe(res =>{ return this.student});
+    console.log(this.student);
+  }
+ 
 
 	 ngOnInit(): void {
-    if(this.route.snapshot.params['id']) {
-      this.route.params.pipe(switchMap((params : Params) =>
-      this.studentService.getStudentFinancialCard(+params['id'])))
-      .subscribe(res => {
-        this.financialCard = res;
-      });
+     this.getMe();
+    this.getFinancialCard(this.student);
     }
+  getFinancialCard(student:Student){
+    
+
+    this.studentService.getStudentFinancialCard(this.student).subscribe(res=>this.financialCard=res);
+    console.log(this.financialCard);
   }
+  studentId(student:Student) {
+    this.student.id;
+    console.log(this.studentId)
+  }
+  
   goBack() : void {
     this.location.back();
   }

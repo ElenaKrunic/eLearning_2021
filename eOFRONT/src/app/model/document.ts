@@ -6,6 +6,7 @@ export class Document implements DocumentInterface{
 	public  title:String;
 	public  url:String;
     public documentType:DocumentType;
+
     constructor(documentConf:DocumentInterface){
         this.id=documentConf.id;
         this.title=documentConf.title;

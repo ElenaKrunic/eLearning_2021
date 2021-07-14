@@ -26,6 +26,7 @@ import { ProfessorExamsComponent } from '../professor-exams/professor-exams.comp
 import { ProfessorProfileComponent } from '../professor-profile/professor-profile.component';
 import { ProfessorStudentsComponent } from '../professor-students/professor-students.component';
 import { StudentDetailsComponent } from '../student-details/student-details.component';
+import { StudentDocumentsComponent } from '../student-documents/student-documents.component';
 import { StudentExamsComponent } from '../student-exams/student-exams.component';
 import { StudentProfileComponent } from '../student-profile/student-profile.component';
 
@@ -35,8 +36,11 @@ const routes: Routes = [
   { path: 'adminAddPreexamObligation', component: AdminAddPreexamObligationComponent},
   { path: 'financialCard', component: FinancialcardStudentComponent },
   { path: 'studentProfile', component: StudentProfileComponent },
+  { path: 'payment', component: PaymentComponent },
+  { path: 'payouts', component: PayoutComponent },
+  
   { path: 'studentExams', component: StudentExamsComponent },
- 
+  {path:'studentDocuments', component:StudentDocumentsComponent},
   {path: 'professorProfile', component: ProfessorProfileComponent},
   {path: 'studentsForProfessor', component: ProfessorStudentsComponent},
   {path: 'examsForProfessor', component: ProfessorExamsComponent},
