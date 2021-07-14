@@ -32,8 +32,6 @@ import ftn.tseo.eEducation.service.ExamService;
 import ftn.tseo.eEducation.service.ProfessorService;
 import ftn.tseo.eEducation.service.StudentService;
 
-
-
 @RestController
 @RequestMapping("api/professors")
 @CrossOrigin(value = "*")
@@ -45,8 +43,6 @@ public class ProfessorController {
 	@Autowired
 	CourseService courseService;
 	
-	
-
 	@Autowired
 	ExamService examService;
 	
