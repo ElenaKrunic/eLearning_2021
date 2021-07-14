@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PreexamObligationService } from '../preexam-obligation/preexam-obligation.service';
 
@@ -11,12 +12,23 @@ export class AdminDetailsPreexamObligationComponent implements OnInit {
 
   currentPreexamobligation : any | null; 
   message = '';
+  form!: FormGroup; 
+  submitted = false; 
 
-  constructor(private preexamObligationService: PreexamObligationService, private route : ActivatedRoute, private router: Router) { }
+  constructor(private preexamObligationService: PreexamObligationService, private route : ActivatedRoute, private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.message = '';
     this.getPreexamObligation(this.route.snapshot.paramMap.get('id'));
+    this.form = this.formBuilder.group({
+      dateOfObligation: [
+        '',
+        [
+          Validators.required
+        ] 
+      ],
+      location: ['', Validators.required], 
+    });
   }
 
   getPreexamObligation(id: any) : void {
@@ -56,6 +68,25 @@ export class AdminDetailsPreexamObligationComponent implements OnInit {
         console.log(error); 
       }
     );
+  }
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.form.controls;
+  }
+
+  onSubmit(): void {
+    this.submitted = true;
+
+    if (this.form.invalid) {
+      return;
+    }
+
+    console.log(JSON.stringify(this.form.value, null, 2));
+  }
+
+  onReset(): void {
+    this.submitted = false;
+    this.form.reset();
   }
 
 }

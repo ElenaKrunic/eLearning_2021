@@ -49,7 +49,7 @@ export class AdminListPreexamObligationComponent implements OnInit {
     .subscribe(
       response => {
         const { preexamObligations, totalItems } = response;
-        this.preexamObligationService = preexamObligations;
+        this.preexamObligations = preexamObligations;
         this.count = totalItems;
         console.log(response);
       },

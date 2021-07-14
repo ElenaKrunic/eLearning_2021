@@ -1,26 +1,38 @@
-<div style="width: 400px;margin: auto;">
-    <div *ngIf="currentPreexamobligation" class="edit-form">
-        <h4> Preexam obligation </h4>
-        <form>
-            <div class="form-group">
-                <label for="location"> Location </label>
-                <input type="text" 
-                class="form-control"
-                 id="location"
-                  [(ngModel)]="currentPreexamObligation.location" 
-                  name="location">
+<div class="edit-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="text">Date of obligation</label>
+            <input
+              type="text"
+              class="form-control"
+              id="dateOfObligation"
+              required
+              [(ngModel)]="currentPreexamobligation.dateOfObligation"
+              name="dateOfObligation"
+              formControlName="dateOfObligation"
+              [ngClass]="{ 'is-invalid': submitted && f.dateOfObligation.errors }"
+            />
+            <div *ngIf="submitted && f.dateOfObligation.errors" class="invalid-feedback">
+              <div *ngIf="f.dateOfObligation.errors.required">Date of obligation is required</div>
             </div>
-            <div class="form-group">
-                <label for="dateOfObligation"> Date of obligation </label>
-                <input type="date"
-                class="form-control"
-                id="dateOfObligation"
-                [(ngModel)] = "currentPreexamObligation.dateOfObligation"
-                name="dateOfObligation"
-                >
+          </div>
+    
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input
+              class="form-control"
+              id="location"
+              required
+              [(ngModel)]="currentPreexamobligation.location"
+              name="location"
+              formControlName="location"
+              [ngClass]="{ 'is-invalid': submitted && f.location.errors }"
+            />
+            <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+              <div *ngIf="f.location.errors.required">Location is required! </div>
             </div>
-        </form>
-
+          </div>
+ 
         <button
         class="badge badge-primary mr-2"
         (click)="deletePreexamObligation()"        
@@ -32,10 +44,10 @@
         (click)="updatePreexamObligation()"
         > Edit selected preexam obligation </button>
         <p> {{message}}</p>
-    </div>
 
     <div *ngIf="!currentPreexamobligation">
         <br/>
         <p>Preexam obligation is unavailable!</p>
     </div>
+    </form>
 </div>

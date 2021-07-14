@@ -5,7 +5,7 @@
       <input
         type="text"
         class="form-control"
-        placeholder="Search by location "
+        placeholder="Search by location: "
         [(ngModel)]="location"
       />
       <div class="input-group-append">
@@ -29,24 +29,26 @@
     ></pagination-controls>
   </div>
 
-<div class="list row">
     <div class="col-md-6">
-      <h4> List of preexam obligations </h4>
+      <h4>List of preexam obligations </h4>
       <ul class="list-group">
-       <li
-          class="list-group-item"
-          *ngFor="
-            let preexamObligation of preexamObligations | paginate : {
-              itemsPerPage: pageSize, 
-              currentPage: page, 
-              totalItems: count
-          };
-          let i = index
-          "
-          [class.active]="i == currentIndex"
-          (click)="setActivePreexamObligation(preexamObligation, i)"
-        >
-          {{ preexamObligation.location }}
+        <li
+        class="list-group-item"
+        *ngFor="
+          let preexamObligation of preexamObligations | paginate : {
+            itemsPerPage: pageSize, 
+            currentPage: page, 
+            totalItems: count
+        };
+        let i = index
+        "
+        [class.active]="i == currentIndex"
+        (click)="setActivePreexamObligation(preexamObligation, i)"
+      >
+      Location is and 
+        {{ preexamObligation.location }}  
+      date is 
+        {{ preexamObligation.dateOfObligation }}
         </li>
       </ul>
 
@@ -64,13 +66,14 @@
       <div *ngIf="currentPreexamObligation">
         <h4> Preexam obligation </h4>
         <div>
-          <label><strong>Location :</strong></label> {{ currentPreexamObligation.location }}
+          <label><strong> Location: </strong></label>
+           {{ currentPreexamObligation.location }}
         </div>
         <div>
-          <label><strong>Date of obligation:</strong></label>
-          {{ currentPreexamObligation.date}}
+          <label><strong> Total payment: </strong></label>
+          {{ currentPreexamObligation.dateOfObligation }}
         </div>
-       
+      
         <a class="badge badge-warning" routerLink="/preexamObligations/{{ currentPreexamObligation.id }}">
           Edit
         </a>
@@ -78,7 +81,7 @@
   
       <div *ngIf="!currentPreexamObligation">
         <br />
-        <p>To see details click on one particular preexam obligation!</p>
+        <p>To see details click on one particular preexam obligation! </p>
       </div>
     </div>
   </div>
