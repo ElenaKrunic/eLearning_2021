@@ -5,11 +5,11 @@ import { Course } from '../model/course';
 import { Student } from '../model/student';
 import { Professor } from '../model/professor';
 import { AuthenticationService } from '../login/authentication.service';
+const path = "https://localhost:8443/api/professors"; 
 
 @Injectable()
 export class ProfessorService {
 
-  private path="api/professors"
 
   constructor(private http: HttpClient, private authService:AuthenticationService) { }
 
@@ -21,23 +21,23 @@ export class ProfessorService {
         this.RegenerateData.next();
     }
     addProfessor(professor: Professor): Observable<HttpResponse<Professor>> {
-      return this.http.post<Professor>(this.path, professor, {observe: 'response'});
+      return this.http.post<Professor>(path, professor, {observe: 'response'});
     }
 
   editProfessor(professor: Professor): Observable<HttpResponse<Professor>> {
-      return this.http.put<Professor>(this.path, professor, {observe: 'response'});
+      return this.http.put<Professor>(path, professor, {observe: 'response'});
     }
 
   deleteProfessor(professorId: number): Observable<HttpResponse<any>> {
-      const url = `${this.path}/${professorId}`;
+      const url = `${path}/${professorId}`;
       return this.http.delete<any>(url, {observe: 'response'});
     }
     getProfessors(): Observable<HttpResponse<Professor[]>> {
-      return this.http.get<Professor[]>(this.path, {observe: 'response'});
+      return this.http.get<Professor[]>(path, {observe: 'response'});
     }
 
     getProfessor(id:number):Observable<HttpResponse<Professor[]>>{
-      const url=`${this.path}/{id}`;
+      const url=`${path}/{id}`;
       return this.http.get<Professor[]>(url, {observe: 'response'});
     } 
 
@@ -45,7 +45,7 @@ export class ProfessorService {
       
       const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
     
-      return this.http.get<Professor>(this.path + "/me", {headers: headers});
+      return this.http.get<Professor>(path+"/me", {headers: headers});
     
     }
     getProfessorStudents(professorId:number): Observable<HttpResponse<Student[]>> {
@@ -56,7 +56,7 @@ export class ProfessorService {
             const requestOptions={
               headers:new HttpHeaders(headInfo)
             }
-      const url=`${this.path}/{professorId}/professorStudents`;
+      const url=`${path}/{professorId}/professorStudents`;
       return this.http.get<Student[]>(url, {observe: 'response'});
     }
 
@@ -68,7 +68,7 @@ export class ProfessorService {
             const requestOptions={
               headers:new HttpHeaders(headInfo)
             }
-      const url=`${this.path}/{courseId}/proffesorCourses`;
+      const url=`${path}/{courseId}/proffesorCourses`;
       return this.http.get<Course[]>(url, requestOptions);
     }
 

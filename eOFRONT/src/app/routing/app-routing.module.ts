@@ -37,11 +37,10 @@ const routes: Routes = [
   { path: 'studentProfile', component: StudentProfileComponent },
   { path: 'studentExams', component: StudentExamsComponent },
  
-  {path: 'professorProfile/:id', component: ProfessorProfileComponent},
+  {path: 'professorProfile', component: ProfessorProfileComponent},
   {path: 'studentsForProfessor', component: ProfessorStudentsComponent},
   {path: 'examsForProfessor', component: ProfessorExamsComponent},
-  { path: 'professorProfile/:id', component: ProfessorProfileComponent},
-  { path: 'studentsForProfessor', component: ProfessorStudentsComponent},
+ { path: 'studentsForProfessor', component: ProfessorStudentsComponent},
   { path: 'examsForProfessor', component: ProfessorExamsComponent},
   { path: 'studentPayment', component: PaymentComponent },
   { path: 'studentPayout', component: PayoutComponent },
