@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import ftn.tseo.eEducation.DTO.CourseDTO;
@@ -86,6 +87,7 @@ public class StudentController {
 	private StudentRepository studentRepository;
 	
 	@RequestMapping(value="students/me")
+	@ResponseBody
 	public ResponseEntity<?> getStudent(@AuthenticationPrincipal UserDetails userDetails){
 		Student student=studentService.findUserByUsername(userDetails.getUsername());
 		System.out.println("student me"+student);

@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Professor {
 	
@@ -21,11 +23,12 @@ public class Professor {
 	private String firstName;
 	private String lastName;
 	
-
+	@JsonIgnore
 	@OneToMany(mappedBy = "professor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<Teaching> teachings;
 	
 	@OneToOne
+	@JsonIgnore
 	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
 	private User user;
 

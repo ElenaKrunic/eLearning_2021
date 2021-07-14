@@ -74,6 +74,7 @@ public class Student {
 	private Set<PreexamObligation> preexamObligation;
 	
 	@OneToOne
+	@JsonIgnore
 	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
 	private User user;
 	public Set<Document> getDocument() {
