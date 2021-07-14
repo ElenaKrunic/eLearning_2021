@@ -49,9 +49,11 @@ public class ProfessorController {
 	@Autowired
 	StudentService studentService;
 	
-	@RequestMapping(value="proffesors/me")
+	@RequestMapping(value="/me")
 	public ResponseEntity<?> getProffesor(@AuthenticationPrincipal UserDetails userDetails){
+	
 		Professor proffesor=professorService.findUserByUsername(userDetails.getUsername());
+		System.out.println("professor" + proffesor);
 		return new ResponseEntity<>(proffesor,HttpStatus.OK);
 		
 	}
