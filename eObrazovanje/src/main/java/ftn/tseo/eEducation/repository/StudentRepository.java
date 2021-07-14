@@ -12,21 +12,14 @@ import ftn.tseo.eEducation.model.Student;
 public interface StudentRepository extends JpaRepository<Student, Long>{
 		
 	Student findOneByCardNumber(String cardNumber);
-<<<<<<< HEAD
     List<Student> findAllByLastName(String lastName);
-=======
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
+
     Student findByUser_Username(String username);
-<<<<<<< HEAD
-=======
-	List<Student> findAllByLastName(String lastName);
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
+
 	Page<Student> findAll(Pageable pageable);
 	Page<Student> findByFirstName(String firstName, Pageable page);
 	List<Student> findByFirstName(String firstName, Sort sort);
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
+
     
 }
