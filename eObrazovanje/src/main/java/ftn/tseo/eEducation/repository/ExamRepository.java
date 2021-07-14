@@ -26,8 +26,9 @@ public interface ExamRepository extends JpaRepository<Exam, Long>{
 //	
 //	   Long registeredExam(Long studentId,Long examId,String location,float points);
 //	    
-
-		List<Exam> findProfessorExams(Long id);
+	
+	//Elena zakomentarisala 
+	//List<Exam> findProfessorExams(Long id);
 		
 }
 
