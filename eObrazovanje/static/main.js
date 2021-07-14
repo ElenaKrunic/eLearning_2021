@@ -436,8 +436,7 @@ class AdminAddFinancialCardComponent {
             initialState: 0,
             totalPayment: 0,
             totalPayout: 0,
-            totalCost: 0,
-            student: null
+            totalCost: 0
         });
         this.submitted = false;
     }
@@ -512,8 +511,7 @@ class AdminAddFinancialCardComponent {
             initialState: 0,
             totalPayment: 0,
             totalPayout: 0,
-            totalCost: 0,
-            student: null
+            totalCost: 0
         };
     }
 }
@@ -676,8 +674,7 @@ class AdminAddPaymentComponent {
         this.payment = new _model_payment__WEBPACK_IMPORTED_MODULE_0__.Payment({
             dateOfPayment: '',
             paymentDescription: '',
-            paymentAmount: 0,
-            financialCard: null
+            paymentAmount: 0
         });
         this.submitted = false;
     }
@@ -738,8 +735,7 @@ class AdminAddPaymentComponent {
         this.payment = {
             dateOfPayment: '',
             paymentDescription: '',
-            paymentAmount: 0,
-            financialCard: null
+            paymentAmount: 0
         };
     }
 }
@@ -1253,6 +1249,7 @@ class AdminAddStudentComponent {
         this.studentService = studentService;
         this.formBuilder = formBuilder;
         this.student = new _model_student__WEBPACK_IMPORTED_MODULE_0__.Student({
+            user: null,
             cardNumber: '',
             firstName: '',
             lastName: '',
@@ -1345,6 +1342,7 @@ class AdminAddStudentComponent {
     newStudent() {
         this.submitted = false;
         this.student = {
+            user: null,
             cardNumber: '',
             firstName: '',
             lastName: '',
@@ -5228,13 +5226,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppModule": () => (/* binding */ AppModule)
 /* harmony export */ });
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! @angular/platform-browser */ 9075);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! @angular/forms */ 3679);
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ngx-toastr */ 9344);
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! @angular/platform-browser/animations */ 5835);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! @angular/common/http */ 1841);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! @angular/platform-browser */ 9075);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! @angular/forms */ 3679);
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ngx-toastr */ 9344);
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! @angular/platform-browser/animations */ 5835);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! @angular/common/http */ 1841);
 /* harmony import */ var ngx_pagination__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ngx-pagination */ 2533);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! @angular/common */ 8583);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! @angular/common */ 8583);
 /* harmony import */ var _routing_app_routing_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./routing/app-routing.module */ 7948);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app.component */ 5041);
 /* harmony import */ var _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./student-details/student-details.component */ 2202);
@@ -5269,7 +5267,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _preexam_obligation_details_preexam_obligation_details_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./preexam-obligation-details/preexam-obligation-details.component */ 879);
 /* harmony import */ var _core_navbar_admin_navbar_admin_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./core/navbar-admin/navbar-admin.component */ 7666);
 /* harmony import */ var _core_navbar_student_navbar_student_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./core/navbar-student/navbar-student.component */ 4318);
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ 2664);
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ 2664);
 /* harmony import */ var _admin_add_exam_period_admin_add_exam_period_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./admin-add-exam-period/admin-add-exam-period.component */ 1177);
 /* harmony import */ var _admin_details_exam_period_admin_details_exam_period_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./admin-details-exam-period/admin-details-exam-period.component */ 8322);
 /* harmony import */ var _admin_list_exam_period_admin_list_exam_period_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./admin-list-exam-period/admin-list-exam-period.component */ 8723);
@@ -5288,7 +5286,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_details_preexam_obligation_type_admin_details_preexam_obligation_type_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./admin-details-preexam-obligation-type/admin-details-preexam-obligation-type.component */ 8663);
 /* harmony import */ var _validation_validation_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./validation/validation.component */ 5722);
 /* harmony import */ var _professor_professor_service__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./professor/professor.service */ 4357);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _students_student_service__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./students/student.service */ 3645);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! @angular/core */ 7716);
 
 
 
@@ -5352,25 +5351,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 class AppModule {
 }
 AppModule.ɵfac = function AppModule_Factory(t) { return new (t || AppModule)(); };
-AppModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_53__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__.AppComponent] });
-AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_53__["ɵɵdefineInjector"]({ providers: [
-        _professor_professor_service__WEBPACK_IMPORTED_MODULE_52__.ProfessorService
+AppModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_54__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__.AppComponent] });
+AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_54__["ɵɵdefineInjector"]({ providers: [
+        _professor_professor_service__WEBPACK_IMPORTED_MODULE_52__.ProfessorService,
+        _students_student_service__WEBPACK_IMPORTED_MODULE_53__.StudentService
     ], imports: [[
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_54__.BrowserModule,
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_55__.BrowserModule,
             _routing_app_routing_module__WEBPACK_IMPORTED_MODULE_1__.AppRoutingModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_55__.FormsModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_55__.ReactiveFormsModule,
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_56__.BrowserAnimationsModule,
-            ngx_toastr__WEBPACK_IMPORTED_MODULE_57__.ToastrModule.forRoot(),
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_58__.HttpClientModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_56__.FormsModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_56__.ReactiveFormsModule,
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_57__.BrowserAnimationsModule,
+            ngx_toastr__WEBPACK_IMPORTED_MODULE_58__.ToastrModule.forRoot(),
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_59__.HttpClientModule,
             ngx_pagination__WEBPACK_IMPORTED_MODULE_0__.NgxPaginationModule,
-            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_59__.NgbModule,
-            _angular_common__WEBPACK_IMPORTED_MODULE_60__.CommonModule,
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_60__.NgbModule,
+            _angular_common__WEBPACK_IMPORTED_MODULE_61__.CommonModule,
         ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_53__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__.AppComponent,
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_54__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__.AppComponent,
         _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_3__.StudentDetailsComponent,
         _students_students_component__WEBPACK_IMPORTED_MODULE_4__.StudentsComponent,
         _login_login_component__WEBPACK_IMPORTED_MODULE_5__.LoginComponent,
@@ -5430,14 +5431,14 @@ AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_53__["ɵ�
         _admin_list_students_admin_list_students_component__WEBPACK_IMPORTED_MODULE_49__.AdminListStudentsComponent,
         _core_navbar_professor_navbar_professor_component__WEBPACK_IMPORTED_MODULE_8__.NavbarProfessorComponent,
         _admin_details_student_admin_details_student_component__WEBPACK_IMPORTED_MODULE_48__.AdminDetailsStudentComponent,
-        _validation_validation_component__WEBPACK_IMPORTED_MODULE_51__.ValidationComponent], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_54__.BrowserModule,
+        _validation_validation_component__WEBPACK_IMPORTED_MODULE_51__.ValidationComponent], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_55__.BrowserModule,
         _routing_app_routing_module__WEBPACK_IMPORTED_MODULE_1__.AppRoutingModule,
-        _angular_forms__WEBPACK_IMPORTED_MODULE_55__.FormsModule,
-        _angular_forms__WEBPACK_IMPORTED_MODULE_55__.ReactiveFormsModule,
-        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_56__.BrowserAnimationsModule, ngx_toastr__WEBPACK_IMPORTED_MODULE_57__.ToastrModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_58__.HttpClientModule,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_56__.FormsModule,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_56__.ReactiveFormsModule,
+        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_57__.BrowserAnimationsModule, ngx_toastr__WEBPACK_IMPORTED_MODULE_58__.ToastrModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_59__.HttpClientModule,
         ngx_pagination__WEBPACK_IMPORTED_MODULE_0__.NgxPaginationModule,
-        _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_59__.NgbModule,
-        _angular_common__WEBPACK_IMPORTED_MODULE_60__.CommonModule] }); })();
+        _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_60__.NgbModule,
+        _angular_common__WEBPACK_IMPORTED_MODULE_61__.CommonModule] }); })();
 
 
 /***/ }),
@@ -5617,81 +5618,83 @@ class NavbarProfessorComponent {
     }
 }
 NavbarProfessorComponent.ɵfac = function NavbarProfessorComponent_Factory(t) { return new (t || NavbarProfessorComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_login_authentication_service__WEBPACK_IMPORTED_MODULE_0__.AuthenticationService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_3__.Location)); };
-NavbarProfessorComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: NavbarProfessorComponent, selectors: [["app-navbar-professor"]], decls: 43, vars: 6, consts: [[1, "navbar", "navbar-expand-sm", "navbar-light", "bg-light"], [1, "navbar-brand"], [1, "navbar-nav", "mr-auto"], [1, "nav-item"], [1, "nav-link", 3, "routerLink"], [1, "table", "table-striped", "pera"], [1, "btn", "btn-link"], [1, "fa", "fa-sort"], [1, "navbar-nav", "ml-auto"], [1, "nav-link", 3, "click"]], template: function NavbarProfessorComponent_Template(rf, ctx) { if (rf & 1) {
+NavbarProfessorComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: NavbarProfessorComponent, selectors: [["app-navbar-professor"]], decls: 44, vars: 6, consts: [[1, "navbar", "navbar-expand-sm", "navbar-light", "bg-light"], [1, "container-fluid"], [1, "navbar-brand"], [1, "navbar-nav", "mr-auto"], [1, "nav-item"], [1, "nav-link", 3, "routerLink"], [1, "navbar-nav", "ml-auto"], [1, "nav-link", 3, "click"], [1, "table", "table-striped", "pera"], [1, "btn", "btn-link"], [1, "fa", "fa-sort"]], template: function NavbarProfessorComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "nav", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "a", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](2, "professor");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "a", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](3, "professor");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "ul", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "li", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](5, "a", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](6, "Exams");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "ul", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](8, "li", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "a", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](10, "Students");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "ul", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](5, "li", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "a", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](7, "Exams");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](11, "ul", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](12, "li", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](13, "a", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](14, "Profile");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](8, "ul", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "li", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](10, "a", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](11, "Students");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](15, "table", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "thead");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](17, "tr");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](18, "th");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](19, "Title ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](20, "button", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](21, "span", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](12, "ul", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](13, "li", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](14, "a", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](15, "Profile");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](22, "th");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](23, "Code ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](24, "button", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](25, "span", 7);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](26, "th");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](27, "Ects ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](28, "button", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](29, "span", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](30, "th");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](31, "Start Date ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](32, "button", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](33, "span", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](34, "th");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](35, "End Date ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](36, "button", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](37, "span", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "ul", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](17, "li", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](18, "a", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function NavbarProfessorComponent_Template_a_click_18_listener() { return ctx.logout(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](19, "Logout");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](20, "div");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](21, "table", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](22, "thead");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](23, "tr");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](24, "th");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](25, "Title ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](26, "button", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](27, "span", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](38, "div");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](39, "ul", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](40, "li", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](41, "a", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function NavbarProfessorComponent_Template_a_click_41_listener() { return ctx.logout(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](42, "Logout");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](28, "th");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](29, "Code ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](30, "button", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](31, "span", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](32, "th");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](33, "Ects ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](34, "button", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](35, "span", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](36, "th");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](37, "Start Date ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](38, "button", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](39, "span", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](40, "th");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](41, "End Date ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](42, "button", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](43, "span", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](6);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](3, _c0));
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](4, _c1));
@@ -5726,7 +5729,8 @@ __webpack_require__.r(__webpack_exports__);
 const _c0 = function () { return ["/financialcard"]; };
 const _c1 = function () { return ["/payouts"]; };
 const _c2 = function () { return ["/payment"]; };
-const _c3 = function () { return ["/studentProfile/"]; };
+const _c3 = function () { return ["/studentExams"]; };
+const _c4 = function () { return ["/studentProfile/"]; };
 class NavbarStudentComponent {
     constructor(authenticationService, toastr, router) {
         this.authenticationService = authenticationService;
@@ -5740,10 +5744,10 @@ class NavbarStudentComponent {
     }
 }
 NavbarStudentComponent.ɵfac = function NavbarStudentComponent_Factory(t) { return new (t || NavbarStudentComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_login_authentication_service__WEBPACK_IMPORTED_MODULE_0__.AuthenticationService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ngx_toastr__WEBPACK_IMPORTED_MODULE_2__.ToastrService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.Router)); };
-NavbarStudentComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: NavbarStudentComponent, selectors: [["app-navbar-student"]], decls: 20, vars: 8, consts: [[1, "navbar", "navbar-expand-sm", "navbar-light", "bg-light"], [1, "navbar-brand"], [1, "navbar-nav", "mr-auto"], [1, "nav-item"], [1, "nav-link", 3, "routerLink"], [1, "navbar-nav", "ml-auto"], [1, "nav-link", 3, "click"]], template: function NavbarStudentComponent_Template(rf, ctx) { if (rf & 1) {
+NavbarStudentComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: NavbarStudentComponent, selectors: [["app-navbar-student"]], decls: 23, vars: 10, consts: [[1, "navbar", "navbar-expand-sm", "navbar-light", "bg-light"], [1, "navbar-brand"], [1, "navbar-nav", "mr-auto"], [1, "nav-item"], [1, "nav-link", 3, "routerLink"], [1, "navbar-nav", "ml-auto"], [1, "nav-link", 3, "click"]], template: function NavbarStudentComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "nav", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "a", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](2, "financial card");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](2, "Student panel");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "ul", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "li", 3);
@@ -5763,28 +5767,35 @@ NavbarStudentComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MOD
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](13, "li", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](14, "a", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](15, "Profile");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](15, "Exams");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "li", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](17, "a", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](18, "Profile");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "ul", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](17, "li", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](18, "a", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function NavbarStudentComponent_Template_a_click_18_listener() { return ctx.logout(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](19, "Logout");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](19, "ul", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](20, "li", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](21, "a", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function NavbarStudentComponent_Template_a_click_21_listener() { return ctx.logout(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](22, "Logout");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](4, _c0));
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](5, _c0));
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](5, _c1));
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](6, _c1));
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](6, _c2));
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](7, _c2));
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](7, _c3));
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](8, _c3));
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](9, _c4));
     } }, directives: [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__.NgbNavbar, _angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterLinkWithHref], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJuYXZiYXItc3R1ZGVudC5jb21wb25lbnQuY3NzIn0= */"] });
 
 
@@ -6122,8 +6133,7 @@ class FinancialCardDetailsComponent {
             initialState: 0,
             totalPayment: 0,
             totalPayout: 0,
-            totalCost: 0,
-            student: null
+            totalCost: 0
         });
         this.mode = 'ADD';
     }
@@ -6337,12 +6347,12 @@ class FinancialcardStudentComponent {
             totalPayment: 0,
             totalPayout: 0,
             totalCost: 0,
-            student: null
+            // student : null
         });
     }
     ngOnInit() {
         if (this.route.snapshot.params['id']) {
-            this.route.params.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.switchMap)((params) => this.studentService.getStudentFinancialCard()))
+            this.route.params.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.switchMap)((params) => this.studentService.getStudentFinancialCard(+params['id'])))
                 .subscribe(res => {
                 this.financialCard = res;
             });
@@ -6438,6 +6448,12 @@ class JwtserviceutilsService {
         let decodedJWTJsonData = window.atob(jwtData);
         let decodedJWTData = JSON.parse(decodedJWTJsonData);
         return [decodedJWTData.roles];
+    }
+    getUsername(token) {
+        let jwtData = token.split('.')[1];
+        let decodedJWTJsonData = window.atob(jwtData);
+        let decodedJWTData = JSON.parse(decodedJWTJsonData);
+        return [decodedJWTData.sub];
     }
 }
 JwtserviceutilsService.ɵfac = function JwtserviceutilsService_Factory(t) { return new (t || JwtserviceutilsService)(); };
@@ -6705,7 +6721,6 @@ class Payment {
         this.dateOfPayment = paymentConf.dateOfPayment;
         this.paymentDescription = paymentConf.paymentDescription;
         this.paymentAmount = paymentConf.paymentAmount;
-        this.financialCard = paymentConf.financialCard;
     }
 }
 
@@ -6755,6 +6770,7 @@ class Professor {
         this.id = professorCfg.id;
         this.firstName = professorCfg.firstName;
         this.lastName = professorCfg.lastName;
+        this.user = professorCfg.user;
     }
 }
 
@@ -6788,6 +6804,7 @@ class Student {
         this.accountNumber = studentCfg.accountNumber;
         this.firstName = studentCfg.firstName;
         this.lastName = studentCfg.lastName;
+        this.user = studentCfg.user;
     }
 }
 
@@ -6829,7 +6846,7 @@ class PaymentDetailsComponent {
             dateOfPayment: '',
             paymentAmount: 0,
             paymentDescription: '',
-            financialCard: null
+            // financialCard : null
         });
         this.mode = 'ADD';
     }
@@ -6976,10 +6993,10 @@ class PaymentComponent {
         //  );
     }
     ngOnInit() {
-        // this.getPayment(studentId:number);
+        // this.getPayment(studentId);
     }
     getPayment(studentId) {
-        this.studentService.getStudentPayment();
+        this.studentService.getStudentPayment(studentId);
     }
 }
 PaymentComponent.ɵfac = function PaymentComponent_Factory(t) { return new (t || PaymentComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_students_student_service__WEBPACK_IMPORTED_MODULE_0__.StudentService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_login_authentication_service__WEBPACK_IMPORTED_MODULE_1__.AuthenticationService)); };
@@ -7150,7 +7167,7 @@ class PayoutComponent {
         // this.getPayout(studentId:number);
     }
     getPayout(studentId) {
-        this.studentService.getStudentPayout();
+        this.studentService.getStudentPayout(studentId);
     }
 }
 PayoutComponent.ɵfac = function PayoutComponent_Factory(t) { return new (t || PayoutComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_students_student_service__WEBPACK_IMPORTED_MODULE_0__.StudentService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_login_authentication_service__WEBPACK_IMPORTED_MODULE_1__.AuthenticationService)); };
@@ -7630,14 +7647,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ProfessorProfileComponent": () => (/* binding */ ProfessorProfileComponent)
 /* harmony export */ });
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 3190);
 /* harmony import */ var _model_professor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../model/professor */ 9525);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ 8583);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 8583);
 /* harmony import */ var _professor_professor_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../professor/professor.service */ 4357);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ 9895);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ 3679);
-
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ 3679);
 
 
 
@@ -7651,56 +7666,54 @@ class ProfessorProfileComponent {
         this.route = route;
         this.professor = new _model_professor__WEBPACK_IMPORTED_MODULE_0__.Professor({
             firstName: '',
-            lastName: ''
+            lastName: '',
+            user: {
+                id: 0,
+                username: "",
+                password: ""
+            }
         });
     }
     ngOnInit() {
-        this.route.snapshot.params['id'];
-        if (this.route.snapshot.params['id']) {
-            // fetch professor if we edit the existing professor
-            this.route.params.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.switchMap)((params) => this.professorService.getProfessor(+params['id']))) // convert to number
-                .subscribe(res => {
-                // this.professor = res.body;
-            });
-        }
+        this.professorService.getMe().subscribe((professor) => (this.professor = professor));
     }
     goBack() {
         this.location.back();
     }
 }
-ProfessorProfileComponent.ɵfac = function ProfessorProfileComponent_Factory(t) { return new (t || ProfessorProfileComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_4__.Location), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_professor_professor_service__WEBPACK_IMPORTED_MODULE_1__.ProfessorService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__.ActivatedRoute)); };
-ProfessorProfileComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: ProfessorProfileComponent, selectors: [["app-professor-profile"]], decls: 13, vars: 2, consts: [[1, "form-group"], ["for", "field1c", 1, "form-control-label"], ["type", "text", "placeholder", "First name", "id", "field1c", "name", "field1", 1, "form-control", 3, "ngModel", "ngModelChange"], ["for", "field2c", 1, "form-control-label"], ["type", "text", "placeholder", "Last name", "id", "field2c", "name", "field2", 1, "form-control", 3, "ngModel", "ngModelChange"]], template: function ProfessorProfileComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](1, "h3");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](2, "Professor");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](3, "div");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](4, "form");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](5, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](6, "label", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](7, "First name");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](8, "input", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("ngModelChange", function ProfessorProfileComponent_Template_input_ngModelChange_8_listener($event) { return ctx.professor.firstName = $event; });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](9, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](10, "label", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](11, "Last name");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](12, "input", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("ngModelChange", function ProfessorProfileComponent_Template_input_ngModelChange_12_listener($event) { return ctx.professor.lastName = $event; });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+ProfessorProfileComponent.ɵfac = function ProfessorProfileComponent_Factory(t) { return new (t || ProfessorProfileComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_3__.Location), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_professor_professor_service__WEBPACK_IMPORTED_MODULE_1__.ProfessorService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__.ActivatedRoute)); };
+ProfessorProfileComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: ProfessorProfileComponent, selectors: [["app-professor-profile"]], decls: 13, vars: 2, consts: [[1, "form-group"], ["for", "field1c", 1, "form-control-label"], ["type", "text", "placeholder", "First name", "id", "field1c", "name", "field1", 1, "form-control", 3, "ngModel", "ngModelChange"], ["for", "field2c", 1, "form-control-label"], ["type", "text", "placeholder", "Last name", "id", "field2c", "name", "field2", 1, "form-control", 3, "ngModel", "ngModelChange"]], template: function ProfessorProfileComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "h3");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "Professor");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "div");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "form");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](5, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](6, "label", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](7, "First name");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](8, "input", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function ProfessorProfileComponent_Template_input_ngModelChange_8_listener($event) { return ctx.professor.firstName = $event; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](9, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](10, "label", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](11, "Last name");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](12, "input", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function ProfessorProfileComponent_Template_input_ngModelChange_12_listener($event) { return ctx.professor.lastName = $event; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngModel", ctx.professor.firstName);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngModel", ctx.professor.lastName);
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_6__.NgForm, _angular_forms__WEBPACK_IMPORTED_MODULE_6__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_6__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_6__.NgModel], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJwcm9mZXNzb3ItcHJvZmlsZS5jb21wb25lbnQuY3NzIn0= */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngModel", ctx.professor.firstName);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngModel", ctx.professor.lastName);
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.NgForm, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.NgModel], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJwcm9mZXNzb3ItcHJvZmlsZS5jb21wb25lbnQuY3NzIn0= */"] });
 
 
 /***/ }),
@@ -7777,6 +7790,10 @@ class ProfessorService {
         const url = `${this.path}/{id}`;
         return this.http.get(url, { observe: 'response' });
     }
+    getMe() {
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({ "Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString() });
+        return this.http.get(this.path + "/me", { headers: headers });
+    }
     getProfessorStudents(professorId) {
         const headInfo = {
             'Content - Type': 'application/json',
@@ -7817,7 +7834,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppRoutingModule": () => (/* binding */ AppRoutingModule)
 /* harmony export */ });
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @angular/router */ 9895);
 /* harmony import */ var _admin_add_exam_period_admin_add_exam_period_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../admin-add-exam-period/admin-add-exam-period.component */ 1177);
 /* harmony import */ var _admin_add_financial_card_admin_add_financial_card_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../admin-add-financial-card/admin-add-financial-card.component */ 3206);
 /* harmony import */ var _admin_add_payment_admin_add_payment_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../admin-add-payment/admin-add-payment.component */ 1663);
@@ -7844,8 +7861,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _professor_profile_professor_profile_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../professor-profile/professor-profile.component */ 8789);
 /* harmony import */ var _professor_students_professor_students_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../professor-students/professor-students.component */ 5961);
 /* harmony import */ var _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../student-details/student-details.component */ 2202);
-/* harmony import */ var _student_profile_student_profile_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../student-profile/student-profile.component */ 6794);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _student_exams_student_exams_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../student-exams/student-exams.component */ 5816);
+/* harmony import */ var _student_profile_student_profile_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../student-profile/student-profile.component */ 6794);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @angular/core */ 7716);
+
 
 
 
@@ -7881,7 +7900,11 @@ const routes = [
     { path: 'preexamObligations/:id', component: _admin_details_preexam_obligation_admin_details_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_8__.AdminDetailsPreexamObligationComponent },
     { path: 'adminAddPreexamObligation', component: _admin_add_preexam_obligation_admin_add_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_3__.AdminAddPreexamObligationComponent },
     { path: 'financialCard', component: _financialcard_student_financialcard_student_component__WEBPACK_IMPORTED_MODULE_16__.FinancialcardStudentComponent },
-    { path: 'studentProfile', component: _student_profile_student_profile_component__WEBPACK_IMPORTED_MODULE_26__.StudentProfileComponent },
+    { path: 'studentProfile', component: _student_profile_student_profile_component__WEBPACK_IMPORTED_MODULE_27__.StudentProfileComponent },
+    { path: 'studentExams', component: _student_exams_student_exams_component__WEBPACK_IMPORTED_MODULE_26__.StudentExamsComponent },
+    { path: 'professorProfile/:id', component: _professor_profile_professor_profile_component__WEBPACK_IMPORTED_MODULE_23__.ProfessorProfileComponent },
+    { path: 'studentsForProfessor', component: _professor_students_professor_students_component__WEBPACK_IMPORTED_MODULE_24__.ProfessorStudentsComponent },
+    { path: 'examsForProfessor', component: _professor_exams_professor_exams_component__WEBPACK_IMPORTED_MODULE_22__.ProfessorExamsComponent },
     { path: 'professorProfile/:id', component: _professor_profile_professor_profile_component__WEBPACK_IMPORTED_MODULE_23__.ProfessorProfileComponent },
     { path: 'studentsForProfessor', component: _professor_students_professor_students_component__WEBPACK_IMPORTED_MODULE_24__.ProfessorStudentsComponent },
     { path: 'examsForProfessor', component: _professor_exams_professor_exams_component__WEBPACK_IMPORTED_MODULE_22__.ProfessorExamsComponent },
@@ -7910,10 +7933,10 @@ const routes = [
 class AppRoutingModule {
 }
 AppRoutingModule.ɵfac = function AppRoutingModule_Factory(t) { return new (t || AppRoutingModule)(); };
-AppRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_27__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
-AppRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_27__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_28__.RouterModule.forRoot(routes, { useHash: false })
-        ], _angular_router__WEBPACK_IMPORTED_MODULE_28__.RouterModule] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_27__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_28__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_28__.RouterModule] }); })();
+AppRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_28__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
+AppRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_28__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_29__.RouterModule.forRoot(routes, { useHash: false })
+        ], _angular_router__WEBPACK_IMPORTED_MODULE_29__.RouterModule] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_28__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_29__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_29__.RouterModule] }); })();
 
 
 /***/ }),
@@ -7950,6 +7973,7 @@ class StudentDetailsComponent {
         this.location = location;
         this.router = router;
         this.student = new _model_student__WEBPACK_IMPORTED_MODULE_0__.Student({
+            user: null,
             cardNumber: '',
             firstName: '',
             lastName: '',
@@ -7969,7 +7993,7 @@ class StudentDetailsComponent {
     }
     ngOnInit() {
         if (this.route.snapshot.params['id']) {
-            this.route.params.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.switchMap)((params) => this.studentService.getStudent()))
+            this.route.params.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.switchMap)((params) => this.studentService.getStudent(+params['id'])))
                 .subscribe(res => {
                 this.student = res.body;
             });
@@ -8217,8 +8241,8 @@ class StudentDocumentsComponent {
     }
     ngOnInit() {
     }
-    getStudentDocuments() {
-        this.studentService.getStudentDocument().subscribe(res => this.documents = this.documents);
+    getStudentDocuments(studentId) {
+        this.studentService.getStudentDocument(studentId).subscribe(res => this.documents = this.documents);
     }
     goBack() {
         this.location.back();
@@ -8435,10 +8459,13 @@ class StudentExamsComponent {
         //  );
     }
     ngOnInit() {
-        // this.getExams(studentId:number);
+        // this.getStudentExams(this.student.id);
     }
-    getExams(studentId) {
-        this.studentService.getStudentsExams();
+    getUserUsername() {
+        //  this.studentService.getStudentUsername().subscribe(res=>this.student=this.student);
+    }
+    getStudentExams(studentId) {
+        this.studentService.getStudentsExams(this.student.id);
     }
 }
 StudentExamsComponent.ɵfac = function StudentExamsComponent_Factory(t) { return new (t || StudentExamsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_students_student_service__WEBPACK_IMPORTED_MODULE_0__.StudentService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_login_authentication_service__WEBPACK_IMPORTED_MODULE_1__.AuthenticationService)); };
@@ -8516,15 +8543,42 @@ class StudentProfileComponent {
         this.location = location;
         this.studentService = studentService;
         this.route = route;
-    }
-    ngOnInit() {
-        this.getStudentDetails();
-    }
-    getStudentDetails() {
-        this.studentService.getStudent().subscribe(res => this.student = res.body);
+        this.student = {
+            id: 0,
+            firstName: "",
+            phoneNumber: "",
+            email: "",
+            umnc: "",
+            startedCollegeIn: 0,
+            modelNumber: 0,
+            referenceNumber: "",
+            cardAmount: 0,
+            typeOfFinancing: {
+                id: 0,
+                name: "",
+                code: ""
+            },
+            lastName: "",
+            cardNumber: "",
+            financialCards: {
+                id: 0,
+                initialState: 0,
+                totalPayment: 0,
+                totalPayout: 0,
+                totalCost: 0
+            },
+            accountNumber: "",
+            user: {
+                username: "",
+                password: ""
+            }
+        };
     }
     goBack() {
         this.location.back();
+    }
+    ngOnInit() {
+        this.studentService.getStudentMe().subscribe((student) => (this.student = student));
     }
 }
 StudentProfileComponent.ɵfac = function StudentProfileComponent_Factory(t) { return new (t || StudentProfileComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_2__.Location), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_students_student_service__WEBPACK_IMPORTED_MODULE_0__.StudentService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.ActivatedRoute)); };
@@ -8677,7 +8731,6 @@ class StudentService {
         this.authService = authService;
         this.RegenerateData = new rxjs__WEBPACK_IMPORTED_MODULE_1__.Subject();
         this.RegenerateData$ = this.RegenerateData.asObservable();
-        this.id = localStorage.getItem('id');
     }
     announceChange() {
         this.RegenerateData.next();
@@ -8703,8 +8756,8 @@ class StudentService {
     getStudents() {
         return this.http.get(baseUrl, { observe: 'response' });
     }
-    getStudent() {
-        const url = `${baseUrl}/${this.id}`;
+    getStudent(id) {
+        const url = `${baseUrl}/${id}`;
         return this.http.get(url, { observe: 'response' });
     }
     addStudent(student) {
@@ -8713,11 +8766,11 @@ class StudentService {
     editStudent(student) {
         return this.http.put(baseUrl, student, { observe: 'response' });
     }
-    deleteStudent(studentId) {
-        const url = `${baseUrl}/${studentId}`;
+    deleteStudent(id) {
+        const url = `${baseUrl}/${id}`;
         return this.http.delete(url, { observe: 'response' });
     }
-    getStudentsExams() {
+    getStudentsExams(studentId) {
         const headInfo = {
             'Content - Type': 'application/json',
             'X-Auth-Token': "" + this.authService.getToken(),
@@ -8725,10 +8778,14 @@ class StudentService {
         const requestOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders(headInfo)
         };
-        const url = `${baseUrl}/${this.id}/exams`;
+        const url = `${baseUrl}/${studentId}/exams`;
         return this.http.get(url, requestOptions);
     }
-    getStudentFinancialCard() {
+    getStudentMe() {
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({ "Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString() });
+        return this.http.get(baseUrl + "/me", { headers: headers });
+    }
+    getStudentFinancialCard(studentId) {
         const headInfo = {
             'Content - Type': 'application/json',
             'X-Auth-Token': "" + this.authService.getToken(),
@@ -8736,10 +8793,10 @@ class StudentService {
         const requestOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders(headInfo)
         };
-        const url = `${baseUrl}/${this.id}/financial-card`;
+        const url = `${baseUrl}/${studentId}/financial-card`;
         return this.http.get(url, requestOptions);
     }
-    getStudentPayment() {
+    getStudentPayment(studentId) {
         const headInfo = {
             'Content - Type': 'application/json',
             'X-Auth-Token': "" + this.authService.getToken(),
@@ -8747,10 +8804,10 @@ class StudentService {
         const requestOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders(headInfo)
         };
-        const url = `${baseUrl}/${this.id}/payment`;
+        const url = `${baseUrl}/${studentId}/payment`;
         return this.http.get(url, requestOptions);
     }
-    getStudentPayout() {
+    getStudentPayout(studentId) {
         const headInfo = {
             'Content - Type': 'application/json',
             'X-Auth-Token': "" + this.authService.getToken(),
@@ -8758,10 +8815,10 @@ class StudentService {
         const requestOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders(headInfo)
         };
-        const url = `${baseUrl}/${this.id}/payout`;
+        const url = `${baseUrl}/${studentId}/payout`;
         return this.http.get(url, requestOptions);
     }
-    getStudentDocument() {
+    getStudentDocument(studentId) {
         const headInfo = {
             'Content - Type': 'application/json',
             'X-Auth-Token': "" + this.authService.getToken(),
@@ -8769,10 +8826,10 @@ class StudentService {
         const requestOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders(headInfo)
         };
-        const url = `${baseUrl}/${this.id}/document`;
+        const url = `${baseUrl}/${studentId}/document`;
         return this.http.get(url, requestOptions);
     }
-    getStudentEnrollment() {
+    getStudentEnrollment(studentId) {
         const headInfo = {
             'Content - Type': 'application/json',
             'X-Auth-Token': "" + this.authService.getToken(),
@@ -8780,7 +8837,7 @@ class StudentService {
         const requestOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders(headInfo)
         };
-        const url = `${baseUrl}/${this.id}/enrollment`;
+        const url = `${baseUrl}/${studentId}/enrollment`;
         return this.http.get(url, requestOptions);
     }
 }
