@@ -14,6 +14,7 @@ import { StudentService } from '../students/student.service';
 export class StudentDetailsComponent implements OnInit {
 
   student: Student = new Student({
+    user: null,
     cardNumber : '', 
     firstName: '',
     lastName: '',

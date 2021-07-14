@@ -11,6 +11,7 @@ import { StudentService } from '../students/student.service';
 export class AdminAddStudentComponent implements OnInit {
 
   student : Student = new Student({
+    user: null,
     cardNumber : '',
     firstName: '', 
     lastName: '', 
@@ -115,6 +116,7 @@ export class AdminAddStudentComponent implements OnInit {
   newStudent(){
     this.submitted = false; 
     this.student = {
+      user: null,
       cardNumber : '',
       firstName: '', 
       lastName: '', 

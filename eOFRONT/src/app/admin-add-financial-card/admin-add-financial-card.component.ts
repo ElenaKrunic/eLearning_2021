@@ -15,8 +15,7 @@ export class AdminAddFinancialCardComponent implements OnInit {
     initialState: 0, 
     totalPayment : 0, 
     totalPayout : 0, 
-    totalCost : 0,
-    student : null
+    totalCost : 0
   });
 
   form! : FormGroup; 
@@ -106,8 +105,7 @@ export class AdminAddFinancialCardComponent implements OnInit {
       initialState: 0, 
       totalPayment : 0, 
       totalPayout : 0, 
-      totalCost : 0,
-      student : null
+      totalCost : 0
     };
   }
 

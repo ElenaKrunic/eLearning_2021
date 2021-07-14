@@ -14,9 +14,8 @@ export class AdminAddPaymentComponent implements OnInit {
   payment: Payment = new Payment({
     dateOfPayment: '',
     paymentDescription : '', 
-    paymentAmount: 0,
-    financialCard : null
-  });
+    paymentAmount: 0
+    });
 
   form! : FormGroup; 
   submitted = false;
@@ -91,8 +90,7 @@ export class AdminAddPaymentComponent implements OnInit {
     this.payment = {
       dateOfPayment: '',
       paymentDescription : '', 
-      paymentAmount: 0,
-      financialCard : null
+      paymentAmount: 0
     };
   }
 
