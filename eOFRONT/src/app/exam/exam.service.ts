@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { HttpResponse, HttpClient } from '@angular/common/http';import { Exam } from '../model/exam';
 const baseUrl = "https://localhost:8443/api/exams"; 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ExamService {
 
   private path="api/exams"
