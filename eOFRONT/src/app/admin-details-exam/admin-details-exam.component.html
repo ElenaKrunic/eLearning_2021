@@ -10,8 +10,8 @@
             formControlName="grade"
             [ngClass]="{ 'is-invalid': submitted && f.grade.errors }"
             />
-            <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
-                <div *ngIf="f.title.errors.required">Grade is required</div>
+            <div *ngIf="submitted && f.grade.errors" class="invalid-feedback">
+                <div *ngIf="f.grade.errors.required">Grade is required</div>
                 
             </div>
         </div>
@@ -72,7 +72,7 @@
       <p> {{message}}</p>
 
 
-  <div *ngIf="!currentExamPeriod">
+  <div *ngIf="!currentExam">
       <br/>
       <p>Exam is unavailable!</p>
   </div>
