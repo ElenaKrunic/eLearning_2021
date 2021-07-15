@@ -62,6 +62,7 @@ import { AdminDetailsPreexamObligationTypeComponent } from './admin-details-pree
 import { ValidationComponent } from './validation/validation.component';
 import { ProfessorService } from './professor/professor.service';
 import { StudentService } from './students/student.service';
+import { ExamService } from './exam/exam.service';
 import { AdminAddCourseComponent } from './admin-add-course/admin-add-course.component';
 import { AdminAddExamComponent } from './admin-add-exam/admin-add-exam.component';
 import { AdminAddProfessorComponent } from './admin-add-professor/admin-add-professor.component';
@@ -151,7 +152,8 @@ import { AdminListProfessorComponent } from './admin-list-professor/admin-list-p
 
   providers: [
     ProfessorService,
-    StudentService
+    StudentService,
+    ExamService
   ],
 
   imports: [

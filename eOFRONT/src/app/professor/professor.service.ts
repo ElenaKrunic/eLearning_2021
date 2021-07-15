@@ -7,7 +7,7 @@ import { Professor } from '../model/professor';
 import { AuthenticationService } from '../login/authentication.service';
 const path = "https://localhost:8443/api/professors"; 
 
-const baseUrl = "https://localhost:8443/api/professors"; 
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,23 +21,23 @@ export class ProfessorService {
 
     RegenerateData$ = this.RegenerateData.asObservable();
     getAll(params: any): Observable<any> {
-      return this.http.get<any>(baseUrl, { params });
+      return this.http.get<any>(path, { params });
     }
-  
+    
     get(id: number): Observable<any>{
-      return this.http.get(`${baseUrl}/${id}`);
+      return this.http.get(`${path}/${id}`);
     }
   
     create(data: any) : Observable<any> {
-      return this.http.post(baseUrl, data);
+      return this.http.post(path, data);
     }
   
     update(id: number, data: any) : Observable<any>{
-       return this.http.put(`${baseUrl}/${id}`, data);
+       return this.http.put(`${path}/${id}`, data);
     }
   
     delete(id: number) : Observable<any> {
-      return this.http.delete(`${baseUrl}/${id}`);
+      return this.http.delete(`${path}/${id}`);
     }
     announceChange() {
         this.RegenerateData.next();
