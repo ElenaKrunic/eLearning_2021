@@ -54,7 +54,7 @@ export class AdminDetailsCourseComponent implements OnInit {
     .subscribe(
       response => {
         console.log(response); 
-        //this.message =  "You successfully updated exam period!";
+        ;
       },
       error => {
         console.log(error);

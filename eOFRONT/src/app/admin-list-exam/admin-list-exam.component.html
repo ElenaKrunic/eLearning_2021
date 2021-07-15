@@ -1,1 +1,101 @@
-<p>admin-list-exam works!</p>
+
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by title "
+        [(ngModel)]="title"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchName()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      [responsive]="true"
+      (pageChange)="handlePageChange($event)"
+    ></pagination-controls>
+  </div>
+
+    <div class="col-md-6">
+      <h4> List of exams </h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="
+            let exams of exams| paginate : {
+              itemsPerPage: pageSize, 
+              currentPage: page, 
+              totalItems: count
+          };
+          let i = index
+          "
+          [class.active]="i == currentIndex"
+          (click)="setActiveExam(exam, i)"
+        >
+          {{ exam.id }}
+        </li>
+      </ul>
+
+      <div class="mt-3">    
+        Items per Page:
+        <select (change)="handlePageSizeChange($event)">
+          <option *ngFor="let size of pageSizes" [ngValue]="size">
+            {{ size }}
+          </option>
+        </select>
+      </div>
+      
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentExamPeriod">
+        <h4> Exam  </h4>
+        <div>
+          <label><strong>ID :</strong></label> {{ currentExam.id }}
+        </div>
+        <div>
+          <label><strong>Grade:</strong></label>
+          {{ currentExam.grade}}
+        </div>
+        <div>
+          <label><strong>Points :</strong></label>
+          {{ currentExam.points}}
+        </div>
+        <div>
+            <label><strong>exam date:</strong></label>
+            {{ currentExam.examDate}}
+          </div>
+          <div>
+            <label><strong>exam period :</strong></label>
+            {{ currentExam.examPeriod}}
+          </div>
+          <div>
+            <label><strong>status :</strong></label>
+            {{ currentExam.status}}
+          </div>
+          
+
+
+        <a class="badge badge-warning" routerLink="/exams/{{ currentExam.id }}">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentExam">
+        <br />
+        <p>To see details click on one exam </p>
+      </div>
+    </div>
+  </div>
