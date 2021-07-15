@@ -1,21 +1,3 @@
 <div class="edit-form">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-         <label for="title"> Title </label>
-            <input type="number"
-            class="form-control"
-            id="title"
-            [(ngModel)] = "currentDoucment.title"
-            name="title"
-            formControlName="title"
-            [ngClass]="{ 'is-invalid': submitted && f.title.errors }"
-            />
-            <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
-                <div *ngIf="f.title.errors.required">title is required</div>
-                
-            </div>
-        </div>
 
-         
-</form>
 </div>

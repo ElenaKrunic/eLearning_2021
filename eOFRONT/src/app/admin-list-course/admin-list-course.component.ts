@@ -82,7 +82,7 @@ export class AdminListCourseComponent implements OnInit {
     this.currentIndex = index;
   }
 
-  searchName(): void {
+  searchTitle(): void {
     this.page = 1;
     this.retrieveCourses();
   }

@@ -3,6 +3,8 @@ import { ExamService } from '../exam/exam.service';
 import { Exam } from '../model/exam';
 
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Enrollment } from '../model/enrollment';
+import { ExamPeriod } from '../model/exam-period';
 
 @Component({
   selector: 'app-admin-add-exam',
@@ -14,8 +16,14 @@ export class AdminAddExamComponent implements OnInit {
   exam: Exam = new Exam({
     grade: 5,
     points:0,
-    examDate : '', 
-    status : true
+    examDate : new Date(), 
+    status : true,
+
+    examPeriod:null,
+    enrollment:null
+
+
+
   });
   form!: FormGroup;
   submitted = false; 
@@ -57,8 +65,10 @@ export class AdminAddExamComponent implements OnInit {
     this.exam = {
       grade: 5, 
       points: 0,
-      examDate: '',
-      status: true
+      examDate: new Date(),
+      status: true,
+      enrollment: null,
+      examPeriod:null
     };
   }
 

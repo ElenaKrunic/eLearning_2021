@@ -41,7 +41,8 @@ export class AdminAddProfessorComponent implements OnInit {
         ] 
       ]  });
 
-    }
+    }get f(): { [key: string]: AbstractControl} { return this.form.controls;}
+
     saveProfessor() {
       const data = {
       

@@ -1,26 +1,27 @@
 <div class="submit-form">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      
-        <div class="form-group">
-            <label for="firstName"> First name </label>
-            <input type="text"
-            class="form-control"
-            id="firstName"
-            [(ngModel)] = "professor.firstName"
-            name="firstName"
-            formControlName="firstName"
-            [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
-            />
-            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                <div *ngIf="f.firstName.errors.required">First name</div>
-                <div *ngIf="f.firstName.errors.minlength">
+    <div class="form-group">
+        <label>First name</label>
+        <input
+          type="text"
+          formControlName="firstName"
+          class="form-control"
+          [(ngModel)]="professor.firstName" 
+          id = "firstName"
+          name="firstName"
+          [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+        />
+        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+          <div *ngIf="f.firstName.errors.required">first name is required</div>
+          <div *ngIf="f.firstName.errors.minlength">
+         
                   First must be at least 5 characters
                 </div>
                 <div *ngIf="f.firstName.errors.maxlength">
                   First must not exceed 20 characters
                 </div>
             </div>
-        </div>
+        
 
         <div class="form-group">
             <label for="lastName"> Last name </label>
@@ -57,5 +58,6 @@
               Reset
             </button>
           </div>
-    </form>
+    
 </div>
+</form>

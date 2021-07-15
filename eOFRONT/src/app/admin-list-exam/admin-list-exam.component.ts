@@ -12,7 +12,7 @@ export class AdminListExamComponent implements OnInit {
   exams: Exam[] = [];
   currentExam: Exam; 
   currentIndex = -1; 
-  name = '';
+  title = '';
 
   page = 1;
   count = 0;
@@ -45,7 +45,7 @@ export class AdminListExamComponent implements OnInit {
   }
 
   retrieveExams(): void {
-    const params = this.getRequestParams(this.name, this.page, this.pageSize);
+    const params = this.getRequestParams(this.title, this.page, this.pageSize);
 
     this.examService.getAll(params)
     .subscribe(

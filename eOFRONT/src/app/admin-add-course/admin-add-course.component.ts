@@ -16,8 +16,8 @@ export class AdminAddCourseComponent implements OnInit {
   course: Course = new Course({
     title: '',
     courseCode: '',
-    startDate : , 
-    endDate: '',
+    startDate : new Date(), 
+    endDate: new Date(),
     ECTS : 0
   });
 
@@ -70,8 +70,8 @@ export class AdminAddCourseComponent implements OnInit {
     this.course = {
       title: '', 
       courseCode:'',
-      startDate: '',
-      endDate: '',
+      startDate: new Date(),
+      endDate: new Date(),
       ECTS: 0
     };
   }
