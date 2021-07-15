@@ -3,24 +3,24 @@
 </div>
 
 <div>
-  <form>
+  <form *ngIf="student.id!= undefined">
       <div class="form-group">
           <label for="field1c" class="form-control-label"> Initial state: </label>
-          <input type="text" [(ngModel)]="financialCard.initialState" placeholder="Initial state" class="form-control" id="field1c" name="field1">
+          <input type="number" [(ngModel)]="financialCard.initialState" placeholder="Initial state" class="form-control" id="field1c" name="field1">
       </div>
       <br/>
       <div class="form-group">
-          <label for="field1c" class="form-control-label"> Total payment: </label>
-          <input type="text" [(ngModel)]="financialCard.totalPayment" placeholder="Total payment" class="form-control" id="field1c" name="field1">
+          <label for="field2c" class="form-control-label"> Total payment: </label>
+          <input type="number" [(ngModel)]="financialCard.totalPayment" placeholder="Total payment" class="form-control" id="field1c" name="field2">
       </div>
       <br/>
       <div class="form-group">
-          <label for="field1c" class="form-control-label"> Total payout: </label>
-          <input type="text" [(ngModel)]="financialCard.totalPayout" placeholder="Total payout" class="form-control" id="field1c" name="field1">
+          <label for="field3c" class="form-control-label"> Total payout: </label>
+          <input type="number" [(ngModel)]="financialCard.totalPayout" placeholder="Total payout" class="form-control" id="field1c" name="field3">
       </div>
       <div class="form-group">
-          <label for="field1c" class="form-control-label"> Total cost: </label>
-          <input type="text" [(ngModel)]="financialCard.totalCost" placeholder="Total cost" class="form-control" id="field1c" name="field1">
+          <label for="field4c" class="form-control-label"> Total cost: </label>
+          <input type="number" [(ngModel)]="financialCard.totalCost" placeholder="Total cost" class="form-control" id="field1c" name="field4">
       </div>
       <br/>
   </form>

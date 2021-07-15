@@ -5,6 +5,8 @@ import { Location } from '@angular/common';
 import { StudentService } from '../students/student.service';
 import { switchMap } from 'rxjs/operators';
 
+import { Student } from '../model/student';
+
 
 @Component({
   selector: 'app-student-documents',
@@ -13,17 +15,59 @@ import { switchMap } from 'rxjs/operators';
 })
 export class StudentDocumentsComponent implements OnInit {
   documents:Document[];
+  student:Student = {
+    id: 0,
+    firstName: "",
+    phoneNumber:"",
+    email:"",
+    umnc:"",
+    startedCollegeIn:0,
+    modelNumber:0,
+    referenceNumber:null,
+    cardAmount:0,
+    typeOfFinancing:{
+      id:0,
+      name:"",
+      code:""
+    },
+    lastName: "",
+    cardNumber: "",
+    financialCards:{
+      id:0,
+      initialState:0,
+      totalPayment:0,
+      totalPayout:0,
+      totalCost:0
+
+    },
+    accountNumber: "",
+    user: {
+      username: "",
+      password: ""
+    }
+  };
+  
  
   constructor(private studentService: StudentService, private router: Router,private authService:AuthenticationService,private route:ActivatedRoute,private location:Location) { 
   
   }
-  ngOnInit(): void {
+
+  getMe():void{
+    this.studentService.getStudentMe().subscribe( student => (this.student = student));
 
   }
   
-  getStudentDocuments(studentId:number){
-    this.studentService.getStudentDocument(studentId).subscribe(res=>this.documents=this.documents)
+  ngOnInit(): void {
+    this.getDocuments(this.student);
+
   }
+  getDocuments(student:Student){
+    this.studentService.getStudentDocument(this.student).subscribe(res=>this.documents=this.documents)
+
+  }
+ 
+  
+
   goBack(): void {
     this.location.back();
   }

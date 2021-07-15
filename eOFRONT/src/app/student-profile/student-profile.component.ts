@@ -20,7 +20,7 @@ export class StudentProfileComponent implements OnInit {
     umnc:"",
     startedCollegeIn:0,
     modelNumber:0,
-    referenceNumber:"",
+    referenceNumber:null,
     cardAmount:0,
     typeOfFinancing:{
       id:0,
@@ -58,6 +58,6 @@ export class StudentProfileComponent implements OnInit {
  
 
   ngOnInit(): void {
-    this.studentService.getStudentMe().subscribe( (student) => (this.student = student));
+    this.studentService.getStudentMe().subscribe( student => (this.student = student));
   }
 }
