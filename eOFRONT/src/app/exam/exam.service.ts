@@ -1,17 +1,39 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { HttpResponse, HttpClient } from '@angular/common/http';import { Exam } from '../model/exam';
-
-@Injectable()
+const baseUrl = "https://localhost:8443/api/exams"; 
+@Injectable({
+  providedIn: 'root'
+})
 export class ExamService {
 
   private path="api/exams"
-
+ 
   constructor(private http: HttpClient) { }
 
     private RegenerateData = new Subject<void>();
 
     RegenerateData$ = this.RegenerateData.asObservable();
+
+    getAll(params: any): Observable<any> {
+      return this.http.get<any>(baseUrl, { params });
+    }
+  
+    get(id: number): Observable<any>{
+      return this.http.get(`${baseUrl}/${id}`);
+    }
+  
+    create(data: any) : Observable<any> {
+      return this.http.post(baseUrl, data);
+    }
+  
+    update(id: number, data: any) : Observable<any>{
+       return this.http.put(`${baseUrl}/${id}`, data);
+    }
+  
+    delete(id: number) : Observable<any> {
+      return this.http.delete(`${baseUrl}/${id}`);
+    }
 
     announceChange() {
         this.RegenerateData.next();
