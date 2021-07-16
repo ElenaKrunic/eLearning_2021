@@ -1,23 +1,23 @@
 export class Payout implements PayoutInterface {
     public  id?:number;
 	
-	public dateOfPayOut:Date ;
+	public dateOfPayout:Date ;
 	
-	public  descriptionPayOut:String;
+	public  descriptionOfPayout:String;
 	
-	public  payOutAmount:number;
+	public  amountOfPayout:number;
 	constructor(paymentConf:PayoutInterface){
         this.id=paymentConf.id;
-        this.dateOfPayOut=paymentConf.dateOfPayOut;
-        this.descriptionPayOut=paymentConf.descriptionPayOut;
-        this.payOutAmount=paymentConf.payOutAmount;
+        this.dateOfPayout=paymentConf.dateOfPayout;
+        this.descriptionOfPayout=paymentConf.descriptionOfPayout;
+        this.amountOfPayout=paymentConf.amountOfPayout;
     }
 }
 
 interface PayoutInterface{
     id?:number;
-    dateOfPayOut:Date;
-    descriptionPayOut:String;
-    payOutAmount:number;
+    dateOfPayout:Date;
+    descriptionOfPayout:String;
+    amountOfPayout:number;
 
 }

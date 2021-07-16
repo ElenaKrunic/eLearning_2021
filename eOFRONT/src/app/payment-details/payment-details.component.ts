@@ -13,7 +13,7 @@ import { PaymentService } from '../payment/payment.service';
 export class PaymentDetailsComponent implements OnInit {
 
   payment: Payment = new Payment({
-    dateOfPayment : '', 
+    dateOfPayment : null, 
     paymentAmount : 0, 
     paymentDescription : '',
     // financialCard : null

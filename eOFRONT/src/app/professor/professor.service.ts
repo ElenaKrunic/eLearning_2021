@@ -5,6 +5,7 @@ import { Course } from '../model/course';
 import { Student } from '../model/student';
 import { Professor } from '../model/professor';
 import { AuthenticationService } from '../login/authentication.service';
+import { Exam } from '../model/exam';
 const path = "https://localhost:8443/api/professors"; 
 
 @Injectable()
@@ -48,28 +49,24 @@ export class ProfessorService {
       return this.http.get<Professor>(path+"/me", {headers: headers});
     
     }
-    getProfessorStudents(professorId:number): Observable<HttpResponse<Student[]>> {
-      const headInfo={
-        'Content - Type': 'application/json',
-        'X-Auth-Token':"" + this.authService.getToken(),
-            }
-            const requestOptions={
-              headers:new HttpHeaders(headInfo)
-            }
-      const url=`${path}/{professorId}/professorStudents`;
-      return this.http.get<Student[]>(url, {observe: 'response'});
-    }
+    getProfessorStudents(professor:Professor): Observable<Student[]> {
+      const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+      const url = `${path}/${professor.id}/professorStudents`;
+    
+      return this.http.get<Student[]>(url, {headers: headers});
+        }
 
-    getProfsesorCourses(courseId:number): Observable<Course[]> {
-      const headInfo={
-        'Content - Type': 'application/json',
-        'X-Auth-Token':"" + this.authService.getToken(),
-            }
-            const requestOptions={
-              headers:new HttpHeaders(headInfo)
-            }
-      const url=`${path}/{courseId}/proffesorCourses`;
-      return this.http.get<Course[]>(url, requestOptions);
-    }
+    getProfessorsCourses(professor:Professor): Observable<Course> {
+      const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+      const url = `${path}/${professor.id}/proffesorCourses`;
+    
+      return this.http.get<Course>(url, {headers: headers});
+     }
+    getProfessorExams(professor:Professor): Observable<Exam[]> {
+      const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+      const url = `${path}/${professor.id}/professorExams`;
+    
+      return this.http.get<Exam[]>(url, {headers: headers});
+        }
 
 }

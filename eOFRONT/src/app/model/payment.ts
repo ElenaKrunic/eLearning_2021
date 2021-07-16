@@ -2,7 +2,8 @@ import { FinancialCard } from "./financial-card";
 
 export class Payment implements PaymentInterface{
     public id?: number;
-	public dateOfPayment: string;
+    // paymentDate
+	public dateOfPayment: Date;
 	public paymentDescription: string;
 	public paymentAmount: number;
    
@@ -15,7 +16,7 @@ export class Payment implements PaymentInterface{
 }
 interface PaymentInterface{
     id?:number;
-    dateOfPayment:string;
+    dateOfPayment:Date;
     paymentDescription:string;
     paymentAmount:number;
   

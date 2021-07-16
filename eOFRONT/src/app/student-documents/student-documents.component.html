@@ -13,11 +13,11 @@
     </thead>
     <tbody>
       
-      <tr *ngFor="let document of documents | async">
+      <tr *ngFor="let document of documents">
       
         <td>{{document.title}}</td>
         <td>{{document.url}}</td>
-        <td>{{document.documentType.name}}</td>
+        <td>{{document.documentType}}</td>
         <td><button>{{document.download}}</button></td>
        
     </tr>

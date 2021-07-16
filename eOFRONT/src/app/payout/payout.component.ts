@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../login/authentication.service';
@@ -12,7 +13,7 @@ import { StudentService } from '../students/student.service';
 })
 export class PayoutComponent implements OnInit {
   student:Student = {
-    id: 1,
+    id: 0,
     firstName: "",
     phoneNumber:"",
     email:"",
@@ -43,19 +44,28 @@ export class PayoutComponent implements OnInit {
     }
   };
    payouts?:Payout[];
-  constructor(private studentService: StudentService, private router: Router,private authService:AuthenticationService) { 
+  constructor(private studentService: StudentService, private router: Router,private authService:AuthenticationService,private location:Location) { 
    
   }
-  getMe():void{
-    this.studentService.getStudentMe().subscribe( res => (this.student = res));
-    console.log(this.student);
-  }
+  // getMe():void{
+  //   this.studentService.getStudentMe().subscribe( res => (this.student = res));
+  //   console.log(this.student);
+  // }
 
   ngOnInit(): void {
-    this.getPayout(this.student);
+    this.studentService.getStudentMe().subscribe( res => { (this.student = res)
+      this.studentService.getStudentPayout(res).subscribe(res => this.payouts=res);
+  
+    });
+    
+   
   }
-  getPayout(student:Student)
-  {
-    this.studentService.getStudentPayout(this.student).subscribe(res=>this.payouts=res);
-    console.log(this.payouts);  }
+  goBack(): void {
+    this.location.back();
+  }
 }
+//   getPayout()
+//   {
+//     this.studentService.getStudentPayout(this.student).subscribe(res=>this.payouts=res);
+//     console.log(this.payouts);  }
+// }

@@ -1,4 +1,5 @@
 import { Identifiers } from "@angular/compiler";
+
 import { Course } from "./course";
 import { Exam } from "./exam";
 import { Student } from "./student";
@@ -9,6 +10,7 @@ export class Enrollment implements EnrollmentInterface {
     public endDate: Date;
     public student: Student;
     public courses: Course;
+    public courseName:string;
    
     constructor(enrollmentCgf: EnrollmentInterface){
         this.id= enrollmentCgf.id;
@@ -16,9 +18,9 @@ export class Enrollment implements EnrollmentInterface {
         this.endDate= enrollmentCgf.endDate;
         this.student= enrollmentCgf.student;
         this.courses= enrollmentCgf.courses;
-       
+       this.courseName=enrollmentCgf.courseName;
     }
-    courseName: string;
+  
 
 }
 
@@ -29,6 +31,7 @@ interface EnrollmentInterface{
     endDate: Date;
     student: Student;
     courses: Course;
+    
 }
 
 

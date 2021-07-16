@@ -15,56 +15,61 @@ import { Student } from '../model/student';
 })
 export class StudentDocumentsComponent implements OnInit {
   documents:Document[];
-  student:Student = {
-    id: 0,
-    firstName: "",
-    phoneNumber:"",
-    email:"",
-    umnc:"",
-    startedCollegeIn:0,
-    modelNumber:0,
-    referenceNumber:null,
-    cardAmount:0,
-    typeOfFinancing:{
-      id:0,
-      name:"",
-      code:""
-    },
-    lastName: "",
-    cardNumber: "",
-    financialCards:{
-      id:0,
-      initialState:0,
-      totalPayment:0,
-      totalPayout:0,
-      totalCost:0
+  student:Student ;
+  //= {
+  //   id: 0,
+  //   firstName: "",
+  //   phoneNumber:"",
+  //   email:"",
+  //   umnc:"",
+  //   startedCollegeIn:0,
+  //   modelNumber:0,
+  //   referenceNumber:null,
+  //   cardAmount:0,
+  //   typeOfFinancing:{
+  //     id:0,
+  //     name:"",
+  //     code:""
+  //   },
+  //   lastName: "",
+  //   cardNumber: "",
+  //   financialCards:{
+  //     id:0,
+  //     initialState:0,
+  //     totalPayment:0,
+  //     totalPayout:0,
+  //     totalCost:0
 
-    },
-    accountNumber: "",
-    user: {
-      username: "",
-      password: ""
-    }
-  };
+  //   },
+  //   accountNumber: "",
+  //   user: {
+  //     username: "",
+  //     password: ""
+  //   }
+  // };
   
  
   constructor(private studentService: StudentService, private router: Router,private authService:AuthenticationService,private route:ActivatedRoute,private location:Location) { 
   
   }
 
-  getMe():void{
-    this.studentService.getStudentMe().subscribe( student => (this.student = student));
+  // getMe():void{
+  //   this.studentService.getStudentMe().subscribe( student => (this.student = student));
 
-  }
+  // }
   
   ngOnInit(): void {
-    this.getDocuments(this.student);
+    this.studentService.getStudentMe().subscribe( res => {(this.student = res)
+      this.studentService.getStudentDocument(res).subscribe(res=>this.documents=res)
+
+    });
+
 
   }
-  getDocuments(student:Student){
-    this.studentService.getStudentDocument(this.student).subscribe(res=>this.documents=this.documents)
+  // getDocuments(student:Student){
+  //   this.studentService.getStudentDocument(this.student).subscribe(res=>this.documents=this.documents)
 
-  }
+  // }
  
   
 

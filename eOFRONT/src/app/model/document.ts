@@ -5,7 +5,7 @@ export class Document implements DocumentInterface{
     public  id?:number;
 	public  title:String;
 	public  url:String;
-    public documentType:DocumentType;
+    public documentType:String;
 
     constructor(documentConf:DocumentInterface){
         this.id=documentConf.id;
@@ -20,6 +20,6 @@ interface DocumentInterface{
       title:String;
 	  url:String;
    
-     documentType:DocumentType;
+     documentType:String;
     
 }

@@ -9,7 +9,10 @@
       <tr *ngFor="let enrollment of enrollments">
         <td>{{enrollment.startDate}}</td>
         <td>{{enrollment.endDate}}</td>
-        <td>{{enrollment.course.title}}</td>
+        <td>{{enrollment.courseName}}</td>
       </tr>
     </tbody>
   </table>
+  <div>
+    <button class="btn btn-primary" (click)="goBack()">Cancel</button>
+     </div> 

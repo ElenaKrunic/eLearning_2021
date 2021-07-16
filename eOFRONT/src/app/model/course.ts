@@ -6,7 +6,7 @@ export class Course implements CourseInterface {
     public courseCode: string;
     public startDate: Date;
     public endDate: Date;
-    public ECTS: number;
+    public ects: number;
 
     constructor(courseCfg:CourseInterface) {
         this.id= courseCfg.id;
@@ -14,7 +14,7 @@ export class Course implements CourseInterface {
         this.courseCode= courseCfg.courseCode;
         this.startDate= courseCfg.startDate;
         this.endDate= courseCfg.endDate;
-        this.ECTS= courseCfg.ECTS;
+        this.ects= courseCfg.ects;
     }
 
 
@@ -26,6 +26,6 @@ interface CourseInterface {
     courseCode: string;
     startDate: Date;
     endDate: Date;
-    ECTS: number;
+    ects: number;
 
 }

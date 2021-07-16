@@ -1,2 +1,28 @@
 
   
+<table class="table table-striped pera">
+    <thead>
+      <tr>
+        <th>Card number <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
+        <th>Firstname <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
+        <th>Lastname <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
+        <th>Phone number <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
+        <th>Email<button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>      
+        <th>UMNC<button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>      </tr>
+        
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{student.cardNumber}}</td>
+        <td>{{student.firstName}}</td>
+        <td>{{student.lastName}}</td>
+        <td>{{student.phoneNumber}}</td>
+        <td>{{student.email}}</td>
+        <td>{{student.umnc}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <button class="btn btn-primary" (click)="goBack()">Cancel</button>
+  </div>
+  

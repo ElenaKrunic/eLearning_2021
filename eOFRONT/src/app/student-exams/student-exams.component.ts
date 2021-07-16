@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../login/authentication.service';
@@ -16,24 +17,32 @@ export class StudentExamsComponent implements OnInit {
   student:Student;
   
 
-  constructor(private studentService: StudentService, private router: Router,private authService:AuthenticationService) { 
+  constructor(private studentService: StudentService, private router: Router,private authService:AuthenticationService,private location:Location) { 
     //  this.subscription = studentService.RegenerateData$.subscribe(() =>
     //   //  this.getExams(studentId?:number)
 
     //  );
   }
 
+  
+  
   ngOnInit(): void {
-    // this.getStudentExams(this.student.id);
+    this.studentService.getMeAgain().subscribe(res =>{( this.student=res)
+      this.studentService.getStudentsExams(res).subscribe(res=>this.exams=res);
+
+    });
   }
 
-  getUserUsername(){
-  //  this.studentService.getStudentUsername().subscribe(res=>this.student=this.student);
-  }
+  // getUserUsername(){
+  // //  this.studentService.getStudentUsername().subscribe(res=>this.student=this.student);
+  // }
 
-  getStudentExams(studentId:number){
-    this.studentService.getStudentsExams(this.student.id);
+  // getStudentExams(studentId:number){
+  //   this.studentService.getStudentsExams(this.student.id);
 
+  // }
+  goBack(): void {
+    this.location.back();
   }
 
 }

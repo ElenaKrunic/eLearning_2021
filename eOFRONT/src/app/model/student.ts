@@ -21,6 +21,7 @@ export class Student implements StudentInterface {
     public  typeOfFinancing:TypeOfFinancing;
 	public financialCards:FinancialCard;
     public user:User;
+
     
     constructor(studentCfg:StudentInterface)
 	{	

@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../login/authentication.service';
@@ -12,7 +13,7 @@ import { StudentService } from '../students/student.service';
 })
 export class PaymentComponent implements OnInit {
   student:Student = {
-    id: 1,
+    id: 0,
     firstName: "",
     phoneNumber:"",
     email:"",
@@ -46,20 +47,29 @@ export class PaymentComponent implements OnInit {
 
    
 
-  constructor(private studentService: StudentService, private router: Router,private authService:AuthenticationService) {
+  constructor(private studentService: StudentService, private router: Router,private authService:AuthenticationService,private location:Location) {
    
    }
+  //  getMe():void{
+  //   this.studentService.getStudentMe().subscribe( res => (this.student = res));
+  //   console.log(this.student);
+  // }
 
   ngOnInit(): void {
-    this.getPayment(this.student);
+    this.studentService.getStudentMe().subscribe( res => { (this.student = res)
+        this.studentService.getStudentPayment(res).subscribe(res => this.payments=res);
+ 
+  });
+   
+    // this.getPayment(this.student);
   }
-  getMe():void{
-    this.studentService.getStudentMe().subscribe( res => (this.student = res));
-    console.log(this.student);
-  }
-  getPayment(student:Student){
-    this.studentService.getStudentPayment(this.student).subscribe(res=>this.payments=res);
-    console.log(this.payments);
+  
+  // getPayment(student:Student){
+  //   this.studentService.getStudentPayment(this.student).subscribe(res=>this.payments=res);
+  //   console.log(this.payments);
+  // }
+  goBack(): void {
+    this.location.back();
   }
 
 }

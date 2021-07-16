@@ -1,4 +1,4 @@
-<table class="table table-striped pera">
+<!-- <table class="table table-striped pera">
     <thead>
       <tr>
         <th>Title <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
@@ -11,10 +11,36 @@
       <tr *ngFor="let course of courses">
         <td>{{course.title}}</td>
         <td>{{course.courseCode}}</td>
-        <td>{{course.ECTS}}</td>
+        <td>{{course.ects}}</td>
         <td>{{course.startDate}}</td>
         <td>{{course.endDate}}</td>
       </tr>
     </tbody>
   </table>
   
+ -->
+
+  <div>
+    <h3> Courses </h3>
+</div>
+
+<table class="table table-bordered">
+    <tr>
+        <th> Title </th>
+        <th> Code </th>
+        <th> Ects</th>
+        <th> Start Date</th>
+        <th> End Date </th>
+    </tr>
+    <!-- <tr *ngFor="let course of courses"> -->
+      <tr>
+      <td>{{course.title}}</td>
+      <td>{{course.courseCode}}</td>
+      <td>{{course.ects}}</td>
+      <td>{{course.startDate}}</td>
+      <td>{{course.endDate}}</td>
+    </tr>
+</table>
+<div>
+    <button class="btn btn-primary" (click)="goBack()">Cancel</button>
+  </div>
