@@ -5,11 +5,20 @@ import { AdminAddFinancialCardComponent } from '../admin-add-financial-card/admi
 import { AdminAddPaymentComponent } from '../admin-add-payment/admin-add-payment.component';
 import { AdminAddPreexamObligationComponent } from '../admin-add-preexam-obligation/admin-add-preexam-obligation.component';
 import { AdminAddStudentComponent } from '../admin-add-student/admin-add-student.component';
+import { AdminAddCourseComponent } from '../admin-add-course/admin-add-course.component';
+import { AdminAddExamComponent } from '../admin-add-exam/admin-add-exam.component';
+import { AdminAddProfessorComponent } from '../admin-add-professor/admin-add-professor.component';
+import { AdminDetailsExamComponent } from '../admin-details-exam/admin-details-exam.component';
+import { AdminDetailsCourseComponent } from '../admin-details-course/admin-details-course.component';
+import { AdminDetailsProfessorComponent } from '../admin-details-professor/admin-details-professor.component';
 import { AdminDetailsExamPeriodComponent } from '../admin-details-exam-period/admin-details-exam-period.component';
 import { AdminDetailsFinancialCardComponent } from '../admin-details-financial-card/admin-details-financial-card.component';
 import { AdminDetailsPaymentComponent } from '../admin-details-payment/admin-details-payment.component';
 import { AdminDetailsPreexamObligationComponent } from '../admin-details-preexam-obligation/admin-details-preexam-obligation.component';
 import { AdminDetailsStudentComponent } from '../admin-details-student/admin-details-student.component';
+import { AdminListExamComponent } from '../admin-list-exam/admin-list-exam.component';
+import { AdminListCourseComponent } from '../admin-list-course/admin-list-course.component';
+import { AdminListProfessorComponent } from '../admin-list-professor/admin-list-professor.component';
 import { AdminListExamPeriodComponent } from '../admin-list-exam-period/admin-list-exam-period.component';
 import { AdminListFinancialCardComponent } from '../admin-list-financial-card/admin-list-financial-card.component';
 import { AdminListPaymentComponent } from '../admin-list-payment/admin-list-payment.component';
@@ -49,6 +58,15 @@ const routes: Routes = [
   { path: 'studentPayment', component: PaymentComponent },
   { path: 'studentPayout', component: PayoutComponent },
   { path: 'main', component: MainComponent },
+  { path: 'exams', component: AdminListExamComponent },
+  { path: 'exams/:id', component: AdminDetailsExamComponent },
+  { path: 'adminAddExam', component: AdminAddExamComponent },
+  { path: 'courses', component: AdminListCourseComponent },
+  { path: 'courses/:id', component: AdminDetailsCourseComponent },
+  { path: 'adminAddCourse', component: AdminAddCourseComponent },
+  { path: 'professors', component: AdminListProfessorComponent },
+  { path: 'professors/:id', component: AdminDetailsProfessorComponent },
+  { path: 'addProfessor', component: AdminAddProfessorComponent }, 
   { path: 'examPeriods', component: AdminListExamPeriodComponent },
   { path: 'examPeriods/:id', component: AdminDetailsExamPeriodComponent },
   { path: 'addExamPeriod', component: AdminAddExamPeriodComponent },

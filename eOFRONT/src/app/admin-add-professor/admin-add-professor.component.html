@@ -1,0 +1,63 @@
+<div class="submit-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label>First name</label>
+        <input
+          type="text"
+          formControlName="firstName"
+          class="form-control"
+          [(ngModel)]="professor.firstName" 
+          id = "firstName"
+          name="firstName"
+          [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+        />
+        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+          <div *ngIf="f.firstName.errors.required">first name is required</div>
+          <div *ngIf="f.firstName.errors.minlength">
+         
+                  First must be at least 5 characters
+                </div>
+                <div *ngIf="f.firstName.errors.maxlength">
+                  First must not exceed 20 characters
+                </div>
+            </div>
+        
+
+        <div class="form-group">
+            <label for="lastName"> Last name </label>
+            <input type="text"
+            class="form-control"
+            id="lastName"
+            [(ngModel)] = "professor.lastName"
+            name="lastName"
+            formControlName="lastName"
+            [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+            />
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors.required">First name</div>
+                <div *ngIf="f.lastName.errors.minlength">
+                  Last name must be at least 5 characters
+                </div>
+                <div *ngIf="f.firstName.errors.maxlength">
+                  Last name must not exceed 20 characters
+                </div>
+            </div>
+        </div>
+<div *ngIf="submitted">
+            <h4> The professor was added successfully!</h4>
+            <button class="btn btn-success" (click)="newProfessor()"> Add new professor </button>
+        </div>
+    
+          <div class="form-group">
+           <button (click)="saveProfessor()" class="btn btn-success"> Submit </button>
+            <button
+              type="button"
+              (click)="onReset()"
+              class="btn btn-warning float-right"
+            >
+              Reset
+            </button>
+          </div>
+    
+</div>
+</form>

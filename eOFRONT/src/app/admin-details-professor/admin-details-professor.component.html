@@ -1,0 +1,62 @@
+<div class="edit-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        
+         <div class="form-group">
+            <label for="firstName"> First name </label>
+            <input type="text"
+            class="form-control"
+            id="firstName"
+            [(ngModel)] = "currentProfessor.firstName"
+            name="firstName"
+            formControlName="firstName"
+            [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+            />
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">First name</div>
+                <div *ngIf="f.firstName.errors.minlength">
+                  First must be at least 3 characters
+                </div>
+                <div *ngIf="f.firstName.errors.maxlength">
+                  First must not exceed 20 characters
+                </div>
+            </div>
+        </div>
+         <div class="form-group">
+            <label for="lastName"> Last name </label>
+            <input type="text"
+            class="form-control"
+            id="lastName"
+            [(ngModel)] = "currentProfessor.lastName"
+            name="lastName"
+            formControlName="lastName"
+            [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+            />
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors.required">First name</div>
+                <div *ngIf="f.lastName.errors.minlength">
+                  Last name must be at least 3 characters
+                </div>
+                <div *ngIf="f.firstName.errors.maxlength">
+                  Last name must not exceed 20 characters
+                </div>
+            </div>
+        </div>
+
+           <button
+        class="badge badge-primary mr-2"
+        (click)="deleteProfessor()"        
+        > Delete professor </button>
+
+    <button
+     type="submit"
+    class="badge badge-success"
+    (click)="updateProfessor()"> Edit selected professor </button>
+        <p> {{message}}</p>
+
+    <div *ngIf="!currentProfessor">
+        <br/>
+        <p>Professor is unavailable!</p>
+    </div>
+
+</form>
+</div>
