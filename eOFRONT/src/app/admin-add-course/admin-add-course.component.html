@@ -72,13 +72,13 @@
           type="number"
           formControlName="ECTS"
           class="form-control"
-          [(ngModel)]="course.ECTS" 
-          id = "ECTS"
-          name="ECTS"
-          [ngClass]="{ 'is-invalid': submitted && f.ECTS.errors }"
+          [(ngModel)]="course.ects" 
+          id = "ects"
+          name="ects"
+          [ngClass]="{ 'is-invalid': submitted && f.ects.errors }"
         />
-        <div *ngIf="submitted && f.ECTS.errors" class="invalid-feedback">
-          <div *ngIf="f.ECTS.errors.required">ECTS is required</div>
+        <div *ngIf="submitted && f.ects.errors" class="invalid-feedback">
+          <div *ngIf="f.ects.errors.required">ECTS is required</div>
         </div>
       </div>
 

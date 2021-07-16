@@ -128,7 +128,7 @@ function AdminAddCourseComponent_div_26_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx_r4.f.ECTS.errors.required);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx_r4.f.ects.errors.required);
 } }
 function AdminAddCourseComponent_div_27_Template(rf, ctx) { if (rf & 1) {
     const _r14 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵgetCurrentView"]();
@@ -152,7 +152,7 @@ class AdminAddCourseComponent {
             courseCode: '',
             startDate: new Date(),
             endDate: new Date(),
-            ECTS: 0
+            ects: 0
         });
         this.submitted = false;
     }
@@ -169,7 +169,7 @@ class AdminAddCourseComponent {
             courseCode: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.required],
             startDate: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.required],
             endDate: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.required],
-            ECTS: [0, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.required]
+            ects: [0, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.required]
         });
     }
     get f() { return this.form.controls; }
@@ -179,7 +179,7 @@ class AdminAddCourseComponent {
             courseCode: this.course.courseCode,
             startDate: this.course.startDate,
             endDate: this.course.endDate,
-            ECTS: this.course.ECTS
+            ects: this.course.ects
         };
         this.courseService.create(data)
             .subscribe(response => {
@@ -196,7 +196,7 @@ class AdminAddCourseComponent {
             courseCode: '',
             startDate: new Date(),
             endDate: new Date(),
-            ECTS: 0
+            ects: 0
         };
     }
     onSubmit() {
@@ -212,7 +212,7 @@ class AdminAddCourseComponent {
     }
 }
 AdminAddCourseComponent.ɵfac = function AdminAddCourseComponent_Factory(t) { return new (t || AdminAddCourseComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_courses_courses_service__WEBPACK_IMPORTED_MODULE_1__.CoursesService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_3__.FormBuilder)); };
-AdminAddCourseComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: AdminAddCourseComponent, selectors: [["app-admin-add-course"]], decls: 33, vars: 27, consts: [[1, "submit-form"], [3, "formGroup", "ngSubmit"], [1, "form-group"], ["type", "text", "formControlName", "title", "id", "title", "name", "title", 1, "form-control", 3, "ngModel", "ngClass", "ngModelChange"], ["class", "invalid-feedback", 4, "ngIf"], ["type", "text", "formControlName", "courseCode", "id", "courseCode", "name", "courseCode", 1, "form-control", 3, "ngModel", "ngClass", "ngModelChange"], ["type", "date", "formControlName", "startDate", "id", "startDate", "name", "startDate", 1, "form-control", 3, "ngModel", "ngClass", "ngModelChange"], ["type", "date", "formControlName", "endDate", "id", "endDate", "name", "endDate", 1, "form-control", 3, "ngModel", "ngClass", "ngModelChange"], ["type", "number", "formControlName", "ECTS", "id", "ECTS", "name", "ECTS", 1, "form-control", 3, "ngModel", "ngClass", "ngModelChange"], [4, "ngIf"], [1, "btn", "btn-success", 3, "click"], ["type", "button", 1, "btn", "btn-warning", "float-right", 3, "click"], [1, "invalid-feedback"]], template: function AdminAddCourseComponent_Template(rf, ctx) { if (rf & 1) {
+AdminAddCourseComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: AdminAddCourseComponent, selectors: [["app-admin-add-course"]], decls: 33, vars: 27, consts: [[1, "submit-form"], [3, "formGroup", "ngSubmit"], [1, "form-group"], ["type", "text", "formControlName", "title", "id", "title", "name", "title", 1, "form-control", 3, "ngModel", "ngClass", "ngModelChange"], ["class", "invalid-feedback", 4, "ngIf"], ["type", "text", "formControlName", "courseCode", "id", "courseCode", "name", "courseCode", 1, "form-control", 3, "ngModel", "ngClass", "ngModelChange"], ["type", "date", "formControlName", "startDate", "id", "startDate", "name", "startDate", 1, "form-control", 3, "ngModel", "ngClass", "ngModelChange"], ["type", "date", "formControlName", "endDate", "id", "endDate", "name", "endDate", 1, "form-control", 3, "ngModel", "ngClass", "ngModelChange"], ["type", "number", "formControlName", "ECTS", "id", "ects", "name", "ects", 1, "form-control", 3, "ngModel", "ngClass", "ngModelChange"], [4, "ngIf"], [1, "btn", "btn-success", 3, "click"], ["type", "button", 1, "btn", "btn-warning", "float-right", 3, "click"], [1, "invalid-feedback"]], template: function AdminAddCourseComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "form", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngSubmit", function AdminAddCourseComponent_Template_form_ngSubmit_1_listener() { return ctx.onSubmit(); });
@@ -257,7 +257,7 @@ AdminAddCourseComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MO
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](24, "ECTS");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](25, "input", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function AdminAddCourseComponent_Template_input_ngModelChange_25_listener($event) { return ctx.course.ECTS = $event; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function AdminAddCourseComponent_Template_input_ngModelChange_25_listener($event) { return ctx.course.ects = $event; });
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](26, AdminAddCourseComponent_div_26_Template, 2, 1, "div", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
@@ -294,9 +294,9 @@ AdminAddCourseComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MO
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx.submitted && ctx.f.endDate.errors);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngModel", ctx.course.ECTS)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpureFunction1"](25, _c0, ctx.submitted && ctx.f.ECTS.errors));
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngModel", ctx.course.ects)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpureFunction1"](25, _c0, ctx.submitted && ctx.f.ects.errors));
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx.submitted && ctx.f.ECTS.errors);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx.submitted && ctx.f.ects.errors);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx.submitted);
     } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.FormControlName, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgIf, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NumberValueAccessor], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi1hZGQtY291cnNlLmNvbXBvbmVudC5jc3MifQ== */"] });
@@ -3964,8 +3964,6 @@ AdminDetailsPreexamObligationComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBP
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !ctx.currentPreexamobligation);
     } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.RequiredValidator, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormControlName, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgIf], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi1kZXRhaWxzLXByZWV4YW0tb2JsaWdhdGlvbi5jb21wb25lbnQuY3NzIn0= */"] });
-<<<<<<< HEAD
-=======
 
 
 /***/ }),
@@ -4188,7 +4186,6 @@ AdminDetailsProfessorComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPO
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !ctx.currentProfessor);
     } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormControlName, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgIf], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi1kZXRhaWxzLXByb2Zlc3Nvci5jb21wb25lbnQuY3NzIn0= */"] });
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
 
 
 /***/ }),
@@ -5485,15 +5482,16 @@ __webpack_require__.r(__webpack_exports__);
 function AdminListExamComponent_li_13_Template(rf, ctx) { if (rf & 1) {
     const _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "li", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function AdminListExamComponent_li_13_Template_li_click_0_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r7); const i_r5 = restoredCtx.index; const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"](); return ctx_r6.setActiveExam(ctx_r6.exam, i_r5); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function AdminListExamComponent_li_13_Template_li_click_0_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r7); const exam_r4 = restoredCtx.$implicit; const i_r5 = restoredCtx.index; const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"](); return ctx_r6.setActiveExam(exam_r4, i_r5); });
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 } if (rf & 2) {
+    const exam_r4 = ctx.$implicit;
     const i_r5 = ctx.index;
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵclassProp"]("active", i_r5 == ctx_r0.currentIndex);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", ctx_r0.exam.id, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", exam_r4.id, " ");
 } }
 function AdminListExamComponent_option_18_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "option", 16);
@@ -5593,7 +5591,7 @@ class AdminListExamComponent {
         this.examService = examService;
         this.exams = [];
         this.currentIndex = -1;
-        this.title = '';
+        this.grade = 5;
         this.page = 1;
         this.count = 0;
         this.pageSize = 3;
@@ -5602,10 +5600,10 @@ class AdminListExamComponent {
     ngOnInit() {
         this.retrieveExams();
     }
-    getRequestParams(searchName, page, pageSize) {
+    getRequestParams(searchGrade, page, pageSize) {
         let params = {};
-        if (searchName) {
-            params[`name`] = searchName;
+        if (searchGrade) {
+            params[`grade`] = searchGrade;
         }
         if (page) {
             params[`page`] = page - 1;
@@ -5616,7 +5614,7 @@ class AdminListExamComponent {
         return params;
     }
     retrieveExams() {
-        const params = this.getRequestParams(this.title, this.page, this.pageSize);
+        const params = this.getRequestParams(this.grade, this.page, this.pageSize);
         this.examService.getAll(params)
             .subscribe(response => {
             const { exams, totalItems } = response;
@@ -5641,26 +5639,26 @@ class AdminListExamComponent {
         this.currentIndex = -1;
         this.currentExam = null;
     }
-    setActiveExamPeriod(exam, index = -1) {
+    setActiveExam(exam, index = -1) {
         this.currentExam = exam;
         this.currentIndex = index;
     }
-    searchName() {
+    searchGrade() {
         this.page = 1;
         this.retrieveExams();
     }
 }
 AdminListExamComponent.ɵfac = function AdminListExamComponent_Factory(t) { return new (t || AdminListExamComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_exam_exam_service__WEBPACK_IMPORTED_MODULE_0__.ExamService)); };
-AdminListExamComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: AdminListExamComponent, selectors: [["app-admin-list-exam"]], decls: 22, vars: 13, consts: [[1, "list", "row"], [1, "col-md-8"], [1, "input-group", "mb-3"], ["type", "text", "placeholder", "Search by title ", 1, "form-control", 3, "ngModel", "ngModelChange"], [1, "input-group-append"], ["type", "button", 1, "btn", "btn-outline-secondary", 3, "click"], [1, "col-md-12"], ["previousLabel", "Prev", "nextLabel", "Next", 3, "responsive", "pageChange"], [1, "col-md-6"], [1, "list-group"], ["class", "list-group-item", 3, "active", "click", 4, "ngFor", "ngForOf"], [1, "mt-3"], [3, "change"], [3, "ngValue", 4, "ngFor", "ngForOf"], [4, "ngIf"], [1, "list-group-item", 3, "click"], [3, "ngValue"], [1, "badge", "badge-warning", 3, "routerLink"]], template: function AdminListExamComponent_Template(rf, ctx) { if (rf & 1) {
+AdminListExamComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: AdminListExamComponent, selectors: [["app-admin-list-exam"]], decls: 22, vars: 13, consts: [[1, "list", "row"], [1, "col-md-8"], [1, "input-group", "mb-3"], ["type", "text", "placeholder", "Search by grade ", 1, "form-control", 3, "ngModel", "ngModelChange"], [1, "input-group-append"], ["type", "button", 1, "btn", "btn-outline-secondary", 3, "click"], [1, "col-md-12"], ["previousLabel", "Prev", "nextLabel", "Next", 3, "responsive", "pageChange"], [1, "col-md-6"], [1, "list-group"], ["class", "list-group-item", 3, "active", "click", 4, "ngFor", "ngForOf"], [1, "mt-3"], [3, "change"], [3, "ngValue", 4, "ngFor", "ngForOf"], [4, "ngIf"], [1, "list-group-item", 3, "click"], [3, "ngValue"], [1, "badge", "badge-warning", 3, "routerLink"]], template: function AdminListExamComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](2, "div", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "input", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function AdminListExamComponent_Template_input_ngModelChange_3_listener($event) { return ctx.title = $event; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function AdminListExamComponent_Template_input_ngModelChange_3_listener($event) { return ctx.grade = $event; });
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "div", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](5, "button", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function AdminListExamComponent_Template_button_click_5_listener() { return ctx.searchName(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function AdminListExamComponent_Template_button_click_5_listener() { return ctx.searchGrade(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](6, " Search ");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
@@ -5694,7 +5692,7 @@ AdminListExamComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MOD
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngModel", ctx.title);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngModel", ctx.grade);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](5);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("responsive", true);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](5);
@@ -7460,13 +7458,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppModule": () => (/* binding */ AppModule)
 /* harmony export */ });
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! @angular/platform-browser */ 9075);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! @angular/forms */ 3679);
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ngx-toastr */ 9344);
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! @angular/platform-browser/animations */ 5835);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! @angular/common/http */ 1841);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! @angular/platform-browser */ 9075);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! @angular/forms */ 3679);
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ngx-toastr */ 9344);
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! @angular/platform-browser/animations */ 5835);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! @angular/common/http */ 1841);
 /* harmony import */ var ngx_pagination__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ngx-pagination */ 2533);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! @angular/common */ 8583);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! @angular/common */ 8583);
 /* harmony import */ var _routing_app_routing_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./routing/app-routing.module */ 7948);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app.component */ 5041);
 /* harmony import */ var _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./student-details/student-details.component */ 2202);
@@ -7501,7 +7499,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _preexam_obligation_details_preexam_obligation_details_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./preexam-obligation-details/preexam-obligation-details.component */ 879);
 /* harmony import */ var _core_navbar_admin_navbar_admin_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./core/navbar-admin/navbar-admin.component */ 7666);
 /* harmony import */ var _core_navbar_student_navbar_student_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./core/navbar-student/navbar-student.component */ 4318);
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ 2664);
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ 2664);
 /* harmony import */ var _admin_add_exam_period_admin_add_exam_period_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./admin-add-exam-period/admin-add-exam-period.component */ 1177);
 /* harmony import */ var _admin_details_exam_period_admin_details_exam_period_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./admin-details-exam-period/admin-details-exam-period.component */ 8322);
 /* harmony import */ var _admin_list_exam_period_admin_list_exam_period_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./admin-list-exam-period/admin-list-exam-period.component */ 8723);
@@ -7521,17 +7519,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _validation_validation_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./validation/validation.component */ 5722);
 /* harmony import */ var _professor_professor_service__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./professor/professor.service */ 4357);
 /* harmony import */ var _students_student_service__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./students/student.service */ 3645);
-/* harmony import */ var _admin_add_course_admin_add_course_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./admin-add-course/admin-add-course.component */ 9862);
-/* harmony import */ var _admin_add_exam_admin_add_exam_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./admin-add-exam/admin-add-exam.component */ 5965);
-/* harmony import */ var _admin_add_professor_admin_add_professor_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./admin-add-professor/admin-add-professor.component */ 3758);
-/* harmony import */ var _admin_details_exam_admin_details_exam_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./admin-details-exam/admin-details-exam.component */ 6794);
-/* harmony import */ var _admin_details_course_admin_details_course_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./admin-details-course/admin-details-course.component */ 6361);
-/* harmony import */ var _admin_details_professor_admin_details_professor_component__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./admin-details-professor/admin-details-professor.component */ 5383);
-/* harmony import */ var _admin_details_document_admin_details_document_component__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./admin-details-document/admin-details-document.component */ 2954);
-/* harmony import */ var _admin_list_course_admin_list_course_component__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./admin-list-course/admin-list-course.component */ 5938);
-/* harmony import */ var _admin_list_exam_admin_list_exam_component__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./admin-list-exam/admin-list-exam.component */ 8139);
-/* harmony import */ var _admin_list_professor_admin_list_professor_component__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./admin-list-professor/admin-list-professor.component */ 9178);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _exam_exam_service__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./exam/exam.service */ 7500);
+/* harmony import */ var _admin_add_course_admin_add_course_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./admin-add-course/admin-add-course.component */ 9862);
+/* harmony import */ var _admin_add_exam_admin_add_exam_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./admin-add-exam/admin-add-exam.component */ 5965);
+/* harmony import */ var _admin_add_professor_admin_add_professor_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./admin-add-professor/admin-add-professor.component */ 3758);
+/* harmony import */ var _admin_details_exam_admin_details_exam_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./admin-details-exam/admin-details-exam.component */ 6794);
+/* harmony import */ var _admin_details_course_admin_details_course_component__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./admin-details-course/admin-details-course.component */ 6361);
+/* harmony import */ var _admin_details_professor_admin_details_professor_component__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./admin-details-professor/admin-details-professor.component */ 5383);
+/* harmony import */ var _admin_details_document_admin_details_document_component__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./admin-details-document/admin-details-document.component */ 2954);
+/* harmony import */ var _admin_list_course_admin_list_course_component__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./admin-list-course/admin-list-course.component */ 5938);
+/* harmony import */ var _admin_list_exam_admin_list_exam_component__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./admin-list-exam/admin-list-exam.component */ 8139);
+/* harmony import */ var _admin_list_professor_admin_list_professor_component__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./admin-list-professor/admin-list-professor.component */ 9178);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! @angular/core */ 7716);
 
 
 
@@ -7606,26 +7605,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 class AppModule {
 }
 AppModule.ɵfac = function AppModule_Factory(t) { return new (t || AppModule)(); };
-AppModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_64__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__.AppComponent] });
-AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_64__["ɵɵdefineInjector"]({ providers: [
+AppModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_65__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__.AppComponent] });
+AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_65__["ɵɵdefineInjector"]({ providers: [
         _professor_professor_service__WEBPACK_IMPORTED_MODULE_52__.ProfessorService,
-        _students_student_service__WEBPACK_IMPORTED_MODULE_53__.StudentService
+        _students_student_service__WEBPACK_IMPORTED_MODULE_53__.StudentService,
+        _exam_exam_service__WEBPACK_IMPORTED_MODULE_54__.ExamService
     ], imports: [[
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_65__.BrowserModule,
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_66__.BrowserModule,
             _routing_app_routing_module__WEBPACK_IMPORTED_MODULE_1__.AppRoutingModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_66__.FormsModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_66__.ReactiveFormsModule,
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_67__.BrowserAnimationsModule,
-            ngx_toastr__WEBPACK_IMPORTED_MODULE_68__.ToastrModule.forRoot(),
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_69__.HttpClientModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_67__.FormsModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_67__.ReactiveFormsModule,
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_68__.BrowserAnimationsModule,
+            ngx_toastr__WEBPACK_IMPORTED_MODULE_69__.ToastrModule.forRoot(),
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_70__.HttpClientModule,
             ngx_pagination__WEBPACK_IMPORTED_MODULE_0__.NgxPaginationModule,
-            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_70__.NgbModule,
-            _angular_common__WEBPACK_IMPORTED_MODULE_71__.CommonModule,
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_71__.NgbModule,
+            _angular_common__WEBPACK_IMPORTED_MODULE_72__.CommonModule,
         ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_64__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__.AppComponent,
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_65__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__.AppComponent,
         _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_3__.StudentDetailsComponent,
         _students_students_component__WEBPACK_IMPORTED_MODULE_4__.StudentsComponent,
         _login_login_component__WEBPACK_IMPORTED_MODULE_5__.LoginComponent,
@@ -7686,23 +7687,23 @@ AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_64__["ɵ�
         _core_navbar_professor_navbar_professor_component__WEBPACK_IMPORTED_MODULE_8__.NavbarProfessorComponent,
         _admin_details_student_admin_details_student_component__WEBPACK_IMPORTED_MODULE_48__.AdminDetailsStudentComponent,
         _validation_validation_component__WEBPACK_IMPORTED_MODULE_51__.ValidationComponent,
-        _admin_add_course_admin_add_course_component__WEBPACK_IMPORTED_MODULE_54__.AdminAddCourseComponent,
-        _admin_add_exam_admin_add_exam_component__WEBPACK_IMPORTED_MODULE_55__.AdminAddExamComponent,
-        _admin_add_professor_admin_add_professor_component__WEBPACK_IMPORTED_MODULE_56__.AdminAddProfessorComponent,
-        _admin_details_exam_admin_details_exam_component__WEBPACK_IMPORTED_MODULE_57__.AdminDetailsExamComponent,
-        _admin_details_course_admin_details_course_component__WEBPACK_IMPORTED_MODULE_58__.AdminDetailsCourseComponent,
-        _admin_details_professor_admin_details_professor_component__WEBPACK_IMPORTED_MODULE_59__.AdminDetailsProfessorComponent,
-        _admin_details_document_admin_details_document_component__WEBPACK_IMPORTED_MODULE_60__.AdminDetailsDocumentComponent,
-        _admin_list_course_admin_list_course_component__WEBPACK_IMPORTED_MODULE_61__.AdminListCourseComponent,
-        _admin_list_exam_admin_list_exam_component__WEBPACK_IMPORTED_MODULE_62__.AdminListExamComponent,
-        _admin_list_professor_admin_list_professor_component__WEBPACK_IMPORTED_MODULE_63__.AdminListProfessorComponent], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_65__.BrowserModule,
+        _admin_add_course_admin_add_course_component__WEBPACK_IMPORTED_MODULE_55__.AdminAddCourseComponent,
+        _admin_add_exam_admin_add_exam_component__WEBPACK_IMPORTED_MODULE_56__.AdminAddExamComponent,
+        _admin_add_professor_admin_add_professor_component__WEBPACK_IMPORTED_MODULE_57__.AdminAddProfessorComponent,
+        _admin_details_exam_admin_details_exam_component__WEBPACK_IMPORTED_MODULE_58__.AdminDetailsExamComponent,
+        _admin_details_course_admin_details_course_component__WEBPACK_IMPORTED_MODULE_59__.AdminDetailsCourseComponent,
+        _admin_details_professor_admin_details_professor_component__WEBPACK_IMPORTED_MODULE_60__.AdminDetailsProfessorComponent,
+        _admin_details_document_admin_details_document_component__WEBPACK_IMPORTED_MODULE_61__.AdminDetailsDocumentComponent,
+        _admin_list_course_admin_list_course_component__WEBPACK_IMPORTED_MODULE_62__.AdminListCourseComponent,
+        _admin_list_exam_admin_list_exam_component__WEBPACK_IMPORTED_MODULE_63__.AdminListExamComponent,
+        _admin_list_professor_admin_list_professor_component__WEBPACK_IMPORTED_MODULE_64__.AdminListProfessorComponent], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_66__.BrowserModule,
         _routing_app_routing_module__WEBPACK_IMPORTED_MODULE_1__.AppRoutingModule,
-        _angular_forms__WEBPACK_IMPORTED_MODULE_66__.FormsModule,
-        _angular_forms__WEBPACK_IMPORTED_MODULE_66__.ReactiveFormsModule,
-        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_67__.BrowserAnimationsModule, ngx_toastr__WEBPACK_IMPORTED_MODULE_68__.ToastrModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_69__.HttpClientModule,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_67__.FormsModule,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_67__.ReactiveFormsModule,
+        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_68__.BrowserAnimationsModule, ngx_toastr__WEBPACK_IMPORTED_MODULE_69__.ToastrModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_70__.HttpClientModule,
         ngx_pagination__WEBPACK_IMPORTED_MODULE_0__.NgxPaginationModule,
-        _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_70__.NgbModule,
-        _angular_common__WEBPACK_IMPORTED_MODULE_71__.CommonModule] }); })();
+        _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_71__.NgbModule,
+        _angular_common__WEBPACK_IMPORTED_MODULE_72__.CommonModule] }); })();
 
 
 /***/ }),
@@ -7765,7 +7766,7 @@ class NavbarAdminComponent {
     }
 }
 NavbarAdminComponent.ɵfac = function NavbarAdminComponent_Factory(t) { return new (t || NavbarAdminComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_login_authentication_service__WEBPACK_IMPORTED_MODULE_0__.AuthenticationService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ngx_toastr__WEBPACK_IMPORTED_MODULE_2__.ToastrService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.Router)); };
-NavbarAdminComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: NavbarAdminComponent, selectors: [["app-navbar-admin"]], decls: 59, vars: 0, consts: [[1, "navbar", "navbar-expand", "navbar-dark", "bg-dark"], ["href", "#", 1, "navbar-brand"], [1, "navbar-nav", "mr-auto"], [1, "nav-item"], ["routerLink", "preexamObligations", 1, "nav-link"], ["routerLink", "adminAddPreexamObligation", 1, "nav-link"], ["routerLink", "examPeriods", 1, "nav-link"], ["routerLink", "addExamPeriod", 1, "nav-link"], ["routerLink", "students", 1, "nav-link"], ["routerLink", "adminAddsStudent", 1, "nav-link"], ["routerLink", "financialCards", 1, "nav-link"], ["routerLink", "adminAddFinancialCard", 1, "nav-link"], ["routerLink", "payments", 1, "nav-link"], ["routerLink", "adminAddPayment", 1, "nav-link"], ["routerLink", "professors", 1, "nav-link"], ["routerLink", "adminAddProfessor", 1, "nav-link"], ["routerLink", "exams", 1, "nav-link"], ["routerLink", "adminAddExam", 1, "nav-link"], ["routerLink", "courses", 1, "nav-link"], ["routerLink", "adminAddCourse", 1, "nav-link"], [1, "container", "mt-3"], [1, "navbar-nav", "ml-auto"], [1, "nav-link", 3, "click"]], template: function NavbarAdminComponent_Template(rf, ctx) { if (rf & 1) {
+NavbarAdminComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: NavbarAdminComponent, selectors: [["app-navbar-admin"]], decls: 59, vars: 0, consts: [[1, "navbar", "navbar-expand", "navbar-dark", "bg-dark"], ["href", "#", 1, "navbar-brand"], [1, "navbar-nav", "mr-auto"], [1, "nav-item"], ["routerLink", "preexamObligations", 1, "nav-link"], ["routerLink", "adminAddPreexamObligation", 1, "nav-link"], ["routerLink", "examPeriods", 1, "nav-link"], ["routerLink", "addExamPeriod", 1, "nav-link"], ["routerLink", "students", 1, "nav-link"], ["routerLink", "adminAddsStudent", 1, "nav-link"], ["routerLink", "financialCards", 1, "nav-link"], ["routerLink", "adminAddFinancialCard", 1, "nav-link"], ["routerLink", "payments", 1, "nav-link"], ["routerLink", "adminAddPayment", 1, "nav-link"], ["routerLink", "professors", 1, "nav-link"], ["routerLink", "addProfessor", 1, "nav-link"], ["routerLink", "exams", 1, "nav-link"], ["routerLink", "adminAddExam", 1, "nav-link"], ["routerLink", "courses", 1, "nav-link"], ["routerLink", "adminAddCourse", 1, "nav-link"], [1, "container", "mt-3"], [1, "navbar-nav", "ml-auto"], [1, "nav-link", 3, "click"]], template: function NavbarAdminComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "nav", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "a", 1);
@@ -7998,14 +7999,9 @@ const _c0 = function () { return ["/financialCard"]; };
 const _c1 = function () { return ["/payouts"]; };
 const _c2 = function () { return ["/payment"]; };
 const _c3 = function () { return ["/studentDocuments"]; };
-<<<<<<< HEAD
 const _c4 = function () { return ["/studentEnrollments"]; };
 const _c5 = function () { return ["/studentExams"]; };
 const _c6 = function () { return ["/studentProfile/"]; };
-=======
-const _c4 = function () { return ["/studentExams"]; };
-const _c5 = function () { return ["/studentProfile/"]; };
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
 class NavbarStudentComponent {
     constructor(authenticationService, toastr, router) {
         this.authenticationService = authenticationService;
@@ -8019,11 +8015,7 @@ class NavbarStudentComponent {
     }
 }
 NavbarStudentComponent.ɵfac = function NavbarStudentComponent_Factory(t) { return new (t || NavbarStudentComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_login_authentication_service__WEBPACK_IMPORTED_MODULE_0__.AuthenticationService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ngx_toastr__WEBPACK_IMPORTED_MODULE_2__.ToastrService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.Router)); };
-<<<<<<< HEAD
 NavbarStudentComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: NavbarStudentComponent, selectors: [["app-navbar-student"]], decls: 29, vars: 14, consts: [[1, "navbar", "navbar-expand-sm", "navbar-light", "bg-light"], [1, "navbar-brand"], [1, "navbar-nav", "mr-auto"], [1, "nav-item"], [1, "nav-link", 3, "routerLink"], [1, "navbar-nav", "ml-auto"], [1, "nav-link", 3, "click"]], template: function NavbarStudentComponent_Template(rf, ctx) { if (rf & 1) {
-=======
-NavbarStudentComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: NavbarStudentComponent, selectors: [["app-navbar-student"]], decls: 26, vars: 12, consts: [[1, "navbar", "navbar-expand-sm", "navbar-light", "bg-light"], [1, "navbar-brand"], [1, "navbar-nav", "mr-auto"], [1, "nav-item"], [1, "nav-link", 3, "routerLink"], [1, "navbar-nav", "ml-auto"], [1, "nav-link", 3, "click"]], template: function NavbarStudentComponent_Template(rf, ctx) { if (rf & 1) {
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "nav", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "a", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](2, "Student panel");
@@ -8051,7 +8043,6 @@ NavbarStudentComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MOD
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "li", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](17, "a", 4);
-<<<<<<< HEAD
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](18, "Enrollments");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
@@ -8063,71 +8054,33 @@ NavbarStudentComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MOD
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](22, "li", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](23, "a", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](24, "Profile");
-=======
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](18, "Exams");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](19, "li", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](20, "a", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](21, "Profile");
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-<<<<<<< HEAD
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](25, "ul", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](26, "li", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](27, "a", 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function NavbarStudentComponent_Template_a_click_27_listener() { return ctx.logout(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](28, "Logout");
-=======
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](22, "ul", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](23, "li", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](24, "a", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function NavbarStudentComponent_Template_a_click_24_listener() { return ctx.logout(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](25, "Logout");
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](5);
-<<<<<<< HEAD
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](7, _c0));
-=======
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](6, _c0));
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
-<<<<<<< HEAD
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](8, _c1));
-=======
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](7, _c1));
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
-<<<<<<< HEAD
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](9, _c2));
-=======
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](8, _c2));
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
-<<<<<<< HEAD
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](10, _c3));
-=======
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](9, _c3));
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
-<<<<<<< HEAD
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](11, _c4));
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](12, _c5));
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](13, _c6));
-=======
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](10, _c4));
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](11, _c5));
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
     } }, directives: [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__.NgbNavbar, _angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterLinkWithHref], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJuYXZiYXItc3R1ZGVudC5jb21wb25lbnQuY3NzIn0= */"] });
 
 
@@ -8752,7 +8705,6 @@ class FinancialcardStudentComponent {
         this.authService = authService;
         this.router = router;
         this.location = location;
-<<<<<<< HEAD
         // = {
         //   id: 0,
         //   firstName: "",
@@ -8783,38 +8735,6 @@ class FinancialcardStudentComponent {
         //     password: ""
         //   }
         // };
-=======
-        this.student = {
-            id: 0,
-            firstName: "",
-            phoneNumber: "",
-            email: "",
-            umnc: "",
-            startedCollegeIn: 0,
-            modelNumber: 0,
-            referenceNumber: null,
-            cardAmount: 0,
-            typeOfFinancing: {
-                id: 0,
-                name: "",
-                code: ""
-            },
-            lastName: "",
-            cardNumber: "",
-            financialCards: {
-                id: 0,
-                initialState: 0,
-                totalPayment: 0,
-                totalPayout: 0,
-                totalCost: 0
-            },
-            accountNumber: "",
-            user: {
-                username: "",
-                password: ""
-            }
-        };
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
         this.financialCard = {
             initialState: 0,
             totalPayment: 0,
@@ -8822,38 +8742,18 @@ class FinancialcardStudentComponent {
             totalCost: 0,
             // student : null
         };
-<<<<<<< HEAD
-=======
-    }
-    getMe() {
-        this.studentService.getMeAgain().subscribe(res => { return this.student; });
-        console.log(this.student);
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
     }
     //  getMe():void{
     //   this.studentService.getMeAgain().subscribe(res =>( this.student=res));
     //   console.log(this.student);
     // }
     ngOnInit() {
-<<<<<<< HEAD
         //  this.getMe();
         this.studentService.getMeAgain().subscribe(res => {
             (this.student = res);
             this.studentService.getStudentFinancialCard(res).subscribe(res => this.financialCard = res);
         });
         // this.getFinancialCard();
-=======
-        this.getMe();
-        this.getFinancialCard(this.student);
-    }
-    getFinancialCard(student) {
-        this.studentService.getStudentFinancialCard(this.student).subscribe(res => this.financialCard = res);
-        console.log(this.financialCard);
-    }
-    studentId(student) {
-        this.student.id;
-        console.log(this.studentId);
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
     }
     // getFinancialCard(){
     //   this.studentService.getStudentFinancialCard(this.student).subscribe(res=>this.financialCard=res);
@@ -9123,7 +9023,7 @@ class Course {
         this.courseCode = courseCfg.courseCode;
         this.startDate = courseCfg.startDate;
         this.endDate = courseCfg.endDate;
-        this.ECTS = courseCfg.ECTS;
+        this.ects = courseCfg.ects;
     }
 }
 
@@ -9493,22 +9393,13 @@ function PaymentComponent_tr_16_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](payment_r1.paymentAmount);
 } }
 class PaymentComponent {
-<<<<<<< HEAD
     constructor(studentService, router, authService, location) {
-=======
-    constructor(studentService, router, authService) {
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
         this.studentService = studentService;
         this.router = router;
         this.authService = authService;
-<<<<<<< HEAD
         this.location = location;
         this.student = {
             id: 0,
-=======
-        this.student = {
-            id: 1,
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
             firstName: "",
             phoneNumber: "",
             email: "",
@@ -9543,32 +9434,18 @@ class PaymentComponent {
     //   console.log(this.student);
     // }
     ngOnInit() {
-<<<<<<< HEAD
         this.studentService.getStudentMe().subscribe(res => {
             (this.student = res);
             this.studentService.getStudentPayment(res).subscribe(res => this.payments = res);
         });
         // this.getPayment(this.student);
-=======
-        this.getPayment(this.student);
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
     }
-<<<<<<< HEAD
     // getPayment(student:Student){
     //   this.studentService.getStudentPayment(this.student).subscribe(res=>this.payments=res);
     //   console.log(this.payments);
     // }
     goBack() {
         this.location.back();
-=======
-    getMe() {
-        this.studentService.getStudentMe().subscribe(res => (this.student = res));
-        console.log(this.student);
-    }
-    getPayment(student) {
-        this.studentService.getStudentPayment(this.student).subscribe(res => this.payments = res);
-        console.log(this.payments);
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
     }
 }
 PaymentComponent.ɵfac = function PaymentComponent_Factory(t) { return new (t || PaymentComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_students_student_service__WEBPACK_IMPORTED_MODULE_0__.StudentService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_login_authentication_service__WEBPACK_IMPORTED_MODULE_1__.AuthenticationService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_4__.Location)); };
@@ -9732,15 +9609,10 @@ function PayoutComponent_tr_16_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](payout_r1.amountOfPayout);
 } }
 class PayoutComponent {
-<<<<<<< HEAD
     constructor(studentService, router, authService, location) {
-=======
-    constructor(studentService, router, authService) {
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
         this.studentService = studentService;
         this.router = router;
         this.authService = authService;
-<<<<<<< HEAD
         this.location = location;
         this.student = {
             id: 0,
@@ -9772,65 +9644,19 @@ class PayoutComponent {
                 password: ""
             }
         };
-=======
-        this.student = {
-            id: 1,
-            firstName: "",
-            phoneNumber: "",
-            email: "",
-            umnc: "",
-            startedCollegeIn: 0,
-            modelNumber: 0,
-            referenceNumber: null,
-            cardAmount: 0,
-            typeOfFinancing: {
-                id: 0,
-                name: "",
-                code: ""
-            },
-            lastName: "",
-            cardNumber: "",
-            financialCards: {
-                id: 0,
-                initialState: 0,
-                totalPayment: 0,
-                totalPayout: 0,
-                totalCost: 0
-            },
-            accountNumber: "",
-            user: {
-                username: "",
-                password: ""
-            }
-        };
-    }
-    getMe() {
-        this.studentService.getStudentMe().subscribe(res => (this.student = res));
-        console.log(this.student);
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
     }
     // getMe():void{
     //   this.studentService.getStudentMe().subscribe( res => (this.student = res));
     //   console.log(this.student);
     // }
     ngOnInit() {
-<<<<<<< HEAD
         this.studentService.getStudentMe().subscribe(res => {
             (this.student = res);
             this.studentService.getStudentPayout(res).subscribe(res => this.payouts = res);
         });
-=======
-        this.getPayout(this.student);
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
     }
-<<<<<<< HEAD
     goBack() {
         this.location.back();
-=======
-    getPayout(student) {
-        this.studentService.getStudentPayout(this.student).subscribe(res => this.payouts = res);
-        console.log(this.payouts);
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
     }
 }
 PayoutComponent.ɵfac = function PayoutComponent_Factory(t) { return new (t || PayoutComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_students_student_service__WEBPACK_IMPORTED_MODULE_0__.StudentService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_login_authentication_service__WEBPACK_IMPORTED_MODULE_1__.AuthenticationService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_4__.Location)); };
@@ -10596,7 +10422,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const path = "https://localhost:8443/api/professors";
-const baseUrl = "https://localhost:8443/api/professors";
 class ProfessorService {
     constructor(http, authService) {
         this.http = http;
@@ -10605,19 +10430,19 @@ class ProfessorService {
         this.RegenerateData$ = this.RegenerateData.asObservable();
     }
     getAll(params) {
-        return this.http.get(baseUrl, { params });
+        return this.http.get(path, { params });
     }
     get(id) {
-        return this.http.get(`${baseUrl}/${id}`);
+        return this.http.get(`${path}/${id}`);
     }
     create(data) {
-        return this.http.post(baseUrl, data);
+        return this.http.post(path, data);
     }
     update(id, data) {
-        return this.http.put(`${baseUrl}/${id}`, data);
+        return this.http.put(`${path}/${id}`, data);
     }
     delete(id) {
-        return this.http.delete(`${baseUrl}/${id}`);
+        return this.http.delete(`${path}/${id}`);
     }
     announceChange() {
         this.RegenerateData.next();
@@ -10676,45 +10501,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppRoutingModule": () => (/* binding */ AppRoutingModule)
 /* harmony export */ });
-<<<<<<< HEAD
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @angular/router */ 9895);
-=======
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! @angular/router */ 9895);
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! @angular/router */ 9895);
 /* harmony import */ var _admin_add_exam_period_admin_add_exam_period_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../admin-add-exam-period/admin-add-exam-period.component */ 1177);
 /* harmony import */ var _admin_add_financial_card_admin_add_financial_card_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../admin-add-financial-card/admin-add-financial-card.component */ 3206);
 /* harmony import */ var _admin_add_payment_admin_add_payment_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../admin-add-payment/admin-add-payment.component */ 1663);
 /* harmony import */ var _admin_add_preexam_obligation_admin_add_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../admin-add-preexam-obligation/admin-add-preexam-obligation.component */ 4786);
 /* harmony import */ var _admin_add_student_admin_add_student_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../admin-add-student/admin-add-student.component */ 9956);
-<<<<<<< HEAD
-/* harmony import */ var _admin_details_exam_period_admin_details_exam_period_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../admin-details-exam-period/admin-details-exam-period.component */ 8322);
-/* harmony import */ var _admin_details_financial_card_admin_details_financial_card_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../admin-details-financial-card/admin-details-financial-card.component */ 3257);
-/* harmony import */ var _admin_details_payment_admin_details_payment_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../admin-details-payment/admin-details-payment.component */ 7103);
-/* harmony import */ var _admin_details_preexam_obligation_admin_details_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../admin-details-preexam-obligation/admin-details-preexam-obligation.component */ 2151);
-/* harmony import */ var _admin_details_student_admin_details_student_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../admin-details-student/admin-details-student.component */ 4689);
-/* harmony import */ var _admin_list_exam_period_admin_list_exam_period_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../admin-list-exam-period/admin-list-exam-period.component */ 8723);
-/* harmony import */ var _admin_list_financial_card_admin_list_financial_card_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../admin-list-financial-card/admin-list-financial-card.component */ 2009);
-/* harmony import */ var _admin_list_payment_admin_list_payment_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../admin-list-payment/admin-list-payment.component */ 6311);
-/* harmony import */ var _admin_list_preexam_obligation_admin_list_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../admin-list-preexam-obligation/admin-list-preexam-obligation.component */ 5489);
-/* harmony import */ var _admin_list_students_admin_list_students_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../admin-list-students/admin-list-students.component */ 1719);
-/* harmony import */ var _core_navbar_professor_navbar_professor_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../core/navbar-professor/navbar-professor.component */ 5648);
-/* harmony import */ var _financialcard_student_financialcard_student_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../financialcard-student/financialcard-student.component */ 947);
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../login/login.component */ 8458);
-/* harmony import */ var _main_main_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../main/main.component */ 2284);
-/* harmony import */ var _payment_details_payment_details_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../payment-details/payment-details.component */ 9290);
-/* harmony import */ var _payment_payment_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../payment/payment.component */ 9082);
-/* harmony import */ var _payout_payout_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../payout/payout.component */ 9730);
-/* harmony import */ var _professor_courses_professor_courses_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../professor-courses/professor-courses.component */ 2991);
-/* harmony import */ var _professor_exams_professor_exams_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../professor-exams/professor-exams.component */ 9634);
-/* harmony import */ var _professor_profile_professor_profile_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../professor-profile/professor-profile.component */ 8789);
-/* harmony import */ var _professor_students_professor_students_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../professor-students/professor-students.component */ 5961);
-/* harmony import */ var _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../student-details/student-details.component */ 2202);
-/* harmony import */ var _student_documents_student_documents_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../student-documents/student-documents.component */ 4602);
-/* harmony import */ var _student_enrollment_student_enrollment_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../student-enrollment/student-enrollment.component */ 3884);
-/* harmony import */ var _student_exams_student_exams_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../student-exams/student-exams.component */ 5816);
-/* harmony import */ var _student_profile_student_profile_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../student-profile/student-profile.component */ 6794);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/core */ 7716);
-=======
 /* harmony import */ var _admin_add_course_admin_add_course_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../admin-add-course/admin-add-course.component */ 9862);
 /* harmony import */ var _admin_add_exam_admin_add_exam_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../admin-add-exam/admin-add-exam.component */ 5965);
 /* harmony import */ var _admin_add_professor_admin_add_professor_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../admin-add-professor/admin-add-professor.component */ 3758);
@@ -10741,14 +10533,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _payment_details_payment_details_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../payment-details/payment-details.component */ 9290);
 /* harmony import */ var _payment_payment_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../payment/payment.component */ 9082);
 /* harmony import */ var _payout_payout_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../payout/payout.component */ 9730);
-/* harmony import */ var _professor_exams_professor_exams_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../professor-exams/professor-exams.component */ 9634);
-/* harmony import */ var _professor_profile_professor_profile_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../professor-profile/professor-profile.component */ 8789);
-/* harmony import */ var _professor_students_professor_students_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../professor-students/professor-students.component */ 5961);
-/* harmony import */ var _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ../student-details/student-details.component */ 2202);
-/* harmony import */ var _student_documents_student_documents_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ../student-documents/student-documents.component */ 4602);
-/* harmony import */ var _student_exams_student_exams_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ../student-exams/student-exams.component */ 5816);
-/* harmony import */ var _student_profile_student_profile_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ../student-profile/student-profile.component */ 8855);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _professor_courses_professor_courses_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../professor-courses/professor-courses.component */ 2991);
+/* harmony import */ var _professor_exams_professor_exams_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../professor-exams/professor-exams.component */ 9634);
+/* harmony import */ var _professor_profile_professor_profile_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../professor-profile/professor-profile.component */ 8789);
+/* harmony import */ var _professor_students_professor_students_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ../professor-students/professor-students.component */ 5961);
+/* harmony import */ var _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ../student-details/student-details.component */ 2202);
+/* harmony import */ var _student_documents_student_documents_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ../student-documents/student-documents.component */ 4602);
+/* harmony import */ var _student_enrollment_student_enrollment_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ../student-enrollment/student-enrollment.component */ 3884);
+/* harmony import */ var _student_exams_student_exams_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ../student-exams/student-exams.component */ 5816);
+/* harmony import */ var _student_profile_student_profile_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ../student-profile/student-profile.component */ 8855);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! @angular/core */ 7716);
 
 
 
@@ -10756,7 +10550,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
+
+
 
 
 
@@ -10795,52 +10590,33 @@ const routes = [
     { path: 'preexamObligations', component: _admin_list_preexam_obligation_admin_list_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_22__.AdminListPreexamObligationComponent },
     { path: 'preexamObligations/:id', component: _admin_details_preexam_obligation_admin_details_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_14__.AdminDetailsPreexamObligationComponent },
     { path: 'adminAddPreexamObligation', component: _admin_add_preexam_obligation_admin_add_preexam_obligation_component__WEBPACK_IMPORTED_MODULE_3__.AdminAddPreexamObligationComponent },
-<<<<<<< HEAD
-    { path: 'financialCard', component: _financialcard_student_financialcard_student_component__WEBPACK_IMPORTED_MODULE_16__.FinancialcardStudentComponent },
-    { path: 'studentProfile', component: _student_profile_student_profile_component__WEBPACK_IMPORTED_MODULE_30__.StudentProfileComponent },
-    { path: 'payment', component: _payment_payment_component__WEBPACK_IMPORTED_MODULE_20__.PaymentComponent },
-    { path: 'payouts', component: _payout_payout_component__WEBPACK_IMPORTED_MODULE_21__.PayoutComponent },
-    { path: 'coursesForProfessor', component: _professor_courses_professor_courses_component__WEBPACK_IMPORTED_MODULE_22__.ProfessorCoursesComponent },
-    { path: 'studentEnrollments', component: _student_enrollment_student_enrollment_component__WEBPACK_IMPORTED_MODULE_28__.StudentEnrollmentComponent },
-    { path: 'studentExams', component: _student_exams_student_exams_component__WEBPACK_IMPORTED_MODULE_29__.StudentExamsComponent },
-    { path: 'studentDocuments', component: _student_documents_student_documents_component__WEBPACK_IMPORTED_MODULE_27__.StudentDocumentsComponent },
-    { path: 'professorProfile', component: _professor_profile_professor_profile_component__WEBPACK_IMPORTED_MODULE_24__.ProfessorProfileComponent },
-    { path: 'studentsForProfessor', component: _professor_students_professor_students_component__WEBPACK_IMPORTED_MODULE_25__.ProfessorStudentsComponent },
-    { path: 'examsForProfessor', component: _professor_exams_professor_exams_component__WEBPACK_IMPORTED_MODULE_23__.ProfessorExamsComponent },
-    { path: 'studentsForProfessor', component: _professor_students_professor_students_component__WEBPACK_IMPORTED_MODULE_25__.ProfessorStudentsComponent },
-    { path: 'examsForProfessor', component: _professor_exams_professor_exams_component__WEBPACK_IMPORTED_MODULE_23__.ProfessorExamsComponent },
-    { path: 'studentPayment', component: _payment_payment_component__WEBPACK_IMPORTED_MODULE_20__.PaymentComponent },
-    { path: 'studentPayout', component: _payout_payout_component__WEBPACK_IMPORTED_MODULE_21__.PayoutComponent },
-    { path: 'main', component: _main_main_component__WEBPACK_IMPORTED_MODULE_18__.MainComponent },
-    { path: 'examPeriods', component: _admin_list_exam_period_admin_list_exam_period_component__WEBPACK_IMPORTED_MODULE_10__.AdminListExamPeriodComponent },
-    { path: 'examPeriods/:id', component: _admin_details_exam_period_admin_details_exam_period_component__WEBPACK_IMPORTED_MODULE_5__.AdminDetailsExamPeriodComponent },
-=======
     { path: 'financialCard', component: _financialcard_student_financialcard_student_component__WEBPACK_IMPORTED_MODULE_25__.FinancialcardStudentComponent },
-    { path: 'studentProfile', component: _student_profile_student_profile_component__WEBPACK_IMPORTED_MODULE_37__.StudentProfileComponent },
+    { path: 'studentProfile', component: _student_profile_student_profile_component__WEBPACK_IMPORTED_MODULE_39__.StudentProfileComponent },
     { path: 'payment', component: _payment_payment_component__WEBPACK_IMPORTED_MODULE_29__.PaymentComponent },
     { path: 'payouts', component: _payout_payout_component__WEBPACK_IMPORTED_MODULE_30__.PayoutComponent },
-    { path: 'studentExams', component: _student_exams_student_exams_component__WEBPACK_IMPORTED_MODULE_36__.StudentExamsComponent },
-    { path: 'studentDocuments', component: _student_documents_student_documents_component__WEBPACK_IMPORTED_MODULE_35__.StudentDocumentsComponent },
-    { path: 'professorProfile', component: _professor_profile_professor_profile_component__WEBPACK_IMPORTED_MODULE_32__.ProfessorProfileComponent },
-    { path: 'studentsForProfessor', component: _professor_students_professor_students_component__WEBPACK_IMPORTED_MODULE_33__.ProfessorStudentsComponent },
-    { path: 'examsForProfessor', component: _professor_exams_professor_exams_component__WEBPACK_IMPORTED_MODULE_31__.ProfessorExamsComponent },
-    { path: 'studentsForProfessor', component: _professor_students_professor_students_component__WEBPACK_IMPORTED_MODULE_33__.ProfessorStudentsComponent },
-    { path: 'examsForProfessor', component: _professor_exams_professor_exams_component__WEBPACK_IMPORTED_MODULE_31__.ProfessorExamsComponent },
+    { path: 'coursesForProfessor', component: _professor_courses_professor_courses_component__WEBPACK_IMPORTED_MODULE_31__.ProfessorCoursesComponent },
+    { path: 'studentEnrollments', component: _student_enrollment_student_enrollment_component__WEBPACK_IMPORTED_MODULE_37__.StudentEnrollmentComponent },
+    { path: 'studentExams', component: _student_exams_student_exams_component__WEBPACK_IMPORTED_MODULE_38__.StudentExamsComponent },
+    { path: 'studentDocuments', component: _student_documents_student_documents_component__WEBPACK_IMPORTED_MODULE_36__.StudentDocumentsComponent },
+    { path: 'professorProfile', component: _professor_profile_professor_profile_component__WEBPACK_IMPORTED_MODULE_33__.ProfessorProfileComponent },
+    { path: 'studentsForProfessor', component: _professor_students_professor_students_component__WEBPACK_IMPORTED_MODULE_34__.ProfessorStudentsComponent },
+    { path: 'examsForProfessor', component: _professor_exams_professor_exams_component__WEBPACK_IMPORTED_MODULE_32__.ProfessorExamsComponent },
+    { path: 'studentsForProfessor', component: _professor_students_professor_students_component__WEBPACK_IMPORTED_MODULE_34__.ProfessorStudentsComponent },
+    { path: 'examsForProfessor', component: _professor_exams_professor_exams_component__WEBPACK_IMPORTED_MODULE_32__.ProfessorExamsComponent },
     { path: 'studentPayment', component: _payment_payment_component__WEBPACK_IMPORTED_MODULE_29__.PaymentComponent },
     { path: 'studentPayout', component: _payout_payout_component__WEBPACK_IMPORTED_MODULE_30__.PayoutComponent },
     { path: 'main', component: _main_main_component__WEBPACK_IMPORTED_MODULE_27__.MainComponent },
     { path: 'exams', component: _admin_list_exam_admin_list_exam_component__WEBPACK_IMPORTED_MODULE_16__.AdminListExamComponent },
     { path: 'exams/:id', component: _admin_details_exam_admin_details_exam_component__WEBPACK_IMPORTED_MODULE_8__.AdminDetailsExamComponent },
-    { path: 'addExam', component: _admin_add_exam_admin_add_exam_component__WEBPACK_IMPORTED_MODULE_6__.AdminAddExamComponent },
+    { path: 'adminAddExam', component: _admin_add_exam_admin_add_exam_component__WEBPACK_IMPORTED_MODULE_6__.AdminAddExamComponent },
     { path: 'courses', component: _admin_list_course_admin_list_course_component__WEBPACK_IMPORTED_MODULE_17__.AdminListCourseComponent },
     { path: 'courses/:id', component: _admin_details_course_admin_details_course_component__WEBPACK_IMPORTED_MODULE_9__.AdminDetailsCourseComponent },
-    { path: 'addCourse', component: _admin_add_course_admin_add_course_component__WEBPACK_IMPORTED_MODULE_5__.AdminAddCourseComponent },
+    { path: 'adminAddCourse', component: _admin_add_course_admin_add_course_component__WEBPACK_IMPORTED_MODULE_5__.AdminAddCourseComponent },
     { path: 'professors', component: _admin_list_professor_admin_list_professor_component__WEBPACK_IMPORTED_MODULE_18__.AdminListProfessorComponent },
     { path: 'professors/:id', component: _admin_details_professor_admin_details_professor_component__WEBPACK_IMPORTED_MODULE_10__.AdminDetailsProfessorComponent },
     { path: 'addProfessor', component: _admin_add_professor_admin_add_professor_component__WEBPACK_IMPORTED_MODULE_7__.AdminAddProfessorComponent },
     { path: 'examPeriods', component: _admin_list_exam_period_admin_list_exam_period_component__WEBPACK_IMPORTED_MODULE_19__.AdminListExamPeriodComponent },
     { path: 'examPeriods/:id', component: _admin_details_exam_period_admin_details_exam_period_component__WEBPACK_IMPORTED_MODULE_11__.AdminDetailsExamPeriodComponent },
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
     { path: 'addExamPeriod', component: _admin_add_exam_period_admin_add_exam_period_component__WEBPACK_IMPORTED_MODULE_0__.AdminAddExamPeriodComponent },
     { path: 'students', component: _admin_list_students_admin_list_students_component__WEBPACK_IMPORTED_MODULE_23__.AdminListStudentsComponent },
     { path: 'students/:id', component: _admin_details_student_admin_details_student_component__WEBPACK_IMPORTED_MODULE_15__.AdminDetailsStudentComponent },
@@ -10851,36 +10627,20 @@ const routes = [
     { path: 'payments', component: _admin_list_payment_admin_list_payment_component__WEBPACK_IMPORTED_MODULE_21__.AdminListPaymentComponent },
     { path: 'payments/:id', component: _admin_details_payment_admin_details_payment_component__WEBPACK_IMPORTED_MODULE_13__.AdminDetailsPaymentComponent },
     { path: 'adminAddPayment', component: _admin_add_payment_admin_add_payment_component__WEBPACK_IMPORTED_MODULE_2__.AdminAddPaymentComponent },
-<<<<<<< HEAD
-    { path: 'addStudent', component: _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_26__.StudentDetailsComponent },
-    { path: 'editStudent/:id', component: _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_26__.StudentDetailsComponent },
-    { path: 'addPayment', component: _payment_details_payment_details_component__WEBPACK_IMPORTED_MODULE_19__.PaymentDetailsComponent },
-    { path: 'editPayment/:id', component: _payment_details_payment_details_component__WEBPACK_IMPORTED_MODULE_19__.PaymentDetailsComponent },
-    { path: '**', component: _login_login_component__WEBPACK_IMPORTED_MODULE_17__.LoginComponent },
-    { path: 'professorCourses', component: _core_navbar_professor_navbar_professor_component__WEBPACK_IMPORTED_MODULE_15__.NavbarProfessorComponent }
-=======
-    { path: 'addStudent', component: _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_34__.StudentDetailsComponent },
-    { path: 'editStudent/:id', component: _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_34__.StudentDetailsComponent },
+    { path: 'addStudent', component: _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_35__.StudentDetailsComponent },
+    { path: 'editStudent/:id', component: _student_details_student_details_component__WEBPACK_IMPORTED_MODULE_35__.StudentDetailsComponent },
     { path: 'addPayment', component: _payment_details_payment_details_component__WEBPACK_IMPORTED_MODULE_28__.PaymentDetailsComponent },
     { path: 'editPayment/:id', component: _payment_details_payment_details_component__WEBPACK_IMPORTED_MODULE_28__.PaymentDetailsComponent },
     { path: '**', component: _login_login_component__WEBPACK_IMPORTED_MODULE_26__.LoginComponent },
     { path: 'professorCourses', component: _core_navbar_professor_navbar_professor_component__WEBPACK_IMPORTED_MODULE_24__.NavbarProfessorComponent }
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
 ];
 class AppRoutingModule {
 }
 AppRoutingModule.ɵfac = function AppRoutingModule_Factory(t) { return new (t || AppRoutingModule)(); };
-<<<<<<< HEAD
-AppRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_31__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
-AppRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_31__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_32__.RouterModule.forRoot(routes, { useHash: false })
-        ], _angular_router__WEBPACK_IMPORTED_MODULE_32__.RouterModule] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_31__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_32__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_32__.RouterModule] }); })();
-=======
-AppRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_38__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
-AppRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_38__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_39__.RouterModule.forRoot(routes, { useHash: false })
-        ], _angular_router__WEBPACK_IMPORTED_MODULE_39__.RouterModule] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_38__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_39__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_39__.RouterModule] }); })();
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
+AppRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_40__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
+AppRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_40__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_41__.RouterModule.forRoot(routes, { useHash: false })
+        ], _angular_router__WEBPACK_IMPORTED_MODULE_41__.RouterModule] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_40__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_41__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_41__.RouterModule] }); })();
 
 
 /***/ }),
@@ -11166,11 +10926,7 @@ function StudentDocumentsComponent_tr_23_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](document_r1.url);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
-<<<<<<< HEAD
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](document_r1.documentType);
-=======
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](document_r1.documentType.name);
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](document_r1.download);
 } }
@@ -11211,72 +10967,25 @@ class StudentDocumentsComponent {
         this.authService = authService;
         this.route = route;
         this.location = location;
-        this.student = {
-            id: 0,
-            firstName: "",
-            phoneNumber: "",
-            email: "",
-            umnc: "",
-            startedCollegeIn: 0,
-            modelNumber: 0,
-            referenceNumber: null,
-            cardAmount: 0,
-            typeOfFinancing: {
-                id: 0,
-                name: "",
-                code: ""
-            },
-            lastName: "",
-            cardNumber: "",
-            financialCards: {
-                id: 0,
-                initialState: 0,
-                totalPayment: 0,
-                totalPayout: 0,
-                totalCost: 0
-            },
-            accountNumber: "",
-            user: {
-                username: "",
-                password: ""
-            }
-        };
-    }
-    getMe() {
-        this.studentService.getStudentMe().subscribe(student => (this.student = student));
     }
     // getMe():void{
     //   this.studentService.getStudentMe().subscribe( student => (this.student = student));
     // }
     ngOnInit() {
-<<<<<<< HEAD
         this.studentService.getStudentMe().subscribe(res => {
             (this.student = res);
             this.studentService.getStudentDocument(res).subscribe(res => this.documents = res);
         });
-=======
-        this.getDocuments(this.student);
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
     }
-<<<<<<< HEAD
     // getDocuments(student:Student){
     //   this.studentService.getStudentDocument(this.student).subscribe(res=>this.documents=this.documents)
     // }
-=======
-    getDocuments(student) {
-        this.studentService.getStudentDocument(this.student).subscribe(res => this.documents = this.documents);
-    }
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
     goBack() {
         this.location.back();
     }
 }
 StudentDocumentsComponent.ɵfac = function StudentDocumentsComponent_Factory(t) { return new (t || StudentDocumentsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_students_student_service__WEBPACK_IMPORTED_MODULE_0__.StudentService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_login_authentication_service__WEBPACK_IMPORTED_MODULE_1__.AuthenticationService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_4__.Location)); };
-<<<<<<< HEAD
 StudentDocumentsComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: StudentDocumentsComponent, selectors: [["app-student-documents"]], decls: 27, vars: 1, consts: [[1, "table", "table-striped", "pera"], [1, "btn", "btn-link"], [1, "fa", "fa-sort"], [4, "ngFor", "ngForOf"], [1, "btn", "btn-primary", 3, "click"]], template: function StudentDocumentsComponent_Template(rf, ctx) { if (rf & 1) {
-=======
-StudentDocumentsComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: StudentDocumentsComponent, selectors: [["app-student-documents"]], decls: 28, vars: 3, consts: [[1, "table", "table-striped", "pera"], [1, "btn", "btn-link"], [1, "fa", "fa-sort"], [4, "ngFor", "ngForOf"], [1, "btn", "btn-primary", 3, "click"]], template: function StudentDocumentsComponent_Template(rf, ctx) { if (rf & 1) {
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "h3");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "Student");
@@ -11313,34 +11022,18 @@ StudentDocumentsComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](22, "tbody");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](23, StudentDocumentsComponent_tr_23_Template, 10, 4, "tr", 3);
-<<<<<<< HEAD
-=======
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipe"](24, "async");
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-<<<<<<< HEAD
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](24, "div");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](25, "button", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function StudentDocumentsComponent_Template_button_click_25_listener() { return ctx.goBack(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](26, "Cancel");
-=======
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](25, "div");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](26, "button", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function StudentDocumentsComponent_Template_button_click_26_listener() { return ctx.goBack(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](27, "Cancel");
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](23);
-<<<<<<< HEAD
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngForOf", ctx.documents);
     } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_4__.NgForOf], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzdHVkZW50LWRvY3VtZW50cy5jb21wb25lbnQuY3NzIn0= */"] });
-=======
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipeBind1"](24, 1, ctx.documents));
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_4__.NgForOf], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_4__.AsyncPipe], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzdHVkZW50LWRvY3VtZW50cy5jb21wb25lbnQuY3NzIn0= */"] });
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
 
 
 /***/ }),
@@ -11826,13 +11519,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-<<<<<<< HEAD
 const baseUrl = "https://localhost:8443/api/student";
 const baseUrl1 = "https://localhost:8443/api/student";
-=======
-const baseUrl = "https://localhost:8443/api/students";
-const baseUrl1 = "https://localhost:8443/api";
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
 class StudentService {
     constructor(http, authService) {
         this.http = http;
@@ -11889,19 +11577,11 @@ class StudentService {
     }
     getMeAgain() {
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({ "Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString() });
-<<<<<<< HEAD
         return this.http.get(baseUrl1 + "/students" + "/me", { headers: headers });
-=======
-        return this.http.get(baseUrl + "/me", { headers: headers });
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
     }
     getStudentFinancialCard(student) {
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({ "Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString() });
-<<<<<<< HEAD
         const url = `${baseUrl1}/${student.id}/financial-card`;
-=======
-        const url = `${baseUrl}/${student.id}/financial-card`;
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
         return this.http.get(url, { headers: headers });
     }
     getStudentPayment(student) {
@@ -11913,14 +11593,6 @@ class StudentService {
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({ "Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString() });
         const url = `${baseUrl1}/${student.id}/financial-payout`;
         return this.http.get(url, { headers: headers });
-<<<<<<< HEAD
-=======
-    }
-    getStudentDocument(student) {
-        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({ "Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString() });
-        const url = `${baseUrl1}/${student.id}/documents`;
-        return this.http.get(url, { headers: headers });
->>>>>>> branch 'main' of https://github.com/ElenaKrunic/eObrazovanje2021.git
     }
     getStudentDocument(student) {
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({ "Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString() });
