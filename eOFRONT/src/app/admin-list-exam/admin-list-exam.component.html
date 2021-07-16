@@ -5,14 +5,14 @@
       <input
         type="text"
         class="form-control"
-        placeholder="Search by title "
-        [(ngModel)]="title"
+        placeholder="Search by grade "
+        [(ngModel)]="grade"
       />
       <div class="input-group-append">
         <button
           class="btn btn-outline-secondary"
           type="button"
-          (click)="searchName()"
+          (click)="searchGrade()"
         >
           Search
         </button>
@@ -35,7 +35,7 @@
         <li
           class="list-group-item"
           *ngFor="
-            let exams of exams| paginate : {
+            let exam of exams| paginate : {
               itemsPerPage: pageSize, 
               currentPage: page, 
               totalItems: count

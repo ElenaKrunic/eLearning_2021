@@ -12,7 +12,7 @@ export class AdminListExamComponent implements OnInit {
   exams: Exam[] = [];
   currentExam: Exam; 
   currentIndex = -1; 
-  title = '';
+  grade = 5;
 
   page = 1;
   count = 0;
@@ -26,11 +26,11 @@ export class AdminListExamComponent implements OnInit {
     this.retrieveExams(); 
   }
 
-  getRequestParams(searchName: string, page: number, pageSize: number): any {
+  getRequestParams(searchGrade: number, page: number, pageSize: number): any {
     let params: any = {};
 
-    if (searchName) {
-      params[`name`] = searchName;
+    if (searchGrade) {
+      params[`grade`] = searchGrade;
     }
 
     if (page) {
@@ -45,7 +45,7 @@ export class AdminListExamComponent implements OnInit {
   }
 
   retrieveExams(): void {
-    const params = this.getRequestParams(this.title, this.page, this.pageSize);
+    const params = this.getRequestParams(this.grade, this.page, this.pageSize);
 
     this.examService.getAll(params)
     .subscribe(
@@ -77,12 +77,12 @@ export class AdminListExamComponent implements OnInit {
     this.currentExam= null;
   }
 
-  setActiveExamPeriod(exam : null | any, index=-1) : void {
+  setActiveExam(exam : null | any, index=-1) : void {
     this.currentExam = exam;
     this.currentIndex = index;
   }
 
-  searchName(): void {
+  searchGrade(): void {
     this.page = 1;
     this.retrieveExams();
   }
