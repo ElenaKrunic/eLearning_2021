@@ -18,7 +18,7 @@ export class AdminAddCourseComponent implements OnInit {
     courseCode: '',
     startDate : new Date(), 
     endDate: new Date(),
-    ECTS : 0
+    ects : 0
   });
 
   form!: FormGroup;
@@ -38,7 +38,7 @@ export class AdminAddCourseComponent implements OnInit {
       courseCode:['',Validators.required],
       startDate: ['', Validators.required], 
       endDate: ['', Validators.required],
-      ECTS: [0, Validators.required]
+      ects: [0, Validators.required]
     });
   }
 
@@ -50,7 +50,7 @@ export class AdminAddCourseComponent implements OnInit {
       courseCode : this.course.courseCode,
       startDate : this.course.startDate,
       endDate : this.course.endDate, 
-      ECTS: this.course.ECTS
+      ects: this.course.ects
     }; 
 
     this.courseService.create(data)
@@ -72,7 +72,7 @@ export class AdminAddCourseComponent implements OnInit {
       courseCode:'',
       startDate: new Date(),
       endDate: new Date(),
-      ECTS: 0
+      ects: 0
     };
   }
 
