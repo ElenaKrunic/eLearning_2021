@@ -18,6 +18,7 @@ public class CourseDTO {
 	private Date startDate;
 	private Date endDate;
 	private int ECTS;
+	public CourseDTO() {}
 	
 	public Long getId() {
 		return id;

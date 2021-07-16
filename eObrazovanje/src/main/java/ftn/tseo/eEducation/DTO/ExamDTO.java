@@ -19,6 +19,7 @@ public class ExamDTO {
 	private String courseName;
 	private boolean status;
 	
+	public ExamDTO() {}
 //	private String professorName;
 
 	@SuppressWarnings("unchecked")
