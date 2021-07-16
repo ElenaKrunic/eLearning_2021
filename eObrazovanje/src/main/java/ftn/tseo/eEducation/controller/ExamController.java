@@ -89,6 +89,19 @@ public class ExamController {
 
 		return new ResponseEntity<>(new ExamDTO(e), HttpStatus.OK);
 	}
+	
+	public ResponseEntity<ExamDTO> saveExam(@RequestBody ExamDTO eDTO){
+		Exam e = new Exam();
+		//treba dodati 
+		e.setGrade(eDTO.getGrade());
+		e.setPoints(eDTO.getPoints());
+		
+		e.setExamDate ( (Date) eDTO.getExamDate());
+	
+		e = examService.save(e);
+		return new ResponseEntity<>(new ExamDTO(e), HttpStatus.CREATED);	
+	}
+
 	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
 	public ResponseEntity<ExamDTO> updateExam(@RequestBody ExamDTO eDTO){
 		//a exam must exist
