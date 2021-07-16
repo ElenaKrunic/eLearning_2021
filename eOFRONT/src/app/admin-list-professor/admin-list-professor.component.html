@@ -47,7 +47,7 @@
           (click)="setActiveProfessor(professor, i)"
         >
           {{ professor.firstName }}
-          {{ professor.lastName }}
+          
 
         </li>
       </ul>
@@ -73,6 +73,10 @@
         <div>
           <label><strong> Last name: </strong></label>
           {{ currentProfessor.lastName}}
+        </div>
+        <div>
+          <label><strong> user </strong></label>
+          {{ currentProfessor.user.username}}
         </div>
         
         <a class="badge badge-warning" routerLink="/professors/{{ currentProfessor.id }}">
