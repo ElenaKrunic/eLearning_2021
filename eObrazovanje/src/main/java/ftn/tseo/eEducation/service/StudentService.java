@@ -99,7 +99,7 @@ public class StudentService {
 		for(Student s : students) {
 			studentToDTO.add(new StudentDTO(s));
 		}
-		
+		System.out.println("Get proffesor students"+students);
 		return studentToDTO;
 		
 	}

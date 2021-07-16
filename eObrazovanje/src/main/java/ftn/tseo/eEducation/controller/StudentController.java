@@ -53,7 +53,7 @@ import ftn.tseo.eEducation.service.StudentService;
 import ftn.tseo.eEducation.service.TypeOfFinancingService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/student")
 public class StudentController {
 
 	@Autowired
@@ -87,7 +87,6 @@ public class StudentController {
 	private StudentRepository studentRepository;
 	
 	@RequestMapping(value="students/me")
-	@ResponseBody
 	public ResponseEntity<?> getStudent(@AuthenticationPrincipal UserDetails userDetails){
 		Student student=studentService.findUserByUsername(userDetails.getUsername());
 		System.out.println("student me"+student);

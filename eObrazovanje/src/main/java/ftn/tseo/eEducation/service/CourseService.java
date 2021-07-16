@@ -43,6 +43,7 @@ public class CourseService {
 
 		Teaching teachings=teachingRepository.findTeachingByProfessorId(id);
 		Course courses=teachings.getCourses();
+		System.out.println("Professor courses"+courses);
 		return new CourseDTO(courses);
 	}
 

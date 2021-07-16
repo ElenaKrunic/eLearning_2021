@@ -59,7 +59,7 @@ public class Student {
 	@OneToMany(mappedBy="student" ,fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 	private Set<Enrollment> enrollments=new HashSet<Enrollment>();
 	
-	@JsonIgnore
+//	@JsonIgnore
 	@OneToOne
 //	@JoinColumn(name = "financial_card", referencedColumnName = "id", nullable = false)
 	private FinancialCard financialCards;

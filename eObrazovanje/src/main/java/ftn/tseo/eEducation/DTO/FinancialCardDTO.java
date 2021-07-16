@@ -9,7 +9,7 @@ public class FinancialCardDTO {
 	private float totalCost;
 	private float totalPayment;
 	private float totalPayout; 
-	//private StudentDTO studentDTO;
+	private StudentDTO studentDTO;
 
 	public FinancialCardDTO( ) {
 		super();
@@ -22,7 +22,7 @@ public class FinancialCardDTO {
 		this.totalCost = financialCard.getTotalCost();
 		this.totalPayment = financialCard.getTotalPayment();
 		this.totalPayout = financialCard.getTotalPayout();
-		//this.studentDTO=new StudentDTO(financialCard.getStudent());
+		this.studentDTO=new StudentDTO(financialCard.getStudent());
 		
 	
 	}
@@ -67,7 +67,7 @@ public class FinancialCardDTO {
 		this.totalPayout = totalPayout;
 	}
 
-	/*
+	
 	public StudentDTO getStudentDTO() {
 		return studentDTO;
 	}
@@ -75,7 +75,7 @@ public class FinancialCardDTO {
 	public void setStudentDTO(StudentDTO studentDTO) {
 		this.studentDTO = studentDTO;
 	}
-	*/
+	
 	
 	
 

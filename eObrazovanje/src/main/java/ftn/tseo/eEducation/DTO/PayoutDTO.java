@@ -1,6 +1,6 @@
 package ftn.tseo.eEducation.DTO;
 
-import java.util.Date;
+import java.sql.Date;
 
 import ftn.tseo.eEducation.model.PayOut;
 
