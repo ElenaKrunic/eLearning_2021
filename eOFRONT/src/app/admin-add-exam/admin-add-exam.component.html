@@ -1,0 +1,84 @@
+<div class="submit-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+      <label>Grade</label>
+        <input
+          type="number"
+          formControlName="grade"
+          class="form-control"
+          [(ngModel)]="exam.grade" 
+          id = "grade"
+          name="grade"
+          [ngClass]="{ 'is-invalid': submitted && f.grade.errors }"
+        />
+        <div *ngIf="submitted && f.grade.errors" class="invalid-feedback">
+          <div *ngIf="f.grade.errors.required">ECTS is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+      <label>Points</label>
+        <input
+          type="number"
+          formControlName="points"
+          class="form-control"
+          [(ngModel)]="exam.points" 
+          id = "points"
+          name="points"
+          [ngClass]="{ 'is-invalid': submitted && f.points.errors }"
+        />
+        <div *ngIf="submitted && f.points.errors" class="invalid-feedback">
+          <div *ngIf="f.points.errors.required">ECTS is required</div>
+        </div>
+      </div>
+       <div class="form-group">
+      <label>Exam date</label>
+        <input
+          type="date"
+          formControlName="examDate"
+          class="form-control"
+          [(ngModel)]="exam.examDate" 
+          id = "examDate"
+          name="examDate"
+          [ngClass]="{ 'is-invalid': submitted && f.examDate.errors }"
+        />
+        <div *ngIf="submitted && f.examDate.errors" class="invalid-feedback">
+          <div *ngIf="f.examDate.errors.required">ECTS is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Status</label>
+        <input type="checkbox"
+         formControlName="status"
+          class="form-control"
+          [(ngModel)]="exam.status" 
+          id = "status"
+          name="status"
+          [ngClass]="{ 'is-invalid': submitted && f.status.errors }"
+        >
+        <div *ngIf="submitted && f.status.errors" class="invalid-feedback">
+          <div *ngIf="f.status.errors.required">Status is required</div>
+        </div>
+      </div>
+
+      <div *ngIf="submitted">
+        <h4> The exam  was added successfully!</h4>
+        <button class="btn btn-success" (click)="newExam()"> Add new exam  </button>
+    </div>
+
+      <div class="form-group">
+       <button (click)="saveExam()" class="btn btn-success"> Submit </button>
+        <button
+          type="button"
+          (click)="onReset()"
+          class="btn btn-warning float-right"
+        >
+          Reset
+      </button>
+      
+    </div>
+  </form>
+</div>
+
+
+      
+

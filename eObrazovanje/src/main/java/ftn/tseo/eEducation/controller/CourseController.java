@@ -28,7 +28,7 @@ import ftn.tseo.eEducation.service.TeachingService;
 @RequestMapping(value = "api/courses")
 public class CourseController {
 	@Autowired
-	private CourseService courseService;
+	 CourseService courseService;
 	@Autowired
 	EnrollmentService eService;
 	@Autowired

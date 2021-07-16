@@ -8,7 +8,11 @@ import { AuthenticationService } from '../login/authentication.service';
 import { Exam } from '../model/exam';
 const path = "https://localhost:8443/api/professors"; 
 
-@Injectable()
+
+
+@Injectable({
+  providedIn: 'root'
+})
 export class ProfessorService {
 
 
@@ -17,7 +21,25 @@ export class ProfessorService {
     private RegenerateData = new Subject<void>();
 
     RegenerateData$ = this.RegenerateData.asObservable();
-
+    getAll(params: any): Observable<any> {
+      return this.http.get<any>(path, { params });
+    }
+    
+    get(id: number): Observable<any>{
+      return this.http.get(`${path}/${id}`);
+    }
+  
+    create(data: any) : Observable<any> {
+      return this.http.post(path, data);
+    }
+  
+    update(id: number, data: any) : Observable<any>{
+       return this.http.put(`${path}/${id}`, data);
+    }
+  
+    delete(id: number) : Observable<any> {
+      return this.http.delete(`${path}/${id}`);
+    }
     announceChange() {
         this.RegenerateData.next();
     }

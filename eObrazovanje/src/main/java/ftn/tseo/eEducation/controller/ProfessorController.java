@@ -31,6 +31,7 @@ import ftn.tseo.eEducation.service.CourseService;
 import ftn.tseo.eEducation.service.ExamService;
 import ftn.tseo.eEducation.service.ProfessorService;
 import ftn.tseo.eEducation.service.StudentService;
+import ftn.tseo.eEducation.service.TeachingService;
 
 @RestController
 @RequestMapping("api/professors")
@@ -40,6 +41,8 @@ public class ProfessorController {
 	@Autowired
 	ProfessorService professorService;
 	
+
+
 	@Autowired
 	CourseService courseService;
 	
@@ -48,6 +51,8 @@ public class ProfessorController {
 	
 	@Autowired
 	StudentService studentService;
+	@Autowired
+	TeachingService teachingService;
 	
 	@RequestMapping(value="/me")
 	public ResponseEntity<?> getProffesor(@AuthenticationPrincipal UserDetails userDetails){
@@ -120,17 +125,10 @@ public class ProfessorController {
 	}
 	
 //	
-//	@RequestMapping(value = "/{id}/courses", method = RequestMethod.GET)
-//	public ResponseEntity<List<CourseDTO>> getProfessorCourses(
-//			@PathVariable Long id) {
-//		Professor professor = professorService.findOneById(id);
-//		if (professor != null){
-//			courseService.findCoursesForProfessor(id);
-//			return new ResponseEntity<>(HttpStatus.OK);
-//		} else {		
-//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//		}
-//	}
+	@GetMapping(value="/{professorId}/proffesorCourses")
+	private CourseDTO getProffesorCourses(@PathVariable("professorId") Long id) {
+		return courseService.findProfessorCourses(id);
+	}
 //	
 //	@RequestMapping(value = "/{id}/students", method = RequestMethod.GET)
 //	public ResponseEntity<List<StudentDTO>> getProfessorStudents(

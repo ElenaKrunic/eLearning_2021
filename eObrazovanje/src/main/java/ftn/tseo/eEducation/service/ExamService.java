@@ -111,7 +111,7 @@ public class ExamService {
 	
 		public List<ExamDTO> findStudentExams(Long id) {
 		
-		List<Enrollment> enrollment=enrollmentRepository.findByStudent(id);
+		List<Enrollment> enrollment=enrollmentRepository.findByStudentId(id);
 		System.out.println("Enrollment"+enrollment);
 		List<ExamDTO> examsToDTO=new  ArrayList<ExamDTO>();
 		Set<Exam> exams= new  HashSet<Exam>();

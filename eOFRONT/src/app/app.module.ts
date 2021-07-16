@@ -62,6 +62,17 @@ import { AdminDetailsPreexamObligationTypeComponent } from './admin-details-pree
 import { ValidationComponent } from './validation/validation.component';
 import { ProfessorService } from './professor/professor.service';
 import { StudentService } from './students/student.service';
+import { ExamService } from './exam/exam.service';
+import { AdminAddCourseComponent } from './admin-add-course/admin-add-course.component';
+import { AdminAddExamComponent } from './admin-add-exam/admin-add-exam.component';
+import { AdminAddProfessorComponent } from './admin-add-professor/admin-add-professor.component';
+import { AdminDetailsExamComponent } from './admin-details-exam/admin-details-exam.component';
+import { AdminDetailsCourseComponent } from './admin-details-course/admin-details-course.component';
+import { AdminDetailsProfessorComponent } from './admin-details-professor/admin-details-professor.component';
+import { AdminDetailsDocumentComponent } from './admin-details-document/admin-details-document.component';
+import { AdminListCourseComponent } from './admin-list-course/admin-list-course.component';
+import { AdminListExamComponent } from './admin-list-exam/admin-list-exam.component';
+import { AdminListProfessorComponent } from './admin-list-professor/admin-list-professor.component';
 
 @NgModule({
   declarations: [
@@ -126,12 +137,23 @@ import { StudentService } from './students/student.service';
     NavbarProfessorComponent,
 
     AdminDetailsStudentComponent,
-    ValidationComponent
+    ValidationComponent,
+    AdminAddCourseComponent,
+    AdminAddExamComponent,
+    AdminAddProfessorComponent,
+    AdminDetailsExamComponent,
+    AdminDetailsCourseComponent,
+    AdminDetailsProfessorComponent,
+    AdminDetailsDocumentComponent,
+    AdminListCourseComponent,
+    AdminListExamComponent,
+    AdminListProfessorComponent
   ],
 
   providers: [
     ProfessorService,
-    StudentService
+    StudentService,
+    ExamService
   ],
 
   imports: [

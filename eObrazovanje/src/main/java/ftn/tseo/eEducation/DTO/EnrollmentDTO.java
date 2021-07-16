@@ -11,6 +11,7 @@ public class EnrollmentDTO {
 	private Date endDate;
 	private StudentDTO studentDTO;
 	private CourseDTO courseDTO;
+	private String courseName;
 
 	
 	public Long getId() {
@@ -52,10 +53,19 @@ public class EnrollmentDTO {
 	public void setCourseDTO(CourseDTO courseDTO) {
 		this.courseDTO = courseDTO;
 	}
+	
+	public String getCourseName() {
+		return courseName;
+	}
+
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
 
 	public EnrollmentDTO(Enrollment enrollment) {
 		super();
 		this.id = enrollment.getId();
+		this.courseName=enrollment.getCourses().getTitle();
 		this.startDate = enrollment.getStartDate();
 		this.endDate =enrollment.getEndDate();
 		this.studentDTO = new StudentDTO(enrollment.getStudent());

@@ -1,0 +1,102 @@
+<div class="edit-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+        <label for="title"> Title </label>
+            <input type="text"
+            class="form-control"
+            id="title"
+            [(ngModel)] = "currentCourse.title"
+            name="title"
+            formControlName="title"
+            [ngClass]="{ 'is-invalid': submitted && f.title.errors }"
+            />
+            <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                <div *ngIf="f.title.errors.required">Title</div>
+                <div *ngIf="f.title.errors.minlength">
+                  Title must be at least 4 characters
+                </div>
+                <div *ngIf="f.title.errors.maxlength">
+                  Title must not exceed 25 characters
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+        <label>Course code</label>
+        <input
+          type="text"
+          formControlName="courseCode"
+          class="form-control"
+          [(ngModel)]="currentCourse.startDate" 
+          id = "courseCode"
+          name="courseCode"
+          [ngClass]="{ 'is-invalid': submitted && f.courseCode.errors }"
+        />
+        <div *ngIf="submitted && f.courseCode.errors" class="invalid-feedback">
+          <div *ngIf="f.courseCode.errors.required">Course code is required</div>
+        </div>
+        </div>
+        <div class="form-group">
+        <label>Start date</label>
+        <input
+          type="text"
+          formControlName="startDate"
+          class="form-control"
+          [(ngModel)]="currentCourse.startDate" 
+          id = "startDate"
+          name="startDate"
+          [ngClass]="{ 'is-invalid': submitted && f.startDate.errors }"
+        />
+        <div *ngIf="submitted && f.startDate.errors" class="invalid-feedback">
+          <div *ngIf="f.startDate.errors.required">Start date is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>End date</label>
+        <input
+          type="text"
+          formControlName="endDate"
+          class="form-control"
+          [(ngModel)]="currentCourse.endDate" 
+          id = "endDate"
+          name="endDate"
+          [ngClass]="{ 'is-invalid': submitted && f.endDate.errors }"
+        />
+        <div *ngIf="submitted && f.endDate.errors" class="invalid-feedback">
+          <div *ngIf="f.endDate.errors.required">End date is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>ECTS</label>
+        <input
+          type="number"
+          formControlName="ECTS"
+          class="form-control"
+          [(ngModel)]="currentCourse.ECTS" 
+          id = "ECTS"
+          name="ECTS"
+          [ngClass]="{ 'is-invalid': submitted && f.ECTS.errors }"
+        />
+        <div *ngIf="submitted && f.ECTS.errors" class="invalid-feedback">
+          <div *ngIf="f.ECTS.errors.required">ECTS is required</div>
+        </div>
+      </div>
+
+      <button
+      class="badge badge-primary mr-2"
+      (click)="deleteCourse()"        
+      > Delete course </button>
+
+      <button
+      type="submit"
+      class="badge badge-success"
+      (click)="updateCourse()"
+      > Edit selected course </button>
+      <p> {{message}}</p>
+
+
+  <div *ngIf="!currentCourse">
+      <br/>
+      <p>Course is unavailable!</p>
+  </div>
+</form>
+</div>

@@ -37,7 +37,9 @@ public class DocumentService {
 				documentForStudent.add(new DocumentDTO(d));
 			}
 		}
+		System.out.println("Documents for student"+documentForStudent);
 		return documentForStudent;
 	}
+	
 
 }
