@@ -35,7 +35,7 @@
         <li
           class="list-group-item"
           *ngFor="
-            let courses of courses | paginate : {
+            let course of courses | paginate : {
               itemsPerPage: pageSize, 
               currentPage: page, 
               totalItems: count
@@ -45,7 +45,7 @@
           [class.active]="i == currentIndex"
           (click)="setActiveCourse(course, i)"
         >
-          {{ course.name }}
+          {{ course.title }}
         </li>
       </ul>
 
@@ -78,7 +78,7 @@
         </div>
         <div>
             <label><strong>ECTS:</strong></label>
-            {{ currentCourse.ECTS}}
+            {{ currentCourse.ects}}
           </div>
 
         <a class="badge badge-warning" routerLink="/courses/{{ currentCourse.id }}">
