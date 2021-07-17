@@ -169,7 +169,8 @@ public class ExamService {
 //		return examsForRegistration; 
 //	}
 	
-
+//naci ispite za studenta gde je polozeno false i samo po id-ju studenta da nadje ispite examId ne,location i points ne
+	//taj ispit za studenta se mora izvuci po id-ju da bi mu se setovale vrednosti
 //	public Long registerExam(Long studentId, Long examId,String location,float points) {
 //		
 //		Exam exam = examRepository.findById(examId).orElse(null);

@@ -32,6 +32,7 @@ public class UserAuthority {
 	private Authority authority;
 
 	
+	
 	public Long getId() {
 		return id;
 	}
