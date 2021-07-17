@@ -14,9 +14,6 @@ export class CoursesService {
 
   constructor(private http: HttpClient) { }
 
-    private RegenerateData = new Subject<void>();
-
-    RegenerateData$ = this.RegenerateData.asObservable();
     
     getAll(params: any): Observable<any> {
       return this.http.get<any>(baseUrl, { params });
@@ -38,7 +35,10 @@ export class CoursesService {
       return this.http.delete(`${baseUrl}/${id}`);
     }
   
+    private RegenerateData = new Subject<void>();
 
+    RegenerateData$ = this.RegenerateData.asObservable();
+    
     announceChange() {
         this.RegenerateData.next();
     }
