@@ -9,7 +9,7 @@ import { Exam } from '../model/exam';
 })
 export class AdminListExamComponent implements OnInit {
 
-  exams: Exam[] = [];
+  exams: Exam[] ;
   currentExam: Exam; 
   currentIndex = -1; 
   grade = 5;

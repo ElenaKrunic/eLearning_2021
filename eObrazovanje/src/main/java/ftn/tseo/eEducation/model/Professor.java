@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.Nullable;
 
 @Entity
 public class Professor {
@@ -26,7 +27,7 @@ public class Professor {
 	@JsonIgnore
 	@OneToMany(mappedBy = "professor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<Teaching> teachings;
-	
+	@Nullable
 	@OneToOne
 	@JsonIgnore
 	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)

@@ -40,7 +40,7 @@ import { StudentDocumentsComponent } from '../student-documents/student-document
 import { StudentEnrollmentComponent } from '../student-enrollment/student-enrollment.component';
 import { StudentExamsComponent } from '../student-exams/student-exams.component';
 import { StudentProfileComponent } from '../student-profile/student-profile.component';
-
+import { AdminExamComponent } from '../admin-exam/admin-exam.component';
 const routes: Routes = [
   { path: 'preexamObligations', component: AdminListPreexamObligationComponent},
   { path: 'preexamObligations/:id', component: AdminDetailsPreexamObligationComponent},
@@ -52,6 +52,8 @@ const routes: Routes = [
   { path: 'coursesForProfessor', component: ProfessorCoursesComponent },
   { path: 'studentEnrollments', component: StudentEnrollmentComponent },
   
+  {path: 'adminExam',component:AdminExamComponent},
+
   { path: 'studentExams', component: StudentExamsComponent },
   {path:'studentDocuments', component:StudentDocumentsComponent},
   {path: 'professorProfile', component: ProfessorProfileComponent},

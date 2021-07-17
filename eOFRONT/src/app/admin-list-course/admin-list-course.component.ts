@@ -11,7 +11,7 @@ import { Course } from '../model/course';
 export class AdminListCourseComponent implements OnInit {
 
 
-  courses: Course[] = [];
+  courses: Course[] ;
   currentCourse: Course; 
   currentIndex = -1; 
   title = '';
@@ -26,11 +26,11 @@ export class AdminListCourseComponent implements OnInit {
     this.retrieveCourses(); 
   }
 
-  getRequestParams(searchName: string, page: number, pageSize: number): any {
+  getRequestParams(searchTitle: string, page: number, pageSize: number): any {
     let params: any = {};
 
-    if (searchName) {
-      params[`title`] = searchName;
+    if (searchTitle) {
+      params[`title`] = searchTitle;
     }
 
     if (page) {

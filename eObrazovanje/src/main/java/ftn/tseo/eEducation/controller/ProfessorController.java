@@ -64,7 +64,7 @@ public class ProfessorController {
 	}
 	
 
-	@RequestMapping( value="/all",method = RequestMethod.GET)
+	@RequestMapping( method = RequestMethod.GET)
 	public ResponseEntity<List<ProfessorDTO>> getProfessors() {
 		List<Professor> professors = professorService.findAll();
 		// convert professors to DTOs
@@ -89,6 +89,8 @@ public class ProfessorController {
 	@RequestMapping(method=RequestMethod.POST, consumes="application/json")
 	public ResponseEntity<ProfessorDTO> saveProfessor(@RequestBody ProfessorDTO pDTO){		
 		Professor p = new Professor();
+		p.setFirstName(pDTO.getFirstName());
+		p.setLastName(pDTO.getLastName());
 		
 		
 		p = professorService.save(p);
@@ -102,7 +104,8 @@ public class ProfessorController {
 		if (p == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		
+		p.setFirstName(pDTO.getFirstName());
+		p.setLastName(pDTO.getLastName());
 		
 		p = professorService.save(p);
 		return new ResponseEntity<>(new ProfessorDTO(p), HttpStatus.OK);	

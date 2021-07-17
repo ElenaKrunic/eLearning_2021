@@ -1,7 +1,7 @@
 package ftn.tseo.eEducation.DTO;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -19,6 +19,7 @@ public class ExamDTO {
 	private String courseName;
 	private boolean status;
 	
+	public ExamDTO() {}
 //	private String professorName;
 
 	@SuppressWarnings("unchecked")

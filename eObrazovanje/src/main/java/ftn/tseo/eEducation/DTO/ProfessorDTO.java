@@ -15,6 +15,7 @@ public class ProfessorDTO {
 	private String firstName;
 
 	private UserDTO user;
+	public ProfessorDTO() {}
 
 	public Long getId() {
 		return id;
