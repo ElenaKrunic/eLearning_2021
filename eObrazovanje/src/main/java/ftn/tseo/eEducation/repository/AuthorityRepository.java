@@ -6,4 +6,5 @@ import ftn.tseo.eEducation.model.Authority;
 
 public interface AuthorityRepository extends JpaRepository<Authority, Long> {
 
+	Authority findOneByName(String name);
 }

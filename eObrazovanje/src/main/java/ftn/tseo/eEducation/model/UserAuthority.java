@@ -31,7 +31,10 @@ public class UserAuthority {
 	@JoinColumn(name = "authority", referencedColumnName = "id", nullable = false)
 	private Authority authority;
 
-	
+	public UserAuthority(User user, Authority authority) {
+		this.user = user; 
+		this.authority = authority; 
+	}
 	
 	public Long getId() {
 		return id;
