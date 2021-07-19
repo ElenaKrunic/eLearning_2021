@@ -3,9 +3,16 @@ package ftn.tseo.eEducation.controller;
 
 import java.security.cert.URICertStoreParameters;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +30,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -31,6 +39,7 @@ import ftn.tseo.eEducation.DTO.AuthorityDTO;
 import ftn.tseo.eEducation.DTO.LoginDTO;
 import ftn.tseo.eEducation.DTO.UserDTO;
 import ftn.tseo.eEducation.model.Authority;
+import ftn.tseo.eEducation.model.ExamPeriod;
 import ftn.tseo.eEducation.model.Professor;
 import ftn.tseo.eEducation.model.Student;
 import ftn.tseo.eEducation.model.User;
@@ -90,6 +99,7 @@ public class UserController {
 //            SecurityContextHolder.getContext().setAuthentication(authentication);
             return new ResponseEntity<String>(tokenUtils.generateToken(details), HttpStatus.OK);
         } catch (Exception ex) {
+        	ex.printStackTrace();
             return new ResponseEntity<String>("Login failed", HttpStatus.BAD_REQUEST);
         }
 	}
@@ -122,8 +132,7 @@ public class UserController {
 	        }
 	    }
 	 
-	 
-	 
+
 	 @GetMapping(value= "users/{username}/unassigned-authorities")
 	 public ResponseEntity<List<AuthorityDTO>> getAuthorities(@PathVariable("username") String username) {
 		 User user = userService.findByUsername(username);
@@ -188,6 +197,69 @@ public class UserController {
 		 return new ResponseEntity<UserDTO>(new UserDTO(user), HttpStatus.OK);
 		 
 	 }
+	 
+		@RequestMapping(value="/users", method = RequestMethod.GET)
+		public ResponseEntity<Map<String,Object>> getAllUsers(
+				@RequestParam(required=false) String username, 
+				@RequestParam(defaultValue="0") int page,
+				@RequestParam(defaultValue="3") int size,
+				@RequestParam(defaultValue="id, desc") String[] sort) {
+			
+			try {
+				
+				 List<Order> orders = new ArrayList<Order>();
+
+			      if (sort[0].contains(",")) {
+			        // will sort more than 2 fields
+			        // sortOrder="field, direction"
+			        for (String sortOrder : sort) {
+			          String[] _sort = sortOrder.split(",");
+			          orders.add(new Order(getSortDirection(_sort[1]), _sort[0]));
+			        }
+			      } else {
+			        // sort=[field, direction]
+			        orders.add(new Order(getSortDirection(sort[1]), sort[0]));
+			      }
+			      
+				List<User> users = new ArrayList<User>(); 
+
+				Pageable paging = PageRequest.of(page, size); 
+				Page<User> pageUsers; 
+				
+				if (username == null) 
+					pageUsers = userRepository.findAll(paging);
+				else 
+					pageUsers = userRepository.findByUsername(username, paging); 
+				
+				users = pageUsers.getContent(); 
+				
+				Map<String, Object> response = new HashMap<>();
+				response.put("users", users); 
+				response.put("currentPage", pageUsers.getNumber()); 
+				response.put("totalItems", pageUsers.getTotalElements());
+				response.put("totalPages", pageUsers.getTotalPages());
+				
+				System.out.println("Lista objekata" + users);
+				
+				return new ResponseEntity<>(response, HttpStatus.OK);
+			} catch(Exception e) {
+				e.printStackTrace();
+				return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+		}
+		
+		//helper method 
+		private Sort.Direction getSortDirection(String direction) {
+		    if (direction.equals("asc")) {
+		      return Sort.Direction.ASC;
+		    } else if (direction.equals("desc")) {
+		      return Sort.Direction.DESC;
+		    }
+
+		    return Sort.Direction.ASC;
+		  }
+		
+	 
 	 
 }
 

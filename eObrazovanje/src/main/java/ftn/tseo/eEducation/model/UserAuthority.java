@@ -36,6 +36,10 @@ public class UserAuthority {
 		this.authority = authority; 
 	}
 	
+	public UserAuthority() {
+		super();
+	}
+
 	public Long getId() {
 		return id;
 	}
