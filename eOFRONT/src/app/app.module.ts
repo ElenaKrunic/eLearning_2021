@@ -73,6 +73,9 @@ import { AdminDetailsDocumentComponent } from './admin-details-document/admin-de
 import { AdminListCourseComponent } from './admin-list-course/admin-list-course.component';
 import { AdminListExamComponent } from './admin-list-exam/admin-list-exam.component';
 import { AdminListProfessorComponent } from './admin-list-professor/admin-list-professor.component';
+import { UsersComponent } from './users/users.component';
+import { AddUserComponent } from './add-user/add-user.component';
+import { DetailsUserComponent } from './details-user/details-user.component';
 
 @NgModule({
   declarations: [
@@ -147,7 +150,10 @@ import { AdminListProfessorComponent } from './admin-list-professor/admin-list-p
     AdminDetailsDocumentComponent,
     AdminListCourseComponent,
     AdminListExamComponent,
-    AdminListProfessorComponent
+    AdminListProfessorComponent,
+    UsersComponent,
+    AddUserComponent,
+    DetailsUserComponent
   ],
 
   providers: [

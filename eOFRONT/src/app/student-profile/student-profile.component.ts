@@ -40,7 +40,8 @@ export class StudentProfileComponent implements OnInit {
     accountNumber: "",
     user: {
       username: "",
-      password: ""
+      password: "",
+      authorities: []
     }
   };
   constructor(private location:Location,private studentService: StudentService, private route: ActivatedRoute) {}

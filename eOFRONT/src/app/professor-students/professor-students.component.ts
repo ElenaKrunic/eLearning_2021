@@ -18,7 +18,8 @@ export class ProfessorStudentsComponent implements OnInit {
     user:{
       id:0,
       username:"",
-      password:""
+      password:"",
+      authorities: []
     }
   }
   constructor(private professorService:ProfessorService,private location:Location,private router:Router) { }

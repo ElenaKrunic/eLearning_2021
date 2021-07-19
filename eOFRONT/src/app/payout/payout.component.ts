@@ -40,7 +40,8 @@ export class PayoutComponent implements OnInit {
     accountNumber: "",
     user: {
       username: "",
-      password: ""
+      password: "",
+      authorities: []
     }
   };
    payouts?:Payout[];

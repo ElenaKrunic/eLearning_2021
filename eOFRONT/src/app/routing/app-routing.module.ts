@@ -41,6 +41,9 @@ import { StudentEnrollmentComponent } from '../student-enrollment/student-enroll
 import { StudentExamsComponent } from '../student-exams/student-exams.component';
 import { StudentProfileComponent } from '../student-profile/student-profile.component';
 import { AdminExamComponent } from '../admin-exam/admin-exam.component';
+import { UsersComponent } from '../users/users.component';
+import { DetailsUserComponent } from '../details-user/details-user.component';
+import { AddUserComponent } from '../add-user/add-user.component';
 const routes: Routes = [
   { path: 'preexamObligations', component: AdminListPreexamObligationComponent},
   { path: 'preexamObligations/:id', component: AdminDetailsPreexamObligationComponent},
@@ -90,7 +93,10 @@ const routes: Routes = [
   { path: 'addPayment', component: PaymentDetailsComponent},
   { path: 'editPayment/:id', component: PaymentDetailsComponent},
   { path: '**', component: LoginComponent },
-  { path: 'professorCourses', component:NavbarProfessorComponent}
+  { path: 'professorCourses', component:NavbarProfessorComponent},
+  { path: 'users', component: UsersComponent },
+  { path: 'users/:id', component: DetailsUserComponent },
+  { path: 'addUser', component: AddUserComponent },
 ];
 
 @NgModule({

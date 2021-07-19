@@ -10,7 +10,7 @@ import { Enrollment } from '../model/enrollment';
 import { AuthenticationService } from '../login/authentication.service';
 import { localizedString } from '@angular/compiler/src/output/output_ast';
 
-const baseUrl = "https://localhost:8443/api/student"; 
+const baseUrl = "https://localhost:8443/api/student/students"; 
 const baseUrl1="https://localhost:8443/api/student";
 @Injectable({
   providedIn: 'root'

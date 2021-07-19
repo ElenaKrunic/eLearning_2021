@@ -44,7 +44,8 @@ export class StudentEnrollmentComponent implements OnInit {
     accountNumber: "",
     user: {
       username: "",
-      password: ""
+      password: "",
+      authorities: []
     }
   };
   

@@ -20,7 +20,8 @@ export class ProfessorExamsComponent implements OnInit {
     user:{
       id:0,
       username:"",
-      password:""
+      password:"",
+      authorities: []
     }
   }
 

@@ -40,7 +40,8 @@ export class PaymentComponent implements OnInit {
     accountNumber: "",
     user: {
       username: "",
-      password: ""
+      password: "",
+      authorities: []
     }
   };
    payments?: Payment[];

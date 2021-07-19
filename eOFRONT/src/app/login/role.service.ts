@@ -1,6 +1,10 @@
+import { HttpClient, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Observable } from 'rxjs';
+import { Authority } from '../model/authority';
+import { User } from '../model/user';
 import { AuthenticationService } from './authentication.service';
 
 @Injectable({
@@ -8,9 +12,12 @@ import { AuthenticationService } from './authentication.service';
 })
 export class RoleGuard implements CanActivate {
 
+	private baseUrl = 'api/users';
+
 	constructor(
 		public auth: AuthenticationService,
-		public router: Router
+		public router: Router,
+		private http: HttpClient
 	) { }
 
 	canActivate(route: ActivatedRouteSnapshot): boolean {
@@ -32,5 +39,14 @@ export class RoleGuard implements CanActivate {
 			return false;
 		}
 		return true;
+	}
+
+	getUnassignedAuthorities(username: string) : Observable<HttpResponse<Authority[]>> {
+		const url = `${this.baseUrl}/${username}/unassigned-authorities`;
+		return this.http.get<Authority[]>(url, {observe: 'response'});
+	}
+
+	addUser(user: User) : Observable<HttpResponse<User>> {
+		return this.http.post<User>(this.baseUrl, user, {observe: 'response'});
 	}
 }
