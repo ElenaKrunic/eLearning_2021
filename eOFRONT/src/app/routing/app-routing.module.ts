@@ -45,6 +45,7 @@ import { UsersComponent } from '../users/users.component';
 import { DetailsUserComponent } from '../details-user/details-user.component';
 import { AddUserComponent } from '../add-user/add-user.component';
 const routes: Routes = [
+
   { path: 'preexamObligations', component: AdminListPreexamObligationComponent},
   { path: 'preexamObligations/:id', component: AdminDetailsPreexamObligationComponent},
   { path: 'adminAddPreexamObligation', component: AdminAddPreexamObligationComponent},
@@ -54,15 +55,13 @@ const routes: Routes = [
   { path: 'payouts', component: PayoutComponent },
   { path: 'coursesForProfessor', component: ProfessorCoursesComponent },
   { path: 'studentEnrollments', component: StudentEnrollmentComponent },
-  
-  {path: 'adminExam',component:AdminExamComponent},
-
+  { path: 'adminExam',component:AdminExamComponent},
   { path: 'studentExams', component: StudentExamsComponent },
-  {path:'studentDocuments', component:StudentDocumentsComponent},
-  {path: 'professorProfile', component: ProfessorProfileComponent},
-  {path: 'studentsForProfessor', component: ProfessorStudentsComponent},
-  {path: 'examsForProfessor', component: ProfessorExamsComponent},
- { path: 'studentsForProfessor', component: ProfessorStudentsComponent},
+  { path:'studentDocuments', component:StudentDocumentsComponent},
+  { path: 'professorProfile', component: ProfessorProfileComponent},
+  { path: 'studentsForProfessor', component: ProfessorStudentsComponent},
+  { path: 'examsForProfessor', component: ProfessorExamsComponent},
+  { path: 'studentsForProfessor', component: ProfessorStudentsComponent},
   { path: 'examsForProfessor', component: ProfessorExamsComponent},
   { path: 'studentPayment', component: PaymentComponent },
   { path: 'studentPayout', component: PayoutComponent },

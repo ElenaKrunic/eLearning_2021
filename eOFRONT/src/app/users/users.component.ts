@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { UsersService } from './users.service';
 import { AppComponent } from 'src/app/app.component';
 
+//asdadas
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -16,10 +17,12 @@ export class UsersComponent implements OnInit {
   currentUser: User;
   currentIndex = -1; 
   username = '';
+
   page = 1; 
   count = 0; 
   pageSize = 1;
   pageSizes = [3,6,9]; 
+
   subscription: Subscription;
 
   constructor(private userService: UsersService, private router: Router) {}
@@ -28,11 +31,11 @@ export class UsersComponent implements OnInit {
     this.retrieveUsers();
   }
 
-  getRequestParams(firstName: string, page: number, pageSize: number): any {
+  getRequestParams(username: string, page: number, pageSize: number): any {
     let params: any = {};
 
-    if (firstName) {
-      params[`firstName`] = firstName;
+    if (username) {
+      params[`username`] = username;
     }
 
     if (page) {
@@ -60,13 +63,6 @@ export class UsersComponent implements OnInit {
       error => {
         console.log(error);
       });
-    /*
-    this.userService.getUsers(params).subscribe(
-      response => {
-        // console.log(response)
-        this.users = response.body == null? this.users:response.body;
-      });
-      */
   }
 
   handlePageChange(event: number): void {
@@ -80,36 +76,20 @@ export class UsersComponent implements OnInit {
     this.retrieveUsers();
   }
 
-
-  /*
-  deleteUser(user: User): void {
-    console.log("Brisem: "+JSON.stringify(user));
-    this.userService.deleteUser(user.id==undefined ? 0:user.id).subscribe(
-      () => this.getUsers()
-    );
+  refreshList(): void {
+    this.retrieveUsers();
+    this.currentIndex = -1; 
+    this.currentUser= null;
   }
-  */
 
   setActiveUser(user : null | any, index=-1) : void {
     this.currentUser = user;
     this.currentIndex = index;
   }
 
-  goToViewUser(user: User): void {
-    this.router.navigate(['/view-user', user.id]);
-  }
-
   searchUsername(): void {
     this.page = 1;
     this.retrieveUsers();
   }
-
-
-  // isActive(num:number):boolean{
-  //   if(this.numberPage===num){
-  //     return true;
-  //   }
-  //   return false;
-  // }
 
 }
