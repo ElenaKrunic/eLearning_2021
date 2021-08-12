@@ -76,6 +76,7 @@ import { UsersService } from './users/users.service';
 import { AdminAddUserComponent } from './admin-add-user/admin-add-user.component';
 import { AdminDetailsUserComponent } from './admin-details-user/admin-details-user.component';
 import { AdminListUserComponent } from './admin-list-user/admin-list-user.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
 
 @NgModule({
   declarations: [
@@ -151,7 +152,8 @@ import { AdminListUserComponent } from './admin-list-user/admin-list-user.compon
     AdminListProfessorComponent,
     AdminAddUserComponent,
     AdminDetailsUserComponent,
-    AdminListUserComponent
+    AdminListUserComponent,
+    MyProfileComponent
   ],
 
   providers: [

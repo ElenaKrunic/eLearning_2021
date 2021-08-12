@@ -10,7 +10,6 @@ import { JwtserviceutilsService } from '../jwtservice/jwtserviceutils.service';
 export class AuthenticationService {
 	private readonly loginPath = '/api/login';
 
-
 	constructor(
 		private http: HttpClient,
 		private jwtUtilsService:JwtserviceutilsService
