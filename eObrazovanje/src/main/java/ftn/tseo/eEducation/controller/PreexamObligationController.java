@@ -21,9 +21,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import ftn.tseo.eEducation.DTO.ExamPeriodDTO;
 import ftn.tseo.eEducation.DTO.PaymentDTO;
 import ftn.tseo.eEducation.DTO.PreexamObligationDTO;
 import ftn.tseo.eEducation.model.Exam;
+import ftn.tseo.eEducation.model.ExamPeriod;
 import ftn.tseo.eEducation.model.FinancialCard;
 import ftn.tseo.eEducation.model.Payment;
 import ftn.tseo.eEducation.model.PreexamObligation;
@@ -95,18 +97,8 @@ public class PreexamObligationController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	/*
-	@RequestMapping(value="/preexamObligations", method = RequestMethod.GET)
-	public ResponseEntity<List<PreexamObligationDTO>> getAllPreexamObligations(){
-		
-		List<PreexamObligation> preexamObligations = preexamObligationService.findAll();
-		List<PreexamObligationDTO> dto = new ArrayList<>();
-		for(PreexamObligation preexamObligation : preexamObligations) {
-			dto.add(new PreexamObligationDTO(preexamObligation));
-		}
-		return new ResponseEntity<>(dto, HttpStatus.OK);
-	}
 	
+
 	@RequestMapping(value="preexamObligations/{id}", method=RequestMethod.GET)
 	public ResponseEntity<PreexamObligationDTO> getPreexamObligation(@PathVariable Long id){
 		PreexamObligation preexamObligation = preexamObligationService.findOne(id);
@@ -116,7 +108,6 @@ public class PreexamObligationController {
 		
 		return new ResponseEntity<>(new PreexamObligationDTO(preexamObligation), HttpStatus.OK);
 	}
-	*/
 	
 	@PostMapping(consumes="application/json", value="/preexamObligations")
 	public ResponseEntity<PreexamObligationDTO> savePreexamObligation(@RequestBody PreexamObligationDTO dto){		

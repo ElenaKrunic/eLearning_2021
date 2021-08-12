@@ -22,8 +22,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ftn.tseo.eEducation.DTO.ExamPeriodDTO;
 import ftn.tseo.eEducation.DTO.FinancialCardDTO;
+import ftn.tseo.eEducation.DTO.PreexamObligationDTO;
 import ftn.tseo.eEducation.model.ExamPeriod;
 import ftn.tseo.eEducation.model.FinancialCard;
+import ftn.tseo.eEducation.model.PreexamObligation;
 import ftn.tseo.eEducation.model.Student;
 import ftn.tseo.eEducation.repository.FinancialCardRepository;
 import ftn.tseo.eEducation.service.FinancialCardService;
@@ -91,20 +93,8 @@ public class FinancialCardController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
-	/*
-	@RequestMapping(value="/financialCards", method = RequestMethod.GET)
-	public ResponseEntity<List<FinancialCardDTO>> getAllFinancialCards(){
-		
-		List<FinancialCard> financialCards = financialCardService.findAll();
-		List<FinancialCardDTO> financialCardDto = new ArrayList<>();
-		for(FinancialCard financialCard : financialCards) {
-			financialCardDto.add(new FinancialCardDTO(financialCard));
-		}
-		return new ResponseEntity<>(financialCardDto, HttpStatus.OK);
-	}
 	
-	@RequestMapping(value="/financialCards/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="financialCards/{id}", method=RequestMethod.GET)
 	public ResponseEntity<FinancialCardDTO> getFinancialCard(@PathVariable Long id){
 		FinancialCard financialCard = financialCardService.findOne(id);
 		if(financialCard == null){
@@ -113,7 +103,7 @@ public class FinancialCardController {
 		
 		return new ResponseEntity<>(new FinancialCardDTO(financialCard), HttpStatus.OK);
 	}
-	*/
+	
 	
 	@RequestMapping(method=RequestMethod.POST,value="/financialCards", consumes="application/json")
 	public ResponseEntity<FinancialCardDTO> saveFinancialCard(@RequestBody FinancialCardDTO financialCardDto){		
