@@ -3,7 +3,6 @@ import { ExamPeriodService } from '../exam-period/exam-period.service';
 import { ExamPeriod } from '../model/exam-period';
 
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ValidationComponent } from '../validation/validation.component';
 
 @Component({
   selector: 'app-admin-add-exam-period',

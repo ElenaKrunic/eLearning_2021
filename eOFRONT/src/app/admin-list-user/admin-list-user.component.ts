@@ -1,41 +1,35 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { User } from 'src/app/model/user';
-import { Subscription } from 'rxjs';
-import { UsersService } from './users.service';
-import { AppComponent } from 'src/app/app.component';
+import { Component, OnInit } from '@angular/core';
+import { User } from '../model/user';
+import { UsersService } from '../users/users.service';
 
-//asdadas
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  selector: 'app-admin-list-user',
+  templateUrl: './admin-list-user.component.html',
+  styleUrls: ['./admin-list-user.component.css']
 })
-export class UsersComponent implements OnInit {
+export class AdminListUserComponent implements OnInit {
 
   users: User[] = [];
-  currentUser: User;
+  currentUser: User; 
   currentIndex = -1; 
-  username = '';
+  username = ''; 
 
-  page = 1; 
+  page=  1; 
   count = 0; 
-  pageSize = 1;
-  pageSizes = [3,6,9]; 
+  pageSize = 3; 
+  pageSizes = [3,6,9];
 
-  subscription: Subscription;
-
-  constructor(private userService: UsersService, private router: Router) {}
+  constructor(private userService: UsersService) { }
 
   ngOnInit(): void {
     this.retrieveUsers();
   }
 
-  getRequestParams(username: string, page: number, pageSize: number): any {
+  getRequestParams(searchName: string, page: number, pageSize: number): any {
     let params: any = {};
 
-    if (username) {
-      params[`username`] = username;
+    if (searchName) {
+      params[`username`] = searchName;
     }
 
     if (page) {
@@ -49,7 +43,7 @@ export class UsersComponent implements OnInit {
     return params;
   }
 
-  retrieveUsers(){
+  retrieveUsers(): void {
     const params = this.getRequestParams(this.username, this.page, this.pageSize);
 
     this.userService.getAll(params)
@@ -91,5 +85,5 @@ export class UsersComponent implements OnInit {
     this.page = 1;
     this.retrieveUsers();
   }
-
+  
 }

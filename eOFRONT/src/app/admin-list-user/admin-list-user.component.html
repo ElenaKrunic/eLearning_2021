@@ -1,31 +1,3 @@
-<!--
-<div class="table_color ">
-    <h1 class="ml-5 title">Users</h1>
-    <table class="table mx-auto w-75 mt-5">
-        <thead>
-            <tr>
-                <th class="text-center">Firstname</th>
-                <th class="text-center">Lastname</th>
-                <th class="text-center">Username</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody >
-            <tr *ngFor="let u of users; let i = index; let odd = odd;">
-                <td class="text-center">{{u.firstName}}</td>
-                <td class="text-center">{{u.lastName}}</td>
-                <td class="text-center"><button class="btn btn-link" (click)="goToViewUser(u)">{{u.userName}}</button></td>
-                <td class="text-center"><button type="button" class="btn btn-danger btn-sm" (click)="deleteUser(u)">X</button></td> 
-            </tr>
-        </tbody>
-    </table>
-    <div class="ml-5 text-right">
-        <a class="btn btn-outline-light mt-3 ml-5" routerLink="/add-user" role="button">Add</a>
-    </div>
-  </div>
-assadassasdasdasassdasdasd
--->
-
 
 <div class="list row">
     <div class="col-md-8">
@@ -33,7 +5,7 @@ assadassasdasdasassdasdasd
         <input
           type="text"
           class="form-control"
-          placeholder="Search by username: "
+          placeholder="Search by username "
           [(ngModel)]="username"
         />
         <div class="input-group-append">
@@ -58,7 +30,7 @@ assadassasdasdasassdasdasd
     </div>
   
       <div class="col-md-6">
-        <h4> List of users </h4>
+        <h4> List of exam users </h4>
         <ul class="list-group">
           <li
             class="list-group-item"
@@ -73,7 +45,7 @@ assadassasdasdasassdasdasd
             [class.active]="i == currentIndex"
             (click)="setActiveUser(user, i)"
           >
-            {{ user.firstName }}
+            {{ user.username }}
           </li>
         </ul>
   
@@ -88,7 +60,7 @@ assadassasdasdasassdasdasd
         
       </div>
       <div class="col-md-6">
-        <div *ngIf="currentUser">
+        <div *ngIf=" currentUser">
           <h4> User </h4>
           <div>
             <label><strong>Username :</strong></label> {{ currentUser.username }}
@@ -97,7 +69,7 @@ assadassasdasdasassdasdasd
             <label><strong>Password:</strong></label>
             {{ currentUser.password}}
           </div>
-
+    
           <a class="badge badge-warning" routerLink="/users/{{ currentUser.id }}">
             Edit
           </a>

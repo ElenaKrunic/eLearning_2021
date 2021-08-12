@@ -41,9 +41,9 @@ import { StudentEnrollmentComponent } from '../student-enrollment/student-enroll
 import { StudentExamsComponent } from '../student-exams/student-exams.component';
 import { StudentProfileComponent } from '../student-profile/student-profile.component';
 import { AdminExamComponent } from '../admin-exam/admin-exam.component';
-import { UsersComponent } from '../users/users.component';
-import { DetailsUserComponent } from '../details-user/details-user.component';
-import { AddUserComponent } from '../add-user/add-user.component';
+import { AdminListUserComponent } from '../admin-list-user/admin-list-user.component';
+import { AdminAddUserComponent } from '../admin-add-user/admin-add-user.component';
+import { AdminDetailsUserComponent } from '../admin-details-user/admin-details-user.component';
 const routes: Routes = [
 
   { path: 'preexamObligations', component: AdminListPreexamObligationComponent},
@@ -57,7 +57,7 @@ const routes: Routes = [
   { path: 'studentEnrollments', component: StudentEnrollmentComponent },
   { path: 'adminExam',component:AdminExamComponent},
   { path: 'studentExams', component: StudentExamsComponent },
-  { path:'studentDocuments', component:StudentDocumentsComponent},
+  { path: 'studentDocuments', component:StudentDocumentsComponent},
   { path: 'professorProfile', component: ProfessorProfileComponent},
   { path: 'studentsForProfessor', component: ProfessorStudentsComponent},
   { path: 'examsForProfessor', component: ProfessorExamsComponent},
@@ -93,9 +93,9 @@ const routes: Routes = [
   { path: 'editPayment/:id', component: PaymentDetailsComponent},
   { path: '**', component: LoginComponent },
   { path: 'professorCourses', component:NavbarProfessorComponent},
-  { path: 'users', component: UsersComponent },
-  { path: 'users/:id', component: DetailsUserComponent },
-  { path: 'addUser', component: AddUserComponent },
+  { path: 'users', component: AdminListUserComponent},
+  { path: 'addUser', component: AdminAddUserComponent},
+  { path: 'users/:id', component: AdminDetailsUserComponent}
 ];
 
 @NgModule({

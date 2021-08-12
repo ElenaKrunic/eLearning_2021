@@ -59,7 +59,6 @@ import { AdminAddStudentComponent } from './admin-add-student/admin-add-student.
 import { AdminDetailsStudentComponent } from './admin-details-student/admin-details-student.component';
 import { AdminListStudentsComponent } from './admin-list-students/admin-list-students.component';
 import { AdminDetailsPreexamObligationTypeComponent } from './admin-details-preexam-obligation-type/admin-details-preexam-obligation-type.component';
-import { ValidationComponent } from './validation/validation.component';
 import { ProfessorService } from './professor/professor.service';
 import { StudentService } from './students/student.service';
 import { ExamService } from './exam/exam.service';
@@ -73,9 +72,10 @@ import { AdminDetailsDocumentComponent } from './admin-details-document/admin-de
 import { AdminListCourseComponent } from './admin-list-course/admin-list-course.component';
 import { AdminListExamComponent } from './admin-list-exam/admin-list-exam.component';
 import { AdminListProfessorComponent } from './admin-list-professor/admin-list-professor.component';
-import { UsersComponent } from './users/users.component';
-import { AddUserComponent } from './add-user/add-user.component';
-import { DetailsUserComponent } from './details-user/details-user.component';
+import { UsersService } from './users/users.service';
+import { AdminAddUserComponent } from './admin-add-user/admin-add-user.component';
+import { AdminDetailsUserComponent } from './admin-details-user/admin-details-user.component';
+import { AdminListUserComponent } from './admin-list-user/admin-list-user.component';
 
 @NgModule({
   declarations: [
@@ -138,9 +138,7 @@ import { DetailsUserComponent } from './details-user/details-user.component';
     AdminAddStudentComponent,
     AdminListStudentsComponent,
     NavbarProfessorComponent,
-
     AdminDetailsStudentComponent,
-    ValidationComponent,
     AdminAddCourseComponent,
     AdminAddExamComponent,
     AdminAddProfessorComponent,
@@ -151,15 +149,16 @@ import { DetailsUserComponent } from './details-user/details-user.component';
     AdminListCourseComponent,
     AdminListExamComponent,
     AdminListProfessorComponent,
-    UsersComponent,
-    AddUserComponent,
-    DetailsUserComponent
+    AdminAddUserComponent,
+    AdminDetailsUserComponent,
+    AdminListUserComponent
   ],
 
   providers: [
     ProfessorService,
     StudentService,
-    ExamService
+    ExamService,
+    UsersService
   ],
 
   imports: [
