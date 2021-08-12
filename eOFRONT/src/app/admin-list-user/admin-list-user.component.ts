@@ -43,6 +43,7 @@ export class AdminListUserComponent implements OnInit {
     return params;
   }
 
+  
   retrieveUsers(): void {
     const params = this.getRequestParams(this.username, this.page, this.pageSize);
 
