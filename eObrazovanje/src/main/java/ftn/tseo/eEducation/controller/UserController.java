@@ -1,6 +1,7 @@
 package ftn.tseo.eEducation.controller;
 
 
+import java.security.Principal;
 import java.security.cert.URICertStoreParameters;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -259,6 +260,16 @@ public class UserController {
 		    return Sort.Direction.ASC;
 		  }
 		
+		@GetMapping(value="/users/loggedUser")
+		public ResponseEntity<UserDTO> getLoggedUser(Principal principal) {
+			System.out.println(principal.getName() + " user get id");
+			User user = userService.findByUsername(principal.getName());
+			if(user == null) {
+				System.out.println("User je null"); 				
+			}
+			return new ResponseEntity<UserDTO>(new UserDTO(user), HttpStatus.OK);
+
+		}
 	 
 	 
 }
