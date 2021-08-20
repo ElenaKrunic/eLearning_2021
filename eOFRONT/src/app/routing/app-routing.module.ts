@@ -44,12 +44,8 @@ import { AdminExamComponent } from '../admin-exam/admin-exam.component';
 import { AdminListUserComponent } from '../admin-list-user/admin-list-user.component';
 import { AdminAddUserComponent } from '../admin-add-user/admin-add-user.component';
 import { AdminDetailsUserComponent } from '../admin-details-user/admin-details-user.component';
-<<<<<<< HEAD
-import { PreexamObligation } from '../model/preexam-obligation';
+
 import { StudentpreexamobligationsComponent } from '../studentpreexamobligations/studentpreexamobligations.component';
-const routes: Routes = [
-=======
->>>>>>> 0e7d101383da8b7eae09d9e2c6f7db3faf36b766
 
 const routes: Routes = [
   { path: 'preexamObligations', component: AdminListPreexamObligationComponent},
