@@ -19,5 +19,6 @@ public interface PreExamObligationRepository extends JpaRepository<PreexamObliga
 	Page<PreexamObligation> findAll(Pageable pageable);
 	Page<PreexamObligation> findByLocation(String location, Pageable page);
 	List<PreexamObligation> findByLocation(String location, Sort sort);
+	List<PreexamObligation> findByStudentIdAndExamId(Long studentId,Long examid);
 	
 }

@@ -77,7 +77,11 @@ import { AdminAddUserComponent } from './admin-add-user/admin-add-user.component
 import { AdminDetailsUserComponent } from './admin-details-user/admin-details-user.component';
 import { AdminListUserComponent } from './admin-list-user/admin-list-user.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
+<<<<<<< HEAD
 import { StudentpreexamobligationsComponent } from './studentpreexamobligations/studentpreexamobligations.component';
+=======
+import { RouterModule } from '@angular/router';
+>>>>>>> 0e7d101383da8b7eae09d9e2c6f7db3faf36b766
 
 @NgModule({
   declarations: [
@@ -174,7 +178,6 @@ import { StudentpreexamobligationsComponent } from './studentpreexamobligations/
 		ToastrModule.forRoot(),
 		HttpClientModule,
     NgxPaginationModule,
-    
     NgbModule,
     CommonModule,
   ],

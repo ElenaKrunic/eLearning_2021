@@ -35,9 +35,11 @@ import ftn.tseo.eEducation.DTO.ExamDTO;
 import ftn.tseo.eEducation.DTO.FinancialCardDTO;
 import ftn.tseo.eEducation.DTO.PaymentDTO;
 import ftn.tseo.eEducation.DTO.PayoutDTO;
+import ftn.tseo.eEducation.DTO.PreexamObligationDTO;
 import ftn.tseo.eEducation.DTO.StudentDTO;
 import ftn.tseo.eEducation.model.Enrollment;
 import ftn.tseo.eEducation.model.ExamPeriod;
+import ftn.tseo.eEducation.model.PreexamObligation;
 import ftn.tseo.eEducation.model.Student;
 import ftn.tseo.eEducation.model.TypeOfFinancing;
 import ftn.tseo.eEducation.repository.EnrollmentRepository;
@@ -259,6 +261,12 @@ public class StudentController {
 		return enrollmentService.findEnrollmentForStudent(id);
 	}
 	
+	@RequestMapping(value="/{studentid}/preexamObligations/{examid}", method=RequestMethod.GET)
+	public List<PreexamObligationDTO> getPreexamObligationForStudent(@PathVariable ("studentid") Long id,@PathVariable ("examid")Long examid){
+		return preexamObligationService.findPreexamObligationsForStudent(id, examid);
+		
+		
+	}
 
 	//helper method 
 			private Sort.Direction getSortDirection(String direction) {
