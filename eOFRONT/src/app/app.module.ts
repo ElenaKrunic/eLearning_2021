@@ -77,6 +77,7 @@ import { AdminAddUserComponent } from './admin-add-user/admin-add-user.component
 import { AdminDetailsUserComponent } from './admin-details-user/admin-details-user.component';
 import { AdminListUserComponent } from './admin-list-user/admin-list-user.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -172,7 +173,6 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
 		ToastrModule.forRoot(),
 		HttpClientModule,
     NgxPaginationModule,
-    
     NgbModule,
     CommonModule,
   ],
