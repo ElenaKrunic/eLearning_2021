@@ -2,7 +2,6 @@ package ftn.tseo.eEducation.controller;
 
 
 import java.security.Principal;
-import java.security.cert.URICertStoreParameters;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
