@@ -9,6 +9,7 @@ import { Payout } from '../model/payout';
 import { Enrollment } from '../model/enrollment';
 import { AuthenticationService } from '../login/authentication.service';
 import { localizedString } from '@angular/compiler/src/output/output_ast';
+import { PreexamObligation } from '../model/preexam-obligation';
 
 const baseUrl = "https://localhost:8443/api/student/students"; 
 const baseUrl1="https://localhost:8443/api/student";
@@ -130,6 +131,13 @@ getMeAgain(): Observable<Student> {
     return this.http.get<Payout[]>(url,{ headers:headers});
       
  }
+ getStudentPreexamObligation(student:Student,examid:number): Observable<PreexamObligation[]> {
+  const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+  
+  const url = `${baseUrl1}/${student.id}/preexamObligations/${examid}`;
+  return this.http.get<PreexamObligation[]>(url,{ headers:headers});
+    
+}
 
 getStudentDocument(student:Student): Observable<Document[]> {
   

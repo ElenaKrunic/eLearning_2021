@@ -77,6 +77,7 @@ import { AdminAddUserComponent } from './admin-add-user/admin-add-user.component
 import { AdminDetailsUserComponent } from './admin-details-user/admin-details-user.component';
 import { AdminListUserComponent } from './admin-list-user/admin-list-user.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
+import { StudentpreexamobligationsComponent } from './studentpreexamobligations/studentpreexamobligations.component';
 
 @NgModule({
   declarations: [
@@ -153,7 +154,8 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
     AdminAddUserComponent,
     AdminDetailsUserComponent,
     AdminListUserComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    StudentpreexamobligationsComponent
   ],
 
   providers: [
