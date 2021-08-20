@@ -21,7 +21,7 @@ export class NavbarAdminComponent implements OnInit {
 
   logout () {
     this.authenticationService.logOut();
-    this.router.navigate(['/**']);
+    this.router.navigate(['**']);
     alert("You have successfully logged out!")
   }
 

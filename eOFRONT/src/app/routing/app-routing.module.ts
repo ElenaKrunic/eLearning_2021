@@ -44,8 +44,8 @@ import { AdminExamComponent } from '../admin-exam/admin-exam.component';
 import { AdminListUserComponent } from '../admin-list-user/admin-list-user.component';
 import { AdminAddUserComponent } from '../admin-add-user/admin-add-user.component';
 import { AdminDetailsUserComponent } from '../admin-details-user/admin-details-user.component';
-const routes: Routes = [
 
+const routes: Routes = [
   { path: 'preexamObligations', component: AdminListPreexamObligationComponent},
   { path: 'preexamObligations/:id', component: AdminDetailsPreexamObligationComponent},
   { path: 'adminAddPreexamObligation', component: AdminAddPreexamObligationComponent},
@@ -99,10 +99,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{useHash: false})
-  ],
-  exports: [RouterModule]
-  
+  imports: [RouterModule.forRoot(routes,{useHash: false})],
+  exports: [RouterModule],
+  providers: []
 })
 export class AppRoutingModule { }
 
