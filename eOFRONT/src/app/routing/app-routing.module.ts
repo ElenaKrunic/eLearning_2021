@@ -94,11 +94,12 @@ const routes: Routes = [
   { path: 'editStudent/:id', component: StudentDetailsComponent},
   { path: 'addPayment', component: PaymentDetailsComponent},
   { path: 'editPayment/:id', component: PaymentDetailsComponent},
-  { path: '**', component: LoginComponent },
-  { path: 'professorCourses', component:NavbarProfessorComponent},
   { path: 'users', component: AdminListUserComponent},
   { path: 'addUser', component: AdminAddUserComponent},
-  { path: 'users/:id', component: AdminDetailsUserComponent}
+  { path: 'users/:id', component: AdminDetailsUserComponent},
+  //--kad ovo zakomentarisem prikazuje mi se lista svih korisnika //popraviti 
+  { path: '**', component: LoginComponent },  
+  { path: 'professorCourses', component:NavbarProfessorComponent}
 ];
 
 @NgModule({

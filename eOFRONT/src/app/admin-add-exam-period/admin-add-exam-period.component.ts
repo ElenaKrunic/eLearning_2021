@@ -21,7 +21,8 @@ export class AdminAddExamPeriodComponent implements OnInit {
   form!: FormGroup;
   submitted = false; 
 
-  constructor(private examPeriodService: ExamPeriodService, private formBuilder: FormBuilder) { }
+  constructor(private examPeriodService: ExamPeriodService, 
+    private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({

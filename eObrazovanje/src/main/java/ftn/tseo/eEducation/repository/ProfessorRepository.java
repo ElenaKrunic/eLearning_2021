@@ -17,4 +17,5 @@ public interface ProfessorRepository extends JpaRepository<Professor, Long> {
 	 	Page<Professor> findAll(Pageable pageable);
 		Page<Professor> findByFirstName(String firstName, Pageable page);
 		List<Professor> findByFirstName(String firstName, Sort sort);
+		Professor findByUser(String username);
 }
