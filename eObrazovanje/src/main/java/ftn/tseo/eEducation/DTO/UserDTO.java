@@ -3,6 +3,7 @@ package ftn.tseo.eEducation.DTO;
 import java.util.ArrayList;
 import java.util.List;
 
+import ftn.tseo.eEducation.model.Authority;
 import ftn.tseo.eEducation.model.User;
 import ftn.tseo.eEducation.model.UserAuthority;
 
@@ -57,6 +58,14 @@ public class UserDTO {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String authorityToString() {
+		String authorityString =""; 
+		for(AuthorityDTO authority : this.authorities) {
+			authorityString += authority.getName()+ " "; 
+		}
+		return authorityString;
 	}
 	
 	

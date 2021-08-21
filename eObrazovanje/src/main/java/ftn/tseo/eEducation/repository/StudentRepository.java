@@ -20,6 +20,7 @@ public interface StudentRepository extends JpaRepository<Student, Long>{
 	Page<Student> findByFirstName(String firstName, Pageable page);
 	List<Student> findByFirstName(String firstName, Sort sort);
 
+	 Student findByUser(String username);
 
     
 }
