@@ -4,8 +4,10 @@ package ftn.tseo.eEducation.controller;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,9 +26,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,18 +42,22 @@ import org.springframework.web.util.UriComponentsBuilder;
 import ftn.tseo.eEducation.DTO.AuthorityDTO;
 import ftn.tseo.eEducation.DTO.LoginDTO;
 import ftn.tseo.eEducation.DTO.UserDTO;
+import ftn.tseo.eEducation.model.Admin;
 import ftn.tseo.eEducation.model.Authority;
 import ftn.tseo.eEducation.model.ExamPeriod;
 import ftn.tseo.eEducation.model.Professor;
 import ftn.tseo.eEducation.model.Student;
 import ftn.tseo.eEducation.model.User;
 import ftn.tseo.eEducation.model.UserAuthority;
+import ftn.tseo.eEducation.repository.AdminRepository;
 import ftn.tseo.eEducation.repository.AuthorityRepository;
 import ftn.tseo.eEducation.repository.ProfessorRepository;
 import ftn.tseo.eEducation.repository.StudentRepository;
+import ftn.tseo.eEducation.repository.UserAuthorityRepository;
 import ftn.tseo.eEducation.repository.UserRepository;
 import ftn.tseo.eEducation.security.TokenUtils;
 import ftn.tseo.eEducation.service.AuthorityService;
+import ftn.tseo.eEducation.service.StudentService;
 import ftn.tseo.eEducation.service.UserDetailsServiceImpl;
 
 @RestController
@@ -85,6 +93,16 @@ public class UserController {
 	
 	@Autowired
 	ProfessorRepository professorRepository; 
+	
+	@Autowired
+	StudentService studentService;
+	
+	@Autowired
+	AdminRepository adminRepository; 
+	
+	@Autowired
+	UserAuthorityRepository userAuthorityRepository; 
+	
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -162,7 +180,7 @@ public class UserController {
 		return new ResponseEntity<List<AuthorityDTO>>(authoritiesDTO, HttpStatus.OK);
 	 }
 	 
-	 @PostMapping(value="/users/addUser")
+	 @PostMapping(value="/users")
 	 public ResponseEntity<UserDTO> addUser(@RequestBody UserDTO dto, UriComponentsBuilder ucBuilder) {
 		 User existsUser = this.userService.findByUsername(dto.getUsername());
 		 
@@ -271,5 +289,67 @@ public class UserController {
 		}
 	 
 	 
+		@PutMapping(value="/users")
+		@Transactional
+		public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO userDTO) {
+			User user = userService.findByUsername(userDTO.getUsername()); 
+			System.out.println("Username korisnika je" + user.getUsername()); 
+			
+			Set<UserAuthority> userAuthorities = new HashSet<UserAuthority>();
+			for(UserAuthority a: user.getUserAuthorities()) {
+				if(a.getAuthority().getName().equals("ROLE_STUDENT")) {
+					Student student = studentRepository.findByUser(user.getUsername());
+					System.out.println("\nroleToString "+userDTO.authorityToString());
+					System.out.println("r.getRole().getCode() "+a.getAuthority().getName());
+					System.out.println("Da li tacno? "+userDTO.authorityToString().contains(a.getAuthority().getName()));
+					if(student!=null && !userDTO.authorityToString().contains(a.getAuthority().getName())) {
+						studentRepository.delete(student);
+					}
+				} else if (a.getAuthority().getName().equals("ROLE_ADMINISTRATOR")) {
+					Admin admin = adminRepository.findByUser(user.getUsername());
+					if(admin!=null && !userDTO.authorityToString().contains(a.getAuthority().getName())) {
+						adminRepository.delete(admin);
+					}
+				} else if (a.getAuthority().getName().equals("ROLE_PROFESOR")) {
+					Professor professor = professorRepository.findByUser(user.getUsername());
+					if(professor!=null && !userDTO.authorityToString().contains(a.getAuthority().getName())) {
+						professorRepository.delete(professor);
+					}
+				}
+			}
+			
+			userAuthorityRepository.deleteByUser(user.getId());
+			user.setUsername(userDTO.getUsername());
+			user.setPassword(userDTO.getPassword());
+			if(!userDTO.getPassword().equals(user.getPassword())) {
+				user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+			}
+			user.setUserAuthorities(userAuthorities);
+			
+			 for(AuthorityDTO authorityDTO: userDTO.getAuthorities()) {
+				 Authority a = authorityRepository.findOneByName(authorityDTO.getName());
+				 UserAuthority userAuthority = new UserAuthority(user,a); 
+				 user.getUserAuthorities().add(userAuthority);
+				 
+				 if(authorityDTO.getName().equals("ROLE_STUDENT")) {
+					 Student student = new Student();
+					 //osmisliti nacin kako da dodam druge parametre ili da prebacim osnovne podatke u user-a 
+					 student.setUser(user);
+					 studentRepository.save(student); 
+				 } else if (authorityDTO.getName().equals("ROLE_PROFESOR")) {
+					 Professor professor = new Professor(); 
+					 professor.setUser(user);
+					 professorRepository.save(professor);
+				 } else if (authorityDTO.getName().equals("ROLE_ADMIN")) {
+					 Admin admin = new Admin();
+					 admin.setUser(user);
+					 adminRepository.save(admin);
+				 }
+				 
+				 user = userRepository.save(user);
+			 }			 
+		
+			return ResponseEntity.ok().build();
+		}
 }
 
