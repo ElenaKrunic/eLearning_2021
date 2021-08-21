@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Authority } from '../model/authority';
+import { User } from '../model/user';
 
 const baseUrl = "https://localhost:8443/api/users"; 
 
@@ -26,6 +28,10 @@ export class UsersService {
   update(id: number, data: any) : Observable<any>{
      return this.http.put(`${baseUrl}/${id}`, data);
   }
+ 
+  editUser(user: User): Observable<HttpResponse<User>> {
+    return this.http.put<User>(baseUrl, user, {observe: 'response'});
+  }
 
   delete(id: number) : Observable<any> {
     return this.http.delete(`${baseUrl}/${id}`);
@@ -34,5 +40,10 @@ export class UsersService {
   deleteAll(): Observable<any> {
     return this.http.delete(baseUrl);
   }
+
+  getUnassignedAuthorities(username: string): Observable<HttpResponse<Authority[]>> {
+    const url = `${baseUrl}/${username}/unassigned-authorities`;
+    return this.http.get<Authority[]>(url, {observe: 'response'});
+}
   
 }
