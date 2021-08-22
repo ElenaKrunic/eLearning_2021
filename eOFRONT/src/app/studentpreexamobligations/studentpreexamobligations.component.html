@@ -1,1 +1,29 @@
-<p>studentpreexamobligations works!</p>
+<div>
+    <h3> Exams </h3>
+</div>
+
+<table class="table table-bordered">
+    <tr>
+        <th> Points </th>
+        <th> Location</th>
+        <th> Date of obligation</th>
+        <th> Passed </th>
+    </tr>
+    <tr *ngFor="let preexamObligation of preexamObligations">
+        <td>
+            {{preexamObligation.points}}
+        </td>
+        <td>
+            {{preexamObligation.location}}
+        </td>
+        <td>
+            {{preexamObligation.dateOfObligation}}
+        </td>
+        <td>
+            {{preexamObligation.passed}}
+        </td>
+    </tr>
+</table>
+<div>
+    <button class="btn btn-primary" (click)="goBack()">Cancel</button>
+  </div>

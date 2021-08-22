@@ -14,9 +14,9 @@ import { StudentService } from '../students/student.service';
 export class StudentExamsComponent implements OnInit {
 
   exams?:Exam[];
-  currentExam:Exam;
+
   student:Student;
-  currentIndex = -1; 
+  
   
 
   constructor(private studentService: StudentService, private router: Router,private authService:AuthenticationService,private location:Location) { 
@@ -43,10 +43,7 @@ export class StudentExamsComponent implements OnInit {
   //   this.studentService.getStudentsExams(this.student.id);
 
   // }
-  setActiveExam(exam : null | any, index=-1) : void {
-    this.currentExam = exam;
-    this.currentIndex = index;
-  }
+  
   goBack(): void {
     this.location.back();
   }
