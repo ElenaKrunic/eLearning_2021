@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
@@ -35,6 +38,7 @@ public class ExamPeriod {
 	@ManyToOne
 	@JsonIgnore
 	@JoinColumn(name = "exam", referencedColumnName = "id", nullable = true)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Exam exam;
 
 	public Long getId() {

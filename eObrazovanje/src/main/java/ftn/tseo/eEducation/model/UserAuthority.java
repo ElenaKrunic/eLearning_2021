@@ -1,7 +1,9 @@
 package ftn.tseo.eEducation.model;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,12 +24,12 @@ public class UserAuthority {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
 	@JsonIgnore
 	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
 	private User user;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
 	@JoinColumn(name = "authority", referencedColumnName = "id", nullable = false)
 	private Authority authority;
 

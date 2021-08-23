@@ -13,6 +13,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity
 public class Teaching {
 	
@@ -28,14 +31,14 @@ public class Teaching {
 	@JoinColumn(name = "professor", referencedColumnName = "id", nullable = false)
 	private Professor professor;
 	
-	
 	@OneToOne
 	@JoinColumn(name = "courses", referencedColumnName = "course_id", nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Course courses;
 	
-
 	@OneToOne
 	@JoinColumn(name = "teaching_type", referencedColumnName = "id", nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private TeachingType teachingType;
 
 	public Teaching() {
