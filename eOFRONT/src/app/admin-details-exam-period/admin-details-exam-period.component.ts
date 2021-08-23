@@ -17,7 +17,10 @@ export class AdminDetailsExamPeriodComponent implements OnInit {
   form!: FormGroup;
   submitted=false;
 
-  constructor(private examPeriodService: ExamPeriodService, private route : ActivatedRoute, private router: Router, private formBuilder: FormBuilder) { }
+  constructor(private examPeriodService: ExamPeriodService,
+    private route : ActivatedRoute,
+    private router: Router,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.message = '';
@@ -68,6 +71,7 @@ export class AdminDetailsExamPeriodComponent implements OnInit {
     .subscribe(
       response => {
         console.log(response); 
+        this.message =  "You successfully deleted exam period!";
         this.router.navigate(['/examPeriods']);
       }, 
       error => {

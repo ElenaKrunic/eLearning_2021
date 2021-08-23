@@ -20,11 +20,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-<<<<<<< HEAD
-                        "outputPath" : "C:/Users/Win10/git/eObrazovanje2021/eObrazovanje/static",
-=======
                         "outputPath" : "C:/Users/lenovo/Desktop/eObrazovanje/eObrazovanje2021/eObrazovanje/static",
->>>>>>> 7648e44054b0804e48b9190e1ab4ebcc10b83188
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
