@@ -27,7 +27,6 @@ public class PreexamObligationStatus {
 	
 	private String code;
 	
-	//veza sa preexam 
 	@OneToMany(mappedBy="preexamObligationStatus",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
 	private Set<PreexamObligation> preexamObligation = new HashSet<PreexamObligation>();
 	

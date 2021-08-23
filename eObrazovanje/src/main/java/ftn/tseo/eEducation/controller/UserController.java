@@ -40,10 +40,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import ftn.tseo.eEducation.DTO.AuthorityDTO;
+import ftn.tseo.eEducation.DTO.ExamDTO;
+import ftn.tseo.eEducation.DTO.ExamPeriodDTO;
 import ftn.tseo.eEducation.DTO.LoginDTO;
 import ftn.tseo.eEducation.DTO.UserDTO;
 import ftn.tseo.eEducation.model.Admin;
 import ftn.tseo.eEducation.model.Authority;
+import ftn.tseo.eEducation.model.Exam;
 import ftn.tseo.eEducation.model.ExamPeriod;
 import ftn.tseo.eEducation.model.Professor;
 import ftn.tseo.eEducation.model.Student;
@@ -133,11 +136,23 @@ public class UserController {
 //		//ovde da se odradi setUserAuthority
 //	    userRepository.save(user);
 //	}
+	
+	@RequestMapping(value = "users/{id}", method = RequestMethod.GET)
+	public ResponseEntity<UserDTO> getUser(@PathVariable Long id) {
+		User u = userRepository.getOne(id);
+		//System.out.println("Id je " + u.getId());
+		if (u == null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+
+		return new ResponseEntity<>(new UserDTO(u), HttpStatus.OK);
+	}
+	
 	 @GetMapping(
 	            value = "/logOut",
 	            produces = MediaType.TEXT_PLAIN_VALUE
 	    )
-	    public ResponseEntity logoutUser() throws Exception {
+	   public ResponseEntity logoutUser() throws Exception {
 
 	        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
@@ -287,7 +302,7 @@ public class UserController {
 			return new ResponseEntity<UserDTO>(new UserDTO(user), HttpStatus.OK);
 
 		}
-	 
+
 	 
 		@PutMapping(value="/users")
 		@Transactional
@@ -351,5 +366,37 @@ public class UserController {
 		
 			return ResponseEntity.ok().build();
 		}
+		
+		//nova metoda za izmjenu 
+		@PutMapping(value="/users/{id}", consumes="application/json")
+		public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO userDTO, @PathVariable("id") Long id){
+			
+			User user = userRepository.getOne(userDTO.getId()); 
+			if (user == null) {
+				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+			}
+			
+			user.setUsername(userDTO.getUsername());
+			user.setPassword(userDTO.getPassword());
+			//ovde setovati uloge 
+			
+			user = userRepository.save(user);
+			
+			return new ResponseEntity<>(new UserDTO(user), HttpStatus.OK);	
+		}
+		
+		@RequestMapping(value="/users/{id}", method=RequestMethod.DELETE)
+		public ResponseEntity<Void> deleteUser(@PathVariable Long id){
+			User user = userRepository.getOne(id);
+			if (user != null){
+				userRepository.delete(user);
+				//userRepository.deleteById(id);
+				return new ResponseEntity<>(HttpStatus.OK);
+			} else {		
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}
+		}
+		
+		
 }
 

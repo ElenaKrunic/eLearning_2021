@@ -33,7 +33,6 @@ public class FinancialCard {
 	
 	private float totalCost;
 	
-	
 	@OneToOne
 	@JoinColumn(name = "student", referencedColumnName = "id", nullable = true)
 	@OnDelete(action = OnDeleteAction.CASCADE)

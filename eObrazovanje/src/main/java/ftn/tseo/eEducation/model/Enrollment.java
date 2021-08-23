@@ -19,6 +19,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 /**
  * 
  * @author Mirjana Zaric 
@@ -43,10 +46,12 @@ public class Enrollment implements Serializable{
 	
 	@OneToOne
 	@JoinColumn(name = "student", referencedColumnName = "id", nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Student student;
 	
 	@OneToOne
 	@JoinColumn(name = "courses", referencedColumnName = "course_id", nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Course courses;
 	
 	@OneToMany(mappedBy="enrollments", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)

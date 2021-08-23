@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -53,6 +54,7 @@ public class Student {
 	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "type_of_financing", referencedColumnName = "id", nullable = true)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private TypeOfFinancing typeOfFinancing;
 	
 	@JsonIgnore
@@ -62,13 +64,13 @@ public class Student {
 //	@JsonIgnore
 	@OneToOne
 //	@JoinColumn(name = "financial_card", referencedColumnName = "id", nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private FinancialCard financialCards;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy="student",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
 	private Set<Document> document=new HashSet<Document>();
 	
-	//testna 
 	@JsonIgnore
 	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<PreexamObligation> preexamObligation;
@@ -76,7 +78,15 @@ public class Student {
 	@OneToOne
 	@JsonIgnore
 	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private User user;
+	
+	/*
+	@ManyToOne
+	@JoinColumn(name="user", referencedColumnName = "id", nullable = false)
+	private User user; 
+	*/
+	
 	public Set<Document> getDocument() {
 		return document;
 	}

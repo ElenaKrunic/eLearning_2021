@@ -29,7 +29,6 @@ public class Document {
 	
 	private String url;
 	
-	//veza ka studentu 
 	@ManyToOne
 	@JoinColumn(name = "student", referencedColumnName = "id", nullable = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)

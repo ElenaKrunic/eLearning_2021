@@ -10,6 +10,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
@@ -35,19 +38,21 @@ public class PreexamObligation {
 	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "exam", referencedColumnName = "id", nullable = true)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Exam exam;
 	
 	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "preexam_obligation_type", referencedColumnName = "id", nullable = true)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private PreexamObligationType preexamObligationType;
 	
 	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "preexam_obligation_status", referencedColumnName = "id", nullable = true)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private PreexamObligationStatus preexamObligationStatus;
 	
-	//testna 
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn
@@ -102,9 +107,9 @@ public class PreexamObligation {
 		return exam;
 	}
 
-	public void setExam(Exam exam) {
-		this.exam = exam;
-	}
+	//public void setExam(Exam exam) {
+		//this.exam = exam;
+	//}
 
 	public PreexamObligationType getPreexamObligationType() {
 		return preexamObligationType;
