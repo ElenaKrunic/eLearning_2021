@@ -22,6 +22,7 @@ import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;import org.springframework.security.config.core.GrantedAuthorityDefaults;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -291,19 +292,9 @@ public class UserController {
 
 		    return Sort.Direction.ASC;
 		  }
+	
 		
-		@GetMapping(value="/users/loggedUser")
-		public ResponseEntity<UserDTO> getLoggedUser(Principal principal) {
-			System.out.println(principal.getName() + " user get id");
-			User user = userService.findByUsername(principal.getName());
-			if(user == null) {
-				System.out.println("User je null"); 				
-			}
-			return new ResponseEntity<UserDTO>(new UserDTO(user), HttpStatus.OK);
-
-		}
-
-	 
+	
 		@PutMapping(value="/users")
 		@Transactional
 		public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO userDTO) {
@@ -395,6 +386,28 @@ public class UserController {
 			} else {		
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}
+		}
+		
+		
+		//stari 
+		/*
+		@GetMapping(value="/users/loggedUser")
+		public ResponseEntity<UserDTO> getLoggedUser(Principal principal) {
+			User user = userService.findByUsername(principal.getName());
+			if(user == null) {
+				System.out.println("User je null"); 				
+			}
+			return new ResponseEntity<UserDTO>(new UserDTO(user), HttpStatus.OK);
+
+		}
+		*/
+		
+		@RequestMapping(value="users/loggedUser")
+		public ResponseEntity<?> getLoggedUser(@AuthenticationPrincipal UserDetails userDetails){
+			User user=userService.findUserByUsername(userDetails.getUsername());
+			System.out.println("User je " + user.getUsername());
+			return new ResponseEntity<>(user,HttpStatus.OK);
+			
 		}
 		
 		

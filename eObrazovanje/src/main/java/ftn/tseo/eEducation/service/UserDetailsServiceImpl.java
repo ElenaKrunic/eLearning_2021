@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import ftn.tseo.eEducation.model.Student;
 import ftn.tseo.eEducation.model.User;
 import ftn.tseo.eEducation.model.UserAuthority;
 import ftn.tseo.eEducation.repository.UserRepository;
@@ -56,6 +57,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			
 //		return userMapper.toUserDetails(user);
 	}
+	
+	public User findUserByUsername(String username) {
+		User user= userRepository.findByUsername(username);
+		System.out.println("User je " + user);
+		return user;	
+	}
+	
 	
 	public User findByUsername(String username) {
 		return userRepository.findByUsername(username);
