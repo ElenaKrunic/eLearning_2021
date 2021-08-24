@@ -46,6 +46,7 @@ import { AdminAddUserComponent } from '../admin-add-user/admin-add-user.componen
 import { AdminDetailsUserComponent } from '../admin-details-user/admin-details-user.component';
 
 import { StudentpreexamobligationsComponent } from '../studentpreexamobligations/studentpreexamobligations.component';
+import { AdminProfileComponent } from '../admin-profile/admin-profile.component';
 
 const routes: Routes = [
   { path: 'preexamObligations', component: AdminListPreexamObligationComponent},
@@ -97,7 +98,8 @@ const routes: Routes = [
   { path: 'users', component: AdminListUserComponent},
   { path: 'addUser', component: AdminAddUserComponent},
   { path: 'users/:id', component: AdminDetailsUserComponent},
-  //--kad ovo zakomentarisem prikazuje mi se lista svih korisnika //popraviti 
+  { path: 'adminProfile', component: AdminProfileComponent},
+  //--kad login zakomentarisem prikazuje mi se lista svih korisnika //popraviti 
   { path: '**', component: LoginComponent },  
   { path: 'professorCourses', component:NavbarProfessorComponent}
 ];

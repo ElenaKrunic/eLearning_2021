@@ -46,17 +46,9 @@ export class StudentProfileComponent implements OnInit {
   };
   constructor(private location:Location,private studentService: StudentService, private route: ActivatedRoute) {}
    
-
- 
-
   goBack(): void {
     this.location.back();
   }
-
-
- 
-  
- 
 
   ngOnInit(): void {
     this.studentService.getStudentMe().subscribe( student => (this.student = student));

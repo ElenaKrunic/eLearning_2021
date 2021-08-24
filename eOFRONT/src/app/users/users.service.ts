@@ -1,6 +1,7 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AuthenticationService } from '../login/authentication.service';
 import { Authority } from '../model/authority';
 import { User } from '../model/user';
 
@@ -11,7 +12,8 @@ const baseUrl = "https://localhost:8443/api/users";
 })
 export class UsersService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private authService: AuthenticationService) { }
 
   getAll(params: any): Observable<any> {
     return this.http.get<any>(baseUrl, { params });
@@ -46,4 +48,12 @@ export class UsersService {
     return this.http.get<Authority[]>(url, {observe: 'response'});
 }
   
+getLoggedUser(): Observable<User> {
+  //const url = `${baseUrl}/loggedUser`;
+  //return this.http.get<User>(url);
+  const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+  return this.http.get<User>(baseUrl + "/loggedUser", {headers: headers});
+
+}
+
 }

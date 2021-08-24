@@ -1,8 +1,9 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, ObservableLike } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { JwtserviceutilsService } from '../jwtservice/jwtserviceutils.service';
+import { User } from '../model/user';
 
 @Injectable({
 	providedIn: 'root'
@@ -62,7 +63,7 @@ export class AuthenticationService {
 		else return false;
 	}
 
-	getCurrentUser(){
+	getCurrentUser() : Observable<HttpResponse<User>>{
 		if(localStorage.currentUser){
 			return JSON.parse(localStorage.currentUser);
 		}
