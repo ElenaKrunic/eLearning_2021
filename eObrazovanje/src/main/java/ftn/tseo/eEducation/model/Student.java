@@ -69,10 +69,12 @@ public class Student {
 	
 	@JsonIgnore
 	@OneToMany(mappedBy="student",fetch=FetchType.LAZY,cascade=CascadeType.REFRESH)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Set<Document> document=new HashSet<Document>();
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Set<PreexamObligation> preexamObligation;
 	
 	@OneToOne
@@ -167,7 +169,6 @@ public class Student {
 	public void setCardNumber(String cardNumber) {
 		this.cardNumber = cardNumber;
 	}
-
 
 	public String getFirstName() {
 		return firstName;
@@ -267,7 +268,6 @@ public class Student {
 	public void setCardAmount(Double cardAmount) {
 		this.cardAmount = cardAmount;
 	}
-
 
 	public TypeOfFinancing getTypeOfFinancing() {
 		return typeOfFinancing;

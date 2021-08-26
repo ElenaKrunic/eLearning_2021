@@ -5,6 +5,8 @@ import ftn.tseo.eEducation.model.Student;
 public class StudentDTO {
 	private Long id;
 	private String cardNumber;
+	private UserDTO user;
+	
 	private String firstName;
 	private String lastName;
 	private String phoneNumber;
@@ -13,13 +15,10 @@ public class StudentDTO {
 	private Long startedCollegeIn;
 	private String accountNumber;
 	private int modelNumber;
-//
-//	private FinancialCardDTO financialCardDTO;
 	private Double cardAmount; 
 	private String referenceNumber; 
-	
 	private TypeOfFinancingDTO typeOfFinancing;
-	private UserDTO user;
+	
 	public StudentDTO() {
 		super();
 	}
@@ -33,16 +32,11 @@ public class StudentDTO {
 		this.phoneNumber = student.getPhoneNumber();
 		this.email = student.getEmail();
 		this.umnc = student.getUmnc();
-//
-//		this.financialCardDTO=new FinancialCardDTO(student.getFinancialCards());
-		this.typeOfFinancing=new  TypeOfFinancingDTO(student.getTypeOfFinancing());
-
+		//this.typeOfFinancing= new TypeOfFinancingDTO(student.getTypeOfFinancing());
 		this.accountNumber=student.getAccountNumber();
 		this.modelNumber=student.getModelNumber();
 		this.startedCollegeIn=student.getStartedCollegeIn();
-
 		this.user=new UserDTO(student.getUser());
-
 		this.cardAmount = student.getCardAmount(); 
 		this.referenceNumber = student.getReferenceNumber();
 
@@ -64,7 +58,16 @@ public class StudentDTO {
 	public void setCardNumber(String cardNumber) {
 		this.cardNumber = cardNumber;
 	}
+	
+	public UserDTO getUser() {
+		return user;
+	}
 
+	public void setUser(UserDTO user) {
+		this.user = user;
+	}
+
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -145,14 +148,6 @@ public class StudentDTO {
 		this.modelNumber = modelNumber;
 	}
 
-	public UserDTO getUser() {
-		return user;
-	}
-
-	public void setUser(UserDTO user) {
-		this.user = user;
-	}
-	
 	public Double getCardAmount() {
 		return cardAmount;
 	}
@@ -168,5 +163,5 @@ public class StudentDTO {
 	public void setReferenceNumber(String referenceNumber) {
 		this.referenceNumber = referenceNumber;
 	}
-	
+
 }

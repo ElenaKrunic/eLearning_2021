@@ -48,6 +48,8 @@ public class User {
 	}
 
 	
+	
+
 	public String getUsername() {
 		return username;
 	}
@@ -81,4 +83,28 @@ public class User {
 		this.students = students;
 	}
 	
+	public User(Long id, String username, String password, Set<UserAuthority> userAuthorities, List<Student> students) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.userAuthorities = userAuthorities;
+		this.students = students;
+	}
+	
+	public User(Long id, String username, String password) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+	}
+	
+	public User() {
+		
+	}
+	
+	public User(int id) {
+		this.id = (long) id;
+	}
+
 }

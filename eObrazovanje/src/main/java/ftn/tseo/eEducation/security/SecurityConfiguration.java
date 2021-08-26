@@ -105,7 +105,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.and()
 			.authorizeRequests()
 
-				.antMatchers( "/","/api/users/**", "/api/examPeriods/**","/api/financialCards/**", "/api/payments/**",  "/api/preexamObligations/**" , "/api/student/**", "/api/courses/**","/api/exams/**","/api/professors" ,
+				.antMatchers( "/", "/api/courses/**","/api/exams/**","/api/professors" ,
 						"/api/login","/styles.css","/runtime.js","/polyfills.js","/vendor.js","/main.js","/favicon.ico","/styles.css.map","/runtime.js.map","/polyfills.js.map","/vendor.js.map","/main.js.map").permitAll() 
 
 		.antMatchers(HttpMethod.POST, "/api/**")

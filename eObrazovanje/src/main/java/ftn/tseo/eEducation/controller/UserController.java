@@ -217,6 +217,7 @@ public class UserController {
 			 if(authorityDTO.getName().equals("ROLE_STUDENT")) {
 				 Student student = new Student();
 				 //osmisliti nacin kako da dodam druge parametre ili da prebacim osnovne podatke u user-a 
+				 //student.setAccountNumber();
 				 student.setUser(user);
 				 studentRepository.save(student); 
 			 } else if (authorityDTO.getName().equals("ROLE_PROFESOR")) {

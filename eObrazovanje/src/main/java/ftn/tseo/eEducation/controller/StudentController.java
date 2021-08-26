@@ -17,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +28,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import ftn.tseo.eEducation.DTO.AuthorityDTO;
 import ftn.tseo.eEducation.DTO.CourseDTO;
 import ftn.tseo.eEducation.DTO.DocumentDTO;
 import ftn.tseo.eEducation.DTO.EnrollmentDTO;
@@ -37,13 +40,19 @@ import ftn.tseo.eEducation.DTO.PaymentDTO;
 import ftn.tseo.eEducation.DTO.PayoutDTO;
 import ftn.tseo.eEducation.DTO.PreexamObligationDTO;
 import ftn.tseo.eEducation.DTO.StudentDTO;
+import ftn.tseo.eEducation.DTO.UserDTO;
+import ftn.tseo.eEducation.model.Authority;
 import ftn.tseo.eEducation.model.Enrollment;
 import ftn.tseo.eEducation.model.ExamPeriod;
 import ftn.tseo.eEducation.model.PreexamObligation;
 import ftn.tseo.eEducation.model.Student;
 import ftn.tseo.eEducation.model.TypeOfFinancing;
+import ftn.tseo.eEducation.model.User;
+import ftn.tseo.eEducation.model.UserAuthority;
+import ftn.tseo.eEducation.repository.AuthorityRepository;
 import ftn.tseo.eEducation.repository.EnrollmentRepository;
 import ftn.tseo.eEducation.repository.StudentRepository;
+import ftn.tseo.eEducation.repository.UserRepository;
 import ftn.tseo.eEducation.service.DocumentService;
 import ftn.tseo.eEducation.service.EnrollmentService;
 import ftn.tseo.eEducation.service.ExamService;
@@ -53,6 +62,7 @@ import ftn.tseo.eEducation.service.PayoutService;
 import ftn.tseo.eEducation.service.PreExamObligationService;
 import ftn.tseo.eEducation.service.StudentService;
 import ftn.tseo.eEducation.service.TypeOfFinancingService;
+import ftn.tseo.eEducation.service.UserDetailsServiceImpl;
 
 @RestController
 @RequestMapping("/api/student")
@@ -86,7 +96,19 @@ public class StudentController {
 	TypeOfFinancingService typeOfFinancingService;
 	
 	@Autowired
-	private StudentRepository studentRepository;
+	StudentRepository studentRepository;
+	
+	@Autowired
+	UserRepository userRepository; 
+	
+	@Autowired
+	UserDetailsServiceImpl userService; 
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	AuthorityRepository authorityRepository;
 	
 	@RequestMapping(value="students/me")
 	public ResponseEntity<?> getStudent(@AuthenticationPrincipal UserDetails userDetails){
@@ -158,29 +180,33 @@ public class StudentController {
 	
 	@PostMapping(value="/students", consumes="application/json")
 	public ResponseEntity<StudentDTO> saveStudent(@RequestBody StudentDTO studentDTO){		
+		User user = userRepository.findById((long) 1).orElseThrow();
 		Student student = new Student();
+		
 		student.setCardNumber(studentDTO.getCardNumber());
 		student.setFirstName(studentDTO.getFirstName());
 		student.setLastName(studentDTO.getLastName());
 		student.setEmail(studentDTO.getEmail());
 		student.setUmnc(studentDTO.getUmnc());
 		student.setPhoneNumber(studentDTO.getPhoneNumber());
-		student.setAccountNumber(student.getAccountNumber());
+		student.setAccountNumber(studentDTO.getAccountNumber());
 		student.setCardAmount(studentDTO.getCardAmount());
 		student.setReferenceNumber(studentDTO.getReferenceNumber());
 		student.setModelNumber(studentDTO.getModelNumber());
 		student.setStartedCollegeIn(studentDTO.getStartedCollegeIn());
-		//TypeOfFinancing typeOfFinancing =  typeOfFinancingService.findOne(studentDTO.getTypeOfFinancing().getId());
-		//student.setTypeOfFinancing(typeOfFinancing);
+		student.setUser(user);
+		
 		student = studentService.save(student);
+		user = userRepository.save(user);
+		
 		return new ResponseEntity<>(new StudentDTO(student), HttpStatus.CREATED);	
 	}
 	
 	@PutMapping(value="/students/{id}", consumes="application/json")
 	public ResponseEntity<StudentDTO> updateStudent(@RequestBody StudentDTO studentDTO){
-		//a student must exist
+	
 		Student student = studentService.findOne(studentDTO.getId()); 
-		System.out.println("Student koji je pronadjen"+student);
+		
 		if (student == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
@@ -192,15 +218,12 @@ public class StudentController {
 		student.setEmail(studentDTO.getEmail());
 		student.setUmnc(studentDTO.getUmnc());
 		student.setPhoneNumber(studentDTO.getPhoneNumber());
-		student.setAccountNumber(student.getAccountNumber());
+		student.setAccountNumber(studentDTO.getAccountNumber());
 		student.setModelNumber(studentDTO.getModelNumber());
 		student.setStartedCollegeIn(studentDTO.getStartedCollegeIn());
 		student.setCardAmount(studentDTO.getCardAmount());
 		student.setReferenceNumber(studentDTO.getReferenceNumber());
-		student.setModelNumber(studentDTO.getModelNumber());
-		//TypeOfFinancing typeOfFinancing =  typeOfFinancingService.findOne(studentDTO.getTypeOfFinancing().getId());
-		
-		//student.setTypeOfFinancing(typeOfFinancing);
+		student.setModelNumber(studentDTO.getModelNumber());		
 		
 		student = studentService.save(student);
 		return new ResponseEntity<>(new StudentDTO(student), HttpStatus.OK);	
@@ -264,19 +287,15 @@ public class StudentController {
 	@RequestMapping(value="/{studentid}/preexamObligations/{examid}", method=RequestMethod.GET)
 	public List<PreexamObligationDTO> getPreexamObligationForStudent(@PathVariable ("studentid") Long id,@PathVariable ("examid")Long examid){
 		return preexamObligationService.findPreexamObligationsForStudent(id, examid);
-		
-		
 	}
 
 	//helper method 
-			private Sort.Direction getSortDirection(String direction) {
-			    if (direction.equals("asc")) {
-			      return Sort.Direction.ASC;
-			    } else if (direction.equals("desc")) {
-			      return Sort.Direction.DESC;
-			    }
-
-			    return Sort.Direction.ASC;
-			}
-		
+	private Sort.Direction getSortDirection(String direction) {
+	  if (direction.equals("asc")) {
+	     return Sort.Direction.ASC;
+	   } else if (direction.equals("desc")) {
+	      return Sort.Direction.DESC;
+	    }
+	    return Sort.Direction.ASC;
+	}
 }

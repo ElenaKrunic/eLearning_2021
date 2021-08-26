@@ -3,7 +3,7 @@ package ftn.tseo.eEducation.DTO;
 import ftn.tseo.eEducation.model.Student;
 
 public class StudentDetailsDTO {
-	
+	/*
 
 	private Long id;
 	private String cardNumber;
@@ -126,7 +126,7 @@ public class StudentDetailsDTO {
 		this.typeOfFinancing = typeOfFinancing;
 	}
 
-	
+	*/
 	
 	
 }
