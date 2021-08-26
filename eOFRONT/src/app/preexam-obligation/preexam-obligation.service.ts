@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { HttpResponse, HttpClient } from '@angular/common/http';
+import { HttpResponse, HttpClient, HttpHeaders } from '@angular/common/http';
 import { PreexamObligation } from '../model/preexam-obligation';
+import { AuthenticationService } from '../login/authentication.service';
 
 const baseUrl = "https://localhost:8443/api/preexamObligations"; 
 
@@ -12,32 +13,38 @@ export class PreexamObligationService {
 
   private path="api/preexamObligation";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthenticationService) { }
 
   //Elena
   ///////////////////////////////////////////////////////////
   getAll(params: any): Observable<any> {
-    return this.http.get<any>(baseUrl, { params });
+    const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+    return this.http.get<any>(baseUrl, { params, headers:headers });
   }
 
   get(id: number): Observable<any>{
-    return this.http.get(`${baseUrl}/${id}`);
+    const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+    return this.http.get(`${baseUrl}/${id}`, {headers:headers});
   }
 
   create(data: any) : Observable<any> {
-    return this.http.post(baseUrl, data);
+    const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+    return this.http.post(baseUrl, data, {headers:headers});
   }
 
   update(id: number, data: any) : Observable<any>{
-     return this.http.put(`${baseUrl}/${id}`, data);
+    const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+     return this.http.put(`${baseUrl}/${id}`, data, {headers:headers});
   }
 
   delete(id: number) : Observable<any> {
-    return this.http.delete(`${baseUrl}/${id}`);
+    const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+    return this.http.delete(`${baseUrl}/${id}`, {headers:headers});
   }
 
   deleteAll(): Observable<any> {
-    return this.http.delete(baseUrl);
+    const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+    return this.http.delete(baseUrl, {headers:headers});
   }
 
   ///////////////////////////////////////////////////////////

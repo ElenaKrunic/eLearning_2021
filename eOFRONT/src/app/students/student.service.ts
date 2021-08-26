@@ -37,23 +37,28 @@ export class StudentService {
   //////////////////////////////////////////////////////////
 
   getAll(params: any): Observable<any> {
-    return this.http.get<any>(baseUrl, { params });
+    const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+    return this.http.get<any>(baseUrl, { params , headers:headers});
   }
 
   get(id: number): Observable<any>{
-    return this.http.get(`${baseUrl}/${id}`);
+    const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+    return this.http.get(`${baseUrl}/${id}`, {headers:headers});
   }
 
   create(data: any) : Observable<any> {
-    return this.http.post(baseUrl, data);
+    const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+    return this.http.post(baseUrl, data, {headers:headers});
   }
 
   update(id: number, data: any) : Observable<any>{
-     return this.http.put(`${baseUrl}/${id}`, data);
+    const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+     return this.http.put(`${baseUrl}/${id}`, data, {headers:headers});
   }
 
   delete(id: number) : Observable<any> {
-    return this.http.delete(`${baseUrl}/${id}`);
+    const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+    return this.http.delete(`${baseUrl}/${id}`, {headers:headers});
   }
 
  //////////////////////////////////////////////////////////////

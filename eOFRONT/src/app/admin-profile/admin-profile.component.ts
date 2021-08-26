@@ -26,7 +26,8 @@ export class AdminProfileComponent implements OnInit {
 
   constructor(private userService: UsersService,
     private formBuilder: FormBuilder,
-    private location: Location) {
+    private location: Location,
+    private router: Router) {
       this.user;
   }
 
@@ -64,6 +65,7 @@ export class AdminProfileComponent implements OnInit {
       response => {
         console.log(response); 
         this.message =  "You successfully updated user!";
+        this.router.navigate(['']);
       },
       error => {
         console.log(error);

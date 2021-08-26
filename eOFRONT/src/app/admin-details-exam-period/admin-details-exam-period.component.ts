@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ExamPeriodService } from '../exam-period/exam-period.service';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ExamPeriod } from '../model/exam-period';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 })
 export class AdminDetailsExamPeriodComponent implements OnInit {
 
-  currentExamPeriod : any | null; 
+  currentExamPeriod : ExamPeriod = {} as ExamPeriod;  
   message = '';
   form!: FormGroup;
   submitted=false;
