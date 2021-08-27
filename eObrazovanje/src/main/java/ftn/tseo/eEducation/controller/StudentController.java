@@ -180,7 +180,8 @@ public class StudentController {
 	
 	@PostMapping(value="/students", consumes="application/json")
 	public ResponseEntity<StudentDTO> saveStudent(@RequestBody StudentDTO studentDTO){		
-		User user = userRepository.findById((long) 1).orElseThrow();
+		//prepravila orElseThrow na orElse(null),jer je prva metoda ocekivala parametre koji kod mene nisu bili prosledjeni i vracalo je gresku Milica
+		User user = userRepository.findById((long) 1).orElse(null);
 		Student student = new Student();
 		
 		student.setCardNumber(studentDTO.getCardNumber());

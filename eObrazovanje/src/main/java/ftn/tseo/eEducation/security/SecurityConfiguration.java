@@ -105,11 +105,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.and()
 			.authorizeRequests()
 
-<<<<<<< HEAD
-				.antMatchers( "/","/api/users/**", "/api/examPeriods/**","/api/financialCards/**", "/api/payments/**",  "/api/preexamObligations/**" , "/api/student/**", "/api/courses/**","/api/exams/**","/api/professors","/api/student/{studentId}/register-exam/{examId}/**" ,
-=======
+//<<<<<<< HEAD
+//				.antMatchers( "/","/api/users/**", "/api/examPeriods/**","/api/financialCards/**", "/api/payments/**",  "/api/preexamObligations/**" , "/api/student/**", "/api/courses/**","/api/exams/**","/api/professors","/api/student/{studentId}/register-exam/{examId}/**" ,
+//=======
 				.antMatchers( "/", "/api/courses/**","/api/exams/**","/api/professors" ,
->>>>>>> branch 'main' of git@github.com:ElenaKrunic/eObrazovanje2021.git
+
 						"/api/login","/styles.css","/runtime.js","/polyfills.js","/vendor.js","/main.js","/favicon.ico","/styles.css.map","/runtime.js.map","/polyfills.js.map","/vendor.js.map","/main.js.map").permitAll() 
 
 		.antMatchers(HttpMethod.POST, "/api/**")

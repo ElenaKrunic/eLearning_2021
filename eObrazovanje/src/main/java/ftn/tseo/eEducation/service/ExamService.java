@@ -217,8 +217,8 @@ public class ExamService {
 			//ako se bude bunilo napraviti novi konstruktor
 //			transaction.setPayments((Set<Payment>) payment);
 			transaction.setStudent(student);
-			transaction.setTotalCost(transaction.getTotalCost()+cost);
-			transaction.setTotalPayment(transaction.getTotalPayment() +cost);
+			transaction.setTotalPayout(transaction.getTotalPayout()-cost);
+			
 			
 			transaction.setInitialState(transaction.getInitialState() - cost);
 			financialCardRepository.save(transaction);
