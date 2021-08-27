@@ -6624,7 +6624,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function AdminListPreexamObligationComponent_li_13_Template(rf, ctx) { if (rf & 1) {
     const _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "li", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "li", 16);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function AdminListPreexamObligationComponent_li_13_Template_li_click_0_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r7); const preexamObligation_r4 = restoredCtx.$implicit; const i_r5 = restoredCtx.index; const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"](); return ctx_r6.setActivePreexamObligation(preexamObligation_r4, i_r5); });
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
@@ -6637,7 +6637,7 @@ function AdminListPreexamObligationComponent_li_13_Template(rf, ctx) { if (rf & 
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate2"](" Location is ", preexamObligation_r4.location, " and date is ", preexamObligation_r4.dateOfObligation, " ");
 } }
 function AdminListPreexamObligationComponent_option_18_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "option", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "option", 17);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 } if (rf & 2) {
@@ -6667,7 +6667,7 @@ function AdminListPreexamObligationComponent_div_20_Template(rf, ctx) { if (rf &
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](12);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](13, "a", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](13, "a", 18);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](14, " Edit ");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
@@ -6752,7 +6752,7 @@ class AdminListPreexamObligationComponent {
     }
 }
 AdminListPreexamObligationComponent.ɵfac = function AdminListPreexamObligationComponent_Factory(t) { return new (t || AdminListPreexamObligationComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_preexam_obligation_preexam_obligation_service__WEBPACK_IMPORTED_MODULE_0__.PreexamObligationService)); };
-AdminListPreexamObligationComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: AdminListPreexamObligationComponent, selectors: [["app-admin-list-preexam-obligation"]], decls: 22, vars: 13, consts: [[1, "list", "row"], [1, "col-md-8"], [1, "input-group", "mb-3"], ["type", "text", "placeholder", "Search by location: ", 1, "form-control", 3, "ngModel", "ngModelChange"], [1, "input-group-append"], ["type", "button", 1, "btn", "btn-outline-secondary", 3, "click"], [1, "col-md-12"], ["previousLabel", "Prev", "nextLabel", "Next", 3, "responsive", "pageChange"], [1, "col-md-6"], [1, "list-group"], ["class", "list-group-item", 3, "active", "click", 4, "ngFor", "ngForOf"], [1, "mt-3"], [3, "change"], [3, "ngValue", 4, "ngFor", "ngForOf"], [4, "ngIf"], [1, "list-group-item", 3, "click"], [3, "ngValue"], [1, "badge", "badge-warning", 3, "routerLink"]], template: function AdminListPreexamObligationComponent_Template(rf, ctx) { if (rf & 1) {
+AdminListPreexamObligationComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: AdminListPreexamObligationComponent, selectors: [["app-admin-list-preexam-obligation"]], decls: 25, vars: 13, consts: [[1, "list", "row"], [1, "col-md-8"], [1, "input-group", "mb-3"], ["type", "text", "placeholder", "Search by location: ", 1, "form-control", 3, "ngModel", "ngModelChange"], [1, "input-group-append"], ["type", "button", 1, "btn", "btn-outline-secondary", 3, "click"], [1, "col-md-12"], ["previousLabel", "Prev", "nextLabel", "Next", 3, "responsive", "pageChange"], [1, "col-md-6"], [1, "list-group"], ["class", "list-group-item", 3, "active", "click", 4, "ngFor", "ngForOf"], [1, "mt-3"], [3, "change"], [3, "ngValue", 4, "ngFor", "ngForOf"], [4, "ngIf"], ["routerLink", "adminAddPreexamObligation", 1, "nav-link"], [1, "list-group-item", 3, "click"], [3, "ngValue"], [1, "badge", "badge-warning", 3, "routerLink"]], template: function AdminListPreexamObligationComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](2, "div", 2);
@@ -6791,6 +6791,11 @@ AdminListPreexamObligationComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](19, "div", 8);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](20, AdminListPreexamObligationComponent_div_20_Template, 15, 3, "div", 14);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](21, AdminListPreexamObligationComponent_div_21_Template, 4, 0, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](22, "div");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](23, "a", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](24, " Add new preexam obligation ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     } if (rf & 2) {
@@ -6806,7 +6811,7 @@ AdminListPreexamObligationComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx.currentPreexamObligation);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", !ctx.currentPreexamObligation);
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgModel, ngx_pagination__WEBPACK_IMPORTED_MODULE_1__.PaginationControlsComponent, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgIf, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgSelectOption, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵNgSelectMultipleOption"], _angular_router__WEBPACK_IMPORTED_MODULE_5__.RouterLinkWithHref], pipes: [ngx_pagination__WEBPACK_IMPORTED_MODULE_1__.PaginatePipe], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi1saXN0LXByZWV4YW0tb2JsaWdhdGlvbi5jb21wb25lbnQuY3NzIn0= */"] });
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgModel, ngx_pagination__WEBPACK_IMPORTED_MODULE_1__.PaginationControlsComponent, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgIf, _angular_router__WEBPACK_IMPORTED_MODULE_5__.RouterLinkWithHref, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgSelectOption, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵNgSelectMultipleOption"]], pipes: [ngx_pagination__WEBPACK_IMPORTED_MODULE_1__.PaginatePipe], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi1saXN0LXByZWV4YW0tb2JsaWdhdGlvbi5jb21wb25lbnQuY3NzIn0= */"] });
 
 
 /***/ }),
@@ -7803,7 +7808,11 @@ AdminProfessorsComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_M
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 558:
+=======
+/***/ 8558:
+>>>>>>> branch 'main' of git@github.com:ElenaKrunic/eObrazovanje2021.git
 /*!**********************************************************!*\
   !*** ./src/app/admin-profile/admin-profile.component.ts ***!
   \**********************************************************/
@@ -8400,7 +8409,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_details_user_admin_details_user_component__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./admin-details-user/admin-details-user.component */ 2431);
 /* harmony import */ var _admin_list_user_admin_list_user_component__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./admin-list-user/admin-list-user.component */ 8759);
 /* harmony import */ var _studentpreexamobligations_studentpreexamobligations_component__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./studentpreexamobligations/studentpreexamobligations.component */ 6049);
+<<<<<<< HEAD
 /* harmony import */ var _admin_profile_admin_profile_component__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./admin-profile/admin-profile.component */ 558);
+=======
+/* harmony import */ var _admin_profile_admin_profile_component__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./admin-profile/admin-profile.component */ 8558);
+>>>>>>> branch 'main' of git@github.com:ElenaKrunic/eObrazovanje2021.git
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! @angular/core */ 7716);
 
 
@@ -11549,7 +11562,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_add_user_admin_add_user_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ../admin-add-user/admin-add-user.component */ 5869);
 /* harmony import */ var _admin_details_user_admin_details_user_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ../admin-details-user/admin-details-user.component */ 2431);
 /* harmony import */ var _studentpreexamobligations_studentpreexamobligations_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ../studentpreexamobligations/studentpreexamobligations.component */ 6049);
+<<<<<<< HEAD
 /* harmony import */ var _admin_profile_admin_profile_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ../admin-profile/admin-profile.component */ 558);
+=======
+/* harmony import */ var _admin_profile_admin_profile_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ../admin-profile/admin-profile.component */ 8558);
+>>>>>>> branch 'main' of git@github.com:ElenaKrunic/eObrazovanje2021.git
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! @angular/core */ 7716);
 
 

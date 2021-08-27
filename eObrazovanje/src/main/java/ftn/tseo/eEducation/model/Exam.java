@@ -51,7 +51,6 @@ public class Exam {
 	(mappedBy="exam", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
 	private Set<ExamPeriod> examPeriod= new HashSet<ExamPeriod>();
 	
-	
 	@OneToOne
 	@JoinColumn(name = "enrollments", referencedColumnName = "enrollment_id", nullable = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)

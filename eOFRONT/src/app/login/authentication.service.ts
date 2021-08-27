@@ -1,8 +1,12 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { ThisReceiver } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { Observable, ObservableLike } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { JwtserviceutilsService } from '../jwtservice/jwtserviceutils.service';
+import { User } from '../model/user';
 
 @Injectable({
 	providedIn: 'root'
@@ -12,7 +16,8 @@ export class AuthenticationService {
 
 	constructor(
 		private http: HttpClient,
-		private jwtUtilsService:JwtserviceutilsService
+		private jwtUtilsService:JwtserviceutilsService,
+		private router: Router
 	) { }
 
 	login(username:string,password:string): Observable<boolean> {
@@ -31,20 +36,7 @@ export class AuthenticationService {
 			}else{
 				return false;
 			}
-		}))
-
-		// .catch((error:any)=>{
-		// 	if(error.status===400){
-		// 		return Observable.throw("Ilegale login");
-				
-		// 	}
-		// 	else{
-		// 		return Observable.throw(error.json().error|| 'Server error');
-				
-		// 	}
-		// })
-		
-		
+		}))		
 	}
 
 	getToken():String{
@@ -55,6 +47,7 @@ export class AuthenticationService {
 
 	logOut():void{
 		localStorage.removeItem('currentUser');
+		this.router.navigate(['']);
 	}
 
 	isLoggedIn():boolean{
@@ -62,7 +55,7 @@ export class AuthenticationService {
 		else return false;
 	}
 
-	getCurrentUser(){
+	getCurrentUser() : Observable<HttpResponse<User>>{
 		if(localStorage.currentUser){
 			return JSON.parse(localStorage.currentUser);
 		}
@@ -70,6 +63,16 @@ export class AuthenticationService {
 			return undefined;
 		}
 	}
-		
 
+	getRole(): string {
+		const item = localStorage.getItem('loggedUser'); 
+		if (!item) {
+			this.router.navigate(['']); 
+			return '';
+		}
+
+		var jwt : JwtHelperService = new JwtHelperService(); 
+		var loggedUser = jwt.decodeToken(item);
+		return loggedUser;
+	}
 }

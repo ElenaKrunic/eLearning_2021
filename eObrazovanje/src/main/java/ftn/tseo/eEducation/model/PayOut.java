@@ -25,7 +25,6 @@ public class PayOut {
 	
 	private float payOutAmount;
 	
-
 	@OneToOne
 	@JoinColumn(name = "financialCard", referencedColumnName = "id", nullable = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)

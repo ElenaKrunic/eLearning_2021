@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.Nullable;
 
@@ -22,15 +25,18 @@ public class Professor {
 	private Long id;
 	
 	private String firstName;
+	
 	private String lastName;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "professor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<Teaching> teachings;
+	
 	@Nullable
 	@OneToOne
 	@JsonIgnore
 	@JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private User user;
 
 	public Professor() {

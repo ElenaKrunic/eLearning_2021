@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-  <!--sadad-->
+
       <div class="form-group">
         <label>Password</label>
         <input
@@ -38,6 +38,8 @@
           <div *ngIf="f.password.errors.required">Password is required</div>
         </div>
       </div>
+
+
 
     
       <div *ngIf="submitted">
@@ -57,10 +59,9 @@
       </div>
     </form>
 
-    <div class="row w-50">
-      <div class="col-md-8 pr-md-1 ml-5">
+    <!--
+      <div>
       <h4>Authorities</h4>
-      <div *ngIf="user.authorities.length > 0">
         <table class="table">
           <tr *ngFor="let authority of user.authorities">
             <td class="color_text">
@@ -69,8 +70,8 @@
             </td>
           </tr>
         </table>
-      </div>  
-    <div *ngIf="unassignedAuthorities.length > 0" class="col-md-7 pr-md-1 btn-group ml-5">
+       
+  <div *ngIf="unassignedAuthorities.length > 0" class="col-md-7 pr-md-1 btn-group ml-5">
       <select class='form-control' [(ngModel)]="authorityName" [ngModelOptions]="{standalone: true}">
         <option *ngFor="let authority of unassignedAuthorities" class="black_text_color" value="{{authority.name}}">{{authority.name}}</option>
       </select>
@@ -78,6 +79,5 @@
         <button type="button" class="btn btn-primary btn-sm ml-1" (click)="assignAuthority()">+</button>
       </div>
     </div>
-  </div>
-
+  -->
   </div>

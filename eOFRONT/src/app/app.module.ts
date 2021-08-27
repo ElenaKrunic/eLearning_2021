@@ -76,11 +76,9 @@ import { UsersService } from './users/users.service';
 import { AdminAddUserComponent } from './admin-add-user/admin-add-user.component';
 import { AdminDetailsUserComponent } from './admin-details-user/admin-details-user.component';
 import { AdminListUserComponent } from './admin-list-user/admin-list-user.component';
-import { MyProfileComponent } from './my-profile/my-profile.component';
-
 import { StudentpreexamobligationsComponent } from './studentpreexamobligations/studentpreexamobligations.component';
-
 import { RouterModule } from '@angular/router';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 
 @NgModule({
   declarations: [
@@ -157,8 +155,8 @@ import { RouterModule } from '@angular/router';
     AdminAddUserComponent,
     AdminDetailsUserComponent,
     AdminListUserComponent,
-    MyProfileComponent,
-    StudentpreexamobligationsComponent
+    StudentpreexamobligationsComponent,
+    AdminProfileComponent
   ],
 
   providers: [

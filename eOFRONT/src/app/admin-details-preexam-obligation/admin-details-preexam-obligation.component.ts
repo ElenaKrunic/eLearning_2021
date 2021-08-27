@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PreexamObligation } from '../model/preexam-obligation';
 import { PreexamObligationService } from '../preexam-obligation/preexam-obligation.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { PreexamObligationService } from '../preexam-obligation/preexam-obligati
 })
 export class AdminDetailsPreexamObligationComponent implements OnInit {
 
-  currentPreexamobligation : any | null; 
+  currentPreexamobligation : PreexamObligation = {} as PreexamObligation; 
   message = '';
   form!: FormGroup; 
   submitted = false; 

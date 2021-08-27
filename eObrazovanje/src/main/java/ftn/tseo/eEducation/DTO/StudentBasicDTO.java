@@ -3,7 +3,7 @@ package ftn.tseo.eEducation.DTO;
 import ftn.tseo.eEducation.model.Student;
 
 public class StudentBasicDTO {
-
+/*
 	private Long id;
 	private String firstName;
 	private String lastName;
@@ -34,6 +34,7 @@ public class StudentBasicDTO {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	*/
 
 	
 }

@@ -18,6 +18,10 @@ public class UserDTO {
 		
 	}
 	
+	public UserDTO(int id) {
+		this.id = (long) id;
+	}	
+	
 	public UserDTO(User user) {
 		
 		this.id=user.getId();

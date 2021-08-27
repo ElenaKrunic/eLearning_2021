@@ -1,6 +1,8 @@
 package ftn.tseo.eEducation.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -29,12 +31,12 @@ public class User {
 	
 	private String password;
 
-	
-	//veza ka user authorities 
-	//koji tip korisnika iz vezne tabele 
 	@JsonIgnore
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<UserAuthority> userAuthorities = new HashSet<UserAuthority>();
+	
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY, mappedBy = "user")
+	private List<Student> students = new ArrayList<Student>();
 	
 	public Long getId() {
 		
@@ -46,6 +48,8 @@ public class User {
 	}
 
 	
+	
+
 	public String getUsername() {
 		return username;
 	}
@@ -70,8 +74,37 @@ public class User {
 	public void setUserAuthorities(Set<UserAuthority> userAuthorities) {
 		this.userAuthorities = userAuthorities;
 	}
+
+	public List<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
 	
+	public User(Long id, String username, String password, Set<UserAuthority> userAuthorities, List<Student> students) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.userAuthorities = userAuthorities;
+		this.students = students;
+	}
 	
+	public User(Long id, String username, String password) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+	}
 	
+	public User() {
+		
+	}
 	
+	public User(int id) {
+		this.id = (long) id;
+	}
+
 }

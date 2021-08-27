@@ -1,0 +1,53 @@
+
+<div class="edit-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        
+         <div class="form-group">
+            <label for="username"> Username </label>
+            <input type="text"
+            class="form-control"
+            id="username"
+            [(ngModel)] = "user.username"
+            name="username"
+            formControlName="username"
+            [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+            />
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required"> Username </div>
+                <div *ngIf="f.username.errors.minlength">
+                  Username must be at least 3 characters
+                </div>
+                <div *ngIf="f.username.errors.maxlength">
+                  Username must not exceed 20 characters
+                </div>
+            </div>
+        </div>
+         <div class="form-group">
+            <label for="password"> Password </label>
+            <input type="password"
+            class="form-control"
+            id="password"
+            [(ngModel)] = "user.password"
+            name="password"
+            formControlName="password"
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+            />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">First name</div>
+                <div *ngIf="f.password.errors.minlength">
+                  Password must be at least 3 characters. It is hidden on purpose! 
+                </div>
+                <div *ngIf="f.password.errors.maxlength">
+                  Password must not exceed 20 characters. It is hidden on purpose! 
+                </div>
+            </div>
+        </div>
+
+    <button
+     type="submit"
+    class="badge badge-success"
+    (click)="updateUser()"> Change basic information </button>
+        <p> {{message}}</p>
+
+</form>
+</div>

@@ -33,10 +33,12 @@ export class AdminAddStudentComponent implements OnInit {
 
   });
 
+  /*
   user: User; 
   authorityName: string = '';
   unassignedAuthorities: Authority[] = [];
   password = '';
+*/
 
   form!: FormGroup;
   submitted = false; 
@@ -45,13 +47,6 @@ export class AdminAddStudentComponent implements OnInit {
      private formBuilder: FormBuilder,
      private roleService: RoleGuard,
      private location : Location) { 
-
-      this.user = new User({
-        id: 0, 
-        username: '',
-        password: '',
-        authorities: []
-      });
      }
 
   ngOnInit(): void {
@@ -102,11 +97,13 @@ export class AdminAddStudentComponent implements OnInit {
       cardAmount: [0, Validators.required] 
     });
 
+    /*
     this.roleService.getUnassignedAuthorities('newUser').
         subscribe(res => {
           this.unassignedAuthorities = []; 
           this.unassignedAuthorities = res.body == null ? []:res.body;
         })
+        */
   }
 
   get f(): { [key: string]: AbstractControl} { return this.form.controls;}
@@ -140,6 +137,7 @@ export class AdminAddStudentComponent implements OnInit {
     );
   }
 
+  /*
   saveUser() {
     this.user.password = this.password; 
     this.roleService.addUser(this.user)
@@ -147,6 +145,7 @@ export class AdminAddStudentComponent implements OnInit {
       this.goBack();
     });
  }
+ */
 
  goBack() : void {
    this.location.back();
@@ -187,6 +186,7 @@ export class AdminAddStudentComponent implements OnInit {
     this.form.reset();
   }
 
+  /*
   assignAuthority() {
     console.log("Authority: " + this.authorityName); 
     const a = this.unassignedAuthorities.filter(a => a.name === this.authorityName)[0];
@@ -205,4 +205,5 @@ export class AdminAddStudentComponent implements OnInit {
     this.unassignedAuthorities.push(a[0]);
     console.log(JSON.stringify(this.unassignedAuthorities));
   } 
+  */
 }

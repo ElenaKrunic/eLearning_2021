@@ -191,8 +191,9 @@
               <div *ngIf="f.cardAmount.errors.required"> Card amount is required! </div>
           </div>
          </div>
+<!--
 
-         <div class="row w-50">
+  <div class="row w-50">
           <div class="col-md-8 pr-md-1 ml-5">
             <h4>Roles</h4>
             <div *ngIf="user.authorities.length > 0">
@@ -215,14 +216,15 @@
             </div>
           </div>
         </div>
-
+-->
+       
         <div *ngIf="submitted">
             <h4> The student was added successfully!</h4>
             <button class="btn btn-success" (click)="newStudent()"> Add new student </button>
         </div>
     
           <div class="form-group">
-           <button (click)="saveStudent()" class="btn btn-success"> Submit </button>
+           <button (click)="saveStudent()" class="btn btn-success"> ✓ </button>
             <button
               type="button"
               (click)="onReset()"
@@ -232,9 +234,14 @@
             </button>
           </div>
 
-          <div class="text-right mt-2">
-            <button type="button" class=" btn btn-fill btn-danger" (click)="saveUser()">✓</button>
+          <!--
+
+<div class="text-right mt-2">
+            <button type="button" class=" btn btn-fill btn-danger" (click)="saveUser()"></button>
             <button type="button" class=" btn btn-fill btn-danger ml-1" (click)="goBack()">X</button>
           </div>
+
+          -->
+          
     </form>
 </div>

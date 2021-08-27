@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ExamPeriodService } from '../exam-period/exam-period.service';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ExamPeriod } from '../model/exam-period';
 
 
 @Component({
@@ -12,12 +13,15 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 })
 export class AdminDetailsExamPeriodComponent implements OnInit {
 
-  currentExamPeriod : any | null; 
+  currentExamPeriod : ExamPeriod = {} as ExamPeriod;  
   message = '';
   form!: FormGroup;
   submitted=false;
 
-  constructor(private examPeriodService: ExamPeriodService, private route : ActivatedRoute, private router: Router, private formBuilder: FormBuilder) { }
+  constructor(private examPeriodService: ExamPeriodService,
+    private route : ActivatedRoute,
+    private router: Router,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.message = '';
@@ -68,6 +72,7 @@ export class AdminDetailsExamPeriodComponent implements OnInit {
     .subscribe(
       response => {
         console.log(response); 
+        this.message =  "You successfully deleted exam period!";
         this.router.navigate(['/examPeriods']);
       }, 
       error => {

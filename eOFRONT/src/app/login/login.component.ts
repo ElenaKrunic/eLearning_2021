@@ -14,11 +14,8 @@ import { User } from '../model/user';
 })
 export class LoginComponent implements OnInit {
 	
-	
 	constructor(private authenticationService: AuthenticationService,private router: Router,
-	)
-	 {
-	}
+	){}
 
 	ngOnInit() {
 	}
@@ -29,7 +26,15 @@ export class LoginComponent implements OnInit {
 		this.authenticationService.login(username,password).subscribe(
 			(loggedIn:boolean) =>{
 				if(loggedIn){
-					this.router.navigate(['']);
+					//ovde treba dodati navigaciju u zavisnosti na ulogu prijavljenog korisnika 
+					//this.router.navigate(['']);
+					if(this.authenticationService.getRole()==='ROLE_STUDENT') {
+						this.router.navigate(['']);
+					} else if (this.authenticationService.getRole()==='ROLE_ADMIN') {
+						this.router.navigate(['examPeriods']);
+					} else {
+						this.router.navigate(['']);
+					}
 				}
 			}
 			
