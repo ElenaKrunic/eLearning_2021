@@ -3,6 +3,7 @@ package ftn.tseo.eEducation.model;
 
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -36,6 +37,8 @@ public class Exam {
 	private int grade;
 	
 	private float points;
+	
+	private String examDate1;
 	
 	private Date examDate;
 	
@@ -156,6 +159,18 @@ public class Exam {
 	}
 
 
+	public String getExamDate1() {
+		return examDate1;
+	}
+
+
+
+	public void setExamDate1(String examDate1) {
+		this.examDate1 = examDate1;
+	}
+
+
+
 	public Exam(Long id, int grade, float points, Date examDate, boolean status,
 			Set<PreexamObligation> preexamObligation, Set<ExamPeriod> examPeriod, Enrollment enrollments) {
 		super();
@@ -169,6 +184,21 @@ public class Exam {
 		this.enrollments = enrollments;
 	}
 	
+	public Exam(Long id, int grade, float points, String examDate1, boolean status,
+			Set<PreexamObligation> preexamObligation, Set<ExamPeriod> examPeriod, Enrollment enrollments) {
+		super();
+		this.id = id;
+		this.grade = grade;
+		this.points = points;
+		this.examDate1 = examDate1;
+		this.status = status;
+		this.preexamObligation = preexamObligation;
+		this.examPeriod = examPeriod;
+		this.enrollments = enrollments;
+	}
+
+
+
 	public void addExamPeriod(ExamPeriod examPeriod) {
 		if(examPeriod.getExam() != null) {
 			examPeriod.getExam().removeExamPeriod(examPeriod);

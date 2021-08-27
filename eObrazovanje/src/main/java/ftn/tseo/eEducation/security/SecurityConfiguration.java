@@ -105,13 +105,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.and()
 			.authorizeRequests()
 
-				.antMatchers( "/","/api/users/**", "/api/examPeriods/**","/api/financialCards/**", "/api/payments/**",  "/api/preexamObligations/**" , "/api/student/**", "/api/courses/**","/api/exams/**","/api/professors" ,
+				.antMatchers( "/","/api/users/**", "/api/examPeriods/**","/api/financialCards/**", "/api/payments/**",  "/api/preexamObligations/**" , "/api/student/**", "/api/courses/**","/api/exams/**","/api/professors","/api/student/{studentId}/register-exam/{examId}/**" ,
 						"/api/login","/styles.css","/runtime.js","/polyfills.js","/vendor.js","/main.js","/favicon.ico","/styles.css.map","/runtime.js.map","/polyfills.js.map","/vendor.js.map","/main.js.map").permitAll() 
 
 		.antMatchers(HttpMethod.POST, "/api/**")
-				.hasAuthority("ROLE_ADMIN")
+				.hasAnyAuthority("ROLE_ADMIN","ROLE_STUDENT")
 				.anyRequest().authenticated();
-				 
+			 
 			httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
 	}
 	

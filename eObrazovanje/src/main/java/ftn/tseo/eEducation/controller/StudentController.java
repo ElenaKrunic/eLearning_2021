@@ -267,6 +267,10 @@ public class StudentController {
 		
 		
 	}
+	@PostMapping(value="/{studentId}/register-exam/{examId}")
+	private Long registerExam(@PathVariable("studentId") Long studentId, @PathVariable("examId") Long examId) {
+		return examService.registerExam(studentId, examId);
+	}
 
 	//helper method 
 			private Sort.Direction getSortDirection(String direction) {
