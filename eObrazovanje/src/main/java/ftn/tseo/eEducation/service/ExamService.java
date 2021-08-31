@@ -182,25 +182,29 @@ public class ExamService {
 		Exam exam = examRepository.findById(examId).orElse(null);
 		Student student = studentRepository.findById(studentId).orElse(null);
 		
+		
 //		kako cu izvuci za sve ispite naziv kursa kada promenim u jpql
 //		String course=exam.getEnrollment().getCourse().getTitle();
 		if(exam != null && student != null) {
-			Exam exam1=new Exam();
+//			Exam exam1=new Exam();
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
 			LocalDateTime now = LocalDateTime.now(); 
-			exam1.setExamDate1(dtf.format(now));
-			exam1.setGrade(0);
-			exam1.setPoints(0);
-			exam1.setStatus(false);
+//			exam1.setExamDate1(dtf.format(now));
+//			exam1.setGrade(0);
+//			exam1.setPoints(0);
+//			exam1.setStatus(false);
 			
-//			PreexamObligation examReg = new PreexamObligation();
-//			examReg.setExam(exam);
-//			examReg.setPreexamObligationStatus(null);
-//			examReg.setLocation(location);
-//			examReg.setPoints(points);
-//			examReg.setPreexamObligationType(null);
-//			
-//			preexamRepository.save(examReg);
+//			examRepository.save(exam1);
+			
+			PreexamObligation examReg = new PreexamObligation();
+			examReg.setExam(exam);
+			examReg.setDateOfObligation("/");
+			examReg.setLocation(null);
+			examReg.setPoints(0);
+			examReg.setPreexamObligationType(null);
+			examReg.setPreexamObligationStatus(null);
+			examReg.setStudent(student);
+			preexamRepository.save(examReg);
 //			
 			float cost = exam.getExamPeriod().iterator().next().getPaymentAmount();
 			FinancialCard transaction = financialCardRepository.findFinancialCardByStudentId(studentId);

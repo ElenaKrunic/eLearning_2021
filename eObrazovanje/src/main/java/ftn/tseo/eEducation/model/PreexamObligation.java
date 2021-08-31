@@ -107,9 +107,9 @@ public class PreexamObligation {
 		return exam;
 	}
 
-	//public void setExam(Exam exam) {
-		//this.exam = exam;
-	//}
+	public void setExam(Exam exam) {
+		this.exam = exam;
+	}
 
 	public PreexamObligationType getPreexamObligationType() {
 		return preexamObligationType;
@@ -148,6 +148,11 @@ public class PreexamObligation {
 		this.preexamObligationType = preexamObligationType;
 		this.preexamObligationStatus = preexamObligationStatus;
 		this.student = student;
+	}
+
+	public void setDateOfObligation(String format) {
+		
+		
 	}
 	
 }
