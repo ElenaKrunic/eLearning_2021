@@ -290,8 +290,8 @@ public class StudentController {
 	public List<PreexamObligationDTO> getPreexamObligationForStudent(@PathVariable ("studentid") Long id,@PathVariable ("examid")Long examid){
 		return preexamObligationService.findPreexamObligationsForStudent(id, examid);
 	}
-	@PreAuthorize("hasAnyRole('ROLE_STUDENT'")
-	@PostMapping(value="/{studentId}/register-exam/{examId}")
+	@PreAuthorize("hasRole('ROLE_STUDENT')")
+	@PostMapping(value="/{studentId}/register-exam/{examId}",consumes="application/json")
 	private Long registerExam(@PathVariable("studentId") Long studentId, @PathVariable("examId") Long examId) {
 		return examService.registerExam(studentId, examId);
 	}
