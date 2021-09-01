@@ -14,7 +14,7 @@ import { StudentService } from '../students/student.service';
 export class StudentExamsComponent implements OnInit {
 
   exams?:Exam[];
-  examId:string;
+  examId:number;
   student:Student;
   
   
@@ -46,12 +46,12 @@ export class StudentExamsComponent implements OnInit {
   // }
 
 
-  private register(examId:number,student:Student) {
-    this.examId=this.route.snapshot.paramMap.get('id');
+  register(examId:number) {
+    // this.studentForRegister=this.studentService.getMeAgain().subscribe;
+     this.studentService.registerExam(this.student,examId);
     
-    this.studentService.registerExam(student,+this.examId);
     console.log("Student"+this.student);
-    console.log("Exam id"+this.examId )
+    console.log("Exam id"+examId )
   }
   goBack(): void {
     this.location.back();
