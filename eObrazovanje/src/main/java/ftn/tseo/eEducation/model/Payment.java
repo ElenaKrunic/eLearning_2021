@@ -27,6 +27,8 @@ public class Payment {
 	
 	private float paymentAmount;
 	
+	private String paymentDate1;
+	
 	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "financialCard", referencedColumnName = "id", nullable = true)
@@ -44,6 +46,17 @@ public class Payment {
 		this.paymentDate = dateOfPayment;
 		this.paymentDescription = paymentDescription;
 		this.paymentAmount = paymentAmount;
+		this.financialCard = financialCard;
+	}
+	
+
+	public Payment(Long id,  String paymentDescription, float paymentAmount, String paymentDate1,
+			FinancialCard financialCard) {
+		super();
+		this.id = id;
+		this.paymentDescription = paymentDescription;
+		this.paymentAmount = paymentAmount;
+		this.paymentDate1 = paymentDate1;
 		this.financialCard = financialCard;
 	}
 
@@ -73,6 +86,22 @@ public class Payment {
 
 	public float getPaymentAmount() {
 		return paymentAmount;
+	}
+
+	public Date getPaymentDate() {
+		return paymentDate;
+	}
+
+	public void setPaymentDate(Date paymentDate) {
+		this.paymentDate = paymentDate;
+	}
+
+	public String getPaymentDate1() {
+		return paymentDate1;
+	}
+
+	public void setPaymentDate1(String paymentDate1) {
+		this.paymentDate1 = paymentDate1;
 	}
 
 	public void setPaymentAmount(float paymentAmount) {

@@ -1,5 +1,9 @@
 package ftn.tseo.eEducation.service;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
@@ -8,6 +12,8 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 
 import ftn.tseo.eEducation.DTO.ExamDTO;
 import ftn.tseo.eEducation.DTO.ExamRegistrationDTO;
@@ -171,47 +177,59 @@ public class ExamService {
 	
 //naci ispite za studenta gde je polozeno false i samo po id-ju studenta da nadje ispite examId ne,location i points ne
 	//taj ispit za studenta se mora izvuci po id-ju da bi mu se setovale vrednosti
-//	public Long registerExam(Long studentId, Long examId,String location,float points) {
-//		
-//		Exam exam = examRepository.findById(examId).orElse(null);
-//		Student student = studentRepository.findById(studentId).orElse(null);
-//		
-////		kako cu izvuci za sve ispite naziv kursa kada promenim u jpql
-////		String course=exam.getEnrollment().getCourse().getTitle();
-//		if(exam != null && student != null) {
-//			PreexamObligation examReg = new PreexamObligation();
-//			examReg.setExam(exam);
-//			examReg.setPreexamObligationStatus(null);
-//			examReg.setLocation(location);
-//			examReg.setPoints(points);
-//			examReg.setPreexamObligationType(null);
+	public Long registerExam(Long studentId, Long examId) {
+		//vezati u frontu da ispisuje sve ispite po studentu,a da na osnovu ove metode samo radi registraciju po id-ju
+		Exam exam = examRepository.findById(examId).orElse(null);
+		Student student = studentRepository.findById(studentId).orElse(null);
+		
+		
+//		kako cu izvuci za sve ispite naziv kursa kada promenim u jpql
+//		String course=exam.getEnrollment().getCourse().getTitle();
+		if(exam != null && student != null) {
+//			Exam exam1=new Exam();
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+			LocalDateTime now = LocalDateTime.now(); 
+//			exam1.setExamDate1(dtf.format(now));
+//			exam1.setGrade(0);
+//			exam1.setPoints(0);
+//			exam1.setStatus(false);
+			
+//			examRepository.save(exam1);
+			
+			PreexamObligation examReg = new PreexamObligation();
+			examReg.setExam(exam);
+			examReg.setDateOfObligation("/");
+			examReg.setLocation(null);
+			examReg.setPoints(0);
+			examReg.setPreexamObligationType(null);
+			examReg.setPreexamObligationStatus(null);
+			examReg.setStudent(student);
+			preexamRepository.save(examReg);
 //			
-//			preexamRepository.save(examReg);
-//			
-//			float cost = exam.getExamPeriod().iterator().next().getPaymentAmount();
-//			FinancialCard transaction = studentRepository.findStudentFinancialCard(studentId);
-//			
-//			
-//			Payment payment=new Payment();
-//			payment.setDateOfPayment(new Date(new java.util.Date().getTime()));
-//			payment.setPaymentAmount((float) cost);
-//			payment.setPaymentDescription("Prijava ispita");
-//			payment.setFinancialCard(transaction);
-//			
-//			paymentRepository.save(payment);
-//			
+			float cost = exam.getExamPeriod().iterator().next().getPaymentAmount();
+			FinancialCard transaction = financialCardRepository.findFinancialCardByStudentId(studentId);
+			
+			
+			Payment payment=new Payment();
+			
+			payment.setPaymentDate1(dtf.format(now));
+			payment.setPaymentAmount((float) cost);
+			payment.setPaymentDescription("Prijava ispita");
+			payment.setFinancialCard(transaction);
+			
+			paymentRepository.save(payment);
+			//ako se bude bunilo napraviti novi konstruktor
 //			transaction.setPayments((Set<Payment>) payment);
-//			transaction.setStudent(student);
-//			transaction.setTotalCost(cost);
-//			transaction.setTotalPayment(cost);
-//			
-//			transaction.setInitialState(transaction.getInitialState() - cost);
-//			financialCardRepository.save(transaction);
-//			
-//			return examReg.getId();
-//		}
-//		return  (long) 0;
-//	}
+			transaction.setStudent(student);
+			transaction.setTotalPayout(transaction.getTotalPayout()-cost);
+			
+			
+			transaction.setInitialState(transaction.getInitialState() - cost);
+			financialCardRepository.save(transaction);
+		
+		}
+		return  (long) 0;
+	}
 //public Exam register(ExamRegistrationDTO dto) {
 //		
 //		Exam exam = findOne(dto.getId()); 

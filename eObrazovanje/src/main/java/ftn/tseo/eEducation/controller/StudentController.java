@@ -180,7 +180,8 @@ public class StudentController {
 	
 	@PostMapping(value="/students", consumes="application/json")
 	public ResponseEntity<StudentDTO> saveStudent(@RequestBody StudentDTO studentDTO){		
-		User user = userRepository.findById((long) 1).orElseThrow();
+		//prepravila orElseThrow na orElse(null),jer je prva metoda ocekivala parametre koji kod mene nisu bili prosledjeni i vracalo je gresku Milica
+		User user = userRepository.findById((long) 1).orElse(null);
 		Student student = new Student();
 		
 		student.setCardNumber(studentDTO.getCardNumber());
@@ -287,6 +288,10 @@ public class StudentController {
 	@RequestMapping(value="/{studentid}/preexamObligations/{examid}", method=RequestMethod.GET)
 	public List<PreexamObligationDTO> getPreexamObligationForStudent(@PathVariable ("studentid") Long id,@PathVariable ("examid")Long examid){
 		return preexamObligationService.findPreexamObligationsForStudent(id, examid);
+	}
+	@PostMapping(value="/{studentId}/register-exam/{examId}")
+	private Long registerExam(@PathVariable("studentId") Long studentId, @PathVariable("examId") Long examId) {
+		return examService.registerExam(studentId, examId);
 	}
 
 	//helper method 
