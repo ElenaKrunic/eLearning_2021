@@ -47,12 +47,15 @@ import { AdminDetailsUserComponent } from '../admin-details-user/admin-details-u
 
 import { StudentpreexamobligationsComponent } from '../studentpreexamobligations/studentpreexamobligations.component';
 import { AdminProfileComponent } from '../admin-profile/admin-profile.component';
+import { StudentService } from '../students/student.service';
 
 const routes: Routes = [
   { path: 'preexamObligations', component: AdminListPreexamObligationComponent},
   { path: 'preexamObligations/:id', component: AdminDetailsPreexamObligationComponent},
   { path: 'adminAddPreexamObligation', component: AdminAddPreexamObligationComponent},
   { path: 'financialCard', component: FinancialcardStudentComponent },
+  { path: 'registerExam/:examid', component: StudentpreexamobligationsComponent },
+  
   { path: 'studentPreexamObligations/:examid', component: StudentpreexamobligationsComponent },
   { path: 'studentProfile', component: StudentProfileComponent },
   { path: 'payment', component: PaymentComponent },

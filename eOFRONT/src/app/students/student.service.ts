@@ -159,6 +159,13 @@ getStudentEnrollment(student:Student): Observable<Enrollment[]> {
   return this.http.get<Enrollment[]>(url,{ headers:headers});
  
 }
+registerExam(student:Student,examid:number): Observable<any> {
+  const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+    
+  const url = `${baseUrl1}/${student.id}/register-exam/${examid}`;
+  return this.http.post<any>(url,{ headers:headers});
+ 
+}
 
 
 }

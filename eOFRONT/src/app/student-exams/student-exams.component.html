@@ -7,7 +7,9 @@
         <th>Status <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>    
         <th>Course name <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th> 
         <th>Preexam obligations for exam <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>     
-    </thead>
+        <th>Register exam <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>     
+
+      </thead>
     <tbody>
       <tr *ngFor="let exam of exams">
         <td>{{exam.grade}}</td>
@@ -17,6 +19,9 @@
         <td>{{exam.courseName}}</td>
         <td><button class="badge badge-warning" routerLink="/studentPreexamObligations/{{ exam.id }}">
           Details</button></td>
+          <td ><button  class="badge badge-warning"  routerLink="/studentPreexamObligations/{{ exam.id }}">
+            Register exam</button></td>
+            
        
       </tr>
     </tbody>
