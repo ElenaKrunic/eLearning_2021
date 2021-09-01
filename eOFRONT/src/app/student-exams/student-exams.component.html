@@ -19,7 +19,7 @@
         <td>{{exam.courseName}}</td>
         <td><button class="badge badge-warning" routerLink="/studentPreexamObligations/{{ exam.id }}">
           Details</button></td>
-          <td ><button  class="badge badge-warning"  routerLink="/studentPreexamObligations/{{ exam.id }}">
+          <td ><button  class="badge badge-warning"  (click)=register(exam.id)>
             Register exam</button></td>
             
        
