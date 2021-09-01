@@ -46,7 +46,7 @@ export class StudentExamsComponent implements OnInit {
   // }
 
 
-  private register(examId:number) {
+  register(examId:number) {
     // this.studentForRegister=this.studentService.getMeAgain().subscribe;
      this.studentService.registerExam(this.student,examId);
     
