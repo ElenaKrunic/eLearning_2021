@@ -15,6 +15,7 @@ import org.springframework.data.domain.Sort.Order;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -289,6 +290,7 @@ public class StudentController {
 	public List<PreexamObligationDTO> getPreexamObligationForStudent(@PathVariable ("studentid") Long id,@PathVariable ("examid")Long examid){
 		return preexamObligationService.findPreexamObligationsForStudent(id, examid);
 	}
+	@PreAuthorize("hasAnyRole('ROLE_STUDENT'")
 	@PostMapping(value="/{studentId}/register-exam/{examId}")
 	private Long registerExam(@PathVariable("studentId") Long studentId, @PathVariable("examId") Long examId) {
 		return examService.registerExam(studentId, examId);

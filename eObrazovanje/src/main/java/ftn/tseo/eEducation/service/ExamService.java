@@ -194,6 +194,7 @@ public class ExamService {
 //			exam1.setPoints(0);
 //			exam1.setStatus(false);
 			
+			
 //			examRepository.save(exam1);
 			
 			PreexamObligation examReg = new PreexamObligation();
