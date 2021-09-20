@@ -25,13 +25,13 @@ export class ProfessorService {
    
     getAll(params: any): Observable<any> {
       const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
-      return this.http.get<any>(path1, { params });
+      return this.http.get<any>(path1, { params,headers:headers });
     }
     
     get(id: number): Observable<any>{
       const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
     
-      return this.http.get(`${path}/${id}`);
+      return this.http.get(`${path}/${id}`, { headers:headers });
     }
   
     create(data: any) : Observable<any> {
