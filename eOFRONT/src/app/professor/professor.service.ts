@@ -6,8 +6,8 @@ import { Student } from '../model/student';
 import { Professor } from '../model/professor';
 import { AuthenticationService } from '../login/authentication.service';
 import { Exam } from '../model/exam';
-const path = "https://localhost:8443/api/professors"; 
-
+const path = "https://localhost:8443/api/professors/"; 
+const path1="https://localhost:8443/api/professors/professors"
 
 
 @Injectable({
@@ -21,11 +21,16 @@ export class ProfessorService {
     private RegenerateData = new Subject<void>();
 
     RegenerateData$ = this.RegenerateData.asObservable();
+   
+   
     getAll(params: any): Observable<any> {
-      return this.http.get<any>(path, { params });
+      const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+      return this.http.get<any>(path1, { params });
     }
     
     get(id: number): Observable<any>{
+      const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+    
       return this.http.get(`${path}/${id}`);
     }
   

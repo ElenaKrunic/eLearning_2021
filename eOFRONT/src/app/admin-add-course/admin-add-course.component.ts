@@ -72,7 +72,7 @@ export class AdminAddCourseComponent implements OnInit {
       courseCode:'',
       startDate: new Date(),
       endDate: new Date(),
-      ects: 0
+      ects: 4
     };
   }
 
