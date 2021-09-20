@@ -41,7 +41,7 @@ import ftn.tseo.eEducation.service.ExamService;
 
 
 @RestController
-@RequestMapping(value = "api/exams")
+@RequestMapping(value = "/api/exams")
 
 @CrossOrigin(value="*")
 public class ExamController {
@@ -65,8 +65,8 @@ public class ExamController {
 		return new ResponseEntity<>(examDto, HttpStatus.OK);
 	}
 	
-@RequestMapping(value="/exams", method = RequestMethod.GET)
-public ResponseEntity<Map<String,Object>> getAllExams(
+	@RequestMapping(value="/exams", method = RequestMethod.GET)
+	public ResponseEntity<Map<String,Object>> getAllExams(
 		@RequestParam(required=false) int grade, 
 		@RequestParam(defaultValue="0") int page,
 		@RequestParam(defaultValue="3") int size,

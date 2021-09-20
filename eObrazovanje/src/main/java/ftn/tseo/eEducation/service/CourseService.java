@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import ftn.tseo.eEducation.DTO.CourseDTO;
 import ftn.tseo.eEducation.model.Course;
+import ftn.tseo.eEducation.model.Professor;
 import ftn.tseo.eEducation.model.Teaching;
 import ftn.tseo.eEducation.repository.CourseRepository;
 import ftn.tseo.eEducation.repository.TeachingRepository;
@@ -34,7 +37,9 @@ public class CourseService {
 		return courseRepository.save(course);
 	}
 	
-
+	public Page<Course> findAll(Pageable page) {
+		return courseRepository.findAll(page);
+	}
 	public void remove(Long id) {
 		courseRepository.deleteById(id);
 	}

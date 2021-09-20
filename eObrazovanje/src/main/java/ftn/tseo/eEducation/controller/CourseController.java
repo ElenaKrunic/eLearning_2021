@@ -35,7 +35,7 @@ import ftn.tseo.eEducation.service.EnrollmentService;
 import ftn.tseo.eEducation.service.TeachingService;
 
 @RestController
-@RequestMapping(value = "api/courses")
+@RequestMapping(value = "/api/courses")
 public class CourseController {
 	@Autowired
 	 CourseService courseService;
@@ -96,7 +96,7 @@ public class CourseController {
 	
 	
 
-	@RequestMapping(method = RequestMethod.GET)
+	/*@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<CourseDTO>> getCourses() {
 		List<Course> courses = courseService.findAll();
 		// convert courses to DTOs
@@ -105,7 +105,7 @@ public class CourseController {
 			coursesDTO.add(new CourseDTO(c));
 		}
 		return new ResponseEntity<>(coursesDTO, HttpStatus.OK);
-	}
+	}*/
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<CourseDTO> getCourse(@PathVariable Long id) {
