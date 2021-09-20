@@ -41,7 +41,7 @@ public class Course implements Serializable{
 	private Date endDate;
 	
 	@Column(name = "ECTS", nullable = false)
-	private int ECTS;
+	private int ects;
 	
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, mappedBy = "courses")
 	private Set<Enrollment> enrollments = new HashSet<Enrollment>();
@@ -103,11 +103,11 @@ public class Course implements Serializable{
 
 
 	public int getECTS() {
-		return ECTS;
+		return ects;
 	}
 
-	public void setECTS(int eCTS) {
-		ECTS = eCTS;
+	public void setECTS(int ects) {
+		this.ects = ects;
 	}
 
 	public Set<Enrollment> getEnrollments() {
@@ -126,7 +126,7 @@ public class Course implements Serializable{
 		this.teachings = teachings;
 	}
 
-	public Course(Long id, String title, String courseCode, Date startDate, Date endDate, int eCTS,
+	public Course(Long id, String title, String courseCode, Date startDate, Date endDate, int ects,
 			Set<Enrollment> enrollments, Set<Teaching> teachings) {
 		super();
 		this.id = id;
@@ -134,7 +134,7 @@ public class Course implements Serializable{
 		this.courseCode = courseCode;
 		this.startDate = startDate;
 		this.endDate = endDate;
-		ECTS = eCTS;
+		this.ects = ects;
 		this.enrollments = enrollments;
 		this.teachings = teachings;
 	}

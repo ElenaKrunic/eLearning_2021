@@ -17,7 +17,7 @@ public class CourseDTO {
 	private String courseCode;
 	private Date startDate;
 	private Date endDate;
-	private int ECTS;
+	private int ects;
 	public CourseDTO() {}
 	
 	public Long getId() {
@@ -51,10 +51,10 @@ public class CourseDTO {
 		this.endDate = endDate;
 	}
 	public int getECTS() {
-		return ECTS;
+		return ects;
 	}
-	public void setECTS(int eCTS) {
-		ECTS = eCTS;
+	public void setECTS(int ects) {
+		this.ects = ects;
 	}
 	
 	
@@ -65,7 +65,7 @@ public class CourseDTO {
 		this.courseCode=course.getCourseCode();
 		this.startDate=course.getStartDate();
 		this.endDate=course.getEndDate();
-		this.ECTS= course.getECTS();
+		this.ects= course.getECTS();
 		
 	}
 	

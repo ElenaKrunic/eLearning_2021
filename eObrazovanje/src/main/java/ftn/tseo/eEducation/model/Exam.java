@@ -52,7 +52,7 @@ public class Exam {
 	private Set<ExamPeriod> examPeriod= new HashSet<ExamPeriod>();
 	
 	@OneToOne
-	@JoinColumn(name = "enrollments", referencedColumnName = "enrollment_id", nullable = false)
+	@JoinColumn(name = "enrollments", referencedColumnName = "enrollment_id", nullable = true)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Enrollment enrollments;
 

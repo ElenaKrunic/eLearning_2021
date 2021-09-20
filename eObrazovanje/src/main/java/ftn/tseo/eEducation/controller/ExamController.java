@@ -89,7 +89,7 @@ public class ExamController {
 
 		return new ResponseEntity<>(new ExamDTO(e), HttpStatus.OK);
 	}
-	
+	@RequestMapping( method = RequestMethod.POST)
 	public ResponseEntity<ExamDTO> saveExam(@RequestBody ExamDTO eDTO){
 		Exam e = new Exam();
 		//treba dodati 

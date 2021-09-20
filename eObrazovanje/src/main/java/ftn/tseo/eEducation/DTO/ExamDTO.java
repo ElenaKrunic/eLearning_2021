@@ -26,19 +26,19 @@ public class ExamDTO {
 	public ExamDTO(Exam exam) {
 		super();
 		id = exam.getId();
-		courseName=exam.getEnrollments().getCourses().getTitle();
+	//	courseName=exam.getEnrollments().getCourses().getTitle();
 
 //		if( ((Set<Teaching>) exam.getEnrollments().getCourses().getTeachings().iterator().next().getProfessor()).size()>0) {
 //			professorName=exam.getEnrollments().getCourses().getTeachings().iterator().next().getProfessor().getFirstName()+exam.getEnrollments().getCourses().getTeachings().iterator().next().getProfessor().getLastName();
 //		}
 
-		ects=exam.getEnrollments().getCourses().getECTS();
+	//	ects=exam.getEnrollments().getCourses().getECTS();
 		grade = exam.getGrade();
 		points = exam.getPoints();
 		examDate = exam.getExamDate();
 		status=exam.isStatus();
-		enrollmentDTO=new EnrollmentDTO(exam.getEnrollments());
-		examPeriodDTO=new ExamPeriodDTO(exam.getExamPeriod().iterator().next());
+	//	enrollmentDTO=new EnrollmentDTO(exam.getEnrollments());
+	//	examPeriodDTO=new ExamPeriodDTO(exam.getExamPeriod().iterator().next());
 		
 	}
 	public Long getId() {
