@@ -126,7 +126,7 @@ public class Course implements Serializable{
 		this.teachings = teachings;
 	}
 
-	public Course(Long id, String title, String courseCode, Date startDate, Date endDate, int ects,
+	/*public Course(Long id, String title, String courseCode, Date startDate, Date endDate, int ects,
 			Set<Enrollment> enrollments, Set<Teaching> teachings) {
 		super();
 		this.id = id;
@@ -137,7 +137,7 @@ public class Course implements Serializable{
 		this.ects = ects;
 		this.enrollments = enrollments;
 		this.teachings = teachings;
-	}
+	}*/
 	public Course(Long id, String title, String courseCode, Date startDate, Date endDate, int ects) {
 		super();
 		this.id = id;
