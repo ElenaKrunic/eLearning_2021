@@ -146,7 +146,7 @@ public class ProfessorController {
 
 	
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "professors/{id}", method = RequestMethod.GET)
 	public ResponseEntity<ProfessorDTO> getProfessor(@PathVariable Long id) {
 		Professor p = professorService.findOneById(id);
 		if (p == null) {
@@ -170,7 +170,7 @@ public class ProfessorController {
 		return new ResponseEntity<>(new ProfessorDTO(p), HttpStatus.CREATED);	
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
+	@RequestMapping(value="/professors/{id}",method=RequestMethod.PUT, consumes="application/json")
 	public ResponseEntity<ProfessorDTO> updateProfessor(@RequestBody ProfessorDTO pDTO){
 		//a professor must exist
 		Professor p = professorService.findOneById(pDTO.getId()); 
