@@ -11,7 +11,7 @@ import { Course } from '../model/course';
 export class AdminListCourseComponent implements OnInit {
 
 
-  courses: Course[] ;
+  courses: Course[] = [];
   currentCourse: Course; 
   currentIndex = -1; 
   title = '';

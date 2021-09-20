@@ -54,7 +54,7 @@ export class AdminDetailsProfessorComponent implements OnInit {
         this.pService.update(this.currentProfessor.id, this.currentProfessor)
         .subscribe(
           response => {
-            this.message= 'Student updated! ';
+            this.message= 'profesor updated! ';
             console.log(response); 
           },
           error => {
