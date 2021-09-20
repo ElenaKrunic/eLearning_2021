@@ -45,7 +45,7 @@ import ftn.tseo.eEducation.service.TeachingService;
 import ftn.tseo.eEducation.service.UserDetailsServiceImpl;
 
 @RestController
-@RequestMapping("api/professors")
+@RequestMapping("/api/professors")
 @CrossOrigin(value = "*")
 public class ProfessorController {
 
@@ -96,7 +96,7 @@ public class ProfessorController {
 	
 	
 	@RequestMapping(value="/professors", method = RequestMethod.GET)
-	public ResponseEntity<Map<String,Object>> getAllStudents(
+	public ResponseEntity<Map<String,Object>> getAllProfessors(
 			@RequestParam(required=false) String firstName, 
 			@RequestParam(defaultValue="0") int page,
 			@RequestParam(defaultValue="3") int size,
