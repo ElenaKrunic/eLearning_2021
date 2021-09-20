@@ -184,7 +184,7 @@ public class ProfessorController {
 		return new ResponseEntity<>(new ProfessorDTO(p), HttpStatus.OK);	
 	}
 	
-	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+	@RequestMapping(value="/professors/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Void> deleteProfessor(@PathVariable Long id){
 		Professor p = professorService.findOneById(id);
 		if (p != null){

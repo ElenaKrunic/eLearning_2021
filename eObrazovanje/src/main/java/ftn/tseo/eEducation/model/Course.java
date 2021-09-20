@@ -138,6 +138,16 @@ public class Course implements Serializable{
 		this.enrollments = enrollments;
 		this.teachings = teachings;
 	}
+	public Course(Long id, String title, String courseCode, Date startDate, Date endDate, int ects) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.courseCode = courseCode;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.ects = ects;
+		
+	}
 
 	
 	
