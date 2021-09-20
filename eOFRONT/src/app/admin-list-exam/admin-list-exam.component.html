@@ -3,7 +3,7 @@
   <div class="col-md-8">
     <div class="input-group mb-3">
       <input
-        type="text"
+        type="number"
         class="form-control"
         placeholder="Search by grade "
         [(ngModel)]="grade"
@@ -47,6 +47,7 @@
         >
         
           {{ exam.id }}
+          {{ exam.grade }}
         </li>
       </ul>
 

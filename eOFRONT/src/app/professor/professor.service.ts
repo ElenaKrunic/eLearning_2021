@@ -31,20 +31,23 @@ export class ProfessorService {
     get(id: number): Observable<any>{
       const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
     
-      return this.http.get(`${path}/${id}`, { headers:headers });
+      return this.http.get(`${path1}/${id}`, { headers:headers });
     }
   
     create(data: any) : Observable<any> {
-      return this.http.post(path, data);
+      const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+    return this.http.post(path1, data, {headers:headers});
     }
   
     update(id: number, data: any) : Observable<any>{
-       return this.http.put(`${path}/${id}`, data);
-    }
+      const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+      return this.http.put(`${path1}/${id}`, data, {headers:headers});
+  }
   
     delete(id: number) : Observable<any> {
-      return this.http.delete(`${path}/${id}`);
-    }
+      const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
+      return this.http.delete(`${path1}/${id}`, {headers:headers});
+   }
     announceChange() {
         this.RegenerateData.next();
     }

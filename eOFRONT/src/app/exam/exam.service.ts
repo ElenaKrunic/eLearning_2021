@@ -23,7 +23,7 @@ export class ExamService {
     get(id: number): Observable<any>{
       const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
      
-      return this.http.get(`${baseUrl1}/${id}`, { headers:headers });
+      return this.http.get(`${baseUrl}/${id}`, { headers:headers });
     }
   
     create(data: any) : Observable<any> {
