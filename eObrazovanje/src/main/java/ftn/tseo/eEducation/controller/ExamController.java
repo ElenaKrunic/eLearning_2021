@@ -2,11 +2,18 @@ package ftn.tseo.eEducation.controller;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.security.RolesAllowed;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,7 +33,9 @@ import ftn.tseo.eEducation.DTO.ExamDTO;
 import ftn.tseo.eEducation.DTO.PaymentDTO;
 import ftn.tseo.eEducation.model.Course;
 import ftn.tseo.eEducation.model.Exam;
+import ftn.tseo.eEducation.model.ExamPeriod;
 import ftn.tseo.eEducation.model.Payment;
+import ftn.tseo.eEducation.repository.ExamRepository;
 import ftn.tseo.eEducation.service.ExamService;
 
 
@@ -39,6 +48,8 @@ public class ExamController {
 	
 	@Autowired
 	ExamService examService;
+	@Autowired
+	ExamRepository examRepository;
 	
 	
 
@@ -54,6 +65,53 @@ public class ExamController {
 		return new ResponseEntity<>(examDto, HttpStatus.OK);
 	}
 	
+@RequestMapping(value="/exams", method = RequestMethod.GET)
+public ResponseEntity<Map<String,Object>> getAllExams(
+		@RequestParam(required=false) int grade, 
+		@RequestParam(defaultValue="0") int page,
+		@RequestParam(defaultValue="3") int size,
+		@RequestParam(defaultValue="id, desc") String[] sort) {
+	
+	try {
+		
+		 List<Order> orders = new ArrayList<Order>();
+
+	      if (sort[0].contains(",")) {
+	        // will sort more than 2 fields
+	        // sortOrder="field, direction"
+	        for (String sortOrder : sort) {
+	          String[] _sort = sortOrder.split(",");
+	          orders.add(new Order(getSortDirection(_sort[1]), _sort[0]));
+	        }
+	      } else {
+	        // sort=[field, direction]
+	        orders.add(new Order(getSortDirection(sort[1]), sort[0]));
+	      }
+	      
+		List<Exam> exams = new ArrayList<Exam>(); 
+
+		Pageable paging = PageRequest.of(page, size); 
+		
+		Page<Exam> pageExams; 
+		if (grade == 0) 
+			pageExams = examRepository.findAll(paging);
+		else 
+			pageExams = examRepository.findBygrade(grade, paging); 
+		
+		exams = pageExams.getContent(); 
+		
+		Map<String, Object> response = new HashMap<>();
+		response.put("exams", exams); 
+		response.put("currentPage", pageExams.getNumber()); 
+		response.put("totalItems", pageExams.getTotalElements());
+		response.put("totalPages", pageExams.getTotalPages());
+		
+		return new ResponseEntity<>(response, HttpStatus.OK);
+	} catch(Exception e) {
+		e.printStackTrace();
+		return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+}
 
 	@RequestMapping(value="/failed-exams", method = RequestMethod.GET)
 	public ResponseEntity<List<ExamDTO>> getFailedExams(){
@@ -129,5 +187,16 @@ public class ExamController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+	//helper method 
+		private Sort.Direction getSortDirection(String direction) {
+		    if (direction.equals("asc")) {
+		      return Sort.Direction.ASC;
+		    } else if (direction.equals("desc")) {
+		      return Sort.Direction.DESC;
+		    }
+
+		    return Sort.Direction.ASC;
+		  }
 	
 }

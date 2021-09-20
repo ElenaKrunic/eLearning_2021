@@ -31,8 +31,8 @@ public interface ExamRepository extends JpaRepository<Exam, Long>{
 //	   Long registeredExam(Long studentId,Long examId,String location,float points);
 //	    
 	Page<Exam> findAll(Pageable pageable);
-	//Page<Exam> findByName(String name, Pageable page);
-	//List<Exam> findByName(String name, Sort sort);
+	Page<Exam> findBygrade(int grade, Pageable page);
+	List<Exam> findBygrade(int grade, Sort sort);
 	//Elena zakomentarisala 
 	//List<Exam> findProfessorExams(Long id);
 		
