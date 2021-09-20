@@ -82,7 +82,7 @@ public class ProfessorController {
 	}
 	
 
-	@RequestMapping( method = RequestMethod.GET)
+	/*@RequestMapping( method = RequestMethod.GET)
 	public ResponseEntity<List<ProfessorDTO>> getProfessors() {
 		List<Professor> professors = professorService.findAll();
 		// convert professors to DTOs
@@ -91,7 +91,7 @@ public class ProfessorController {
 			pDTO.add(new ProfessorDTO(c));
 		}
 		return new ResponseEntity<>(pDTO, HttpStatus.OK);
-	}
+	}*/
 	
 	
 	

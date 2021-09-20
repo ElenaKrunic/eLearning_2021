@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import ftn.tseo.eEducation.model.Professor;
-import ftn.tseo.eEducation.model.Student;
+
 import ftn.tseo.eEducation.repository.ProfessorRepository;
 @Service
 public class ProfessorService {
@@ -22,7 +22,10 @@ public class ProfessorService {
 	public List<Professor> findAll() {
 		return professorRepository.findAll();
 	}
-	
+	public Page<Professor> findAll(Pageable page) {
+		return professorRepository.findAll(page);
+	}
+
 
 
 	public Professor save(Professor professor) {
