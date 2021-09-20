@@ -11,13 +11,13 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 
 import ftn.tseo.eEducation.DTO.ExamDTO;
-import ftn.tseo.eEducation.DTO.ExamRegistrationDTO;
-import ftn.tseo.eEducation.model.Course;
+
 import ftn.tseo.eEducation.model.Enrollment;
 import ftn.tseo.eEducation.model.Exam;
 import ftn.tseo.eEducation.model.FinancialCard;
@@ -83,6 +83,9 @@ public class ExamService {
 	
 	public List<Exam> findFailedExams(){
 		return examRepository.findFailedExams();
+	}
+	public Page<Exam> findAll(Pageable page) {
+		return examRepository.findAll(page);
 	}
 	public List<ExamDTO> getCurrentExams(Long id) {
 		Student student = studentRepository.findById(id).orElse(null);

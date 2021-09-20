@@ -124,7 +124,7 @@ public ResponseEntity<Map<String,Object>> getAllExams(
 		return new ResponseEntity<>(examDto, HttpStatus.OK);
 	}
 
-	@RolesAllowed("ROLE_ADMIN")
+	/*@RolesAllowed("ROLE_ADMIN")
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<ExamDTO>> getExams() {
 		List<Exam> e = examService.findAll();
@@ -135,7 +135,7 @@ public ResponseEntity<Map<String,Object>> getAllExams(
 		}
 		return new ResponseEntity<>(eDTO, HttpStatus.OK);
 	}
-	
+	*/
 	
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
