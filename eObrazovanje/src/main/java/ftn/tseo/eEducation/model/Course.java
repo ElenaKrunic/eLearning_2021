@@ -16,6 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "courses")
@@ -42,10 +44,10 @@ public class Course implements Serializable{
 	
 	@Column(name = "ECTS", nullable = false)
 	private int ects;
-	
+	@JsonIgnore
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, mappedBy = "courses")
 	private Set<Enrollment> enrollments = new HashSet<Enrollment>();
-	
+	@JsonIgnore
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, mappedBy = "courses")
 	private Set<Teaching> teachings = new HashSet<Teaching>();
 	
