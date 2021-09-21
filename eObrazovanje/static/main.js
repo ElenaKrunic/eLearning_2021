@@ -2782,7 +2782,7 @@ class AdminDetailsCourseComponent {
             courseCode: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required],
             startDate: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required],
             endDate: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required],
-            ECTS: [0, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required]
+            ects: [0, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required]
         });
     }
     getCourse(id) {
@@ -2846,7 +2846,7 @@ AdminDetailsCourseComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTE
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](9, "Course code");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](10, "input", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ngModelChange", function AdminDetailsCourseComponent_Template_input_ngModelChange_10_listener($event) { return ctx.currentCourse.startDate = $event; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ngModelChange", function AdminDetailsCourseComponent_Template_input_ngModelChange_10_listener($event) { return ctx.currentCourse.courseCode = $event; });
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](11, AdminDetailsCourseComponent_div_11_Template, 2, 1, "div", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
@@ -2899,7 +2899,7 @@ AdminDetailsCourseComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTE
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.submitted && ctx.f.title.errors);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngModel", ctx.currentCourse.startDate)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](20, _c0, ctx.submitted && ctx.f.courseCode.errors));
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngModel", ctx.currentCourse.courseCode)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](20, _c0, ctx.submitted && ctx.f.courseCode.errors));
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.submitted && ctx.f.courseCode.errors);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);

@@ -33,7 +33,7 @@ export class AdminDetailsCourseComponent implements OnInit {
       courseCode:['', Validators.required],
       startDate: ['', Validators.required], 
       endDate: ['', Validators.required],
-      ECTS: [0, Validators.required]
+      ects: [0, Validators.required]
     });
   }
 
