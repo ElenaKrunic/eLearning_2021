@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CoursesService } from '../courses/courses.service';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Course } from '../model/course';
 
 @Component({
   selector: 'app-admin-details-course',
@@ -10,7 +11,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 })
 export class AdminDetailsCourseComponent implements OnInit {
   
-  currentCourse : any | null; 
+  currentCourse : Course = {} as Course; 
   message = '';
   form!: FormGroup;
   submitted=false;
