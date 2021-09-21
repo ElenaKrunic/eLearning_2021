@@ -9257,7 +9257,7 @@ class ExamService {
     }
     get(id) {
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({ "Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString() });
-        return this.http.get(`${baseUrl}/${id}`, { headers: headers });
+        return this.http.get(`${baseUrl1}/${id}`, { headers: headers });
     }
     create(data) {
         return this.http.post(baseUrl1, data);
