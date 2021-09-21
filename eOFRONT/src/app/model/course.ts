@@ -8,7 +8,7 @@ export class Course implements CourseInterface {
     public startDate: Date;
     public endDate: Date;
     public ects: number;
-    public enrollment: Enrollment;
+    
 
     constructor(courseCfg:CourseInterface) {
         this.id= courseCfg.id;

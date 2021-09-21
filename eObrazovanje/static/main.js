@@ -10029,8 +10029,8 @@ class Exam {
         this.points = examConf.points;
         this.status = examConf.status;
         this.examDate = examConf.examDate;
-        this.enrollment = examConf.enrollment;
-        this.examPeriod = examConf.examPeriod;
+        //      this.enrollment=examConf.enrollment;
+        //  this.examPeriod=examConf.examPeriod;
     }
 }
 
