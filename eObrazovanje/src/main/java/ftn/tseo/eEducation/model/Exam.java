@@ -21,6 +21,8 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * 
@@ -43,14 +45,14 @@ public class Exam {
 	private Date examDate;
 	
 	private boolean status;
-	
+	@JsonIgnore
 	@OneToMany(mappedBy="exam", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
 	private Set<PreexamObligation> preexamObligation= new HashSet<PreexamObligation>();
-	
+	@JsonIgnore
 	@OneToMany
 	(mappedBy="exam", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
 	private Set<ExamPeriod> examPeriod= new HashSet<ExamPeriod>();
-	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "enrollments", referencedColumnName = "enrollment_id", nullable = true)
 	@OnDelete(action = OnDeleteAction.CASCADE)
