@@ -160,7 +160,7 @@ public class ExamController {
 		return new ResponseEntity<>(new ExamDTO(e), HttpStatus.CREATED);	
 	}
 
-	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
+	@RequestMapping(value="/{id}",method=RequestMethod.PUT, consumes="application/json")
 	public ResponseEntity<ExamDTO> updateExam(@RequestBody ExamDTO eDTO){
 		//a exam must exist
 		Exam e = examService.findOne(eDTO.getId()); 
