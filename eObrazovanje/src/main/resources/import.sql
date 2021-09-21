@@ -20,11 +20,6 @@ INSERT INTO admin (id,user) VALUES (1,1);
 --INSERT INTO admin (id,user) VALUES (2,4);
 
 INSERT INTO professor (id, first_name,last_name,user) VALUES (1, 'Sima','Popovic',2);
-INSERT INTO professor (id, first_name,last_name,user) VALUES (2, 'Mirko','Popovic',2);
-INSERT INTO professor (id, first_name,last_name,user) VALUES (3, 'Stevan','Bagic',2);
-INSERT INTO professor (id, first_name,last_name,user) VALUES (4, 'Marko','Markovic',2);
-INSERT INTO professor (id, first_name,last_name,user) VALUES (5, 'Darko','Matkovic',2);
-INSERT INTO professor (id, first_name,last_name,user) VALUES (6, 'Kosta','Vukov',2);
 
 INSERT INTO type_of_financing (id, code,name) VALUES (1, 'SF','self financing');
 INSERT INTO type_of_financing (id, code,name) VALUES (2, 'BU','budget');
