@@ -23,7 +23,8 @@ export class AdminDetailsExamComponent implements OnInit {
       
       points:[0, Validators.required],
       examDate: ['', Validators.required], 
-      grade: [0, Validators.required]
+      grade: [0, Validators.required],
+      status:[true]
     });
   }
 

@@ -3308,7 +3308,8 @@ class AdminDetailsExamComponent {
         this.form = this.formBuilder.group({
             points: [0, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required],
             examDate: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required],
-            grade: [0, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required]
+            grade: [0, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required],
+            status: [true]
         });
     }
     getExam(id) {
@@ -11414,7 +11415,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const path = "https://localhost:8443/api/professors/";
+const path = "https://localhost:8443/api/professors";
 const path1 = "https://localhost:8443/api/professors/professors";
 class ProfessorService {
     constructor(http, authService) {
