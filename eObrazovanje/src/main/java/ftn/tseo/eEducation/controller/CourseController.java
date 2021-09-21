@@ -109,7 +109,7 @@ public class CourseController {
 		return new ResponseEntity<>(coursesDTO, HttpStatus.OK);
 	}*/
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "courses/{id}", method = RequestMethod.GET)
 	public ResponseEntity<CourseDTO> getCourse(@PathVariable Long id) {
 		Course course = courseService.findOne(id);
 		if (course == null) {
@@ -119,7 +119,7 @@ public class CourseController {
 		return new ResponseEntity<>(new CourseDTO(course), HttpStatus.OK);
 	}
 
-	@RequestMapping(method = RequestMethod.POST, consumes = "application/json")
+	@RequestMapping(value="/courses",method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<CourseDTO> saveCourse(@RequestBody CourseDTO courseDTO) {
 		Course course = new Course();
 		course.setTitle(courseDTO.getTitle());
@@ -134,7 +134,7 @@ public class CourseController {
 		return new ResponseEntity<>(new CourseDTO(course), HttpStatus.CREATED);
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, consumes = "application/json")
+	@RequestMapping(method = RequestMethod.PUT, consumes = "application/json",value="/courses/{id}")
 	public ResponseEntity<CourseDTO> updateCourse(@RequestBody CourseDTO courseDTO) {
 
 		Course course = courseService.findOne(courseDTO.getId());
@@ -154,7 +154,7 @@ public class CourseController {
 		return new ResponseEntity<>(new CourseDTO(course), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "courses/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> deleteCourse(@PathVariable Long id) {
 		Course course = courseService.findOne(id);
 		if (course != null) {
