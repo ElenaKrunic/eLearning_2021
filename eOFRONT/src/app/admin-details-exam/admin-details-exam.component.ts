@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ExamService } from '../exam/exam.service';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Exam } from '../model/exam';
 
 @Component({
   selector: 'app-admin-details-exam',
@@ -11,7 +12,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 export class AdminDetailsExamComponent implements OnInit {
 
   constructor(private examService: ExamService, private route : ActivatedRoute, private router: Router, private formBuilder: FormBuilder) { }
-  currentExam : any | null; 
+  currentExam : Exam = {} as Exam; 
   message = '';
   form!: FormGroup;
   submitted=false;
@@ -44,7 +45,7 @@ export class AdminDetailsExamComponent implements OnInit {
     .subscribe(
       response => {
         console.log(response); 
-        //this.message =  "You successfully updated exam period!";
+        this.message =  "You successfully updated exam !";
       },
       error => {
         console.log(error);

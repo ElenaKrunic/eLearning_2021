@@ -45,8 +45,9 @@
           [class.active]="i == currentIndex"
           (click)="setActiveExam(exam, i)"
         >
-        
+          Id 
           {{ exam.id }}
+          and grade 
           {{ exam.grade }}
         </li>
       </ul>
@@ -78,10 +79,6 @@
         <div>
             <label><strong>exam date:</strong></label>
             {{ currentExam.examDate}}
-          </div>
-          <div>
-            <label><strong>exam period :</strong></label>
-            {{ currentExam.examPeriod}}
           </div>
           <div>
             <label><strong>status :</strong></label>
