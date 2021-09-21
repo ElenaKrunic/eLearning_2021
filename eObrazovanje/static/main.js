@@ -11442,7 +11442,7 @@ class ProfessorService {
     }
     create(data) {
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({ "Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString() });
-        return this.http.post(path1, data, { headers: headers });
+        return this.http.post(path, data, { headers: headers });
     }
     update(id, data) {
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({ "Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString() });

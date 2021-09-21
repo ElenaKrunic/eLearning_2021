@@ -36,7 +36,7 @@ export class ProfessorService {
   
     create(data: any) : Observable<any> {
       const headers = new HttpHeaders({"Content-Type": "application/json", "X-Auth-Token": this.authService.getToken().toString()});
-    return this.http.post(path1, data, {headers:headers});
+    return this.http.post(path, data, {headers:headers});
     }
   
     update(id: number, data: any) : Observable<any>{
