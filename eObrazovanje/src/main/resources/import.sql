@@ -20,6 +20,11 @@ INSERT INTO admin (id,user) VALUES (1,1);
 --INSERT INTO admin (id,user) VALUES (2,4);
 
 INSERT INTO professor (id, first_name,last_name,user) VALUES (1, 'Sima','Popovic',2);
+INSERT INTO professor (id, first_name,last_name,user) VALUES (2, 'Mirko','Popovic',2);
+INSERT INTO professor (id, first_name,last_name,user) VALUES (3, 'Stevan','Bagic',2);
+INSERT INTO professor (id, first_name,last_name,user) VALUES (4, 'Marko','Markovic',2);
+INSERT INTO professor (id, first_name,last_name,user) VALUES (5, 'Darko','Matkovic',2);
+INSERT INTO professor (id, first_name,last_name,user) VALUES (6, 'Kosta','Vukov',2);
 
 INSERT INTO type_of_financing (id, code,name) VALUES (1, 'SF','self financing');
 INSERT INTO type_of_financing (id, code,name) VALUES (2, 'BU','budget');
@@ -49,6 +54,11 @@ INSERT INTO document (id, title,url,document_type,student) VALUES (2, 'The appea
 
 INSERT INTO courses (course_id, ects,course_code,course_end_date,course_start_date,course_title) VALUES (1, 8,'OWP','2015-11-05','2013-11-05','Osnove web programiranje');
 INSERT INTO courses (course_id, ects,course_code,course_end_date,course_start_date,course_title) VALUES (2, 6,'OSA','2015-11-05','2013-11-05','Osnove softverske arhitekture');
+INSERT INTO courses (course_id, ects,course_code,course_end_date,course_start_date,course_title) VALUES (3, 5,'SIT','2015-11-05','2013-11-05','Sistemski softver');
+INSERT INTO courses (course_id, ects,course_code,course_end_date,course_start_date,course_title) VALUES (4, 4,'POP','2015-11-05','2013-11-05','Platforme za objektno programiranje');
+INSERT INTO courses (course_id, ects,course_code,course_end_date,course_start_date,course_title) VALUES (5, 7,'RA','2015-11-05','2013-11-05','Racunari');
+INSERT INTO courses (course_id, ects,course_code,course_end_date,course_start_date,course_title) VALUES (6, 8,'WD','2015-11-05','2013-11-05','Web dizajn');
+INSERT INTO courses (course_id, ects,course_code,course_end_date,course_start_date,course_title) VALUES (7, 9,'AND','2015-11-05','2013-11-05','Android');
 
 INSERT INTO teaching_type (id, code,name) VALUES (1, 'LE','lecturer');
 INSERT INTO teaching_type (id, code,name) VALUES (2, 'TA','teacher assistant');
@@ -62,7 +72,11 @@ INSERT INTO enrollments (enrollment_id, enrollment_end_date,enrollment_start_dat
 
 INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (1, '2015-05-10',8,71.00,true,1);
 INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (2, '2016-05-09',8,71.00,false,2);
-INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (3, '2016-05-07',8,71.00,true,1);
+INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (3, '2016-05-11',7,70.00,true,1);
+INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (4, '2015-05-10',9,81.00,true,1);
+INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (5, '2016-05-09',5,42.00,false,2);
+INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (6, '2016-05-07',10,91.00,true,1);
+INSERT INTO exam (id, exam_date,grade,points,status,enrollments) VALUES (7, '2016-05-07',6,53.00,true,1);
 
 INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (1, '2020-02-10','january',200.0,'2020-01-10',1);
 INSERT INTO exam_period (id, end_date,name,payment_amount,start_date,exam) VALUES (2, '2020-02-20','february',200.0,'2020-02-11',1);
